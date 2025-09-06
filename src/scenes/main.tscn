@@ -7,6 +7,12 @@
 
 [sub_resource type="Environment" id="Environment_5dlwx"]
 background_energy_multiplier = 2.0
+[ext_resource type="Material" uid="uid://ca7fcqbi174j6" path="res://assets/Materials/Particles/AllShapes.tres" id="3_5lsyw"]
+[ext_resource type="Script" uid="uid://ckh15og5edo8q" path="res://src/entities/particles/GpuParticles3d.cs" id="4_o81g6"]
+[ext_resource type="Material" uid="uid://c8detkvdf8fht" path="res://assets/Materials/Particles/AllShapesFilled.tres" id="5_5lsyw"]
+[ext_resource type="Script" uid="uid://bs7lkd3lcux16" path="res://src/scenes/SmellBox.cs" id="5_o81g6"]
+[ext_resource type="Material" uid="uid://dioiwjqmyaie2" path="res://assets/Materials/Particles/TriangleCircleFilled.tres" id="6_kokaf"]
+[ext_resource type="Material" uid="uid://rnrrlraj356f" path="res://assets/Materials/Particles/TriangleFinal.tres" id="7_24j03"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1fxj6"]
 
@@ -45,6 +51,40 @@ albedo_color = Color(0.713726, 0.12549, 0.12549, 1)
 material = SubResource("StandardMaterial3D_32aa5")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_32aa5"]
+
+[sub_resource type="Curve" id="Curve_dbro3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.40284, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2lg1k"]
+curve = SubResource("Curve_dbro3")
+
+[sub_resource type="Curve" id="Curve_5lsyw"]
+_data = [Vector2(0, 0), 0.0, 4.22472, 0, 0, Vector2(0.830882, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -18.3371, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_kokaf"]
+curve = SubResource("Curve_5lsyw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lp058"]
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 180.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 2, 0)
+scale_curve = SubResource("CurveTexture_kokaf")
+color = Color(0.778229, 0.287154, 0.882121, 1)
+alpha_curve = SubResource("CurveTexture_2lg1k")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+anim_offset_max = 1.0
+turbulence_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5dlwx"]
+material = ExtResource("3_5lsyw")
+orientation = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dbro3"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_5dlwx")
