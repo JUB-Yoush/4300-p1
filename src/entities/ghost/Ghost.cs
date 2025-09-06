@@ -45,8 +45,6 @@ public partial class Ghost : CharacterBody3D
                         break;
                     }
 
-                    //GD.Print(GlobalTransform.Origin.Length() - PatrolRoute[CurrPoint].Length());
-                    //GD.Print(Ghost.GlobalTransform.Origin.IsEqualApprox(GhostPatrolPoints[CurrPoint]));
                     if (
                         Math.Abs(GlobalTransform.Origin.Length() - PatrolRoute[CurrPoint].Length())
                         <= POINT_ROUNDING_THRESHOLD
@@ -84,8 +82,6 @@ public partial class Ghost : CharacterBody3D
 
     public bool CanSeePlayer()
     {
-        // shoot a ray between the ghost and player, check if the ray can hit the player (line of sight) and that it's shorter than the max distance
-
         var playerVector = Player.GlobalTransform.Origin - GlobalTransform.Origin;
         PlayerDetectionRay.TargetPosition = playerVector;
 
