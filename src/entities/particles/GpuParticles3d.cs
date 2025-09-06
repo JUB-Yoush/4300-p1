@@ -8,18 +8,8 @@ public partial class GpuParticles3d : GpuParticles3D
     [Export]
     private Material[] textures;
     [Export]
-    private Material finalTexture;
-    public override void _PhysicsProcess(double delta)
-    {
-        if (Input.IsActionJustPressed("jump"))
-        {
-            _SimplifyColour();
-            _SimplifyShape();
-            DrawPass1.SurfaceSetMaterial(0, finalTexture);
-        }
-    }
-
-    private async void _SimplifyColour()
+    private Material filledTexture;
+    public async void _SimplifyColour()
     {
         ParticleProcessMaterial mat = GD.Load<ParticleProcessMaterial>(ProcessMaterial.ResourcePath);
         while (mat.HueVariationMax > 0)
@@ -30,12 +20,17 @@ public partial class GpuParticles3d : GpuParticles3D
         }
     }
 
-    private async void _SimplifyShape()
+    public async void _SimplifyShape()
     {
         for (int i = 0; i < textures.Length; i++)
         {
-            await Task.Delay(200);
+            await Task.Delay(1000);
             DrawPass1.SurfaceSetMaterial(0, textures[i]);
         }
+    }
+
+    public void _SimplifyFill()
+    {
+        DrawPass1.SurfaceSetMaterial(0, filledTexture);
     }
 }
