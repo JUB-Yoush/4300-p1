@@ -1,28 +1,59 @@
-[gd_scene load_steps=8 format=3 uid="uid://b82oro4nvaan4"]
+[gd_scene load_steps=17 format=3 uid="uid://b82oro4nvaan4"]
 
+[ext_resource type="Script" uid="uid://cvhb113by0cda" path="res://src/scenes/Main.cs" id="1_5dlwx"]
 [ext_resource type="Script" uid="uid://v4tsendljqpe" path="res://src/entities/player/Player.cs" id="1_kkvs4"]
-[ext_resource type="Texture2D" uid="uid://cmckexeyiwia3" path="res://assets/textures/greybox/texture_09.png" id="2_rr2wm"]
+[ext_resource type="Texture2D" uid="uid://0hde2m4dx8vo" path="res://assets/textures/greybox/texture_11.png" id="2_rr2wm"]
+[ext_resource type="Script" uid="uid://buaycm10l6hwa" path="res://src/entities/ghost/Ghost.cs" id="3_32aa5"]
+
+[sub_resource type="Environment" id="Environment_5dlwx"]
+background_energy_multiplier = 2.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1fxj6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kkvs4"]
 height = 2.09102
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_1fxj6"]
-size = Vector3(60, 2, 60)
+[sub_resource type="NavigationMesh" id="NavigationMesh_rr2wm"]
+vertices = PackedVector3Array(-29.5, 1.5, 2, -10.5, 1.5, 2, -10, 1.5, 1, -2.75, 1.5, -2.75, -2.75, 1.5, -29.5, -29.5, 1.5, -29.5, 3, 1.5, 6.5, 6, 1.5, 6.25, 5.75, 1.5, -0.5, -1.75, 1.5, -2.25, 6.75, 1.5, -1.25, 8.25, 1.5, -1.25, 8, 1.5, -29.5, 16, 1.5, -1, 16, 1.5, 1, 29.5, 1.5, 1, 15.25, 1.5, -1.5, 29.5, 1.5, -29.5, -8.25, 3.75, 3.75, -4.5, 3.75, 10.25, 1.75, 3.75, 7, 1.25, 3.75, 5.25, -2.5, 3.75, -1.25, -8.75, 3.75, 2, 7.25, 3.75, 9.25, 15.5, 3.75, 9, 15, 3.75, -0.25, 6.75, 3.75, 0, 16.5, 1.5, 9.5, 29.5, 1.5, 9.5, -4.75, 1.5, 29.5, -4.75, 1.5, 11.75, -5.5, 1.5, 11.5, -29.5, 1.5, 29.5, 2.5, 1.5, 8, 6.25, 1.5, 10, 7.25, 1.5, 10.5, 7.25, 1.5, 29.5, 15.75, 1.5, 10.25, 14.5, 1.5, 29.5, 29.5, 1.5, 29.5, 14.25, 1.5, 10.25)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(4, 0, 5), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(9, 3, 10), PackedInt32Array(10, 3, 11), PackedInt32Array(11, 3, 4), PackedInt32Array(11, 4, 12), PackedInt32Array(10, 8, 9), PackedInt32Array(15, 14, 13), PackedInt32Array(13, 16, 15), PackedInt32Array(15, 16, 17), PackedInt32Array(17, 16, 12), PackedInt32Array(16, 11, 12), PackedInt32Array(23, 22, 18), PackedInt32Array(18, 22, 21), PackedInt32Array(18, 21, 20), PackedInt32Array(18, 20, 19), PackedInt32Array(27, 26, 24), PackedInt32Array(24, 26, 25), PackedInt32Array(29, 28, 15), PackedInt32Array(15, 28, 14), PackedInt32Array(32, 31, 30), PackedInt32Array(1, 32, 0), PackedInt32Array(0, 32, 30), PackedInt32Array(0, 30, 33), PackedInt32Array(34, 6, 7), PackedInt32Array(7, 35, 34), PackedInt32Array(34, 35, 31), PackedInt32Array(35, 36, 31), PackedInt32Array(31, 36, 30), PackedInt32Array(30, 36, 37), PackedInt32Array(28, 29, 38), PackedInt32Array(38, 29, 40), PackedInt32Array(38, 40, 39), PackedInt32Array(39, 41, 38), PackedInt32Array(36, 41, 37), PackedInt32Array(37, 41, 39)]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fxj6"]
+[sub_resource type="BoxMesh" id="BoxMesh_32aa5"]
+size = Vector3(90, 2, 90)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5dlwx"]
 albedo_texture = ExtResource("2_rr2wm")
-uv1_scale = Vector3(25, 25, 25)
+uv1_scale = Vector3(50, 50, 50)
 
-[sub_resource type="BoxMesh" id="BoxMesh_kkvs4"]
-material = SubResource("StandardMaterial3D_1fxj6")
-size = Vector3(60, 2, 60)
+[sub_resource type="BoxShape3D" id="BoxShape3D_1fxj6"]
+size = Vector3(90, 2, 90)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rr2wm"]
+size = Vector3(8.2312, 1, 10.4502)
+
+[sub_resource type="Curve3D" id="Curve3D_5dlwx"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 18.3362, 2.2635, 7.43211, 0, 0, 0, 0, 0, 0, 11.4473, 1.68214, -9.32742, 0, 0, 0, 0, 0, 0, -7.78552, 1.63355, -13.576, 0, 0, 0, 0, 0, 0, -11.5657, 1.78334, 11.78),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32aa5"]
+albedo_color = Color(0.713726, 0.12549, 0.12549, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rr2wm"]
+material = SubResource("StandardMaterial3D_32aa5")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_32aa5"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_5dlwx")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5dlwx")
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00123, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.00123, -27)
 script = ExtResource("1_kkvs4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
@@ -38,13 +69,57 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36162, 0)
 [node name="Camera3D" type="Camera3D" parent="Player/Head"]
 current = true
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.0143811, 0.999897, 0, -0.999897, -0.0143811, 0, 22.2616, 0)
+[node name="Level" type="Node3D" parent="."]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Level"]
+navigation_mesh = SubResource("NavigationMesh_rr2wm")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/NavigationRegion3D"]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Level/NavigationRegion3D/StaticBody3D"]
+mesh = SubResource("BoxMesh_32aa5")
+material = SubResource("StandardMaterial3D_5dlwx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/NavigationRegion3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.617798, 0, 1.69843)
 shape = SubResource("BoxShape3D_1fxj6")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("BoxMesh_kkvs4")
+[node name="StaticBody3D2" type="StaticBody3D" parent="Level/NavigationRegion3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Level/NavigationRegion3D/StaticBody3D2"]
+transform = Transform3D(0.870605, 0, 0.491983, 0, 1, 0, -0.491983, 0, 0.870605, -3.5, 2.02894, 4.5)
+size = Vector3(8, 2.66309, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/NavigationRegion3D/StaticBody3D2"]
+transform = Transform3D(0.870605, 0, 0.491983, 0, 1, 0, -0.491983, 0, 0.870605, -3.7161, 2.02894, 4.4791)
+shape = SubResource("BoxShape3D_rr2wm")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Level/NavigationRegion3D"]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Level/NavigationRegion3D/StaticBody3D3"]
+transform = Transform3D(0.998677, 0, 0.0514296, 0, 1, 0, -0.0514296, 0, 0.998677, 11.1099, 2.02894, 4.52221)
+size = Vector3(8.86377, 2.66309, 10)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Level/NavigationRegion3D/StaticBody3D3"]
+transform = Transform3D(0.998677, 0, 0.0514296, 0, 1, 0, -0.0514296, 0, 0.998677, 11.1099, 2.02894, 4.52221)
+shape = SubResource("BoxShape3D_rr2wm")
+
+[node name="Path3D" type="Path3D" parent="Level"]
+curve = SubResource("Curve3D_5dlwx")
+
+[node name="Ghost" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23913, 2.04144, 16.0537)
+script = ExtResource("3_32aa5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ghost"]
+mesh = SubResource("CapsuleMesh_rr2wm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ghost"]
+shape = SubResource("CapsuleShape3D_32aa5")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Ghost"]
+
+[node name="RayCast3D" type="RayCast3D" parent="Ghost"]
+target_position = Vector3(5, 5, 5)
+
+[node name="Node3D" type="Node3D" parent="."]
