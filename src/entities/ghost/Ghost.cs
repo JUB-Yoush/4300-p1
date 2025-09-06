@@ -4,8 +4,16 @@ using Godot;
 
 public partial class Ghost : CharacterBody3D
 {
+    enum State
+    {
+        PATROL,
+        CHASE,
+    }
+
+    State CurrentState;
     NavigationAgent3D NavAgent;
     float Speed = 5f;
+    public bool prevFoundPlayer;
     public bool FoundPlayer;
     RayCast3D PlayerDetectionRay;
     float MaxPlayerDetectionRange = 20;
@@ -16,12 +24,17 @@ public partial class Ghost : CharacterBody3D
         NavAgent = GetNode<NavigationAgent3D>("NavigationAgent3D");
         PlayerDetectionRay = GetNode<RayCast3D>("RayCast3D");
         Player = GetNode<Player>("../Player");
+        CurrentState = State.PATROL;
     }
 
     public override void _PhysicsProcess(double delta)
     {
+        switch()
         FoundPlayer = FindPlayer();
+    }
 
+    public void Move()
+    {
         var currentLocation = GlobalTransform.Origin;
         var nextLocation = NavAgent.GetNextPathPosition();
         var newVelocity = (nextLocation - currentLocation).Normalized() * Speed;
