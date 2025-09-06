@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://b82oro4nvaan4"]
+
+[ext_resource type="Script" uid="uid://v4tsendljqpe" path="res://src/entities/player/Player.cs" id="1_kkvs4"]
+[ext_resource type="Texture2D" uid="uid://cmckexeyiwia3" path="res://assets/textures/greybox/texture_09.png" id="2_rr2wm"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1fxj6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kkvs4"]
+height = 2.09102
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1fxj6"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fxj6"]
+albedo_texture = ExtResource("2_rr2wm")
+uv1_scale = Vector3(25, 25, 25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kkvs4"]
+material = SubResource("StandardMaterial3D_1fxj6")
+size = Vector3(60, 2, 60)
+
+[node name="Main" type="Node"]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00123, 0)
+script = ExtResource("1_kkvs4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+visible = false
+mesh = SubResource("CapsuleMesh_1fxj6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_kkvs4")
+
+[node name="Head" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36162, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/Head"]
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0143811, 0.999897, 0, -0.999897, -0.0143811, 0, 22.2616, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_1fxj6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_kkvs4")
