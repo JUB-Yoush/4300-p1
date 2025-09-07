@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://b42o1ub7s1m0q"]
+
+[ext_resource type="Texture2D" uid="uid://b68sf6kgvrpso" path="res://assets/sprites/rei.png" id="1_ddf34"]
+[ext_resource type="Script" uid="uid://sunsuajn1hnd" path="res://src/entities/smell_items/ItemData.cs" id="2_r3gc4"]
+
+[resource]
+script = ExtResource("2_r3gc4")
+name = "rei"
+Sprite = ExtResource("1_ddf34")
+Color = 0
+Size = 0
+Shape = 0
+metadata/_custom_type_script = "uid://sunsuajn1hnd"
