@@ -1,13 +1,51 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbuna14812w75"]
+[gd_scene load_steps=10 format=3 uid="uid://dbuna14812w75"]
 
 [ext_resource type="Script" uid="uid://v4tsendljqpe" path="res://src/entities/player/Player.cs" id="1_muk8e"]
 [ext_resource type="Script" uid="uid://dwnj0obcck4xy" path="res://src/entities/gun/GunPlaceholder.cs" id="2_wrxq6"]
 [ext_resource type="Material" uid="uid://rnrrlraj356f" path="res://assets/Materials/Particles/TriangleFinal.tres" id="3_ketdh"]
+[ext_resource type="Texture2D" uid="uid://bcpsyj0l7ntdf" path="res://assets/sprites/gun_hand.png" id="4_wrxq6"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1fxj6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kkvs4"]
 height = 2.09102
+
+[sub_resource type="Animation" id="Animation_wrxq6"]
+resource_name = "fire_gun"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Control/GunSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+
+[sub_resource type="Animation" id="Animation_ketdh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Control/GunSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0mfjg"]
+_data = {
+&"RESET": SubResource("Animation_ketdh"),
+&"fire_gun": SubResource("Animation_wrxq6")
+}
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_muk8e")
@@ -36,3 +74,32 @@ projectileColour = Color(0, 0.54902, 0.54902, 1)
 target_position = Vector3(0, 0, -5)
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="GunSprite" type="Sprite2D" parent="UI/Control"]
+position = Vector2(331, 823)
+texture = ExtResource("4_wrxq6")
+flip_h = true
+hframes = 4
+
+[node name="ColorRect" type="ColorRect" parent="UI/Control"]
+layout_mode = 0
+offset_left = 958.0
+offset_top = 538.0
+offset_right = 962.0
+offset_bottom = 542.0
+mouse_filter = 2
+color = Color(1, 0, 0, 1)
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0mfjg")
+}

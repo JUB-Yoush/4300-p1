@@ -6,6 +6,7 @@ public partial class GunPlaceholder : Node3D
 {
     string bulletPath = "res://src/scenes/scent_projectile.tscn";
     PackedScene packedScene;
+    public required AnimationPlayer AnimPlayer;
 
     [Export]
     private Material projectileMaterial;
@@ -20,6 +21,8 @@ public partial class GunPlaceholder : Node3D
 
     public override void _Ready()
     {
+        //AnimPlayer = GetNode<AnimationPlayer>("../../AnimationPlayer");
+        AnimPlayer = GetParent().GetParent().GetParent().GetNode<AnimationPlayer>("AnimPlayer");
         baseMaterial = ResourceLoader.Load<StandardMaterial3D>(
             "res://assets/Materials/BulletMaterialV1.tres",
             typeHint: "StandardMaterial3D",
@@ -32,6 +35,7 @@ public partial class GunPlaceholder : Node3D
     {
         if (Input.IsActionJustPressed("shoot") && !onCooldown)
         {
+            AnimPlayer.Play("fire_gun");
             RigidBody3D bullet = packedScene.Instantiate<RigidBody3D>();
             AddChild(bullet); //throws node not found error but still works
             bullet.TopLevel = true;

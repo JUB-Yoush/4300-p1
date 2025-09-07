@@ -131,11 +131,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8844, 3, -29.3629)
 Data = ExtResource("6_dbro3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-process_mode = 4
 layer = -1
 follow_viewport_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 1932.0
 offset_bottom = 1088.0
+mouse_filter = 2
 color = Color(0, 0, 0, 0.501961)
