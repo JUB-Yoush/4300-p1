@@ -125,20 +125,20 @@ public partial class Player : CharacterBody3D
         }
 
         var env = GetParent().GetNode<WorldEnvironment>("WorldEnvironment").Environment;
-        var dimScreen = GetParent().GetNode<CanvasLayer>("CanvasLayer");
+        var screenDimmer = GetParent().GetNode<CanvasLayer>("CanvasLayer");
 
         smelling = Input.IsActionPressed("smell");
         if (smelling)
         {
             env.BackgroundEnergyMultiplier = 0.5f;
-            dimScreen.Visible = true;
+            screenDimmer.Visible = true;
             CurrentWalkSpeed = SMELLING_WALK_SPEED;
             ghost.Visible = true;
         }
         else
         {
             env.BackgroundEnergyMultiplier = 2f;
-            dimScreen.Visible = false;
+            screenDimmer.Visible = false;
             CurrentWalkSpeed = WALK_SPEED;
             ghost.Visible = false;
         }
