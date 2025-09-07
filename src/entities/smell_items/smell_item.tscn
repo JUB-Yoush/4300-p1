@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccgkkxpcblmuc"]
+
+[ext_resource type="Script" uid="uid://cotnkj7picxem" path="res://src/entities/smell_items/SmellItem.cs" id="1_p6m6r"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_o81g6"]
+radius = 1.0
+
+[node name="SmellItem" type="Node3D"]
+script = ExtResource("1_p6m6r")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 2
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_o81g6")

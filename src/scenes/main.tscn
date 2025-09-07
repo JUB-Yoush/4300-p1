@@ -1,17 +1,14 @@
 [gd_scene load_steps=17 format=3 uid="uid://b8e6rv13o8a1g"]
 
 [ext_resource type="Script" uid="uid://cvhb113by0cda" path="res://src/scenes/Main.cs" id="1_5dlwx"]
-[ext_resource type="Script" uid="uid://v4tsendljqpe" path="res://src/entities/player/Player.cs" id="1_kkvs4"]
+[ext_resource type="PackedScene" uid="uid://dbuna14812w75" path="res://src/entities/player/player.tscn" id="2_5dlwx"]
 [ext_resource type="Texture2D" uid="uid://0hde2m4dx8vo" path="res://assets/textures/greybox/texture_11.png" id="2_rr2wm"]
 [ext_resource type="Script" uid="uid://buaycm10l6hwa" path="res://src/entities/ghost/Ghost.cs" id="3_32aa5"]
+[ext_resource type="PackedScene" uid="uid://ccgkkxpcblmuc" path="res://src/entities/smell_items/smell_item.tscn" id="5_o81g6"]
+[ext_resource type="Resource" uid="uid://b42o1ub7s1m0q" path="res://src/resources/rei.tres" id="6_dbro3"]
 
 [sub_resource type="Environment" id="Environment_5dlwx"]
 background_energy_multiplier = 2.0
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_1fxj6"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kkvs4"]
-height = 2.09102
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_rr2wm"]
 vertices = PackedVector3Array(-3.3678, 1.5, -2.75, -2.6178, 1.5, -2.75, -2.1178, 1.5, -5.5, -3.8678, 1.5, -6, 0.132202, 1.5, -44.5, -44.6178, 1.5, -44.5, -44.6178, 1.5, -43.25, -4.1178, 1.5, -7.25, -10.6178, 1.5, 1.75, -45.1178, 1.5, -43, -45.1178, 1.5, 1.75, -0.867798, 1.5, -16.5, 0.132202, 1.5, -17.25, 5.1322, 1.5, -4, 6.3822, 1.5, -1, 15.3822, 1.5, -1.5, 8.3822, 1.5, -12.75, 8.3822, 1.5, -14.25, 15.8822, 1.5, -1, 44.3822, 1.5, 1, 44.3822, 1.5, -44.5, 16.1322, 1.5, 1.25, -2.6178, 3.75, -7.25, -1.6178, 3.75, -6.5, 4.3822, 3.75, -4.75, 7.1322, 3.75, -12.5, 7.1322, 3.75, -13.5, 0.382202, 3.75, -15.75, 4.8822, 1.5, -3.5, 5.8822, 1.5, -0.75, 3.3822, 1.5, -3.5, -0.867798, 1.5, -0.75, 3.1322, 1.5, 7, 6.1322, 1.5, 7, -4.3678, 3.75, 10.25, 1.8822, 3.75, 6.75, -2.6178, 3.75, -1.25, -8.8678, 3.75, 2.25, 7.3822, 3.75, 9.25, 15.3822, 3.75, 9, 14.8822, 3.75, -0.25, 6.8822, 3.75, 0, 16.3822, 1.5, 9.5, 44.3822, 1.5, 9.5, -4.8678, 1.5, 46.25, -4.8678, 1.5, 11.75, -5.6178, 1.5, 11.25, -45.1178, 1.5, 46.25, 2.8822, 1.5, 7.75, 6.3822, 1.5, 10, 8.3822, 1.5, 10.5, 6.8822, 1.5, 10.5, 8.1322, 1.5, 46.25, 15.8822, 1.5, 10.25, 13.8822, 1.5, 46.25, 43.8822, 1.5, 44.75, 44.3822, 1.5, 44.5, 43.8822, 1.5, 46.25, 13.8822, 1.5, 10.25)
@@ -52,22 +49,8 @@ script = ExtResource("1_5dlwx")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5dlwx")
 
-[node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.00123, -27)
-script = ExtResource("1_kkvs4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-visible = false
-mesh = SubResource("CapsuleMesh_1fxj6")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-shape = SubResource("CapsuleShape3D_kkvs4")
-
-[node name="Head" type="Node3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36162, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Player/Head"]
-current = true
+[node name="Player" parent="." instance=ExtResource("2_5dlwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.568, 0, -28.8115)
 
 [node name="Level" type="Node3D" parent="."]
 
@@ -75,6 +58,8 @@ current = true
 navigation_mesh = SubResource("NavigationMesh_rr2wm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level/NavigationRegion3D"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="Level/NavigationRegion3D/StaticBody3D"]
 mesh = SubResource("BoxMesh_32aa5")
@@ -136,4 +121,14 @@ shape = SubResource("CapsuleShape3D_32aa5")
 [node name="RayCast3D" type="RayCast3D" parent="Ghost"]
 target_position = Vector3(5, 5, 5)
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="SmellItem" parent="." instance=ExtResource("5_o81g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9916, 3, -29.3629)
+Data = ExtResource("6_dbro3")
+
+[node name="SmellItem2" parent="." instance=ExtResource("5_o81g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1649, 3, -29.3629)
+Data = ExtResource("6_dbro3")
+
+[node name="SmellItem3" parent="." instance=ExtResource("5_o81g6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8844, 3, -29.3629)
+Data = ExtResource("6_dbro3")

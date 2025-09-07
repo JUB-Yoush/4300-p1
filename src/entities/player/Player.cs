@@ -1,5 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Godot;
+using Scent;
 
 // fps movement controller code adapted from https://github.com/majikayogames/SimpleFPSController
 public partial class Player : CharacterBody3D
@@ -22,25 +25,34 @@ public partial class Player : CharacterBody3D
     float AirAccel = 800;
     float AirSpeed = 500;
 
+    const int GUN_CAPACITY = 3;
+
     Vector3 cameraTargetRotation = Vector3.Zero;
     Vector3 WishDir;
-    Camera3D camera;
+    Camera3D Camera;
+    RayCast3D VisionRay;
+    SmellItem? TargetingItem;
+    List<ItemData> GunSlots = [];
 
     public override void _Ready()
     {
-        camera = GetNode<Camera3D>("Head/Camera3D");
+        Camera = GetNode<Camera3D>("Head/Camera3D");
+        VisionRay = GetNode<RayCast3D>("Head/Camera3D/VisionRay");
+        VisionRay.TargetPosition = VisionRay.TargetPosition with { Z = -5 };
+        VisionRay.CollideWithAreas = true;
+        VisionRay.CollideWithBodies = false;
     }
 
-    public void HeadbobEffect(double delta)
+    public void _HeadbobEffect(double delta)
     {
         HeadbobTime += (float)(delta * Velocity.Length());
-        var newTransform = camera.Transform;
+        var newTransform = Camera.Transform;
         newTransform.Origin = new Vector3(
             (float)(Mathf.Cos(HeadbobTime * HEADBOB_FREQUENCY * 0.5) * HEADBOB_APMPLITUDE),
             (float)(Math.Sin(HeadbobTime * HEADBOB_FREQUENCY * 0.5) * HEADBOB_APMPLITUDE),
             0
         );
-        camera.Transform = newTransform;
+        Camera.Transform = newTransform;
     }
 
     public override void _UnhandledInput(InputEvent @event)
@@ -61,18 +73,47 @@ public partial class Player : CharacterBody3D
         )
         {
             RotateY(-mouseMotionEvent.Relative.X * LookSensitivity);
-            camera.RotateX(-mouseMotionEvent.Relative.Y * LookSensitivity);
+            Camera.RotateX(-mouseMotionEvent.Relative.Y * LookSensitivity);
 
-            camera.Rotation = camera.Rotation with
+            Camera.Rotation = Camera.Rotation with
             {
-                X = Mathf.Clamp(camera.Rotation.X, Mathf.DegToRad(-90), Mathf.DegToRad(90)),
+                X = Mathf.Clamp(Camera.Rotation.X, Mathf.DegToRad(-90), Mathf.DegToRad(90)),
             };
         }
     }
 
+    private void _UpdateTargetingItem()
+    {
+        if (VisionRay.GetCollider() is Area3D hit && hit.GetParent().IsInGroup("items"))
+        {
+            TargetingItem = hit.GetParent<SmellItem>();
+        }
+        else
+        {
+            TargetingItem = null;
+        }
+    }
+
+    private void _PickupItem(SmellItem item)
+    {
+        GunSlots.Add(item.Data!);
+        item.QueueFree();
+    }
+
     public override void _PhysicsProcess(double delta)
     {
-        HeadbobEffect(delta);
+        _HeadbobEffect(delta);
+        _UpdateTargetingItem();
+
+        if (
+            Input.IsActionJustPressed("pickup")
+            && TargetingItem != null
+            && GunSlots.Count < GUN_CAPACITY
+        )
+        {
+            _PickupItem(TargetingItem!);
+        }
+
         if (Input.IsActionJustPressed("jump") && IsOnFloor())
         {
             _targetVelocity.Y = JUMP_VEL;

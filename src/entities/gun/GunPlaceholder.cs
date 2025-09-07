@@ -1,6 +1,6 @@
-using Godot;
 using System;
 using System.Threading.Tasks;
+using Godot;
 
 public partial class GunPlaceholder : Node3D
 {
@@ -9,8 +9,10 @@ public partial class GunPlaceholder : Node3D
 
     [Export]
     private Material projectileMaterial;
+
     [Export]
     private Color projectileColour;
+
     [Export]
     private float power = 10;
     private BaseMaterial3D baseMaterial;
@@ -18,7 +20,11 @@ public partial class GunPlaceholder : Node3D
 
     public override void _Ready()
     {
-        baseMaterial = ResourceLoader.Load<StandardMaterial3D>("res://assets/Materials/BulletMaterialV1.tres", typeHint: "StandardMaterial3D", cacheMode: ResourceLoader.CacheMode.Ignore);
+        baseMaterial = ResourceLoader.Load<StandardMaterial3D>(
+            "res://assets/Materials/BulletMaterialV1.tres",
+            typeHint: "StandardMaterial3D",
+            cacheMode: ResourceLoader.CacheMode.Ignore
+        );
         packedScene = GD.Load<PackedScene>(bulletPath);
     }
 
@@ -33,8 +39,10 @@ public partial class GunPlaceholder : Node3D
             emitter.DrawPass1.SurfaceSetMaterial(0, projectileMaterial);
             ((ParticleProcessMaterial)emitter.ProcessMaterial).Color = projectileColour;
             bullet.GetChild<MeshInstance3D>(2).SetSurfaceOverrideMaterial(0, baseMaterial);
-            ((StandardMaterial3D)bullet.GetChild<MeshInstance3D>(2).MaterialOverride).AlbedoColor = projectileColour;
-            bullet.LinearVelocity = GetParent().GetParent().GetParent<CharacterBody3D>().Velocity / 2; //lmao
+            ((StandardMaterial3D)bullet.GetChild<MeshInstance3D>(2).MaterialOverride).AlbedoColor =
+                projectileColour;
+            bullet.LinearVelocity =
+                GetParent().GetParent().GetParent<CharacterBody3D>().Velocity / 2; //lmao
             bullet.ApplyCentralImpulse(-GlobalBasis.Z * power);
             _Cooldown();
         }
