@@ -36,7 +36,7 @@ public partial class Player : CharacterBody3D
     SmellItem? TargetingItem;
     List<ItemData> GunSlots = [];
     Ghost ghost;
-    bool smelling = false;
+    public bool smelling = false;
 
     public override void _Ready()
     {
