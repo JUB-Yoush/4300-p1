@@ -15,3 +15,5 @@ billboard = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_o81g6")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
