@@ -1,11 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://g7n5fr4dkqkq"]
+[gd_scene load_steps=22 format=3 uid="uid://g7n5fr4dkqkq"]
 
 [ext_resource type="Script" uid="uid://v4tsendljqpe" path="res://src/entities/player/Player.cs" id="1_kkvs4"]
+[ext_resource type="Script" uid="uid://dwnj0obcck4xy" path="res://src/entities/gun/GunPlaceholder.cs" id="2_qsukt"]
 [ext_resource type="Texture2D" uid="uid://cmckexeyiwia3" path="res://assets/textures/greybox/texture_09.png" id="2_rr2wm"]
 [ext_resource type="Material" uid="uid://ca7fcqbi174j6" path="res://assets/Materials/Particles/AllShapes.tres" id="3_5lsyw"]
 [ext_resource type="Script" uid="uid://ckh15og5edo8q" path="res://src/entities/particles/GpuParticles3d.cs" id="4_o81g6"]
 [ext_resource type="Material" uid="uid://c8detkvdf8fht" path="res://assets/Materials/Particles/AllShapesFilled.tres" id="5_5lsyw"]
-[ext_resource type="Script" uid="uid://bs7lkd3lcux16" path="res://src/scenes/SmellBox.cs" id="5_o81g6"]
+[ext_resource type="Script" uid="uid://bs7lkd3lcux16" path="res://src/entities/particles/SmellBox.cs" id="5_o81g6"]
 [ext_resource type="Material" uid="uid://dioiwjqmyaie2" path="res://assets/Materials/Particles/TriangleCircleFilled.tres" id="6_kokaf"]
 [ext_resource type="Material" uid="uid://rnrrlraj356f" path="res://assets/Materials/Particles/TriangleFinal.tres" id="7_24j03"]
 
@@ -29,14 +30,14 @@ size = Vector3(60, 2, 60)
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.40284, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_2lg1k"]
+[sub_resource type="CurveTexture" id="CurveTexture_qsukt"]
 curve = SubResource("Curve_dbro3")
 
 [sub_resource type="Curve" id="Curve_5lsyw"]
 _data = [Vector2(0, 0), 0.0, 4.22472, 0, 0, Vector2(0.830882, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -18.3371, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_kokaf"]
+[sub_resource type="CurveTexture" id="CurveTexture_aittd"]
 curve = SubResource("Curve_5lsyw")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lp058"]
@@ -45,9 +46,9 @@ emission_box_extents = Vector3(1, 1, 1)
 spread = 180.0
 initial_velocity_max = 5.0
 gravity = Vector3(0, 2, 0)
-scale_curve = SubResource("CurveTexture_kokaf")
+scale_curve = SubResource("CurveTexture_aittd")
 color = Color(0.778229, 0.287154, 0.882121, 1)
-alpha_curve = SubResource("CurveTexture_2lg1k")
+alpha_curve = SubResource("CurveTexture_qsukt")
 hue_variation_min = -1.0
 hue_variation_max = 1.0
 anim_offset_max = 1.0
@@ -78,10 +79,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36162, 0)
 [node name="Camera3D" type="Camera3D" parent="Player/Head"]
 current = true
 
+[node name="GunPlaceholder" type="Node3D" parent="Player/Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.301946, -0.395807, 0)
+script = ExtResource("2_qsukt")
+projectileMaterial = ExtResource("7_24j03")
+projectileColour = Color(0, 0.54902, 0.54902, 1)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0143811, 0.999897, 0, -0.999897, -0.0143811, 0, 22.2616, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_1fxj6")
@@ -89,7 +98,7 @@ shape = SubResource("BoxShape3D_1fxj6")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_kkvs4")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="GhostSmellTrail" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.2364, 3.27018, -27.7062)
 amount = 100
 lifetime = 3.0
@@ -100,9 +109,9 @@ script = ExtResource("4_o81g6")
 textures = Array[Material]([ExtResource("5_5lsyw"), ExtResource("6_kokaf"), ExtResource("7_24j03")])
 filledTexture = ExtResource("5_5lsyw")
 
-[node name="SmellBox" type="Area3D" parent="GPUParticles3D"]
+[node name="SmellBox" type="Area3D" parent="GhostSmellTrail"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 script = ExtResource("5_o81g6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GPUParticles3D/SmellBox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GhostSmellTrail/SmellBox"]
 shape = SubResource("BoxShape3D_dbro3")

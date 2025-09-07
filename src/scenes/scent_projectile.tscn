@@ -1,0 +1,69 @@
+[gd_scene load_steps=13 format=3 uid="uid://dlcdp7fnd1r2a"]
+
+[ext_resource type="Material" uid="uid://ca7fcqbi174j6" path="res://assets/Materials/Particles/AllShapes.tres" id="1_eu0uj"]
+[ext_resource type="Script" uid="uid://f504re407bv5" path="res://src/scenes/ScentProjectile.cs" id="1_thsqr"]
+[ext_resource type="Material" uid="uid://0vqhx8bl7l11" path="res://assets/Materials/BulletMaterialV1.tres" id="3_thsqr"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ylf76"]
+rough = true
+bounce = 0.5
+
+[sub_resource type="Curve" id="Curve_24xqn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.40284, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2lg1k"]
+curve = SubResource("Curve_24xqn")
+
+[sub_resource type="Curve" id="Curve_iu204"]
+_data = [Vector2(0, 0), 0.0, 4.22472, 0, 0, Vector2(0.830882, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -18.3371, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_kokaf"]
+curve = SubResource("Curve_iu204")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dhexd"]
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 180.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 2, 0)
+scale_curve = SubResource("CurveTexture_kokaf")
+color = Color(0.778229, 0.287154, 0.882121, 1)
+alpha_curve = SubResource("CurveTexture_2lg1k")
+anim_offset_max = 1.0
+turbulence_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hgm0g"]
+material = ExtResource("1_eu0uj")
+orientation = 2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ylf76"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ylf76"]
+
+[node name="RigidBody3D" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_ylf76")
+script = ExtResource("1_thsqr")
+
+[node name="BulletSmellTrail" type="GPUParticles3D" parent="."]
+amount = 100
+lifetime = 3.0
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_dhexd")
+draw_pass_1 = SubResource("PlaneMesh_hgm0g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+shape = SubResource("SphereShape3D_ylf76")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+material_override = ExtResource("3_thsqr")
+mesh = SubResource("SphereMesh_ylf76")
+skeleton = NodePath("RigidBody3D/CollisionShape3D")
