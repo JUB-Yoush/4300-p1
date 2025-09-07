@@ -16,6 +16,7 @@ public partial class Player : CharacterBody3D
     float HeadbobTime = 0f;
 
     const float WALK_SPEED = 10f;
+    const float SMELLING_WALK_SPEED = 5f;
     const float GROUND_ACCEL = 11.0f;
     const float GROUND_DECEL = 7.0f;
     const float GROUND_FRICTION = 3.5f;
@@ -24,6 +25,7 @@ public partial class Player : CharacterBody3D
     float AirCap = 0.85f;
     float AirAccel = 800;
     float AirSpeed = 500;
+    float CurrentWalkSpeed = WALK_SPEED;
 
     const int GUN_CAPACITY = 3;
 
@@ -33,11 +35,14 @@ public partial class Player : CharacterBody3D
     RayCast3D VisionRay;
     SmellItem? TargetingItem;
     List<ItemData> GunSlots = [];
+    Ghost ghost;
+    bool smelling = false;
 
     public override void _Ready()
     {
         Camera = GetNode<Camera3D>("Head/Camera3D");
         VisionRay = GetNode<RayCast3D>("Head/Camera3D/VisionRay");
+        ghost = GetNode<Ghost>("../Ghost");
         VisionRay.TargetPosition = VisionRay.TargetPosition with { Z = -5 };
         VisionRay.CollideWithAreas = true;
         VisionRay.CollideWithBodies = false;
@@ -119,6 +124,25 @@ public partial class Player : CharacterBody3D
             _targetVelocity.Y = JUMP_VEL;
         }
 
+        var env = GetParent().GetNode<WorldEnvironment>("WorldEnvironment").Environment;
+        var dimScreen = GetParent().GetNode<CanvasLayer>("CanvasLayer");
+
+        smelling = Input.IsActionPressed("smell");
+        if (smelling)
+        {
+            env.BackgroundEnergyMultiplier = 0.5f;
+            dimScreen.Visible = true;
+            CurrentWalkSpeed = SMELLING_WALK_SPEED;
+            ghost.Visible = true;
+        }
+        else
+        {
+            env.BackgroundEnergyMultiplier = 2f;
+            dimScreen.Visible = false;
+            CurrentWalkSpeed = WALK_SPEED;
+            ghost.Visible = false;
+        }
+
         Vector2 inputDir = Input.GetVector("left", "right", "up", "down");
         WishDir = GlobalTransform.Basis * new Vector3(inputDir.X, 0, inputDir.Y);
         WishDir = WishDir.Normalized();
@@ -151,11 +175,11 @@ public partial class Player : CharacterBody3D
     public void HandleGroundPhyics(double delta)
     {
         var curSpeedinWishDir = Velocity.Dot(WishDir);
-        var addSpeedTillCap = WALK_SPEED - curSpeedinWishDir;
+        var addSpeedTillCap = CurrentWalkSpeed - curSpeedinWishDir;
 
         if (addSpeedTillCap > 0)
         {
-            var accelSpeed = GROUND_ACCEL * delta * WALK_SPEED;
+            var accelSpeed = GROUND_ACCEL * delta * CurrentWalkSpeed;
             accelSpeed = Math.Min(accelSpeed, addSpeedTillCap);
             _targetVelocity += Scale(WishDir, accelSpeed);
         }

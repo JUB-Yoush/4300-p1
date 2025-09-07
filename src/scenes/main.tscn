@@ -70,7 +70,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.617798, 0, 1.69843)
 shape = SubResource("BoxShape3D_1fxj6")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Level/NavigationRegion3D"]
-visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Level/NavigationRegion3D/StaticBody3D2"]
 transform = Transform3D(0.870605, 0, 0.491983, 0, 1, 0, -0.491983, 0, 0.870605, -3.5, 2.02894, 4.5)
@@ -82,7 +81,6 @@ shape = SubResource("BoxShape3D_rr2wm")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="Level/NavigationRegion3D"]
 transform = Transform3D(0.658558, 0, -0.75253, 0, 1, 0, 0.75253, 0, 0.658558, 8.02214, 0, -10.4847)
-visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Level/NavigationRegion3D/StaticBody3D4"]
 transform = Transform3D(0.870605, 0, 0.491983, 0, 1, 0, -0.491983, 0, 0.870605, -3.5, 2.02894, 4.5)
@@ -93,7 +91,6 @@ transform = Transform3D(0.870605, 0, 0.491983, 0, 1, 0, -0.491983, 0, 0.870605, 
 shape = SubResource("BoxShape3D_rr2wm")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="Level/NavigationRegion3D"]
-visible = false
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Level/NavigationRegion3D/StaticBody3D3"]
 transform = Transform3D(0.998677, 0, 0.0514296, 0, 1, 0, -0.0514296, 0, 0.998677, 11.1099, 2.02894, 4.52221)
@@ -132,3 +129,13 @@ Data = ExtResource("6_dbro3")
 [node name="SmellItem3" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8844, 3, -29.3629)
 Data = ExtResource("6_dbro3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 4
+layer = -1
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1932.0
+offset_bottom = 1088.0
+color = Color(0, 0, 0, 0.501961)
