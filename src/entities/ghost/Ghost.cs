@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Godot;
+using Godot.NativeInterop;
 using Timer = Godot.Timer;
 
 public partial class Ghost : CharacterBody3D
@@ -28,6 +30,10 @@ public partial class Ghost : CharacterBody3D
     Curve3D TrailCurve = null!;
     public required Path3D TrailPath;
     public required Node3D TrailPoints;
+    public required CollisionPolygon3D TrailCollider;
+    private List<Vector2> TrailBoxPoints = new List<Vector2>();
+    private List<Vector2> TrailBoxPointsLeft = new List<Vector2>();
+    private List<Vector2> TrailBoxPointsRight = new List<Vector2>();
 
     const float POINT_ROUNDING_THRESHOLD = 0.1f;
     const int MAX_TRAIL_POINTS = 10;
@@ -37,6 +43,7 @@ public partial class Ghost : CharacterBody3D
         TrailCurve = GetNode<Path3D>("Trail").Curve;
         TrailPath = GetNode<Path3D>("Trail");
         TrailPoints = GetNode<Node3D>("TrailPoints");
+        TrailCollider = GetNode<CollisionPolygon3D>("GhostSmellTrail/SmellBox/TrailCollider");
 
         NavAgent = GetNode<NavigationAgent3D>("NavigationAgent3D");
         PlayerDetectionRay = GetNode<RayCast3D>("RayCast3D");
@@ -44,6 +51,7 @@ public partial class Ghost : CharacterBody3D
         TrailCreationTimer = new Timer();
         AddChild(TrailCreationTimer);
         TrailCreationTimer.Timeout += UpdateTrailCurve;
+        TrailCreationTimer.Timeout += UpdateTrailBox;
         TrailCreationTimer.OneShot = false;
         TrailCreationTimer.Start(1);
         CurrentState = State.PATROL;
@@ -70,6 +78,27 @@ public partial class Ghost : CharacterBody3D
             TrailPoints.GetChild(0).QueueFree();
         }
         RenderTrail();
+    }
+
+    public void UpdateTrailBox()
+    {
+        var direction = Velocity.Normalized();
+        TrailBoxPointsLeft.Add(new Vector2(GlobalTransform.Origin.X, GlobalTransform.Origin.Z) + new Vector2(-direction.Z, direction.X).Normalized());
+        TrailBoxPointsRight.Add(new Vector2(GlobalTransform.Origin.X, GlobalTransform.Origin.Z) + new Vector2(direction.Z, -direction.X).Normalized());
+
+        if (TrailBoxPointsLeft.Count >= MAX_TRAIL_POINTS)
+        {
+            TrailBoxPointsLeft.RemoveAt(0);
+            TrailBoxPointsRight.RemoveAt(0);
+        }
+
+        TrailBoxPoints = new List<Vector2>();
+        for (int i = 0; i < TrailBoxPointsLeft.Count; i++)
+            TrailBoxPoints.Add(TrailBoxPointsLeft[i]);
+        for (int i = TrailBoxPointsRight.Count - 1; i >= 0; i--)
+            TrailBoxPoints.Add(TrailBoxPointsRight[i]);
+        TrailCollider.Polygon = null;
+        TrailCollider.Polygon = TrailBoxPoints.ToArray();
     }
 
     public override void _PhysicsProcess(double delta)

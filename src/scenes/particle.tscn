@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://g7n5fr4dkqkq"]
+[gd_scene load_steps=19 format=3 uid="uid://g7n5fr4dkqkq"]
 
 [ext_resource type="PackedScene" uid="uid://dbuna14812w75" path="res://src/entities/player/player.tscn" id="1_xab5p"]
 [ext_resource type="Texture2D" uid="uid://cmckexeyiwia3" path="res://assets/textures/greybox/texture_09.png" id="2_rr2wm"]
@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://c8detkvdf8fht" path="res://assets/Materials/Particles/AllShapesFilled.tres" id="5_5lsyw"]
 [ext_resource type="Material" uid="uid://dioiwjqmyaie2" path="res://assets/Materials/Particles/TriangleCircleFilled.tres" id="6_kokaf"]
 [ext_resource type="Material" uid="uid://rnrrlraj356f" path="res://assets/Materials/Particles/TriangleFinal.tres" id="7_24j03"]
+[ext_resource type="Script" uid="uid://bs7lkd3lcux16" path="res://src/entities/particles/SmellBox.cs" id="8_wsf8e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1fxj6"]
 size = Vector3(60, 2, 60)
@@ -84,6 +85,7 @@ filledTexture = ExtResource("5_5lsyw")
 
 [node name="SmellBox" type="Area3D" parent="GhostSmellTrail"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+script = ExtResource("8_wsf8e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GhostSmellTrail/SmellBox"]
 shape = SubResource("BoxShape3D_dbro3")
