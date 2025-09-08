@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c728a3uc4troo"]
 
 [ext_resource type="PackedScene" uid="uid://brvaqw5wsjdwm" path="res://src/ui/title_ui_2d.tscn" id="1_bby3l"]
-[ext_resource type="Texture2D" uid="uid://c7ymafhq16aam" path="res://src/ui/title_ui_viewport.tres" id="2_bby3l"]
+[ext_resource type="Texture2D" uid="uid://cl311ohvl81qr" path="res://src/ui/title_ui_viewport.tres" id="2_bby3l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bby3l"]
 sky_top_color = Color(1, 1, 1, 1)
@@ -34,6 +34,7 @@ environment = SubResource("Environment_83g0s")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 gui_embed_subwindows = true
+render_target_update_mode = 4
 
 [node name="Control" parent="SubViewport" instance=ExtResource("1_bby3l")]
 
