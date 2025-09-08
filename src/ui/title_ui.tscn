@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://c728a3uc4troo"]
+
+[ext_resource type="PackedScene" uid="uid://brvaqw5wsjdwm" path="res://src/ui/title_ui_2d.tscn" id="1_bby3l"]
+[ext_resource type="Texture2D" uid="uid://c7ymafhq16aam" path="res://src/ui/title_ui_viewport.tres" id="2_bby3l"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bby3l"]
+sky_top_color = Color(1, 1, 1, 1)
+sky_horizon_color = Color(2.1665, 2.1665, 2.1665, 1)
+ground_bottom_color = Color(1, 1, 1, 1)
+ground_horizon_color = Color(2.1665, 2.1665, 2.1665, 1)
+
+[sub_resource type="Sky" id="Sky_6m7ww"]
+sky_material = SubResource("ProceduralSkyMaterial_bby3l")
+
+[sub_resource type="Environment" id="Environment_83g0s"]
+background_mode = 2
+sky = SubResource("Sky_6m7ww")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bby3l"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_bby3l")
+
+[sub_resource type="QuadMesh" id="QuadMesh_couv8"]
+material = SubResource("StandardMaterial3D_bby3l")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6m7ww"]
+
+[node name="Node3D" type="Node3D"]
+process_mode = 3
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_83g0s")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+gui_embed_subwindows = true
+
+[node name="Control" parent="SubViewport" instance=ExtResource("1_bby3l")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.88351)
+mesh = SubResource("QuadMesh_couv8")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
+shape = SubResource("BoxShape3D_6m7ww")
