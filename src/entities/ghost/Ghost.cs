@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading;
+using System.Threading.Tasks;
 using Godot;
 
 public partial class Ghost : CharacterBody3D
@@ -23,18 +25,51 @@ public partial class Ghost : CharacterBody3D
 
     int CurrPoint = 0;
 
+    public required Curve3D TrailCurve;
+    public required Path3D TrailPath;
+    public required Node3D TrailPoints;
+
     const float POINT_ROUNDING_THRESHOLD = 0.1f;
+    const int MAX_TRAIL_POINTS = 300;
 
     public override void _Ready()
     {
+        TrailCurve = GetNode<Path3D>("Trail").Curve;
+        TrailPath = GetNode<Path3D>("Trail");
+        TrailPoints = GetNode<Node3D>("TrailPoints");
+
         NavAgent = GetNode<NavigationAgent3D>("NavigationAgent3D");
         PlayerDetectionRay = GetNode<RayCast3D>("RayCast3D");
         Player = GetNode<Player>("../Player");
         CurrentState = State.PATROL;
     }
 
+    public void RenderTrail()
+    {
+        var point = new Sprite3D
+        {
+            Texture = GD.Load<Texture2D>("res://assets/sprites/rei.png"),
+            Scale = new Vector3(.5f, .5f, .5f),
+            TopLevel = true,
+        };
+        TrailPoints.AddChild(point);
+        point.GlobalPosition = TrailCurve.GetPointPosition(TrailCurve.PointCount - 1);
+    }
+
+    public void UpdateTrailCurve()
+    {
+        TrailCurve.AddPoint(GlobalTransform.Origin);
+        if (TrailCurve.PointCount >= MAX_TRAIL_POINTS)
+        {
+            TrailCurve.RemovePoint(0);
+            TrailPoints.GetChild(0).QueueFree();
+        }
+        RenderTrail();
+    }
+
     public override void _PhysicsProcess(double delta)
     {
+        UpdateTrailCurve();
         switch (CurrentState)
         {
             case State.PATROL:
