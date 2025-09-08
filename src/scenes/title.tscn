@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://d3uf1xuajswsa"]
 
-[ext_resource type="PackedScene" uid="uid://brvaqw5wsjdwm" path="res://src/ui/title_ui_2d.tscn" id="1_ygvpb"]
-[ext_resource type="Texture2D" uid="uid://bbt8fageiqmnk" path="res://src/ui/ui_viewport.tres" id="2_gctki"]
+[ext_resource type="PackedScene" uid="uid://brvaqw5wsjdwm" path="res://src/entities/ui/title/title_ui_2d.tscn" id="1_ygvpb"]
+[ext_resource type="Texture2D" uid="uid://bbt8fageiqmnk" path="res://src/entities/ui/title/ui_viewport.tres" id="2_gctki"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b5fdr"]
 sky_top_color = Color(1, 1, 1, 1)
@@ -18,6 +18,7 @@ sky = SubResource("Sky_ygvpb")
 tonemap_mode = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_b5fdr"]
+size = Vector2(3, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gctki"]
 resource_local_to_scene = true
@@ -34,11 +35,12 @@ points = PackedVector3Array(-0.507937, -0.507937, -0.00793651, 0.507937, 0.50793
 environment = SubResource("Environment_gctki")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-fov = 85.0
+fov = 120.0
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
 gui_embed_subwindows = true
+size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
 [node name="Control" parent="SubViewport" instance=ExtResource("1_ygvpb")]
