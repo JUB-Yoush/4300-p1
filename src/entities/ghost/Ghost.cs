@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Godot;
+using Timer = Godot.Timer;
 
 public partial class Ghost : CharacterBody3D
 {
@@ -14,23 +15,22 @@ public partial class Ghost : CharacterBody3D
     }
 
     State CurrentState;
-    NavigationAgent3D NavAgent;
+    public required NavigationAgent3D NavAgent;
     float Speed = 5f;
-    public bool prevFoundPlayer;
-    public bool FoundPlayer;
-    RayCast3D PlayerDetectionRay;
+    public required RayCast3D PlayerDetectionRay;
     float MaxPlayerDetectionRange = 20;
-    Player Player;
+    public required Player Player;
     public List<Vector3> PatrolRoute = [];
+    public required Timer TrailCreationTimer;
 
     int CurrPoint = 0;
 
-    public required Curve3D TrailCurve;
+    Curve3D TrailCurve = null!;
     public required Path3D TrailPath;
     public required Node3D TrailPoints;
 
     const float POINT_ROUNDING_THRESHOLD = 0.1f;
-    const int MAX_TRAIL_POINTS = 300;
+    const int MAX_TRAIL_POINTS = 10;
 
     public override void _Ready()
     {
@@ -41,6 +41,11 @@ public partial class Ghost : CharacterBody3D
         NavAgent = GetNode<NavigationAgent3D>("NavigationAgent3D");
         PlayerDetectionRay = GetNode<RayCast3D>("RayCast3D");
         Player = GetNode<Player>("../Player");
+        TrailCreationTimer = new Timer();
+        AddChild(TrailCreationTimer);
+        TrailCreationTimer.Timeout += UpdateTrailCurve;
+        TrailCreationTimer.OneShot = false;
+        TrailCreationTimer.Start(1);
         CurrentState = State.PATROL;
     }
 
@@ -69,7 +74,6 @@ public partial class Ghost : CharacterBody3D
 
     public override void _PhysicsProcess(double delta)
     {
-        UpdateTrailCurve();
         switch (CurrentState)
         {
             case State.PATROL:

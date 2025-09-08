@@ -31,11 +31,11 @@ public partial class Player : CharacterBody3D
 
     Vector3 cameraTargetRotation = Vector3.Zero;
     Vector3 WishDir;
-    Camera3D Camera;
-    RayCast3D VisionRay;
+    Camera3D Camera = null!;
+    RayCast3D VisionRay = null!;
     SmellItem? TargetingItem;
     List<ItemData> GunSlots = [];
-    Ghost ghost;
+    Ghost ghost = null!;
     public bool smelling = false;
 
     public override void _Ready()
