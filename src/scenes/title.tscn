@@ -1,4 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3uf1xuajswsa"]
+[gd_scene load_steps=9 format=3 uid="uid://d3uf1xuajswsa"]
+
+[ext_resource type="PackedScene" uid="uid://brvaqw5wsjdwm" path="res://src/ui/title_ui_2d.tscn" id="1_ygvpb"]
+[ext_resource type="Texture2D" uid="uid://bbt8fageiqmnk" path="res://src/ui/ui_viewport.tres" id="2_gctki"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b5fdr"]
 sky_top_color = Color(1, 1, 1, 1)
@@ -14,6 +17,17 @@ background_mode = 2
 sky = SubResource("Sky_ygvpb")
 tonemap_mode = 2
 
+[sub_resource type="QuadMesh" id="QuadMesh_b5fdr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gctki"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("2_gctki")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a750j"]
+points = PackedVector3Array(-0.507937, -0.507937, -0.00793651, 0.507937, 0.507937, 0.00793651, 0.507937, 0.507937, -0.00793651, -0.507937, 0.507937, 0.00793651, 0.507937, -0.507937, 0.00793651, 0.507937, -0.507937, -0.00793651, -0.507937, 0.507937, -0.00793651, -0.507937, -0.507937, 0.00793651)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -22,3 +36,18 @@ environment = SubResource("Environment_gctki")
 [node name="Camera3D" type="Camera3D" parent="."]
 
 [node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+gui_embed_subwindows = true
+render_target_update_mode = 4
+
+[node name="Control" parent="SubViewport" instance=ExtResource("1_ygvpb")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.610599)
+mesh = SubResource("QuadMesh_b5fdr")
+surface_material_override/0 = SubResource("StandardMaterial3D_gctki")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
+shape = SubResource("ConvexPolygonShape3D_a750j")
