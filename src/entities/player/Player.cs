@@ -140,7 +140,7 @@ public partial class Player : CharacterBody3D
             env.BackgroundEnergyMultiplier = 2f;
             screenDimmer.Visible = false;
             CurrentWalkSpeed = WALK_SPEED;
-            //ghost.Visible = false;
+            ghost.Visible = false;
         }
 
         Vector2 inputDir = Input.GetVector("left", "right", "up", "down");
