@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://b8e6rv13o8a1g"]
+[gd_scene load_steps=15 format=3 uid="uid://b8e6rv13o8a1g"]
 
 [ext_resource type="Script" uid="uid://cvhb113by0cda" path="res://src/scenes/Main.cs" id="1_5dlwx"]
 [ext_resource type="PackedScene" uid="uid://dbuna14812w75" path="res://src/entities/player/player.tscn" id="2_5dlwx"]
 [ext_resource type="Texture2D" uid="uid://0hde2m4dx8vo" path="res://assets/textures/greybox/texture_11.png" id="2_rr2wm"]
-[ext_resource type="Script" uid="uid://buaycm10l6hwa" path="res://src/entities/ghost/Ghost.cs" id="3_32aa5"]
+[ext_resource type="PackedScene" uid="uid://bhot82van31hy" path="res://src/entities/ghost/ghost.tscn" id="4_dbro3"]
+[ext_resource type="PackedScene" uid="uid://badbx0f6p4gpv" path="res://GhostParticles.tscn" id="5_2lg1k"]
 [ext_resource type="PackedScene" uid="uid://ccgkkxpcblmuc" path="res://src/entities/smell_items/smell_item.tscn" id="5_o81g6"]
 [ext_resource type="Resource" uid="uid://b42o1ub7s1m0q" path="res://src/resources/rei.tres" id="6_dbro3"]
 
@@ -34,14 +35,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32aa5"]
-albedo_color = Color(0.713726, 0.12549, 0.12549, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_rr2wm"]
-material = SubResource("StandardMaterial3D_32aa5")
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_32aa5"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_5dlwx")
@@ -103,20 +96,10 @@ shape = SubResource("BoxShape3D_rr2wm")
 [node name="Path3D" type="Path3D" parent="Level"]
 curve = SubResource("Curve3D_5dlwx")
 
-[node name="Ghost" type="CharacterBody3D" parent="."]
+[node name="Ghost" parent="." instance=ExtResource("4_dbro3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23913, 2.04144, 16.0537)
-script = ExtResource("3_32aa5")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ghost"]
-mesh = SubResource("CapsuleMesh_rr2wm")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ghost"]
-shape = SubResource("CapsuleShape3D_32aa5")
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Ghost"]
-
-[node name="RayCast3D" type="RayCast3D" parent="Ghost"]
-target_position = Vector3(5, 5, 5)
+[node name="GhostSmellTrail" parent="Ghost" instance=ExtResource("5_2lg1k")]
 
 [node name="SmellItem" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9916, 3, -29.3629)

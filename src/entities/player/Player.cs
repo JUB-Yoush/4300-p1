@@ -31,11 +31,12 @@ public partial class Player : CharacterBody3D
 
     Vector3 cameraTargetRotation = Vector3.Zero;
     Vector3 WishDir;
-    Camera3D Camera;
-    RayCast3D VisionRay;
+    Camera3D Camera = null!;
+    RayCast3D VisionRay = null!;
     SmellItem? TargetingItem;
     List<ItemData> GunSlots = [];
-    Ghost ghost;
+    Ghost ghost = null!;
+    CollisionPolygon3D SmellBox = null!;
     public bool smelling = false;
 
     public override void _Ready()
@@ -43,6 +44,7 @@ public partial class Player : CharacterBody3D
         Camera = GetNode<Camera3D>("Head/Camera3D");
         VisionRay = GetNode<RayCast3D>("Head/Camera3D/VisionRay");
         ghost = GetNode<Ghost>("../Ghost");
+        SmellBox = ghost.GetNode<CollisionPolygon3D>("GhostSmellTrail/SmellBox/TrailCollider");
         VisionRay.TargetPosition = VisionRay.TargetPosition with { Z = -5 };
         VisionRay.CollideWithAreas = true;
         VisionRay.CollideWithBodies = false;
@@ -134,6 +136,7 @@ public partial class Player : CharacterBody3D
             screenDimmer.Visible = true;
             CurrentWalkSpeed = SMELLING_WALK_SPEED;
             ghost.Visible = true;
+            SmellBox.Disabled = false;
         }
         else
         {
@@ -141,6 +144,7 @@ public partial class Player : CharacterBody3D
             screenDimmer.Visible = false;
             CurrentWalkSpeed = WALK_SPEED;
             ghost.Visible = false;
+            SmellBox.Disabled = true;
         }
 
         Vector2 inputDir = Input.GetVector("left", "right", "up", "down");

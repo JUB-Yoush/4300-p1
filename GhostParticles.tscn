@@ -1,0 +1,57 @@
+[gd_scene load_steps=13 format=3 uid="uid://badbx0f6p4gpv"]
+
+[ext_resource type="Material" uid="uid://ca7fcqbi174j6" path="res://assets/Materials/Particles/AllShapes.tres" id="1_skmax"]
+[ext_resource type="Script" uid="uid://ckh15og5edo8q" path="res://src/entities/particles/GpuParticles3d.cs" id="2_3tpaw"]
+[ext_resource type="Material" uid="uid://c8detkvdf8fht" path="res://assets/Materials/Particles/AllShapesFilled.tres" id="3_4hrha"]
+[ext_resource type="Material" uid="uid://dioiwjqmyaie2" path="res://assets/Materials/Particles/TriangleCircleFilled.tres" id="4_feuc6"]
+[ext_resource type="Material" uid="uid://rnrrlraj356f" path="res://assets/Materials/Particles/TriangleFinal.tres" id="5_l83gr"]
+[ext_resource type="Script" uid="uid://bs7lkd3lcux16" path="res://src/entities/particles/SmellBox.cs" id="6_m7kiv"]
+
+[sub_resource type="Curve" id="Curve_p4vl0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.40284, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qsukt"]
+curve = SubResource("Curve_p4vl0")
+
+[sub_resource type="Curve" id="Curve_sn46w"]
+_data = [Vector2(0, 0), 0.0, 4.22472, 0, 0, Vector2(0.830882, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -18.3371, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_aittd"]
+curve = SubResource("Curve_sn46w")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8y3jm"]
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0.05, 0)
+scale_curve = SubResource("CurveTexture_aittd")
+color = Color(0.778229, 0.287154, 0.882121, 1)
+alpha_curve = SubResource("CurveTexture_qsukt")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+anim_offset_max = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vxp1e"]
+material = ExtResource("1_skmax")
+orientation = 2
+
+[node name="GhostSmellTrail" type="GPUParticles3D"]
+amount = 50
+lifetime = 8.0
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_8y3jm")
+draw_pass_1 = SubResource("PlaneMesh_vxp1e")
+script = ExtResource("2_3tpaw")
+textures = Array[Material]([ExtResource("3_4hrha"), ExtResource("4_feuc6"), ExtResource("5_l83gr")])
+filledTexture = ExtResource("3_4hrha")
+
+[node name="SmellBox" type="Area3D" parent="."]
+top_level = true
+script = ExtResource("6_m7kiv")
+
+[node name="TrailCollider" type="CollisionPolygon3D" parent="SmellBox"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+top_level = true
+depth = 5.0
+debug_color = Color(0, 0.121569, 1, 1)
