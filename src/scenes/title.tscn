@@ -35,18 +35,19 @@ points = PackedVector3Array(-0.507937, -0.507937, -0.00793651, 0.507937, 0.50793
 environment = SubResource("Environment_gctki")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-fov = 120.0
+fov = 135.3
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
 gui_embed_subwindows = true
-size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
 [node name="Control" parent="SubViewport" instance=ExtResource("1_ygvpb")]
+offset_right = -512.0
+offset_bottom = -512.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.610599)
+transform = Transform3D(0.590885, 0, 0.173648, 0, 1, 0, -0.104189, 0, 0.984808, 0, 0, -0.610599)
 mesh = SubResource("QuadMesh_b5fdr")
 surface_material_override/0 = SubResource("StandardMaterial3D_gctki")
 
