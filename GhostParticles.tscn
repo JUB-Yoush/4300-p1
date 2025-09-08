@@ -26,10 +26,8 @@ emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
 gravity = Vector3(0, 0.05, 0)
 scale_curve = SubResource("CurveTexture_aittd")
-color = Color(0.778229, 0.287154, 0.882121, 1)
+color = Color(0.1, 0.1, 0.1, 1)
 alpha_curve = SubResource("CurveTexture_qsukt")
-hue_variation_min = -1.0
-hue_variation_max = 1.0
 anim_offset_max = 1.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vxp1e"]
@@ -45,6 +43,7 @@ draw_pass_1 = SubResource("PlaneMesh_vxp1e")
 script = ExtResource("2_3tpaw")
 textures = Array[Material]([ExtResource("3_4hrha"), ExtResource("4_feuc6"), ExtResource("5_l83gr")])
 filledTexture = ExtResource("3_4hrha")
+trueColor = Color(0.776471, 0.286275, 0.882353, 1)
 
 [node name="SmellBox" type="Area3D" parent="."]
 top_level = true
