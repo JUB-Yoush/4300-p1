@@ -20,3 +20,7 @@ tonemap_mode = 2
 environment = SubResource("Environment_gctki")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="Label3D" type="Label3D" parent="Camera3D"]
+transform = Transform3D(0.824867, 0, 0.565327, 0, 1, 0, -0.565327, 0, 0.824867, 0, 0, -1.14752)
+text = "The ramifications of P5"
