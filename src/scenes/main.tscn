@@ -55,11 +55,11 @@ navigation_mesh = SubResource("NavigationMesh_rr2wm")
 [node name="Walls" type="StaticBody3D" parent="Level/NavigationRegion3D/Walls"]
 
 [node name="Wall" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 1.5, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 1.5, 2)
 size = Vector3(2, 3, 0.1)
 
 [node name="Door" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 1.5, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 1.5, -2)
 size = Vector3(2, 3, 0.1)
 
 [node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door"]
@@ -67,11 +67,189 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 operation = 2
 size = Vector3(1, 4, 1)
 
+[node name="Door23" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 1.5, -2)
+size = Vector3(4, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door23"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Window" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 1.5, 2)
+size = Vector3(2, 3, 0.1)
+
+[node name="WindowCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Window"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+operation = 2
+
+[node name="Window2" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1.5, -32)
+size = Vector3(2, 3, 0.1)
+
+[node name="WindowCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Window2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+operation = 2
+
+[node name="DoubleDoor" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 1.5, -2)
+size = Vector3(4, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/DoubleDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(2, 4, 1)
+
+[node name="DoubleDoor2" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, 1.5, 0)
+size = Vector3(4, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/DoubleDoor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(2, 4, 1)
+
+[node name="DoubleDoor3" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15, 1.5, 0)
+size = Vector3(4, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/DoubleDoor3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(2, 4, 1)
+
 [node name="Door2" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, -2)
 size = Vector3(2, 3, 0.1)
 
 [node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door6" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.5, -18)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door7" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, -22)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door17" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -22)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door5" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 1.5, -7)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door16" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11, 1.5, -25)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door18" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12, 1.5, -32)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door19" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15, 1.5, -29)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door20" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 26, 1.5, -22)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door4" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 1.5, -18)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door21" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 37, 1.5, -23)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door22" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 49, 1.5, -30)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door32" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 49, 1.5, -15)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door32"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door26" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 53, 1.5, -25)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door26"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door24" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 73, 1.5, -28)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door24"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 operation = 2
 size = Vector3(1, 4, 1)
@@ -85,9 +263,213 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 operation = 2
 size = Vector3(1, 4, 1)
 
+[node name="Door8" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 1.5, 17)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door10" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6, 1.5, 22)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door11" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 14, 1.5, 16)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door15" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 27, 1.5, 16)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door33" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 40, 1.5, 10)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door33"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door36" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 50, 1.5, 10)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door36"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door12" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 13, 1.5, 27)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door9" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 1.5, 7)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
 [node name="Wall6" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-07, 1.5, 2)
 size = Vector3(10, 3, 0.1)
+
+[node name="Wall36" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.5, 12)
+size = Vector3(8, 3, 0.1)
+
+[node name="Wall28" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 1.5, 7)
+size = Vector3(10, 3, 0.1)
+
+[node name="Wall37" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 1.5, 10)
+size = Vector3(4, 3, 0.1)
+
+[node name="Wall38" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 1.5, 4)
+size = Vector3(4, 3, 0.1)
+
+[node name="Wall29" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -9, 1.5, 12)
+size = Vector3(12, 3, 0.1)
+
+[node name="Wall32" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -3, 1.5, 14)
+size = Vector3(4, 3, 0.1)
+
+[node name="Wall33" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -3, 1.5, 20)
+size = Vector3(4, 3, 0.1)
+
+[node name="Wall34" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 1, 1.5, 22)
+size = Vector3(8, 3, 0.1)
+
+[node name="Wall43" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 17, 1.5, 24)
+size = Vector3(8, 3, 0.1)
+
+[node name="Wall49" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 27, 1.5, 24)
+size = Vector3(12, 3, 0.1)
+
+[node name="Wall40" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 8, 1.5, 22)
+size = Vector3(2, 3, 0.1)
+
+[node name="Wall39" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 9, 1.5, 27)
+size = Vector3(10, 3, 0.1)
+
+[node name="Wall41" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 13, 1.5, 21)
+size = Vector3(10, 3, 0.1)
+
+[node name="Wall44" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 13, 1.5, 30)
+size = Vector3(4, 3, 0.1)
+
+[node name="Door13" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 21, 1.5, 27)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Wall45" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 21, 1.5, 21)
+size = Vector3(10, 3, 0.1)
+
+[node name="Wall46" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 21, 1.5, 30)
+size = Vector3(4, 3, 0.1)
+
+[node name="Door14" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 33, 1.5, 27)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door27" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 37, 1.5, 21)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door27"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door28" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 68, 1.5, 16)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door28"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Wall47" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 33, 1.5, 21)
+size = Vector3(10, 3, 0.1)
+
+[node name="Wall88" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 37, 1.5, 27)
+size = Vector3(10, 3, 0.1)
+
+[node name="Wall89" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 37, 1.5, 18)
+size = Vector3(4, 3, 0.1)
+
+[node name="Wall87" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 71, 1.5, 24)
+size = Vector3(16, 3, 0.1)
+
+[node name="Wall97" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 81, 1.5, 23)
+size = Vector3(18, 3, 0.1)
+
+[node name="Wall93" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 65, 1, 24)
+size = Vector3(8, 2, 0.1)
+
+[node name="Wall94" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 4.37114e-08, 2.18557e-07, -2.18557e-07, -4.37114e-08, -1, -4.37114e-08, -1, 4.37114e-08, 51, 0.5, 24)
+size = Vector3(20, 7, 1)
+
+[node name="Wall48" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 33, 1.5, 30)
+size = Vector3(4, 3, 0.1)
 
 [node name="Wall4" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, -2)
@@ -97,13 +479,362 @@ size = Vector3(4, 3, 0.1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5, -2)
 size = Vector3(4, 3, 0.1)
 
+[node name="Wall23" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5, -12)
+size = Vector3(4, 3, 0.1)
+
+[node name="Wall12" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 1.5, -7)
+size = Vector3(10, 3, 0.1)
+
+[node name="Wall52" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 1.5, -17)
+size = Vector3(10, 3, 0.1)
+
+[node name="Wall18" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 1.5, -4)
+size = Vector3(4, 3, 0.1)
+
+[node name="Wall19" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 1.5, -10)
+size = Vector3(4, 3, 0.1)
+
+[node name="Wall54" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 1.5, -14)
+size = Vector3(4, 3, 0.1)
+
+[node name="Wall55" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 1.5, -20)
+size = Vector3(4, 3, 0.1)
+
 [node name="Wall10" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
 transform = Transform3D(1.33118e-07, 0, 1, 0, 1, 0, -1, 0, 1.33118e-07, 15, 1.5, 6)
 size = Vector3(8, 3, 0.1)
 
 [node name="Wall11" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
-transform = Transform3D(1.33118e-07, 0, 1, 0, 1, 0, -1, 0, 1.33118e-07, 15, 1.5, -6)
+transform = Transform3D(1.33118e-07, 0, 1, 0, 1, 0, -1, 0, 1.33118e-07, 15, 1.5, -10)
+size = Vector3(16, 3, 0.1)
+
+[node name="DoubleDoor4" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 37, 1.5, 0)
+size = Vector3(4, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/DoubleDoor4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(2, 4, 1)
+
+[node name="DoubleDoor6" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 63, 1.5, -16)
+size = Vector3(4, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/DoubleDoor6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(2, 4, 1)
+
+[node name="DoubleDoor5" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 53, 1.5, 16)
+size = Vector3(4, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/DoubleDoor5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(2, 4, 1)
+
+[node name="Wall15" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1.33118e-07, 0, 1, 0, 1, 0, -1, 0, 1.33118e-07, 37, 1.5, 6)
 size = Vector3(8, 3, 0.1)
+
+[node name="Wall16" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1.33118e-07, 0, 1, 0, 1, 0, -1, 0, 1.33118e-07, 37, 1.5, -10)
+size = Vector3(16, 3, 0.1)
+
+[node name="Wall85" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 47, 1.5, -4)
+size = Vector3(8, 3, 0.1)
+
+[node name="Wall117" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 50, 1.5, -14)
+size = Vector3(2, 3, 0.1)
+
+[node name="Wall102" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 40, 1.5, -6)
+size = Vector3(6, 3, 0.1)
+
+[node name="Wall103" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 40, 1.5, 6)
+size = Vector3(6, 3, 0.1)
+
+[node name="Wall109" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 38, 1.5, 10)
+size = Vector3(2, 3, 0.1)
+
+[node name="Wall110" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 42, 1.5, 10)
+size = Vector3(2, 3, 0.1)
+
+[node name="Wall104" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(4.56956e-08, 0, 1, 0, 1, 0, -1, 0, 4.56956e-08, 43, 1.5, 5)
+size = Vector3(2, 3, 0.1)
+
+[node name="Wall108" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(4.56956e-08, 0, 1, 0, 1, 0, -1, 0, 4.56956e-08, 43, 1.5, 8)
+size = Vector3(4, 3, 0.1)
+
+[node name="Wall120" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(4.56956e-08, 0, 1, 0, 1, 0, -1, 0, 4.56956e-08, 57, 1.5, 7)
+size = Vector3(6, 3, 0.1)
+
+[node name="Wall105" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(4.56956e-08, 0, 1, 0, 1, 0, -1, 0, 4.56956e-08, 43, 1.5, -5)
+size = Vector3(2, 3, 0.1)
+
+[node name="Wall86" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 50, 1.5, 4)
+size = Vector3(14, 3, 0.1)
+
+[node name="Wall118" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 46, 1.5, 10)
+size = Vector3(6, 3, 0.1)
+
+[node name="Wall119" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 54, 1.5, 10)
+size = Vector3(6, 3, 0.1)
+
+[node name="Wall90" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 44, 1.5, 16)
+size = Vector3(14, 3, 0.1)
+
+[node name="Wall91" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 61, 1.5, 16)
+size = Vector3(12, 3, 0.1)
+
+[node name="Wall92" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 70, 1.5, 16)
+size = Vector3(2, 3, 0.1)
+
+[node name="Wall98" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 76, 1.5, 10)
+size = Vector3(10, 3, 0.1)
+
+[node name="Wall101" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 76, 1.5, -4)
+size = Vector3(10, 3, 0.1)
+
+[node name="Wall114" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 74, 1.5, -16)
+size = Vector3(6, 3, 0.1)
+
+[node name="Wall115" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 80, 1.5, -16)
+size = Vector3(2, 3, 0.1)
+
+[node name="Wall99" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1.33118e-07, 0, -1, 0, 1, 0, 1, 0, -1.33118e-07, 71, 1.5, 7)
+size = Vector3(6, 3, 0.1)
+
+[node name="Wall100" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1.33118e-07, 0, -1, 0, 1, 0, 1, 0, -1.33118e-07, 71, 1.5, -1)
+size = Vector3(6, 3, 0.1)
+
+[node name="Wall112" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1.33118e-07, 0, -1, 0, 1, 0, 1, 0, -1.33118e-07, 71, 1.5, -7)
+size = Vector3(6, 3, 0.1)
+
+[node name="Wall113" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1.33118e-07, 0, -1, 0, 1, 0, 1, 0, -1.33118e-07, 71, 1.5, -14)
+size = Vector3(4, 3, 0.1)
+
+[node name="Door29" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 76, 1.5, 24)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door29"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door30" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 81, 1.5, 13)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door30"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door31" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 71, 1.5, 3)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door31"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door35" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 78, 1.5, -16)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door35"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Door34" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 71, 1.5, -11)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door34"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Wall95" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 79, 1.5, 24)
+size = Vector3(4, 3, 0.1)
+
+[node name="Wall96" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 73, 1.5, 24)
+size = Vector3(4, 3, 0.1)
+
+[node name="Wall13" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -1.76829e-07, 0, 1, 0, 1.76829e-07, 0, 1, 20, 1.5, -18)
+size = Vector3(10, 3, 0.1)
+
+[node name="Wall51" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -1.76829e-07, 0, 1, 0, 1.76829e-07, 0, 1, 20, 1.5, -22)
+size = Vector3(10, 3, 0.1)
+
+[node name="Wall64" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -1.76829e-07, 0, 1, 0, 1.76829e-07, 0, 1, 29.5, 1.5, -22)
+size = Vector3(5, 3, 0.1)
+
+[node name="Wall53" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -1.76829e-07, 0, 1, 0, 1.76829e-07, 0, 1, 8, 1.5, -22)
+size = Vector3(6, 3, 0.1)
+
+[node name="Wall56" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -1.76829e-07, 0, 1, 0, 1.76829e-07, 0, 1, 3, 1.5, -22)
+size = Vector3(4, 3, 0.1)
+
+[node name="Wall17" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -1.76829e-07, 0, 1, 0, 1.76829e-07, 0, 1, 26, 1.5, 10)
+size = Vector3(22, 3, 0.1)
+
+[node name="Wall35" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -1.76829e-07, 0, 1, 0, 1.76829e-07, 0, 1, 20.5, 1.5, 16)
+size = Vector3(11, 3, 0.1)
+
+[node name="Wall50" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -1.76829e-07, 0, 1, 0, 1.76829e-07, 0, 1, 30.5, 1.5, 16)
+size = Vector3(5, 3, 0.1)
+
+[node name="Wall14" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -1.76829e-07, 0, 1, 0, 1.76829e-07, 0, 1, 32, 1.5, -18)
+size = Vector3(10, 3, 0.1)
+
+[node name="Wall67" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -1.76829e-07, 0, 1, 0, 1.76829e-07, 0, 1, 43, 1.5, -18)
+size = Vector3(12, 3, 0.1)
+
+[node name="Wall70" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.20541e-07, 0, -1, 0, 1, 0, 1, 0, -2.20541e-07, 49, 1.5, -23)
+size = Vector3(10, 3, 0.1)
+
+[node name="Wall106" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.20541e-07, 0, -1, 0, 1, 0, 1, 0, -2.20541e-07, 51, 1.5, -9)
+size = Vector3(10, 3, 0.1)
+
+[node name="Wall107" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.20541e-07, 0, -1, 0, 1, 0, 1, 0, -2.20541e-07, 49, 1.5, -17)
+size = Vector3(2, 3, 0.1)
+
+[node name="Wall83" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.20541e-07, 0, -1, 0, 1, 0, 1, 0, -2.20541e-07, 53, 1.5, -29)
+size = Vector3(6, 3, 0.1)
+
+[node name="Wall84" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.20541e-07, 0, -1, 0, 1, 0, 1, 0, -2.20541e-07, 53, 1.5, -20)
+size = Vector3(8, 3, 0.1)
+
+[node name="Wall111" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 2.64252e-07, 0, 1, 0, -2.64252e-07, 0, -1, 57, 1.5, -16)
+size = Vector3(8, 3, 0.1)
+
+[node name="Wall116" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 2.64252e-07, 0, 1, 0, -2.64252e-07, 0, -1, 68, 1.5, -16)
+size = Vector3(6, 3, 0.1)
+
+[node name="Wall72" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.20541e-07, 0, -1, 0, 1, 0, 1, 0, -2.20541e-07, 49, 1.5, -31.5)
+size = Vector3(1, 3, 0.1)
+
+[node name="Wall73" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.20541e-07, 0, -1, 0, 1, 0, 1, 0, -2.20541e-07, 49, 1.5, -28.5)
+size = Vector3(1, 3, 0.1)
+
+[node name="Wall68" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.20541e-07, 0, -1, 0, 1, 0, 1, 0, -2.20541e-07, 37, 1.5, -20)
+size = Vector3(4, 3, 0.1)
+
+[node name="Wall69" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.20541e-07, 0, -1, 0, 1, 0, 1, 0, -2.20541e-07, 37, 1.5, -26)
+size = Vector3(4, 3, 0.1)
+
+[node name="Wall66" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -1.76829e-07, 0, 1, 0, 1.76829e-07, 0, 1, 43, 1.5, -28)
+size = Vector3(12, 3, 0.1)
+
+[node name="Wall71" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.20541e-07, 0, -1, 0, 1, 0, 1, 0, -2.20541e-07, 69, 1.5, -30)
+size = Vector3(4, 3, 0.1)
+
+[node name="Wall82" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.20541e-07, 0, -1, 0, 1, 0, 1, 0, -2.20541e-07, 61, 1.5, -30)
+size = Vector3(4, 3, 0.1)
+
+[node name="Wall75" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 2.64252e-07, 0, 1, 0, -2.64252e-07, 0, -1, 69, 1.5, -28)
+size = Vector3(4, 3, 0.1)
+
+[node name="Wall77" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 2.64252e-07, 0, 1, 0, -2.64252e-07, 0, -1, 71.5, 1.5, -28)
+size = Vector3(1, 3, 0.1)
+
+[node name="Wall78" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 2.64252e-07, 0, 1, 0, -2.64252e-07, 0, -1, 74.5, 1.5, -28)
+size = Vector3(1, 3, 0.1)
+
+[node name="Door25" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 65, 1.5, -28)
+size = Vector3(2, 3, 0.1)
+
+[node name="DoorCut" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Door25"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+size = Vector3(1, 4, 1)
+
+[node name="Wall79" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 2.64252e-07, 0, 1, 0, -2.64252e-07, 0, -1, 63.5, 1.5, -28)
+size = Vector3(1, 3, 0.1)
+
+[node name="Wall80" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 2.64252e-07, 0, 1, 0, -2.64252e-07, 0, -1, 66.5, 1.5, -28)
+size = Vector3(1, 3, 0.1)
+
+[node name="Wall76" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 2.64252e-07, 0, 1, 0, -2.64252e-07, 0, -1, 76, 1.5, -28)
+size = Vector3(2, 3, 0.1)
+
+[node name="Wall81" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 2.64252e-07, 0, 1, 0, -2.64252e-07, 0, -1, 62, 1.5, -28)
+size = Vector3(2, 3, 0.1)
+
+[node name="Wall74" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-2.20541e-07, 0, -1, 0, 1, 0, 1, 0, -2.20541e-07, 77, 1.5, -30)
+size = Vector3(4, 3, 0.1)
 
 [node name="Wall7" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.5, -8)
@@ -113,9 +844,81 @@ size = Vector3(6, 3, 0.1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 1.5, -8)
 size = Vector3(4, 3, 0.1)
 
+[node name="Wall21" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.5, -18)
+size = Vector3(6, 3, 0.1)
+
+[node name="Wall22" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 1.5, -18)
+size = Vector3(4, 3, 0.1)
+
+[node name="Wall24" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -12, 1.5, -22)
+size = Vector3(6, 3, 0.1)
+
+[node name="Wall25" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4, 1.5, -22)
+size = Vector3(6, 3, 0.1)
+
 [node name="Wall5" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 1.5, -5)
 size = Vector3(6, 3, 0.1)
+
+[node name="Wall42" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 1.5, -13)
+size = Vector3(10, 3, 0.1)
+
+[node name="Wall20" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 1.5, -17)
+size = Vector3(30, 3, 0.1)
+
+[node name="Wall62" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 1.5, 17)
+size = Vector3(30, 3, 0.1)
+
+[node name="Wall31" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 81, 1.5, -10)
+size = Vector3(44, 3, 0.1)
+
+[node name="Wall30" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 33, 1.5, 32)
+size = Vector3(96, 3, 0.1)
+
+[node name="Wall26" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 1.5, -27)
+size = Vector3(10, 3, 0.1)
+
+[node name="Wall57" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11, 1.5, -29)
+size = Vector3(6, 3, 0.1)
+
+[node name="Wall59" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 1.5, -25)
+size = Vector3(6, 3, 0.1)
+
+[node name="Wall61" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22, 1.5, -27)
+size = Vector3(10, 3, 0.1)
+
+[node name="Wall65" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 32, 1.5, -27)
+size = Vector3(10, 3, 0.1)
+
+[node name="Wall60" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 1.5, -31)
+size = Vector3(2, 3, 0.1)
+
+[node name="Wall58" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11, 1.5, -23)
+size = Vector3(2, 3, 0.1)
+
+[node name="Wall27" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 48, 1.5, -32)
+size = Vector3(66, 3, 0.1)
+
+[node name="Wall63" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -2, 1.5, -32)
+size = Vector3(26, 3, 0.1)
 
 [node name="Wall2" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1.5, 2)
@@ -172,19 +975,23 @@ curve = SubResource("Curve3D_5dlwx")
 
 [node name="Ghost" parent="." instance=ExtResource("4_dbro3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23913, 2.04144, 16.0537)
+visible = false
 
 [node name="GhostSmellTrail" parent="Ghost" instance=ExtResource("5_2lg1k")]
 
 [node name="SmellItem" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9916, 3, -29.3629)
+visible = false
 Data = ExtResource("6_dbro3")
 
 [node name="SmellItem2" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1649, 3, -29.3629)
+visible = false
 Data = ExtResource("6_dbro3")
 
 [node name="SmellItem3" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8844, 3, -29.3629)
+visible = false
 Data = ExtResource("6_dbro3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
