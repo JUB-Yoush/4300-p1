@@ -1,19 +1,19 @@
 [gd_scene load_steps=19 format=3 uid="uid://g7n5fr4dkqkq"]
 
-[ext_resource type="PackedScene" uid="uid://dbuna14812w75" path="res://src/entities/player/player.tscn" id="1_xab5p"]
-[ext_resource type="Texture2D" uid="uid://cmckexeyiwia3" path="res://assets/textures/greybox/texture_09.png" id="2_rr2wm"]
-[ext_resource type="Material" uid="uid://ca7fcqbi174j6" path="res://assets/Materials/Particles/AllShapes.tres" id="3_5lsyw"]
-[ext_resource type="Script" uid="uid://ckh15og5edo8q" path="res://src/entities/particles/GpuParticles3d.cs" id="4_o81g6"]
-[ext_resource type="Material" uid="uid://c8detkvdf8fht" path="res://assets/Materials/Particles/AllShapesFilled.tres" id="5_5lsyw"]
-[ext_resource type="Material" uid="uid://dioiwjqmyaie2" path="res://assets/Materials/Particles/TriangleCircleFilled.tres" id="6_kokaf"]
-[ext_resource type="Material" uid="uid://rnrrlraj356f" path="res://assets/Materials/Particles/TriangleFinal.tres" id="7_24j03"]
-[ext_resource type="Script" uid="uid://bs7lkd3lcux16" path="res://src/entities/particles/SmellBox.cs" id="8_wsf8e"]
+[ext_resource type="PackedScene" uid="uid://dbuna14812w75" path="res://src/entities/player/player.tscn" id="1_ncamg"]
+[ext_resource type="Texture2D" uid="uid://cmckexeyiwia3" path="res://assets/textures/greybox/texture_09.png" id="2_wlywi"]
+[ext_resource type="Material" uid="uid://ca7fcqbi174j6" path="res://assets/Materials/Particles/AllShapes.tres" id="3_0nyk6"]
+[ext_resource type="Script" uid="uid://ckh15og5edo8q" path="res://src/entities/particles/GpuParticles3d.cs" id="4_spfqq"]
+[ext_resource type="Material" uid="uid://c8detkvdf8fht" path="res://assets/Materials/Particles/AllShapesFilled.tres" id="5_tg0va"]
+[ext_resource type="Material" uid="uid://dioiwjqmyaie2" path="res://assets/Materials/Particles/TriangleCircleFilled.tres" id="6_cg710"]
+[ext_resource type="Material" uid="uid://rnrrlraj356f" path="res://assets/Materials/Particles/TriangleFinal.tres" id="7_bnyda"]
+[ext_resource type="Script" uid="uid://bs7lkd3lcux16" path="res://src/entities/particles/SmellBox.cs" id="8_oyaqg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1fxj6"]
 size = Vector3(60, 2, 60)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fxj6"]
-albedo_texture = ExtResource("2_rr2wm")
+albedo_texture = ExtResource("2_wlywi")
 uv1_scale = Vector3(25, 25, 25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_kkvs4"]
@@ -49,14 +49,14 @@ anim_offset_max = 1.0
 turbulence_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_5dlwx"]
-material = ExtResource("3_5lsyw")
+material = ExtResource("3_0nyk6")
 orientation = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dbro3"]
 
 [node name="Main" type="Node"]
 
-[node name="Player" parent="." instance=ExtResource("1_xab5p")]
+[node name="Player" parent="." instance=ExtResource("1_ncamg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00123, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -79,13 +79,13 @@ lifetime = 3.0
 randomness = 0.5
 process_material = SubResource("ParticleProcessMaterial_lp058")
 draw_pass_1 = SubResource("PlaneMesh_5dlwx")
-script = ExtResource("4_o81g6")
-textures = Array[Material]([ExtResource("5_5lsyw"), ExtResource("6_kokaf"), ExtResource("7_24j03")])
-filledTexture = ExtResource("5_5lsyw")
+script = ExtResource("4_spfqq")
+textures = Array[Material]([ExtResource("5_tg0va"), ExtResource("6_cg710"), ExtResource("7_bnyda")])
+filledTexture = ExtResource("5_tg0va")
 
 [node name="SmellBox" type="Area3D" parent="GhostSmellTrail"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-script = ExtResource("8_wsf8e")
+script = ExtResource("8_oyaqg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GhostSmellTrail/SmellBox"]
 shape = SubResource("BoxShape3D_dbro3")
