@@ -119,7 +119,6 @@ public partial class Ghost : CharacterBody3D
 
     public override void _PhysicsProcess(double delta)
     {
-        GD.Print(CurrentState);
         switch (CurrentState)
         {
             case State.PATROL:
@@ -147,7 +146,6 @@ public partial class Ghost : CharacterBody3D
                     {
                         if (ContinueLookingTimer.IsStopped())
                         {
-                            GD.Print("looking");
                             ContinueLookingTimer.Start(2);
                         }
                         break;
