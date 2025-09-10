@@ -9,6 +9,7 @@ albedo_color = Color(0.713726, 0.12549, 0.12549, 1)
 material = SubResource("StandardMaterial3D_32aa5")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_32aa5"]
+radius = 0.341946
 
 [sub_resource type="Curve3D" id="Curve3D_85ccs"]
 

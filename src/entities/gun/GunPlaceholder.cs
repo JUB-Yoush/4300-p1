@@ -4,7 +4,7 @@ using Godot;
 
 public partial class GunPlaceholder : Node3D
 {
-    string bulletPath = "res://src/scenes/scent_projectile.tscn";
+    string bulletPath = "res://src/entities/scent_projectile/scent_projectile.tscn";
     PackedScene packedScene;
     public required AnimationPlayer AnimPlayer;
 

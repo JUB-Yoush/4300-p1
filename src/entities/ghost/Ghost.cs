@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ public partial class Ghost : CharacterBody3D
     public required Player Player;
     public List<Vector3> PatrolRoute = [];
     public required Timer TrailCreationTimer;
+    Timer ContinueLookingTimer = null!;
 
     int CurrPoint = 0;
 
@@ -31,11 +33,13 @@ public partial class Ghost : CharacterBody3D
     public required Path3D TrailPath;
     public required Node3D TrailPoints;
     public required CollisionPolygon3D TrailCollider;
-    private List<Vector2> TrailBoxPoints = new List<Vector2>();
-    private List<Vector2> TrailBoxPointsLeft = new List<Vector2>();
-    private List<Vector2> TrailBoxPointsRight = new List<Vector2>();
+    private List<Vector2> TrailBoxPoints = [];
+    private List<Vector2> TrailBoxPointsLeft = [];
+    private List<Vector2> TrailBoxPointsRight = [];
 
     const float POINT_ROUNDING_THRESHOLD = 0.1f;
+    const float TELEPORT_DIST_THRESHOLD = 25f;
+    const float ATTACK_RANGE = 2f;
     const int MAX_TRAIL_POINTS = 10;
 
     public override void _Ready()
@@ -49,12 +53,21 @@ public partial class Ghost : CharacterBody3D
         PlayerDetectionRay = GetNode<RayCast3D>("RayCast3D");
         Player = GetNode<Player>("../Player");
         TrailCreationTimer = new Timer();
+        ContinueLookingTimer = new Timer();
         AddChild(TrailCreationTimer);
-        //TrailCreationTimer.Timeout += UpdateTrailCurve;
+        AddChild(ContinueLookingTimer);
         TrailCreationTimer.Timeout += UpdateTrailBox;
+        ContinueLookingTimer.Timeout += SetToPatrol;
+
         TrailCreationTimer.OneShot = false;
         TrailCreationTimer.Start(1);
         CurrentState = State.PATROL;
+    }
+
+    public void SetToPatrol()
+    {
+        CurrentState = State.PATROL;
+        UpdateTargetLocation(PatrolRoute[GetClosestPointIndex()]);
     }
 
     public void RenderTrail()
@@ -83,8 +96,14 @@ public partial class Ghost : CharacterBody3D
     public void UpdateTrailBox()
     {
         var direction = Velocity.Normalized();
-        TrailBoxPointsLeft.Add(new Vector2(GlobalTransform.Origin.X, GlobalTransform.Origin.Z) + new Vector2(-direction.Z, direction.X).Normalized());
-        TrailBoxPointsRight.Add(new Vector2(GlobalTransform.Origin.X, GlobalTransform.Origin.Z) + new Vector2(direction.Z, -direction.X).Normalized());
+        TrailBoxPointsLeft.Add(
+            new Vector2(GlobalTransform.Origin.X, GlobalTransform.Origin.Z)
+                + new Vector2(-direction.Z, direction.X).Normalized()
+        );
+        TrailBoxPointsRight.Add(
+            new Vector2(GlobalTransform.Origin.X, GlobalTransform.Origin.Z)
+                + new Vector2(direction.Z, -direction.X).Normalized()
+        );
 
         if (TrailBoxPointsLeft.Count >= MAX_TRAIL_POINTS)
         {
@@ -98,7 +117,24 @@ public partial class Ghost : CharacterBody3D
         for (int i = TrailBoxPointsRight.Count - 1; i >= 0; i--)
             TrailBoxPoints.Add(TrailBoxPointsRight[i]);
         TrailCollider.Polygon = null;
-        TrailCollider.Polygon = TrailBoxPoints.ToArray();
+        TrailCollider.Polygon = [.. TrailBoxPoints];
+    }
+
+    public void Teleport()
+    {
+        var rng = new Random();
+        var newSpot = PatrolRoute[rng.Next(0, PatrolRoute.Count)];
+        // TODO fix
+        // while (Math.Abs((newSpot - GlobalPosition).Length()) < TELEPORT_DIST_THRESHOLD)
+        // {
+        //     GD.Print(Math.Abs((newSpot - GlobalPosition).Length()));
+        //     newSpot = PatrolRoute[rng.Next(0, PatrolRoute.Count)];
+        // }
+
+        CurrentState = State.PATROL;
+        GlobalPosition = newSpot;
+        CurrPoint = PatrolRoute.IndexOf(newSpot);
+        UpdateTargetLocation(PatrolRoute[CurrPoint]);
     }
 
     public override void _PhysicsProcess(double delta)
@@ -128,15 +164,27 @@ public partial class Ghost : CharacterBody3D
                 {
                     if (!CanSeePlayer())
                     {
-                        CurrentState = State.PATROL;
-                        UpdateTargetLocation(PatrolRoute[GetClosestPointIndex()]);
+                        if (ContinueLookingTimer.IsStopped())
+                        {
+                            ContinueLookingTimer.Start(2);
+                        }
                         break;
+                    }
+                    if (Math.Abs((GlobalPosition - Player.GlobalPosition).Length()) <= ATTACK_RANGE)
+                    {
+                        Attack();
+                        Teleport();
                     }
                     UpdateTargetLocation(Player.GlobalTransform.Origin);
                 }
                 break;
         }
         Move();
+    }
+
+    public void Attack()
+    {
+        GD.Print("you got slimed");
     }
 
     public void Move()
