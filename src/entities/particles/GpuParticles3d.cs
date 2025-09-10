@@ -9,15 +9,33 @@ public partial class GpuParticles3d : GpuParticles3D
     private Material[] textures;
     [Export]
     private Material filledTexture;
+    [Export]
+    private Color trueColor;
     public async void _SimplifyColour()
     {
         ParticleProcessMaterial mat = GD.Load<ParticleProcessMaterial>(ProcessMaterial.ResourcePath);
-        while (mat.HueVariationMax > 0)
+        while (mat.Color.R < trueColor.R)
         {
             await Task.Delay(20);
-            mat.HueVariationMax -= 0.01f;
-            mat.HueVariationMin += 0.01f;
+            mat.Color = new Color(mat.Color.R + (trueColor.R/100),mat.Color.G + (trueColor.G/100), mat.Color.B + (trueColor.B/100), 1);
         }
+    }
+
+    //Hue Variation Color Mode//
+    // public async void _SimplifyColour()
+    // {
+    //     ParticleProcessMaterial mat = GD.Load<ParticleProcessMaterial>(ProcessMaterial.ResourcePath);
+    //     while (mat.HueVariationMax > 0)
+    //     {
+    //         await Task.Delay(20);
+    //         mat.HueVariationMax -= 0.01f;
+    //         mat.HueVariationMin += 0.01f;
+    //     }
+    // }
+
+    public override void _PhysicsProcess(double delta)
+    {
+        base._PhysicsProcess(delta);
     }
 
     public async void _SimplifyShape()

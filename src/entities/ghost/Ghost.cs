@@ -50,7 +50,7 @@ public partial class Ghost : CharacterBody3D
         Player = GetNode<Player>("../Player");
         TrailCreationTimer = new Timer();
         AddChild(TrailCreationTimer);
-        TrailCreationTimer.Timeout += UpdateTrailCurve;
+        //TrailCreationTimer.Timeout += UpdateTrailCurve;
         TrailCreationTimer.Timeout += UpdateTrailBox;
         TrailCreationTimer.OneShot = false;
         TrailCreationTimer.Start(1);
