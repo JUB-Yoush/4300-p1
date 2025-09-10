@@ -24,6 +24,7 @@ public partial class Ghost : CharacterBody3D
     public required Player Player;
     public List<Vector3> PatrolRoute = [];
     public required Timer TrailCreationTimer;
+    Timer ContinueLookingTimer = null!;
 
     int CurrPoint = 0;
 
@@ -31,9 +32,9 @@ public partial class Ghost : CharacterBody3D
     public required Path3D TrailPath;
     public required Node3D TrailPoints;
     public required CollisionPolygon3D TrailCollider;
-    private List<Vector2> TrailBoxPoints = new List<Vector2>();
-    private List<Vector2> TrailBoxPointsLeft = new List<Vector2>();
-    private List<Vector2> TrailBoxPointsRight = new List<Vector2>();
+    private List<Vector2> TrailBoxPoints = [];
+    private List<Vector2> TrailBoxPointsLeft = [];
+    private List<Vector2> TrailBoxPointsRight = [];
 
     const float POINT_ROUNDING_THRESHOLD = 0.1f;
     const int MAX_TRAIL_POINTS = 10;
@@ -49,12 +50,21 @@ public partial class Ghost : CharacterBody3D
         PlayerDetectionRay = GetNode<RayCast3D>("RayCast3D");
         Player = GetNode<Player>("../Player");
         TrailCreationTimer = new Timer();
+        ContinueLookingTimer = new Timer();
         AddChild(TrailCreationTimer);
-        //TrailCreationTimer.Timeout += UpdateTrailCurve;
+        AddChild(ContinueLookingTimer);
         TrailCreationTimer.Timeout += UpdateTrailBox;
+        ContinueLookingTimer.Timeout += SetToPatrol;
+
         TrailCreationTimer.OneShot = false;
         TrailCreationTimer.Start(1);
         CurrentState = State.PATROL;
+    }
+
+    public void SetToPatrol()
+    {
+        CurrentState = State.PATROL;
+        UpdateTargetLocation(PatrolRoute[GetClosestPointIndex()]);
     }
 
     public void RenderTrail()
@@ -83,8 +93,14 @@ public partial class Ghost : CharacterBody3D
     public void UpdateTrailBox()
     {
         var direction = Velocity.Normalized();
-        TrailBoxPointsLeft.Add(new Vector2(GlobalTransform.Origin.X, GlobalTransform.Origin.Z) + new Vector2(-direction.Z, direction.X).Normalized());
-        TrailBoxPointsRight.Add(new Vector2(GlobalTransform.Origin.X, GlobalTransform.Origin.Z) + new Vector2(direction.Z, -direction.X).Normalized());
+        TrailBoxPointsLeft.Add(
+            new Vector2(GlobalTransform.Origin.X, GlobalTransform.Origin.Z)
+                + new Vector2(-direction.Z, direction.X).Normalized()
+        );
+        TrailBoxPointsRight.Add(
+            new Vector2(GlobalTransform.Origin.X, GlobalTransform.Origin.Z)
+                + new Vector2(direction.Z, -direction.X).Normalized()
+        );
 
         if (TrailBoxPointsLeft.Count >= MAX_TRAIL_POINTS)
         {
@@ -98,11 +114,12 @@ public partial class Ghost : CharacterBody3D
         for (int i = TrailBoxPointsRight.Count - 1; i >= 0; i--)
             TrailBoxPoints.Add(TrailBoxPointsRight[i]);
         TrailCollider.Polygon = null;
-        TrailCollider.Polygon = TrailBoxPoints.ToArray();
+        TrailCollider.Polygon = [.. TrailBoxPoints];
     }
 
     public override void _PhysicsProcess(double delta)
     {
+        GD.Print(CurrentState);
         switch (CurrentState)
         {
             case State.PATROL:
@@ -128,8 +145,11 @@ public partial class Ghost : CharacterBody3D
                 {
                     if (!CanSeePlayer())
                     {
-                        CurrentState = State.PATROL;
-                        UpdateTargetLocation(PatrolRoute[GetClosestPointIndex()]);
+                        if (ContinueLookingTimer.IsStopped())
+                        {
+                            GD.Print("looking");
+                            ContinueLookingTimer.Start(2);
+                        }
                         break;
                     }
                     UpdateTargetLocation(Player.GlobalTransform.Origin);
