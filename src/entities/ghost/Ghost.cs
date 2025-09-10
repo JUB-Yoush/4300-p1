@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -37,6 +38,8 @@ public partial class Ghost : CharacterBody3D
     private List<Vector2> TrailBoxPointsRight = [];
 
     const float POINT_ROUNDING_THRESHOLD = 0.1f;
+    const float TELEPORT_DIST_THRESHOLD = 25f;
+    const float ATTACK_RANGE = 2f;
     const int MAX_TRAIL_POINTS = 10;
 
     public override void _Ready()
@@ -117,6 +120,23 @@ public partial class Ghost : CharacterBody3D
         TrailCollider.Polygon = [.. TrailBoxPoints];
     }
 
+    public void Teleport()
+    {
+        var rng = new Random();
+        var newSpot = PatrolRoute[rng.Next(0, PatrolRoute.Count)];
+        // TODO fix
+        // while (Math.Abs((newSpot - GlobalPosition).Length()) < TELEPORT_DIST_THRESHOLD)
+        // {
+        //     GD.Print(Math.Abs((newSpot - GlobalPosition).Length()));
+        //     newSpot = PatrolRoute[rng.Next(0, PatrolRoute.Count)];
+        // }
+
+        CurrentState = State.PATROL;
+        GlobalPosition = newSpot;
+        CurrPoint = PatrolRoute.IndexOf(newSpot);
+        UpdateTargetLocation(PatrolRoute[CurrPoint]);
+    }
+
     public override void _PhysicsProcess(double delta)
     {
         switch (CurrentState)
@@ -150,11 +170,21 @@ public partial class Ghost : CharacterBody3D
                         }
                         break;
                     }
+                    if (Math.Abs((GlobalPosition - Player.GlobalPosition).Length()) <= ATTACK_RANGE)
+                    {
+                        Attack();
+                        Teleport();
+                    }
                     UpdateTargetLocation(Player.GlobalTransform.Origin);
                 }
                 break;
         }
         Move();
+    }
+
+    public void Attack()
+    {
+        GD.Print("you got slimed");
     }
 
     public void Move()
