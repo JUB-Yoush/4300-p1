@@ -17,7 +17,7 @@ public partial class GpuParticles3d : GpuParticles3D
         while (mat.Color.R < trueColor.R)
         {
             await Task.Delay(20);
-            mat.Color = new Color(mat.Color.R + (trueColor.R/100),mat.Color.G + (trueColor.G/100), mat.Color.B + (trueColor.B/100), 1);
+            mat.Color = new Color(mat.Color.R + (trueColor.R / 100), mat.Color.G + (trueColor.G / 100), mat.Color.B + (trueColor.B / 100), 1);
         }
     }
 
@@ -50,5 +50,16 @@ public partial class GpuParticles3d : GpuParticles3D
     public void _SimplifyFill()
     {
         DrawPass1.SurfaceSetMaterial(0, filledTexture);
+    }
+    
+    public async void _SimplifySize()
+    {
+        ParticleProcessMaterial mat = GD.Load<ParticleProcessMaterial>(ProcessMaterial.ResourcePath);
+        while (mat.ScaleMax > 1.5f)
+        {
+            await Task.Delay(20);
+            mat.ScaleMax -= 0.01f;
+            mat.ScaleMin += 0.01f;
+        }
     }
 }
