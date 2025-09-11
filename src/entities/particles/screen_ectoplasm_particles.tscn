@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://clcy56run5kkh"]
+
+[sub_resource type="Curve" id="Curve_57tki"]
+_data = [Vector2(0, 0), 0.0, 4.22472, 0, 0, Vector2(0.183824, 1), 0.0, 0.0, 0, 0, Vector2(0.830882, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -18.3371, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_mr75m"]
+curve = SubResource("Curve_57tki")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l7g0c"]
+emission_shape = 2
+emission_sphere_radius = 1.5
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_mr75m")
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+sub_emitter_keep_velocity = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lsy0q"]
+albedo_color = Color(0.439216, 1, 0.415686, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_3mwmj"]
+material = SubResource("StandardMaterial3D_lsy0q")
+
+[sub_resource type="Curve" id="Curve_mr75m"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, -200), 0.0, 1385.47, 0, 0, Vector2(0.110294, 200), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2nhkh"]
+curve = SubResource("Curve_mr75m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_57tki"]
+emission_shape = 2
+emission_sphere_radius = 1.0
+gravity = Vector3(0, -25, 0)
+linear_accel_curve = SubResource("CurveTexture_2nhkh")
+scale_min = 0.2
+scale_max = 0.2
+sub_emitter_mode = 1
+sub_emitter_frequency = 4.0
+
+[node name="Screen Ectoplasm Particles" type="GPUParticles3D"]
+emitting = false
+amount = 75
+sub_emitter = NodePath("GPUParticles3D")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.7
+randomness = 1.0
+interpolate = false
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_l7g0c")
+draw_pass_1 = SubResource("SphereMesh_3mwmj")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 10
+lifetime = 2.0
+one_shot = true
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_57tki")
+draw_pass_1 = SubResource("SphereMesh_3mwmj")

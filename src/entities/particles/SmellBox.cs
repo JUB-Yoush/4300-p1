@@ -26,7 +26,8 @@ public partial class SmellBox : Area3D
         else if (smellLevel > 6 && smellStage == 1)
         {
             GD.Print("Simplifying Fill");
-            GetParent<GpuParticles3d>()._SimplifyFill();
+            //GetParent<GpuParticles3d>()._SimplifyFill();
+            GetParent<GpuParticles3d>()._SimplifySize();
             smellStage = 2;
         }
         else if (smellLevel > 10 && smellStage == 2)

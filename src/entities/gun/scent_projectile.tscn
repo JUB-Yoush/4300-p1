@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://dlcdp7fnd1r2a"]
 
 [ext_resource type="Material" uid="uid://ca7fcqbi174j6" path="res://assets/Materials/Particles/AllShapes.tres" id="1_eu0uj"]
-[ext_resource type="Script" uid="uid://f504re407bv5" path="res://src/scenes/ScentProjectile.cs" id="1_thsqr"]
+[ext_resource type="Script" uid="uid://f504re407bv5" path="res://src/entities/gun/ScentProjectile.cs" id="1_thsqr"]
 [ext_resource type="Material" uid="uid://0vqhx8bl7l11" path="res://assets/Materials/BulletMaterialV1.tres" id="3_thsqr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ylf76"]
