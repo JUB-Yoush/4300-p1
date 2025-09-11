@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://badbx0f6p4gpv" path="res://src/entities/particles/GhostParticles.tscn" id="5_2lg1k"]
 [ext_resource type="PackedScene" uid="uid://ccgkkxpcblmuc" path="res://src/entities/smell_items/smell_item.tscn" id="5_o81g6"]
 [ext_resource type="Resource" uid="uid://b42o1ub7s1m0q" path="res://src/resources/rei.tres" id="6_dbro3"]
-[ext_resource type="PackedScene" uid="uid://bjsnm50mbnlmh" path="res://src/entities/ui/GamePlay/game_UI.tscn" id="7_i584b"]
+[ext_resource type="PackedScene" uid="uid://dlcdp7fnd1r2a" path="res://src/entities/scent_projectile/scent_projectile.tscn" id="7_i584b"]
 
 [sub_resource type="Environment" id="Environment_5dlwx"]
 background_energy_multiplier = 2.0
@@ -1466,7 +1466,5 @@ offset_bottom = 1088.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.501961)
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.682955, 0.73046, 0, -0.73046, 0.682955, 0, 0, 0)
-
-[node name="GameUi" parent="." instance=ExtResource("7_i584b")]
+[node name="RigidBody3D" parent="." instance=ExtResource("7_i584b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7663, 1.16634, -23.229)
