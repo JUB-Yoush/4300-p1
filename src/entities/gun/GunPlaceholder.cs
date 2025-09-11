@@ -5,6 +5,7 @@ using Godot;
 public partial class GunPlaceholder : Node3D
 {
     string bulletPath = "res://src/entities/scent_projectile/scent_projectile.tscn";
+
     PackedScene packedScene;
     public required AnimationPlayer AnimPlayer;
 
@@ -25,8 +26,8 @@ public partial class GunPlaceholder : Node3D
         AnimPlayer = GetParent().GetParent().GetParent().GetNode<AnimationPlayer>("AnimPlayer");
         baseMaterial = ResourceLoader.Load<StandardMaterial3D>(
             "res://assets/Materials/BulletMaterialV1.tres",
-            typeHint: "StandardMaterial3D",
-            cacheMode: ResourceLoader.CacheMode.Ignore
+            typeHint: "StandardMaterial3D"
+        //cacheMode: ResourceLoader.CacheMode.Ignore
         );
         packedScene = GD.Load<PackedScene>(bulletPath);
     }
@@ -36,9 +37,10 @@ public partial class GunPlaceholder : Node3D
         if (Input.IsActionJustPressed("shoot") && !onCooldown)
         {
             AnimPlayer.Play("fire_gun");
-            RigidBody3D bullet = packedScene.Instantiate<RigidBody3D>();
-            AddChild(bullet); //throws node not found error but still works
+            var bullet = packedScene.Instantiate<ScentProjectile>();
             bullet.TopLevel = true;
+            GetParent().GetParent().GetParent().GetParent().AddChild(bullet); //throws node not found error but still works
+            bullet.GlobalPosition = GlobalPosition;
             GpuParticles3D emitter = bullet.GetChild<GpuParticles3D>(0);
             emitter.DrawPass1.SurfaceSetMaterial(0, projectileMaterial);
             ((ParticleProcessMaterial)emitter.ProcessMaterial).Color = projectileColour;

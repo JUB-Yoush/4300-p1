@@ -12,9 +12,7 @@ public partial class ScentProjectile : RigidBody3D
     public override void _Process(double delta)
     {
         GetNode<GpuParticles3D>("BulletSmellTrail").Visible = GetParent()
-            .GetParent()
-            .GetParent()
-            .GetParent<Player>()
+            .GetNode<Player>("Player")
             .smelling;
     }
 

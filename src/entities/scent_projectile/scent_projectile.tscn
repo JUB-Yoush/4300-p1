@@ -2,7 +2,6 @@
 
 [ext_resource type="Material" uid="uid://ca7fcqbi174j6" path="res://assets/Materials/Particles/AllShapes.tres" id="1_eu0uj"]
 [ext_resource type="Script" uid="uid://f504re407bv5" path="res://src/entities/scent_projectile/ScentProjectile.cs" id="1_thsqr"]
-[ext_resource type="Material" uid="uid://0vqhx8bl7l11" path="res://assets/Materials/BulletMaterialV1.tres" id="3_thsqr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ylf76"]
 rough = true
@@ -40,6 +39,8 @@ orientation = 2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ylf76"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttad6"]
+
 [sub_resource type="SphereMesh" id="SphereMesh_ylf76"]
 
 [node name="RigidBody3D" type="RigidBody3D"]
@@ -64,6 +65,6 @@ shape = SubResource("SphereShape3D_ylf76")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-material_override = ExtResource("3_thsqr")
+material_override = SubResource("StandardMaterial3D_ttad6")
 mesh = SubResource("SphereMesh_ylf76")
 skeleton = NodePath("RigidBody3D/CollisionShape3D")
