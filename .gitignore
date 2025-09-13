@@ -4,6 +4,7 @@
 
 .vscode
 .vs
+untracked_assets/
 
 # Godot-specific ignores
 .import/
