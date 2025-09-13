@@ -1,0 +1,256 @@
+[gd_scene load_steps=9 format=3 uid="uid://c743sk43i153p"]
+
+[ext_resource type="Texture2D" uid="uid://6d77ajbr20ok" path="res://assets/sprites/pun1.png" id="1_wgoyc"]
+[ext_resource type="Texture2D" uid="uid://djbruugn33vqr" path="res://assets/sprites/pun2.png" id="2_i0qyw"]
+[ext_resource type="Shader" uid="uid://bnreisy4mhbgl" path="res://assets/Shaders/punch.gdshader" id="2_ylmva"]
+
+[sub_resource type="Animation" id="Animation_l08p3"]
+resource_name = "punch"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Punch:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(247, 1059), Vector2(735.6, 761), Vector2(750, 761), Vector2(735.6, 761)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Punch:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1e-05),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Punch 2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.633333),
+"transitions": PackedFloat32Array(1, 1.1564e-05, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Punch 2:material:shader_parameter/isFlashing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Punch 2:position")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(817.859, 688.25), Vector2(794, 688.25), Vector2(817.859, 688.25)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Punch 3:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.4, 0.633333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Punch 3:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/Punch 3:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.2, 0.266667, 0.333333, 0.4, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(817.859, 688.25), Vector2(794, 688.25), Vector2(817.859, 688.25), Vector2(817.859, 688.25), Vector2(817.859, 688.25), Vector2(1172, 1275)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/Punch 3:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.8, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.575959]
+}
+
+[sub_resource type="Animation" id="Animation_i0qyw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Punch 2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(817.859, 688.25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Punch 2:material:shader_parameter/isFlashing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Punch 3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Punch 3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Punch 3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(817.859, 688.25)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Punch 3:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Punch 2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ygnjt"]
+_data = {
+&"RESET": SubResource("Animation_i0qyw"),
+&"punch": SubResource("Animation_l08p3")
+}
+
+[sub_resource type="GDScript" id="GDScript_wgoyc"]
+script/source = "extends Sprite2D
+
+@onready var sprite = $\".\"
+var shaderStatus = sprite.material.get_shader_parameter(\"isFlashing\")
+
+func _sprite_flash_on(flag):
+
+	shaderStatus = flag
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i0qyw"]
+resource_local_to_scene = true
+shader = ExtResource("2_ylmva")
+shader_parameter/isFlashing = true
+shader_parameter/flashVal_r = 1.0
+shader_parameter/flashVal_g = 1.0
+shader_parameter/flashVal_b = 1.0
+
+[node name="Punch" type="Node"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ygnjt")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Punch" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(735.6, 761)
+scale = Vector2(0.369767, 0.369767)
+texture = ExtResource("1_wgoyc")
+script = SubResource("GDScript_wgoyc")
+
+[node name="Punch 2" type="Sprite2D" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_i0qyw")
+position = Vector2(817.859, 688.25)
+scale = Vector2(0.254221, 0.254221)
+texture = ExtResource("2_i0qyw")
+
+[node name="Punch 3" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(817.859, 688.25)
+scale = Vector2(0.254221, 0.254221)
+texture = ExtResource("2_i0qyw")
