@@ -37,6 +37,7 @@ public partial class Player : CharacterBody3D
     List<ItemData> GunSlots = [];
     Ghost ghost = null!;
     CollisionPolygon3D SmellBox = null!;
+    AnimationPlayer PunchAnim = null!;
     public bool smelling = false;
 
     public override void _Ready()
@@ -48,6 +49,7 @@ public partial class Player : CharacterBody3D
         VisionRay.TargetPosition = VisionRay.TargetPosition with { Z = -5 };
         VisionRay.CollideWithAreas = true;
         VisionRay.CollideWithBodies = false;
+        PunchAnim = GetNode<AnimationPlayer>("Punch/AnimationPlayer");
     }
 
     public void _HeadbobEffect(double delta)
@@ -119,6 +121,11 @@ public partial class Player : CharacterBody3D
         )
         {
             _PickupItem(TargetingItem!);
+        }
+
+        if (Input.IsActionJustPressed("punch") && !PunchAnim.IsPlaying())
+        {
+            PunchAnim.Play("punch");
         }
 
         if (Input.IsActionJustPressed("jump") && IsOnFloor())
