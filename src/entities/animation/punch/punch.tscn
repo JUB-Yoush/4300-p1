@@ -73,7 +73,7 @@ tracks/5/path = NodePath("CanvasLayer/Punch 3:self_modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.4, 0.633333),
+"times": PackedFloat32Array(0.4, 0.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -97,7 +97,7 @@ tracks/7/path = NodePath("CanvasLayer/Punch 3:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.2, 0.266667, 0.333333, 0.4, 0.8, 1),
+"times": PackedFloat32Array(0.2, 0.266667, 0.333333, 0.4, 0.833333, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(817.859, 688.25), Vector2(794, 688.25), Vector2(817.859, 688.25), Vector2(817.859, 688.25), Vector2(817.859, 688.25), Vector2(1172, 1275)]
@@ -109,7 +109,7 @@ tracks/8/path = NodePath("CanvasLayer/Punch 3:rotation")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0.8, 1),
+"times": PackedFloat32Array(0.833333, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 0.575959]
@@ -237,8 +237,7 @@ libraries = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Punch" type="Sprite2D" parent="CanvasLayer"]
-visible = false
-position = Vector2(735.6, 761)
+position = Vector2(247, 1059)
 scale = Vector2(0.369767, 0.369767)
 texture = ExtResource("1_wgoyc")
 script = SubResource("GDScript_wgoyc")
