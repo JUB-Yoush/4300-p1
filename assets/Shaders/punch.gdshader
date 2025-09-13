@@ -13,11 +13,11 @@ void fragment() {
 		COLOR = vec4(1.0, 1.0, 1.0, input_color.a); //white
 	} else {
 	COLOR = vec4(input_color.r, input_color.g, input_color.b, input_color.a); //regular tone
-	
+
 	}
-			
-			
-	
+
+
+
 
 
 }
