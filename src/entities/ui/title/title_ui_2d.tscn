@@ -35,6 +35,3 @@ text = "This is a test label"
 [node name="Button" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "This is a test button"
-
-[node name="HSlider" type="HSlider" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
