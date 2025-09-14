@@ -89,6 +89,9 @@ target_position = Vector3(0, 0, -5)
 collide_with_areas = true
 collide_with_bodies = false
 
+[node name="OmniLight3D" type="OmniLight3D" parent="Head/Camera3D"]
+light_energy = 2.0
+
 [node name="PunchBox" type="Area3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.803419, 0)
 monitoring = false
@@ -131,11 +134,5 @@ libraries = {
 
 [node name="Punch 2" parent="PlayerAnimation" index="2"]
 material = SubResource("ShaderMaterial_0mfjg")
-
-[node name="Punch 3" parent="PlayerAnimation" index="3"]
-self_modulate = Color(1, 1, 1, 0)
-
-[node name="Gun" parent="PlayerAnimation" index="4"]
-position = Vector2(1451, 830)
 
 [editable path="PlayerAnimation"]
