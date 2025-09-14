@@ -1,8 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://c743sk43i153p"]
+[gd_scene load_steps=14 format=3 uid="uid://c743sk43i153p"]
 
-[ext_resource type="Texture2D" uid="uid://6d77ajbr20ok" path="res://assets/sprites/pun1.png" id="1_wgoyc"]
-[ext_resource type="Texture2D" uid="uid://djbruugn33vqr" path="res://assets/sprites/pun2.png" id="2_i0qyw"]
-[ext_resource type="Shader" uid="uid://bnreisy4mhbgl" path="res://assets/Shaders/punch.gdshader" id="2_ylmva"]
+[ext_resource type="Texture2D" uid="uid://be2ldakud01rk" path="res://assets/sprites/gun1.png" id="1_74mr8"]
+[ext_resource type="Texture2D" uid="uid://bwonpa2kp1ki4" path="res://assets/sprites/gun2.png" id="2_iikv3"]
+[ext_resource type="Texture2D" uid="uid://6d77ajbr20ok" path="res://assets/sprites/pun1.png" id="3_mvch5"]
+[ext_resource type="Shader" uid="uid://bnreisy4mhbgl" path="res://assets/Shaders/punch.gdshader" id="4_tuf83"]
+[ext_resource type="Texture2D" uid="uid://djbruugn33vqr" path="res://assets/sprites/pun2.png" id="5_k5my5"]
+[ext_resource type="Texture2D" uid="uid://dmgna6qpkb82m" path="res://assets/sprites/gun_panel.svg" id="6_7qq20"]
+[ext_resource type="Texture2D" uid="uid://b68sf6kgvrpso" path="res://assets/sprites/rei.png" id="7_fqycv"]
 
 [sub_resource type="Animation" id="Animation_i0qyw"]
 length = 0.001
@@ -89,6 +93,30 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Gun:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1451, 830)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Gun:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_74mr8")]
 }
 
 [sub_resource type="Animation" id="Animation_l08p3"]
@@ -201,22 +229,91 @@ tracks/8/keys = {
 "update": 0,
 "values": [0.0, 0.575959]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Gun:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1451, 830), Vector2(1451, 1511)]
+}
+
+[sub_resource type="Animation" id="Animation_ir11g"]
+resource_name = "gun_shoot"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gun:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1451, 830), Vector2(1517, 889), Vector2(1451, 830)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gun:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_74mr8"), ExtResource("2_iikv3"), ExtResource("1_74mr8")]
+}
+
+[sub_resource type="Animation" id="Animation_dn6tc"]
+resource_name = "gun_insert_ingredient"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gun:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6, 0.666667, 0.733333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_74mr8"), ExtResource("2_iikv3"), ExtResource("1_74mr8"), ExtResource("2_iikv3"), ExtResource("1_74mr8"), ExtResource("2_iikv3"), ExtResource("1_74mr8"), ExtResource("2_iikv3"), ExtResource("1_74mr8"), ExtResource("2_iikv3"), ExtResource("1_74mr8"), ExtResource("2_iikv3"), ExtResource("1_74mr8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gun:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.833333, 0.9, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1451, 830), Vector2(1426, 830), Vector2(1451, 830)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ygnjt"]
 _data = {
 &"RESET": SubResource("Animation_i0qyw"),
+&"gun_insert_ingredient": SubResource("Animation_dn6tc"),
+&"gun_shoot": SubResource("Animation_ir11g"),
 &"punch": SubResource("Animation_l08p3")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i0qyw"]
 resource_local_to_scene = true
-shader = ExtResource("2_ylmva")
+shader = ExtResource("4_tuf83")
 shader_parameter/isFlashing = true
 shader_parameter/flashVal_r = 1.0
 shader_parameter/flashVal_g = 1.0
 shader_parameter/flashVal_b = 1.0
 
-[node name="Punch" type="Node"]
+[node name="PlayerAnimation" type="Node"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -227,17 +324,60 @@ libraries = {
 visible = false
 position = Vector2(247, 1059)
 scale = Vector2(0.369767, 0.369767)
-texture = ExtResource("1_wgoyc")
+texture = ExtResource("3_mvch5")
 
 [node name="Punch 2" type="Sprite2D" parent="."]
 visible = false
 material = SubResource("ShaderMaterial_i0qyw")
 position = Vector2(817.859, 688.25)
 scale = Vector2(0.254221, 0.254221)
-texture = ExtResource("2_i0qyw")
+texture = ExtResource("5_k5my5")
 
 [node name="Punch 3" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(817.859, 688.25)
 scale = Vector2(0.254221, 0.254221)
-texture = ExtResource("2_i0qyw")
+texture = ExtResource("5_k5my5")
+
+[node name="Gun" type="Sprite2D" parent="."]
+position = Vector2(1451, 830)
+texture = ExtResource("1_74mr8")
+
+[node name="Ingredient_panel" type="Sprite2D" parent="Gun"]
+position = Vector2(-308, -7)
+scale = Vector2(1.84836, 1.84836)
+texture = ExtResource("6_7qq20")
+
+[node name="Ingredient Slots" type="HBoxContainer" parent="Gun/Ingredient_panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.5
+offset_top = -96.7073
+offset_right = -16.5
+offset_bottom = -30.7073
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="Gun/Ingredient_panel/Ingredient Slots"]
+layout_mode = 2
+texture = ExtResource("7_fqycv")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Gun/Ingredient_panel/Ingredient Slots"]
+layout_mode = 2
+texture = ExtResource("7_fqycv")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="Gun/Ingredient_panel/Ingredient Slots"]
+layout_mode = 2
+texture = ExtResource("7_fqycv")
+expand_mode = 2
+stretch_mode = 5
