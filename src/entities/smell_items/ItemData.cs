@@ -6,6 +6,7 @@ public enum ScentColor
     RED,
     GREEN,
     BLUE,
+    GREY,
 }
 
 public enum ScentSize
@@ -13,6 +14,7 @@ public enum ScentSize
     SMALL,
     MEDIUM,
     LARGE,
+    MIXED,
 }
 
 public enum ScentShape
@@ -20,6 +22,7 @@ public enum ScentShape
     TRIANGLE,
     SQUARE,
     CIRCLE,
+    MIXED,
 }
 
 [GlobalClass]
@@ -32,13 +35,13 @@ public partial class ItemData : Resource
     public Texture2D Sprite;
 
     [Export]
-    public ScentColor Color;
+    public Color Color;
 
     [Export]
-    public ScentSize Size;
+    public float Size;
 
     [Export]
-    public ScentShape Shape;
+    public Material Shape;
 
     public ItemData() { }
 }
