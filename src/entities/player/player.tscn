@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbuna14812w75"]
+[gd_scene load_steps=14 format=3 uid="uid://dbuna14812w75"]
 
 [ext_resource type="Script" uid="uid://v4tsendljqpe" path="res://src/entities/player/Player.cs" id="1_muk8e"]
 [ext_resource type="Script" uid="uid://dwnj0obcck4xy" path="res://src/entities/gun/GunPlaceholder.cs" id="2_wrxq6"]
@@ -12,6 +12,9 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kkvs4"]
 radius = 0.367222
 height = 1.86229
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0mfjg"]
+size = Vector3(1.12305, 1.25049, 1.54028)
 
 [sub_resource type="Animation" id="Animation_ketdh"]
 length = 0.001
@@ -86,6 +89,15 @@ target_position = Vector3(0, 0, -5)
 collide_with_areas = true
 collide_with_bodies = false
 
+[node name="PunchBox" type="Area3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.803419, 0)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/PunchBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00292969, 0.351196, -1.17396)
+shape = SubResource("BoxShape3D_0mfjg")
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="UI"]
@@ -115,6 +127,9 @@ libraries = {
 }
 
 [node name="Punch" parent="." instance=ExtResource("5_ketdh")]
+
+[node name="Punch" parent="Punch" index="1"]
+visible = true
 
 [node name="Punch 2" parent="Punch" index="2"]
 material = SubResource("ShaderMaterial_oih67")
