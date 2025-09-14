@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bnu5bvgv0te7e" path="res://assets/textures/particles/AllShapesFilled.jpeg" id="1_x5coo"]
 
 [resource]
+resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
 shading_mode = 0
