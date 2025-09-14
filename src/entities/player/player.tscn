@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://dbuna14812w75"]
+[gd_scene load_steps=12 format=3 uid="uid://dbuna14812w75"]
 
 [ext_resource type="Script" uid="uid://v4tsendljqpe" path="res://src/entities/player/Player.cs" id="1_muk8e"]
 [ext_resource type="Script" uid="uid://dwnj0obcck4xy" path="res://src/entities/gun/GunPlaceholder.cs" id="2_wrxq6"]
 [ext_resource type="Material" uid="uid://rnrrlraj356f" path="res://assets/Materials/Particles/TriangleFinal.tres" id="3_ketdh"]
 [ext_resource type="Texture2D" uid="uid://bcpsyj0l7ntdf" path="res://assets/sprites/gun_hand.png" id="4_wrxq6"]
-[ext_resource type="PackedScene" uid="uid://c743sk43i153p" path="res://src/entities/animation/punch/punch.tscn" id="5_ketdh"]
-[ext_resource type="Shader" uid="uid://bnreisy4mhbgl" path="res://assets/Shaders/punch.gdshader" id="6_0mfjg"]
+[ext_resource type="PackedScene" uid="uid://bo6fv7ek5guq1" path="res://src/entities/animation/PlayerAnimation.tscn" id="5_ketdh"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1fxj6"]
 
@@ -52,14 +51,6 @@ _data = {
 &"RESET": SubResource("Animation_ketdh"),
 &"fire_gun": SubResource("Animation_wrxq6")
 }
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oih67"]
-resource_local_to_scene = true
-shader = ExtResource("6_0mfjg")
-shader_parameter/isFlashing = true
-shader_parameter/flashVal_r = 1.0
-shader_parameter/flashVal_g = 1.0
-shader_parameter/flashVal_b = 1.0
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_muk8e")
@@ -108,6 +99,7 @@ offset_bottom = 40.0
 mouse_filter = 2
 
 [node name="GunSprite" type="Sprite2D" parent="UI/Control"]
+visible = false
 position = Vector2(1468, 825)
 texture = ExtResource("4_wrxq6")
 hframes = 4
@@ -126,9 +118,4 @@ libraries = {
 &"": SubResource("AnimationLibrary_0mfjg")
 }
 
-[node name="Punch" parent="." instance=ExtResource("5_ketdh")]
-
-[node name="Punch 2" parent="Punch" index="2"]
-material = SubResource("ShaderMaterial_oih67")
-
-[editable path="Punch"]
+[node name="PlayerAnimation" parent="." instance=ExtResource("5_ketdh")]
