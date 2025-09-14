@@ -128,9 +128,6 @@ libraries = {
 
 [node name="Punch" parent="." instance=ExtResource("5_ketdh")]
 
-[node name="Punch" parent="Punch" index="1"]
-visible = true
-
 [node name="Punch 2" parent="Punch" index="2"]
 material = SubResource("ShaderMaterial_oih67")
 
