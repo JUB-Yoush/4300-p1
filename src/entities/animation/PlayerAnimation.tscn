@@ -516,19 +516,19 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="TextureRect" type="TextureRect" parent="Gun/Ingredient_panel/Ingredient Slots"]
+[node name="ShapeSlot" type="TextureRect" parent="Gun/Ingredient_panel/Ingredient Slots"]
 layout_mode = 2
 texture = ExtResource("7_fqycv")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="TextureRect2" type="TextureRect" parent="Gun/Ingredient_panel/Ingredient Slots"]
+[node name="ColourSlot" type="TextureRect" parent="Gun/Ingredient_panel/Ingredient Slots"]
 layout_mode = 2
 texture = ExtResource("7_fqycv")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="Gun/Ingredient_panel/Ingredient Slots"]
+[node name="SizeSlot" type="TextureRect" parent="Gun/Ingredient_panel/Ingredient Slots"]
 layout_mode = 2
 texture = ExtResource("7_fqycv")
 expand_mode = 2
