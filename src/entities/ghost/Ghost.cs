@@ -72,8 +72,8 @@ public partial class Ghost : CharacterBody3D
         var HomeRoom = GetParent().GetNode<Area3D>("Level/HomeRoom");
         PunchHitbox.AreaEntered += Punched;
 
-        HomeRoom.AreaEntered += (area) => InHomeRoom = false;
-        HomeRoom.AreaExited += (area) => InHomeRoom = true;
+        HomeRoom.AreaEntered += (area) => InHomeRoom = true;
+        HomeRoom.AreaExited += (area) => InHomeRoom = false;
     }
 
     public bool SmellingCorrectScent()
