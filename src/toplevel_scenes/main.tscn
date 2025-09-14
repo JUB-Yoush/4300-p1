@@ -194,6 +194,13 @@ collision_layer = 3
 collision_mask = 3
 size = Vector3(2, 3, 0.1)
 
+[node name="Door" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -29.9917, 1.5, -6)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(2, 3, 0.1)
+
 [node name="Table" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
 transform = Transform3D(-1, 4.37114e-08, 2.18557e-07, -2.18557e-07, -4.37114e-08, -1, -4.37114e-08, -1, 4.37114e-08, 51, 0.5, 24)
 use_collision = true
