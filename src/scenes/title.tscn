@@ -1,21 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3uf1xuajswsa"]
+[gd_scene load_steps=10 format=3 uid="uid://d3uf1xuajswsa"]
 
 [ext_resource type="PackedScene" uid="uid://brvaqw5wsjdwm" path="res://src/entities/ui/title/title_ui_2d.tscn" id="1_ygvpb"]
 [ext_resource type="Texture2D" uid="uid://bbt8fageiqmnk" path="res://src/entities/ui/title/ui_viewport.tres" id="2_gctki"]
+[ext_resource type="Texture2D" uid="uid://bi16nn6vwojs5" path="res://assets/UI/snifferSplash.jpg" id="3_a750j"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b5fdr"]
-sky_top_color = Color(1, 1, 1, 1)
-sky_horizon_color = Color(2.1665, 2.1665, 2.1665, 1)
-ground_bottom_color = Color(1, 1, 1, 1)
-ground_horizon_color = Color(2.1665, 2.1665, 2.1665, 1)
-
-[sub_resource type="Sky" id="Sky_ygvpb"]
-sky_material = SubResource("ProceduralSkyMaterial_b5fdr")
-
-[sub_resource type="Environment" id="Environment_gctki"]
-background_mode = 2
-sky = SubResource("Sky_ygvpb")
-tonemap_mode = 2
+[sub_resource type="Environment" id="Environment_eoavt"]
+background_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_b5fdr"]
 size = Vector2(3, 2)
@@ -29,10 +20,17 @@ albedo_texture = ExtResource("2_gctki")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a750j"]
 points = PackedVector3Array(-0.507937, -0.507937, -0.00793651, 0.507937, 0.507937, 0.00793651, 0.507937, 0.507937, -0.00793651, -0.507937, 0.507937, 0.00793651, 0.507937, -0.507937, 0.00793651, 0.507937, -0.507937, -0.00793651, -0.507937, 0.507937, -0.00793651, -0.507937, -0.507937, 0.00793651)
 
+[sub_resource type="QuadMesh" id="QuadMesh_shm1j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0qc1l"]
+shading_mode = 0
+specular_mode = 2
+albedo_texture = ExtResource("3_a750j")
+
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_gctki")
+environment = SubResource("Environment_eoavt")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 fov = 135.3
@@ -55,3 +53,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_gctki")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
 shape = SubResource("ConvexPolygonShape3D_a750j")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.52, 0, 0, 0, 4.216, 0, 0, 0, 4.216, 0, 0, -0.869167)
+mesh = SubResource("QuadMesh_shm1j")
+surface_material_override/0 = SubResource("StandardMaterial3D_0qc1l")
