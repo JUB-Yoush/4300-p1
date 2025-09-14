@@ -42,7 +42,7 @@ public partial class GunPlaceholder : Node3D
     {
         if (Input.IsActionJustPressed("shoot") && !onCooldown)
         {
-            AnimPlayer.Play("fire_gun");
+            AnimPlayer.Play("gun_shoot");
             _Shoot();
             _Cooldown();
         }

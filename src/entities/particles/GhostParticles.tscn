@@ -36,7 +36,7 @@ anim_offset_max = 1.0
 material = ExtResource("3_4hrha")
 orientation = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5pbbh"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jdd00"]
 resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
@@ -49,7 +49,7 @@ particles_anim_h_frames = 3
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5n2g"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_samok"]
 resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
@@ -70,7 +70,7 @@ randomness = 0.5
 process_material = SubResource("ParticleProcessMaterial_8y3jm")
 draw_pass_1 = SubResource("PlaneMesh_vxp1e")
 script = ExtResource("2_3tpaw")
-textures = Array[Material]([SubResource("StandardMaterial3D_5pbbh"), SubResource("StandardMaterial3D_d5n2g"), ExtResource("5_l83gr")])
+textures = Array[Material]([SubResource("StandardMaterial3D_jdd00"), SubResource("StandardMaterial3D_samok"), ExtResource("5_l83gr")])
 filledTexture = ExtResource("3_4hrha")
 trueColor = Color(0.776471, 0.286275, 0.882353, 1)
 
