@@ -1,60 +1,158 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3uf1xuajswsa"]
+[gd_scene load_steps=8 format=3 uid="uid://c3x60d63vbern"]
 
-[ext_resource type="PackedScene" uid="uid://brvaqw5wsjdwm" path="res://src/entities/ui/title/title_ui_2d.tscn" id="1_ygvpb"]
-[ext_resource type="Texture2D" uid="uid://bbt8fageiqmnk" path="res://src/entities/ui/title/ui_viewport.tres" id="2_gctki"]
+[ext_resource type="Shader" uid="uid://cp80ac3jv1ekf" path="res://assets/Shaders/fizzleIn.gdshader" id="2_a750j"]
 [ext_resource type="Texture2D" uid="uid://bi16nn6vwojs5" path="res://assets/UI/snifferSplash.jpg" id="3_a750j"]
+[ext_resource type="Texture2D" uid="uid://c6pxfsosho5aq" path="res://assets/UI/ghost_in_the_smell.png" id="3_eoavt"]
 
-[sub_resource type="Environment" id="Environment_eoavt"]
-background_mode = 1
-fog_light_color = Color(0, 0, 0, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_shm1j"]
+shader = ExtResource("2_a750j")
+shader_parameter/progress = 0.0
+shader_parameter/background_color = Color(0.501961, 0.501961, 0.501961, 0)
+shader_parameter/mask_texture = ExtResource("3_eoavt")
+shader_parameter/wave_amplitude = 0.1
+shader_parameter/wave_frequency = 5.0
+shader_parameter/wave_speed = 3.0
+shader_parameter/particle_speed = 0.05
+shader_parameter/particle_lifetime = 3.0
+shader_parameter/particle_softness = 0.01
+shader_parameter/particle_spacing = 0.467
+shader_parameter/particle_offset = Vector2(0, 0)
+shader_parameter/particle_start_scale = Vector2(0.02, 0.02)
+shader_parameter/particle_end_scale = Vector2(0.01, 0.01)
+shader_parameter/particle_scale_randomness = 0.5
+shader_parameter/particle_amount = 20
 
-[sub_resource type="QuadMesh" id="QuadMesh_b5fdr"]
-size = Vector2(3, 2)
+[sub_resource type="Animation" id="Animation_ygvpb"]
+resource_name = "TitleAnimation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer/TitleArt:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.03333, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer/Sprite2D:material:shader_parameter/progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.0001, 1.4)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PanelContainer/Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.4, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, 544), Vector2(304, 264)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PanelContainer/Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.4, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gctki"]
-resource_local_to_scene = true
-transparency = 1
-shading_mode = 0
-albedo_texture = ExtResource("2_gctki")
+[sub_resource type="Animation" id="Animation_0qc1l"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer/Sprite2D:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer/TitleArt:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PanelContainer/Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PanelContainer/Sprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 544)]
+}
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a750j"]
-points = PackedVector3Array(-0.507937, -0.507937, -0.00793651, 0.507937, 0.507937, 0.00793651, 0.507937, 0.507937, -0.00793651, -0.507937, 0.507937, 0.00793651, 0.507937, -0.507937, 0.00793651, 0.507937, -0.507937, -0.00793651, -0.507937, 0.507937, -0.00793651, -0.507937, -0.507937, 0.00793651)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gctki"]
+_data = {
+&"RESET": SubResource("Animation_0qc1l"),
+&"TitleAnimation": SubResource("Animation_ygvpb")
+}
 
-[sub_resource type="QuadMesh" id="QuadMesh_shm1j"]
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0qc1l"]
-shading_mode = 0
-specular_mode = 2
-albedo_texture = ExtResource("3_a750j")
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
 
-[node name="Node3D" type="Node3D"]
+[node name="TitleArt" type="TextureRect" parent="PanelContainer"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("3_a750j")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_eoavt")
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_shm1j")
+position = Vector2(960, 544)
+scale = Vector2(2, 2)
+texture = ExtResource("3_eoavt")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-fov = 135.3
-
-[node name="SubViewport" type="SubViewport" parent="."]
-transparent_bg = true
-gui_embed_subwindows = true
-render_target_update_mode = 4
-
-[node name="Control" parent="SubViewport" instance=ExtResource("1_ygvpb")]
-offset_right = -512.0
-offset_bottom = -512.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.590885, 0, 0.173648, 0, 1, 0, -0.104189, 0, 0.984808, 0, 0, -0.610599)
-mesh = SubResource("QuadMesh_b5fdr")
-surface_material_override/0 = SubResource("StandardMaterial3D_gctki")
-
-[node name="Area3D" type="Area3D" parent="MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
-shape = SubResource("ConvexPolygonShape3D_a750j")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(7.52, 0, 0, 0, 4.216, 0, 0, 0, 4.216, 0, 0, -0.869167)
-mesh = SubResource("QuadMesh_shm1j")
-surface_material_override/0 = SubResource("StandardMaterial3D_0qc1l")
+[node name="OpeningAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gctki")
+}
