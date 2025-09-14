@@ -1,10 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://c3x60d63vbern"]
+[gd_scene load_steps=12 format=3 uid="uid://c3x60d63vbern"]
 
 [ext_resource type="Script" uid="uid://bxpcfdjqbdiuo" path="res://src/scenes/scripts/TitleManager.cs" id="1_eoavt"]
 [ext_resource type="Shader" uid="uid://cp80ac3jv1ekf" path="res://assets/Shaders/fizzleIn.gdshader" id="2_a750j"]
+[ext_resource type="FontFile" uid="uid://blymanpbqlk26" path="res://assets/Fonts/Inknut_Antiqua/InknutAntiqua-Black.ttf" id="3_0qc1l"]
 [ext_resource type="Texture2D" uid="uid://bi16nn6vwojs5" path="res://assets/UI/snifferSplash.jpg" id="3_a750j"]
 [ext_resource type="Texture2D" uid="uid://c6pxfsosho5aq" path="res://assets/UI/ghost_in_the_smell.png" id="3_eoavt"]
-[ext_resource type="Texture2D" uid="uid://cpuhv226jy3hi" path="res://assets/UI/Button.png" id="5_shm1j"]
 [ext_resource type="FontFile" uid="uid://nmgss8qk2dv" path="res://assets/Fonts/Inknut_Antiqua/InknutAntiqua-Bold.ttf" id="6_0qc1l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_shm1j"]
@@ -35,7 +35,7 @@ tracks/0/path = NodePath("PanelContainer/TitleArt:self_modulate")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.53333, 2.5),
+"times": PackedFloat32Array(1.53333, 2.53333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
@@ -62,6 +62,102 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(960, 544), Vector2(456, 544)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Play/PlayButton:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333334, 2, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Credits/CreditsButton:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0333333, 2, 2.33333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Exit/ExitButton:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0333333, 2.36667, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Credits:position")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2, 2.36667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1001, 158), Vector2(847, 560)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/Credits:rotation")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2, 2.36667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.436332, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/Exit:position")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(2.36667, 2.73333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1001, 560), Vector2(871, 904)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/Exit:rotation")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(2.36667, 2.73333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.261799]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PanelContainer/TitleArt:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1.53333, 2.53333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_0qc1l"]
@@ -101,6 +197,102 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(960, 544)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Play/PlayButton:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Credits/CreditsButton:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Exit/ExitButton:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Credits:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(847, 560)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/Credits:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/Exit:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(871, 904)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/Exit:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.261799]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PanelContainer/TitleArt:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gctki"]
 _data = {
@@ -108,22 +300,14 @@ _data = {
 &"TitleAnimation": SubResource("Animation_ygvpb")
 }
 
-[sub_resource type="Gradient" id="Gradient_0qc1l"]
-colors = PackedColorArray(0.45098, 0.0313726, 0.0313726, 1, 0.709804, 0.909804, 0.580392, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_damdu"]
-gradient = SubResource("Gradient_0qc1l")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_baddq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0qc1l"]
 shader = ExtResource("2_a750j")
-shader_parameter/progress = 1.0
-shader_parameter/background_color = Color(0, 0, 0, 0)
-shader_parameter/color_gradient = SubResource("GradientTexture2D_damdu")
-shader_parameter/mask_texture = ExtResource("5_shm1j")
-shader_parameter/wave_amplitude = 0.02
-shader_parameter/wave_frequency = 3.0
-shader_parameter/wave_speed = 1.5
-shader_parameter/particle_speed = 0.05
+shader_parameter/progress = 0.0
+shader_parameter/background_color = Color(1, 0, 0, 1)
+shader_parameter/wave_amplitude = 0.1
+shader_parameter/wave_frequency = 1.7
+shader_parameter/wave_speed = 2.548
+shader_parameter/particle_speed = 0.2
 shader_parameter/particle_lifetime = 3.0
 shader_parameter/particle_softness = 0.01
 shader_parameter/particle_spacing = 0.1
@@ -150,6 +334,19 @@ self_modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 texture = ExtResource("3_a750j")
 
+[node name="Label" type="Label" parent="PanelContainer/TitleArt"]
+offset_left = 1797.0
+offset_top = 1077.0
+offset_right = 3793.0
+offset_bottom = 1207.0
+rotation = -1.5708
+scale = Vector2(0.539015, 1.38758)
+theme_override_fonts/font = ExtResource("3_0qc1l")
+theme_override_font_sizes/font_size = 40
+text = "SNIFF GHOSTS.  MAKE PERFUME.  PERFORM AS GOD INTENDED."
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Sprite2D" type="Sprite2D" parent="PanelContainer"]
 self_modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_shm1j")
@@ -163,6 +360,32 @@ libraries = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(69.75, -25.995)
+transform = Transform2D(1, 0, 0, 1, 69.75, -25.995)
+
+[node name="Play" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1001, 158)
+rotation = 0.436332
+scale = Vector2(0.3, 0.3)
+skew = -0.244346
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Play"]
+self_modulate = Color(0.747867, 0, 0.306517, 1)
+material = SubResource("ShaderMaterial_0qc1l")
+offset_top = -165.0
+offset_right = 1719.0
+offset_bottom = 655.0
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/Play"]
+offset_left = 126.187
+offset_top = -186.76
+offset_right = 1757.19
+offset_bottom = 1111.24
+scale = Vector2(0.976891, 0.647543)
+theme_override_fonts/font = ExtResource("6_0qc1l")
+theme_override_font_sizes/font_size = 500
+text = "PLAY"
+metadata/_edit_use_anchors_ = true
 
 [node name="Credits" type="Sprite2D" parent="CanvasLayer"]
 self_modulate = Color(1, 1, 1, 0)
@@ -170,57 +393,23 @@ position = Vector2(847, 560)
 scale = Vector2(0.3, 0.3)
 skew = -0.244346
 
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Credits"]
-material = SubResource("ShaderMaterial_baddq")
-offset_right = 40.0
-offset_bottom = 40.0
-texture_normal = ExtResource("5_shm1j")
+[node name="Panel" type="Panel" parent="CanvasLayer/Credits"]
+material = SubResource("ShaderMaterial_0qc1l")
+offset_left = -82.0
+offset_top = -89.0
+offset_right = 1581.0
+offset_bottom = 546.0
 
-[node name="Label" type="Label" parent="CanvasLayer/Credits/TextureButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -829.581
-offset_top = -388.593
-offset_right = 800.419
-offset_bottom = 901.407
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CreditsButton" type="Button" parent="CanvasLayer/Credits"]
+offset_left = 21.6084
+offset_top = -89.3196
+offset_right = 1659.61
+offset_bottom = 692.68
+scale = Vector2(0.953104, 0.810554)
 theme_override_fonts/font = ExtResource("6_0qc1l")
 theme_override_font_sizes/font_size = 300
 text = "CREDITS"
-
-[node name="Play" type="Sprite2D" parent="CanvasLayer"]
-self_modulate = Color(1, 1, 1, 0)
-position = Vector2(1001, 158)
-rotation = 0.436332
-scale = Vector2(0.3, 0.3)
-skew = -0.244346
-
-[node name="TextureButton" type="Button" parent="CanvasLayer/Play"]
-material = SubResource("ShaderMaterial_baddq")
-offset_right = 2084.0
-offset_bottom = 632.0
-
-[node name="Label" type="Label" parent="CanvasLayer/Play/TextureButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -832.247
-offset_top = -664.379
-offset_right = 790.753
-offset_bottom = 625.621
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("6_0qc1l")
-theme_override_font_sizes/font_size = 500
-text = "PLAY"
+metadata/_edit_use_anchors_ = true
 
 [node name="Exit" type="Sprite2D" parent="CanvasLayer"]
 self_modulate = Color(1, 1, 1, 0)
@@ -229,25 +418,19 @@ rotation = -0.261799
 scale = Vector2(0.3, 0.3)
 skew = -0.244346
 
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Exit"]
-material = SubResource("ShaderMaterial_baddq")
-offset_right = 40.0
-offset_bottom = 40.0
-texture_normal = ExtResource("5_shm1j")
+[node name="Panel" type="Panel" parent="CanvasLayer/Exit"]
+material = SubResource("ShaderMaterial_0qc1l")
+offset_left = 61.0001
+offset_top = -120.0
+offset_right = 2049.0
+offset_bottom = 627.0
 
-[node name="Label" type="Label" parent="CanvasLayer/Exit/TextureButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -832.364
-offset_top = -664.92
-offset_right = 790.636
-offset_bottom = 625.08
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ExitButton" type="Button" parent="CanvasLayer/Exit"]
+offset_left = 205.0
+offset_top = -115.0
+offset_right = 1886.0
+offset_bottom = 1183.0
+scale = Vector2(1.09486, 0.57133)
 theme_override_fonts/font = ExtResource("6_0qc1l")
 theme_override_font_sizes/font_size = 500
 text = "EXIT"

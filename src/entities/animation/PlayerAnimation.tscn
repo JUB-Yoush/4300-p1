@@ -471,7 +471,6 @@ libraries = {
 }
 
 [node name="Punch" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(247, 1059)
 scale = Vector2(0.369767, 0.369767)
 texture = ExtResource("3_mvch5")
@@ -485,11 +484,13 @@ texture = ExtResource("5_k5my5")
 
 [node name="Punch 3" type="Sprite2D" parent="."]
 visible = false
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(817.859, 688.25)
 scale = Vector2(0.254221, 0.254221)
 texture = ExtResource("5_k5my5")
 
 [node name="Gun" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1451, 830)
 rotation = 0.0874314
 texture = ExtResource("1_74mr8")
