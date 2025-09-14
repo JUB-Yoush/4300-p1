@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bo6fv7ek5guq1"]
+[gd_scene load_steps=15 format=3 uid="uid://bo6fv7ek5guq1"]
 
 [ext_resource type="Texture2D" uid="uid://be2ldakud01rk" path="res://assets/sprites/gun1.png" id="1_74mr8"]
 [ext_resource type="Texture2D" uid="uid://bwonpa2kp1ki4" path="res://assets/sprites/gun2.png" id="2_iikv3"]
@@ -257,6 +257,30 @@ tracks/9/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Head/PunchBox:monitoring")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.51),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../Head/PunchBox:monitorable")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.51),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_i0qyw"]
 length = 0.001
@@ -393,9 +417,37 @@ tracks/10/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_74mr8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("../Head/PunchBox:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("../Head/PunchBox:monitorable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ygnjt"]
 _data = {
 &"RESET0": SubResource("Animation_i0qyw"),
+&"RESET1": SubResource("Animation_74mr8"),
 &"gun_insert_ingredient": SubResource("Animation_dn6tc"),
 &"gun_shoot": SubResource("Animation_ir11g"),
 &"punch": SubResource("Animation_l08p3")
@@ -410,6 +462,8 @@ shader_parameter/flashVal_g = 1.0
 shader_parameter/flashVal_b = 1.0
 
 [node name="PlayerAnimation" type="Node"]
+metadata/_edit_vertical_guides_ = [937.0]
+metadata/_edit_horizontal_guides_ = [548.0]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -436,7 +490,8 @@ scale = Vector2(0.254221, 0.254221)
 texture = ExtResource("5_k5my5")
 
 [node name="Gun" type="Sprite2D" parent="."]
-position = Vector2(1451, 830)
+position = Vector2(1529, 781)
+rotation = 0.0874314
 texture = ExtResource("1_74mr8")
 
 [node name="Ingredient_panel" type="Sprite2D" parent="Gun"]
