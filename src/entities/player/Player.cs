@@ -27,19 +27,20 @@ public partial class Player : CharacterBody3D
     float AirSpeed = 500;
     float CurrentWalkSpeed = WALK_SPEED;
 
-    const int GUN_CAPACITY = 3;
+    //const int GUN_CAPACITY = 3;
 
     Vector3 cameraTargetRotation = Vector3.Zero;
     Vector3 WishDir;
     Camera3D Camera = null!;
     RayCast3D VisionRay = null!;
     SmellItem? TargetingItem;
-    public List<ItemData> GunSlots = [];
+    //public List<ItemData> GunSlots = [];
     Ghost ghost = null!;
     CollisionPolygon3D SmellBox = null!;
     AnimationPlayer Anims = null!;
     public bool smelling = false;
     GunPlaceholder gun;
+    Node GunSlots;
 
     public override void _Ready()
     {
@@ -52,6 +53,7 @@ public partial class Player : CharacterBody3D
         VisionRay.CollideWithAreas = true;
         VisionRay.CollideWithBodies = false;
         Anims = GetNode<AnimationPlayer>("PlayerAnimation/AnimationPlayer");
+        GunSlots = GetNode("PlayerAnimation/Gun/Ingredient_panel/Ingredient Slots");
     }
 
     public void _HeadbobEffect(double delta)
@@ -109,16 +111,22 @@ public partial class Player : CharacterBody3D
     {
         //GunSlots.Add(item.Data!);
         //TODO add sprite to corresponding ui gun slot
-        if (item.Data.Color != Color.Color8(0, 0, 0, 0))
+        if (item.Data.Effect == ScentEffect.COLOUR)
+        {
             gun.projectileColour = item.Data.Color;
-        else if (item.Data.Shape != null)
+            GunSlots.GetNode<TextureRect>("ColourSlot").Texture = item.Data.UiSprite;
+        }
+        else if (item.Data.Effect == ScentEffect.SHAPE)
+        {
             gun.projectileMaterial = item.Data.Shape;
+            GunSlots.GetNode<TextureRect>("ShapeSlot").Texture = item.Data.UiSprite;
+        }
         else
         {
             gun.projectileMaxSize = item.Data.Size;
             gun.projectileMinSize = item.Data.Size;
+            GunSlots.GetNode<TextureRect>("SizeSlot").Texture = item.Data.UiSprite;
         }
-        item.QueueFree();
     }
 
     public override void _PhysicsProcess(double delta)
@@ -129,7 +137,6 @@ public partial class Player : CharacterBody3D
         if (
             Input.IsActionJustPressed("pickup")
             && TargetingItem != null
-            && GunSlots.Count < GUN_CAPACITY
         )
         {
             _PickupItem(TargetingItem!);

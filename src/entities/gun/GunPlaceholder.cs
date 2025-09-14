@@ -21,7 +21,7 @@ public partial class GunPlaceholder : Node3D
     private float power = 10;
     private BaseMaterial3D ?baseMaterial;
     private bool onCooldown;
-    public float projectileMinSize = 0.5f, projectileMaxSize = 2.5f;
+    public float projectileMinSize = 0.6f, projectileMaxSize = 2.4f;
 
     public override void _Ready()
     {
