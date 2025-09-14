@@ -7,7 +7,6 @@
 script = ExtResource("2_r3gc4")
 name = "rei"
 Sprite = ExtResource("1_ddf34")
-Color = 0
-Size = 0
-Shape = 0
+Color = Color(1, 0, 0, 1)
+Size = 0.0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"

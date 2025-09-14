@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://v4tsendljqpe" path="res://src/entities/player/Player.cs" id="1_muk8e"]
 [ext_resource type="Script" uid="uid://dwnj0obcck4xy" path="res://src/entities/gun/GunPlaceholder.cs" id="2_wrxq6"]
-[ext_resource type="Material" uid="uid://rnrrlraj356f" path="res://assets/Materials/Particles/TriangleFinal.tres" id="3_ketdh"]
+[ext_resource type="Material" uid="uid://c8detkvdf8fht" path="res://assets/Materials/Particles/AllShapesFilled.tres" id="3_wrxq6"]
 [ext_resource type="Texture2D" uid="uid://bcpsyj0l7ntdf" path="res://assets/sprites/gun_hand.png" id="4_wrxq6"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1fxj6"]
@@ -68,8 +68,8 @@ fov = 90.0
 [node name="GunPlaceholder" type="Node3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.301946, -0.395807, 0)
 script = ExtResource("2_wrxq6")
-projectileMaterial = ExtResource("3_ketdh")
-projectileColour = Color(0, 0.54902, 0.54902, 1)
+projectileMaterial = ExtResource("3_wrxq6")
+projectileColour = Color(0.196078, 0.196078, 0.196078, 1)
 
 [node name="VisionRay" type="RayCast3D" parent="Head/Camera3D"]
 target_position = Vector3(0, 0, -5)

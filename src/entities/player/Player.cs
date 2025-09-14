@@ -34,10 +34,11 @@ public partial class Player : CharacterBody3D
     Camera3D Camera = null!;
     RayCast3D VisionRay = null!;
     SmellItem? TargetingItem;
-    List<ItemData> GunSlots = [];
+    public List<ItemData> GunSlots = [];
     Ghost ghost = null!;
     CollisionPolygon3D SmellBox = null!;
     public bool smelling = false;
+    GunPlaceholder gun;
 
     public override void _Ready()
     {
@@ -45,6 +46,7 @@ public partial class Player : CharacterBody3D
         VisionRay = GetNode<RayCast3D>("Head/Camera3D/VisionRay");
         ghost = GetNode<Ghost>("../Ghost");
         SmellBox = ghost.GetNode<CollisionPolygon3D>("GhostSmellTrail/SmellBox/TrailCollider");
+        gun = GetNode<GunPlaceholder>("Head/Camera3D/GunPlaceholder");
         VisionRay.TargetPosition = VisionRay.TargetPosition with { Z = -5 };
         VisionRay.CollideWithAreas = true;
         VisionRay.CollideWithBodies = false;
@@ -103,7 +105,17 @@ public partial class Player : CharacterBody3D
 
     private void _PickupItem(SmellItem item)
     {
-        GunSlots.Add(item.Data!);
+        //GunSlots.Add(item.Data!);
+        //TODO add sprite to corresponding ui gun slot
+        if (item.Data.Color != Color.Color8(0, 0, 0, 0))
+            gun.projectileColour = item.Data.Color;
+        else if (item.Data.Shape != null)
+            gun.projectileMaterial = item.Data.Shape;
+        else
+        {
+            gun.projectileMaxSize = item.Data.Size;
+            gun.projectileMinSize = item.Data.Size;
+        }
         item.QueueFree();
     }
 

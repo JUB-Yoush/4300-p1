@@ -22,6 +22,7 @@ point_count = 3
 curve = SubResource("Curve_iu204")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dhexd"]
+resource_local_to_scene = true
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
 spread = 180.0
@@ -34,14 +35,17 @@ anim_offset_max = 1.0
 turbulence_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_hyyrt"]
+resource_local_to_scene = true
 material = ExtResource("2_ttad6")
 orientation = 2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ylf76"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttad6"]
+resource_local_to_scene = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_ylf76"]
+resource_local_to_scene = true
 
 [node name="RigidBody3D" type="RigidBody3D"]
 collision_layer = 2
