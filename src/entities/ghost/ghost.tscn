@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhot82van31hy"]
+[gd_scene load_steps=5 format=3 uid="uid://bhot82van31hy"]
 
 [ext_resource type="Script" uid="uid://buaycm10l6hwa" path="res://src/entities/ghost/Ghost.cs" id="1_85ccs"]
 
@@ -7,9 +7,6 @@ albedo_color = Color(0.713726, 0.12549, 0.12549, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rr2wm"]
 material = SubResource("StandardMaterial3D_32aa5")
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_32aa5"]
-radius = 0.341946
 
 [sub_resource type="Curve3D" id="Curve3D_85ccs"]
 
@@ -20,7 +17,7 @@ script = ExtResource("1_85ccs")
 mesh = SubResource("CapsuleMesh_rr2wm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_32aa5")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0148392, 0, 0)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 

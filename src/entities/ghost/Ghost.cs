@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using System.Threading;
@@ -24,6 +25,7 @@ public partial class Ghost : CharacterBody3D
     float MaxPlayerDetectionRange = 20;
     public required Player Player;
     public List<Vector3> PatrolRoute = [];
+    public Vector3 CurrentTargetPosition = Vector3.Zero;
     public required Timer TrailCreationTimer;
     Timer ContinueLookingTimer = null!;
 
@@ -62,12 +64,12 @@ public partial class Ghost : CharacterBody3D
         TrailCreationTimer.OneShot = false;
         TrailCreationTimer.Start(1);
         CurrentState = State.PATROL;
+        CurrentTargetPosition = GetNewPoint();
     }
 
     public void SetToPatrol()
     {
         CurrentState = State.PATROL;
-        UpdateTargetLocation(PatrolRoute[GetClosestPointIndex()]);
     }
 
     public void RenderTrail()
@@ -122,19 +124,11 @@ public partial class Ghost : CharacterBody3D
 
     public void Teleport()
     {
-        var rng = new Random();
-        var newSpot = PatrolRoute[rng.Next(0, PatrolRoute.Count)];
-        // TODO fix
-        // while (Math.Abs((newSpot - GlobalPosition).Length()) < TELEPORT_DIST_THRESHOLD)
-        // {
-        //     GD.Print(Math.Abs((newSpot - GlobalPosition).Length()));
-        //     newSpot = PatrolRoute[rng.Next(0, PatrolRoute.Count)];
-        // }
-
+        var newSpot = GetNewPoint();
         CurrentState = State.PATROL;
         GlobalPosition = newSpot;
         CurrPoint = PatrolRoute.IndexOf(newSpot);
-        UpdateTargetLocation(PatrolRoute[CurrPoint]);
+        UpdateTargetLocation(GetNewPoint());
     }
 
     public override void _PhysicsProcess(double delta)
@@ -150,13 +144,13 @@ public partial class Ghost : CharacterBody3D
                     }
 
                     if (
-                        Math.Abs(GlobalTransform.Origin.Length() - PatrolRoute[CurrPoint].Length())
+                        Math.Abs(GlobalPosition.Length() - CurrentTargetPosition.Length())
                         <= POINT_ROUNDING_THRESHOLD
                     )
                     {
-                        CurrPoint = Mathf.Wrap(CurrPoint += 1, 0, PatrolRoute.Count - 1);
+                        CurrentTargetPosition = GetNewPoint();
                     }
-                    UpdateTargetLocation(PatrolRoute[CurrPoint]);
+                    UpdateTargetLocation(CurrentTargetPosition);
                 }
                 break;
 
@@ -211,20 +205,37 @@ public partial class Ghost : CharacterBody3D
         NavAgent.TargetPosition = targetLocation;
     }
 
-    public int GetClosestPointIndex()
+    public Vector3 GetNewPoint()
     {
-        int resIndex = -1;
-        float resLen = 100_000_000;
-
-        for (int i = 0; i < PatrolRoute.Count; i++)
+        Random rng = new();
+        var positions = GetParent().GetNode<Node3D>("Level/Positions");
+        var newPos = positions
+            .GetChild<Marker3D>(rng.Next(0, positions.GetChildCount()))
+            .GlobalPosition;
+        while (newPos == CurrentTargetPosition)
         {
-            var v = PatrolRoute[i];
-            if (Math.Abs(v.Length() - GlobalTransform.Origin.Length()) < resLen)
-            {
-                resLen = Math.Abs(v.Length() - GlobalTransform.Origin.Length());
-                resIndex = i;
-            }
+            newPos = positions
+                .GetChild<Marker3D>(rng.Next(0, positions.GetChildCount()))
+                .GlobalPosition;
         }
-        return resIndex;
+        CurrentTargetPosition = newPos;
+        return newPos;
     }
+
+    // public int GetClosestPointIndex()
+    // {
+    //     int resIndex = -1;
+    //     float resLen = 100_000_000;
+
+    //     for (int i = 0; i < PatrolRoute.Count; i++)
+    //     {
+    //         var v = PatrolRoute[i];
+    //         if (Math.Abs(v.Length() - GlobalTransform.Origin.Length()) < resLen)
+    //         {
+    //             resLen = Math.Abs(v.Length() - GlobalTransform.Origin.Length());
+    //             resIndex = i;
+    //         }
+    //     }
+    //     return resIndex;
+    // }
 }
