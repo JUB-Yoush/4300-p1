@@ -89,6 +89,8 @@ target_position = Vector3(0, 0, -5)
 collide_with_areas = true
 collide_with_bodies = false
 
+[node name="OmniLight3D" type="OmniLight3D" parent="Head/Camera3D"]
+
 [node name="PunchBox" type="Area3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.803419, 0)
 
