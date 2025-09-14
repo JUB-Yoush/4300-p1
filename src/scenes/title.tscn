@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3x60d63vbern"]
+[gd_scene load_steps=14 format=3 uid="uid://c3x60d63vbern"]
 
 [ext_resource type="Script" uid="uid://bxpcfdjqbdiuo" path="res://src/scenes/scripts/TitleManager.cs" id="1_eoavt"]
 [ext_resource type="Shader" uid="uid://cp80ac3jv1ekf" path="res://assets/Shaders/fizzleIn.gdshader" id="2_a750j"]
 [ext_resource type="Texture2D" uid="uid://bi16nn6vwojs5" path="res://assets/UI/snifferSplash.jpg" id="3_a750j"]
 [ext_resource type="Texture2D" uid="uid://c6pxfsosho5aq" path="res://assets/UI/ghost_in_the_smell.png" id="3_eoavt"]
+[ext_resource type="Texture2D" uid="uid://cpuhv226jy3hi" path="res://assets/UI/Button.png" id="5_shm1j"]
+[ext_resource type="FontFile" uid="uid://nmgss8qk2dv" path="res://assets/Fonts/Inknut_Antiqua/InknutAntiqua-Bold.ttf" id="6_0qc1l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_shm1j"]
 shader = ExtResource("2_a750j")
@@ -30,10 +32,10 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("PanelContainer/TitleArt:self_modulate")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(2.03333, 3),
+"times": PackedFloat32Array(1.53333, 2.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
@@ -47,31 +49,19 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.0001, 1.4)
+"times": PackedFloat32Array(0, 0.0001, 1)
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("PanelContainer/Sprite2D:position")
-tracks/2/interp = 2
+tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2.4, 3),
+"times": PackedFloat32Array(1.53333, 2.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(960, 544), Vector2(304, 264)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PanelContainer/Sprite2D:scale")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(2.4, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(2, 2), Vector2(1, 1)]
+"values": [Vector2(960, 544), Vector2(456, 544)]
 }
 
 [sub_resource type="Animation" id="Animation_0qc1l"]
@@ -102,22 +92,10 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PanelContainer/Sprite2D:scale")
+tracks/2/path = NodePath("PanelContainer/Sprite2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2, 2)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PanelContainer/Sprite2D:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -129,6 +107,31 @@ _data = {
 &"RESET": SubResource("Animation_0qc1l"),
 &"TitleAnimation": SubResource("Animation_ygvpb")
 }
+
+[sub_resource type="Gradient" id="Gradient_0qc1l"]
+colors = PackedColorArray(0.45098, 0.0313726, 0.0313726, 1, 0.709804, 0.909804, 0.580392, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_damdu"]
+gradient = SubResource("Gradient_0qc1l")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_baddq"]
+shader = ExtResource("2_a750j")
+shader_parameter/progress = 1.0
+shader_parameter/background_color = Color(0, 0, 0, 0)
+shader_parameter/color_gradient = SubResource("GradientTexture2D_damdu")
+shader_parameter/mask_texture = ExtResource("5_shm1j")
+shader_parameter/wave_amplitude = 0.02
+shader_parameter/wave_frequency = 3.0
+shader_parameter/wave_speed = 1.5
+shader_parameter/particle_speed = 0.05
+shader_parameter/particle_lifetime = 3.0
+shader_parameter/particle_softness = 0.01
+shader_parameter/particle_spacing = 0.1
+shader_parameter/particle_offset = Vector2(0, 0)
+shader_parameter/particle_start_scale = Vector2(0.02, 0.02)
+shader_parameter/particle_end_scale = Vector2(0.01, 0.01)
+shader_parameter/particle_scale_randomness = 0.5
+shader_parameter/particle_amount = 20
 
 [node name="Title" type="Control"]
 layout_mode = 3
@@ -158,3 +161,93 @@ texture = ExtResource("3_eoavt")
 libraries = {
 &"": SubResource("AnimationLibrary_gctki")
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Credits" type="Sprite2D" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(847, 560)
+scale = Vector2(0.3, 0.3)
+skew = -0.244346
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Credits"]
+material = SubResource("ShaderMaterial_baddq")
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("5_shm1j")
+
+[node name="Label" type="Label" parent="CanvasLayer/Credits/TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -829.581
+offset_top = -388.593
+offset_right = 800.419
+offset_bottom = 901.407
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_0qc1l")
+theme_override_font_sizes/font_size = 300
+text = "CREDITS"
+
+[node name="Play" type="Sprite2D" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(1001, 158)
+rotation = 0.436332
+scale = Vector2(0.3, 0.3)
+skew = -0.244346
+
+[node name="TextureButton" type="Button" parent="CanvasLayer/Play"]
+material = SubResource("ShaderMaterial_baddq")
+offset_right = 2084.0
+offset_bottom = 632.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Play/TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -832.247
+offset_top = -664.379
+offset_right = 790.753
+offset_bottom = 625.621
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_0qc1l")
+theme_override_font_sizes/font_size = 500
+text = "PLAY"
+
+[node name="Exit" type="Sprite2D" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(871, 904)
+rotation = -0.261799
+scale = Vector2(0.3, 0.3)
+skew = -0.244346
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Exit"]
+material = SubResource("ShaderMaterial_baddq")
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("5_shm1j")
+
+[node name="Label" type="Label" parent="CanvasLayer/Exit/TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -832.364
+offset_top = -664.92
+offset_right = 790.636
+offset_bottom = 625.08
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_0qc1l")
+theme_override_font_sizes/font_size = 500
+text = "EXIT"

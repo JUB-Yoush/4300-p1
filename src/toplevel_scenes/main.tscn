@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b68sf6kgvrpso" path="res://assets/sprites/rei.png" id="7_i3xn1"]
 [ext_resource type="Material" uid="uid://rnrrlraj356f" path="res://assets/Materials/Particles/TriangleFinal.tres" id="7_smgh4"]
 [ext_resource type="Script" uid="uid://sunsuajn1hnd" path="res://src/entities/smell_items/ItemData.cs" id="8_odjcq"]
-[ext_resource type="Material" uid="uid://b47nptvn55k8p" path="res://assets/Materials/Particles/SquareFinal.tres" id="8_oxt34"]
+[ext_resource type="Material" path="res://assets/Materials/Particles/SquareFinal.tres" id="8_oxt34"]
 
 [sub_resource type="Environment" id="Environment_5dlwx"]
 background_energy_multiplier = 2.0
@@ -27,7 +27,7 @@ size = Vector3(24, 4, 11.3839)
 [sub_resource type="BoxShape3D" id="BoxShape3D_oxt34"]
 size = Vector3(18.7405, 4, 11.3839)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odjcq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fleds"]
 resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
@@ -40,7 +40,7 @@ particles_anim_h_frames = 3
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fleds"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smgh4"]
 resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
@@ -1652,7 +1652,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23913, 2.04144, 16.0537)
 visible = false
 
 [node name="GhostSmellTrail" parent="Ghost" instance=ExtResource("5_2lg1k")]
-textures = Array[Material]([SubResource("StandardMaterial3D_odjcq"), SubResource("StandardMaterial3D_fleds"), ExtResource("7_smgh4")])
+textures = Array[Material]([SubResource("StandardMaterial3D_fleds"), SubResource("StandardMaterial3D_smgh4"), ExtResource("7_smgh4")])
 filledTexture = SubResource("StandardMaterial3D_5pbbh")
 
 [node name="SmellItem" parent="." instance=ExtResource("5_o81g6")]

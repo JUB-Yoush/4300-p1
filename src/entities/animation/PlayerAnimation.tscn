@@ -490,7 +490,7 @@ scale = Vector2(0.254221, 0.254221)
 texture = ExtResource("5_k5my5")
 
 [node name="Gun" type="Sprite2D" parent="."]
-position = Vector2(1529, 781)
+position = Vector2(1451, 830)
 rotation = 0.0874314
 texture = ExtResource("1_74mr8")
 
