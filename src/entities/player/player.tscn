@@ -132,15 +132,10 @@ libraries = {
 
 [node name="PlayerAnimation" parent="." instance=ExtResource("5_ketdh")]
 
-[node name="Punch" parent="PlayerAnimation" index="1"]
-visible = false
-
 [node name="Punch 2" parent="PlayerAnimation" index="2"]
 material = SubResource("ShaderMaterial_0mfjg")
 
 [node name="Gun" parent="PlayerAnimation" index="4"]
 visible = true
-[node name="Punch 3" parent="PlayerAnimation" index="3"]
-self_modulate = Color(1, 1, 1, 1)
 
 [editable path="PlayerAnimation"]

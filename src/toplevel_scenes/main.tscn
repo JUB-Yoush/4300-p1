@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b8e6rv13o8a1g"]
+[gd_scene load_steps=46 format=3 uid="uid://b8e6rv13o8a1g"]
 
 [ext_resource type="Script" uid="uid://cvhb113by0cda" path="res://src/toplevel_scenes/Main.cs" id="1_5dlwx"]
 [ext_resource type="PackedScene" uid="uid://dbuna14812w75" path="res://src/entities/player/player.tscn" id="2_5dlwx"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cswm5uai2g16o" path="res://assets/3d/ectoplasm_Sphere Base Color.png" id="13_5pbbh"]
 [ext_resource type="Texture2D" uid="uid://cm84vgk2fvmt" path="res://assets/textures/particles/TextureTest.jpeg" id="13_nos3a"]
 [ext_resource type="Texture2D" uid="uid://boqyih7hja870" path="res://assets/textures/particles/Square.jpeg" id="14_6muo6"]
+[ext_resource type="Texture2D" uid="uid://c6pxfsosho5aq" path="res://assets/UI/ghost_in_the_smell.png" id="15_kexia"]
 [ext_resource type="Texture2D" uid="uid://ctdimwt0ta065" path="res://assets/textures/particles/Circle.jpeg" id="16_0iucp"]
 
 [sub_resource type="Environment" id="Environment_5dlwx"]
@@ -94,7 +95,7 @@ resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
 Sprite = ExtResource("7_i3xn1")
-UiSprite = ExtResource("7_i3xn1")
+UiSprite = ExtResource("5_fleds")
 Color = Color(0, 1, 0, 1)
 Size = 0.0
 Effect = 2
@@ -105,7 +106,7 @@ resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
 Sprite = ExtResource("11_smgh4")
-UiSprite = ExtResource("11_smgh4")
+UiSprite = ExtResource("15_kexia")
 Color = Color(0, 0, 0, 0)
 Size = 0.5
 Effect = 0
