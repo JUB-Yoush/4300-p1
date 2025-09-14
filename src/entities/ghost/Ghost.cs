@@ -221,21 +221,4 @@ public partial class Ghost : CharacterBody3D
         CurrentTargetPosition = newPos;
         return newPos;
     }
-
-    // public int GetClosestPointIndex()
-    // {
-    //     int resIndex = -1;
-    //     float resLen = 100_000_000;
-
-    //     for (int i = 0; i < PatrolRoute.Count; i++)
-    //     {
-    //         var v = PatrolRoute[i];
-    //         if (Math.Abs(v.Length() - GlobalTransform.Origin.Length()) < resLen)
-    //         {
-    //             resLen = Math.Abs(v.Length() - GlobalTransform.Origin.Length());
-    //             resIndex = i;
-    //         }
-    //     }
-    //     return resIndex;
-    // }
 }
