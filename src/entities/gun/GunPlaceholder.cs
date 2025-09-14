@@ -8,20 +8,21 @@ public partial class GunPlaceholder : Node3D
 {
     string bulletPath = "res://src/entities/scent_projectile/scent_projectile.tscn";
 
-    PackedScene ?packedScene;
+    PackedScene? packedScene;
     public required AnimationPlayer AnimPlayer;
 
     [Export]
-    public Material ?projectileMaterial;
+    public Material? projectileMaterial;
 
     [Export]
     public Godot.Color projectileColour;
 
     [Export]
     private float power = 10;
-    private BaseMaterial3D ?baseMaterial;
+    private BaseMaterial3D? baseMaterial;
     private bool onCooldown;
-    public float projectileMinSize = 0.5f, projectileMaxSize = 2.5f;
+    public float projectileMinSize = 0.5f,
+        projectileMaxSize = 2.5f;
 
     public override void _Ready()
     {
@@ -42,7 +43,7 @@ public partial class GunPlaceholder : Node3D
     {
         if (Input.IsActionJustPressed("shoot") && !onCooldown)
         {
-            AnimPlayer.Play("fire_gun");
+            AnimPlayer.Play("gun_shoot");
             _Shoot();
             _Cooldown();
         }
@@ -63,8 +64,7 @@ public partial class GunPlaceholder : Node3D
         bullet.GetChild<MeshInstance3D>(2).SetSurfaceOverrideMaterial(0, baseMaterial);
         ((StandardMaterial3D)bullet.GetChild<MeshInstance3D>(2).MaterialOverride).AlbedoColor =
             projectileColour;
-        bullet.LinearVelocity =
-            GetParent().GetParent().GetParent<CharacterBody3D>().Velocity / 2; //lmao
+        bullet.LinearVelocity = GetParent().GetParent().GetParent<CharacterBody3D>().Velocity / 2; //lmao
         bullet.ApplyCentralImpulse(-GlobalBasis.Z * power);
     }
 

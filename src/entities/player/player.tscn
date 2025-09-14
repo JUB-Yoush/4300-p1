@@ -135,10 +135,7 @@ libraries = {
 [node name="Punch 2" parent="PlayerAnimation" index="2"]
 material = SubResource("ShaderMaterial_0mfjg")
 
-[node name="Punch 3" parent="PlayerAnimation" index="3"]
-self_modulate = Color(1, 1, 1, 0)
-
 [node name="Gun" parent="PlayerAnimation" index="4"]
-position = Vector2(1451, 830)
+visible = true
 
 [editable path="PlayerAnimation"]
