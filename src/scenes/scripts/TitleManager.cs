@@ -1,8 +1,8 @@
-using Godot;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Godot;
 
 public partial class TitleManager : Node
 {
@@ -13,11 +13,10 @@ public partial class TitleManager : Node
     BaseButton creditsBtn;
     BaseButton exitBtn;
 
-    List<Panel> panels = new List<Panel>(); 
+    List<Panel> panels = new List<Panel>();
 
     Color standby = new Color(1, 1, 1, 1);
     Color hovered = new Color(1, 0, 0, 1);
-    
 
     public override void _Ready()
     {
@@ -29,24 +28,20 @@ public partial class TitleManager : Node
         panels.Add(GetNode<Panel>("CanvasLayer/Credits/Panel"));
         panels.Add(GetNode<Panel>("CanvasLayer/Exit/Panel"));
 
-        foreach(Panel panel in panels)
+        foreach (Panel panel in panels)
         {
             panel.Visible = false;
         }
-
 
         buttons.Add(playBtn);
         buttons.Add(creditsBtn);
         buttons.Add(exitBtn);
 
-        foreach(BaseButton button in buttons)
+        foreach (BaseButton button in buttons)
         {
-            
             button.Disabled = true;
             _ButtonStandby(button);
         }
-
-    
 
         animPlayer = GetNode<AnimationPlayer>("OpeningAnimation");
         animPlayer.Play("TitleAnimation");
@@ -55,7 +50,6 @@ public partial class TitleManager : Node
         playBtn.Pressed += OnPlayPressed;
         creditsBtn.Pressed += OnCreditsPressed;
         exitBtn.Pressed += OnExitPressed;
-       
     }
 
     private void OnPlayPressed()
@@ -94,14 +88,15 @@ public partial class TitleManager : Node
             if (button.IsHovered() && animationDone)
             {
                 _ButtonHovered(button);
-            } else
+            }
+            else
             {
-                _ButtonStandby(button);  
+                _ButtonStandby(button);
             }
         }
     }
-  
-   public void _ButtonHovered(BaseButton btn)
+
+    public void _ButtonHovered(BaseButton btn)
     {
         btn.SelfModulate = hovered;
         int index = buttons.IndexOf(btn);
@@ -112,7 +107,6 @@ public partial class TitleManager : Node
     {
         btn.SelfModulate = standby;
         int index = buttons.IndexOf(btn);
-        panels[index ].Visible = false;
+        panels[index].Visible = false;
     }
-   
 }
