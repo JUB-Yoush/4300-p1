@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ulpl564oocjr" path="res://assets/textures/particles/TriangleCircleFilled.jpeg" id="1_ujonw"]
 
 [resource]
+resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
 shading_mode = 0

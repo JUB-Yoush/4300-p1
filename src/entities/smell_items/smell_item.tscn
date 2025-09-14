@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://ccgkkxpcblmuc"]
 
 [ext_resource type="Script" uid="uid://cotnkj7picxem" path="res://src/entities/smell_items/SmellItem.cs" id="1_p6m6r"]
-[ext_resource type="Material" uid="uid://rnrrlraj356f" path="res://assets/Materials/Particles/TriangleFinal.tres" id="2_p6m6r"]
+[ext_resource type="Material" uid="uid://c8detkvdf8fht" path="res://assets/Materials/Particles/AllShapesFilled.tres" id="2_p6m6r"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_o81g6"]
 radius = 1.0
@@ -21,18 +21,22 @@ point_count = 3
 curve = SubResource("Curve_xucc4")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pgmy5"]
+resource_local_to_scene = true
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
 spread = 180.0
 initial_velocity_max = 5.0
 gravity = Vector3(0, 2, 0)
+scale_min = 0.5
+scale_max = 2.5
 scale_curve = SubResource("CurveTexture_kokaf")
-color = Color(0.778229, 0.287154, 0.882121, 1)
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 alpha_curve = SubResource("CurveTexture_2lg1k")
 anim_offset_max = 1.0
 turbulence_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_eyjbb"]
+resource_local_to_scene = true
 material = ExtResource("2_p6m6r")
 orientation = 2
 
@@ -47,7 +51,7 @@ billboard = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_o81g6")
 
-[node name="BulletSmellTrail" type="GPUParticles3D" parent="."]
+[node name="ItemSmellTrail" type="GPUParticles3D" parent="."]
 amount = 100
 lifetime = 3.0
 randomness = 0.5
