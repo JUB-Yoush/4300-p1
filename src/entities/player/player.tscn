@@ -91,6 +91,8 @@ collide_with_bodies = false
 
 [node name="PunchBox" type="Area3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.803419, 0)
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Head/PunchBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00292969, 0.351196, -1.17396)
