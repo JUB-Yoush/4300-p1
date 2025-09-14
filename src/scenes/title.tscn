@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3x60d63vbern"]
+[gd_scene load_steps=9 format=3 uid="uid://c3x60d63vbern"]
 
+[ext_resource type="Script" uid="uid://bxpcfdjqbdiuo" path="res://src/scenes/scripts/TitleManager.cs" id="1_eoavt"]
 [ext_resource type="Shader" uid="uid://cp80ac3jv1ekf" path="res://assets/Shaders/fizzleIn.gdshader" id="2_a750j"]
 [ext_resource type="Texture2D" uid="uid://bi16nn6vwojs5" path="res://assets/UI/snifferSplash.jpg" id="3_a750j"]
 [ext_resource type="Texture2D" uid="uid://c6pxfsosho5aq" path="res://assets/UI/ghost_in_the_smell.png" id="3_eoavt"]
@@ -52,7 +53,7 @@ tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("PanelContainer/Sprite2D:position")
-tracks/2/interp = 1
+tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(2.4, 3),
@@ -64,7 +65,7 @@ tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/path = NodePath("PanelContainer/Sprite2D:scale")
-tracks/3/interp = 1
+tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(2.4, 3),
@@ -136,6 +137,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_eoavt")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0

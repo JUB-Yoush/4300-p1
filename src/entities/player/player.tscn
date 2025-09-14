@@ -133,7 +133,4 @@ position = Vector2(735.6, 761)
 [node name="Punch 2" parent="PlayerAnimation" index="2"]
 material = SubResource("ShaderMaterial_0mfjg")
 
-[node name="Gun" parent="PlayerAnimation" index="4"]
-position = Vector2(1451, 830)
-
 [editable path="PlayerAnimation"]
