@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpuhv226jy3hi"
-path="res://.godot/imported/Button.png-f6f032f3a9d51e683af7725b373d78a0.ctex"
+uid="uid://ddg5jlylvssek"
+path="res://.godot/imported/Button Hover.svg-22ed60dbda0aed24119666752f389f20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/Button.png"
-dest_files=["res://.godot/imported/Button.png-f6f032f3a9d51e683af7725b373d78a0.ctex"]
+source_file="res://assets/UI/Button Hover.svg"
+dest_files=["res://.godot/imported/Button Hover.svg-22ed60dbda0aed24119666752f389f20.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

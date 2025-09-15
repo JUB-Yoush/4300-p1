@@ -1,9 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://co4xfpry6ydnp"]
+[gd_scene load_steps=12 format=3 uid="uid://co4xfpry6ydnp"]
 
+[ext_resource type="Script" uid="uid://01gvr8x6jp5y" path="res://src/scenes/scripts/EndScreenManager.cs" id="1_q2j02"]
 [ext_resource type="Texture2D" uid="uid://dwipoab3ge43p" path="res://assets/UI/werewolf_tearOffShhirt.png" id="1_qeik1"]
 [ext_resource type="FontFile" uid="uid://nmgss8qk2dv" path="res://assets/Fonts/Inknut_Antiqua/InknutAntiqua-Bold.ttf" id="2_rpstk"]
-[ext_resource type="Texture2D" uid="uid://cpuhv226jy3hi" path="res://assets/UI/Button.png" id="3_wkiem"]
+[ext_resource type="Texture2D" uid="uid://vcdbucn6r0ov" path="res://assets/UI/Button Idle.svg" id="4_hujm0"]
 [ext_resource type="FontFile" uid="uid://blymanpbqlk26" path="res://assets/Fonts/Inknut_Antiqua/InknutAntiqua-Black.ttf" id="4_q2j02"]
+[ext_resource type="Texture2D" uid="uid://dgnwlpn0jjkfy" path="res://assets/UI/Button Click.svg" id="5_bfieu"]
+[ext_resource type="Texture2D" uid="uid://ddg5jlylvssek" path="res://assets/UI/Button Hover.svg" id="6_6e5dx"]
+
+[sub_resource type="Animation" id="Animation_qeik1"]
+resource_name = "end_screen"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rpstk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wkiem"]
+_data = {
+&"RESET": SubResource("Animation_rpstk"),
+&"end_screen": SubResource("Animation_qeik1")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2j02"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="End" type="Control"]
 layout_mode = 3
@@ -12,6 +55,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_q2j02")
 
 [node name="WerewolfTearOffShhirt" type="Sprite2D" parent="."]
 position = Vector2(856, 528)
@@ -38,11 +82,13 @@ offset_bottom = 1520.0
 scale = Vector2(0.245, 0.245)
 theme_override_constants/separation = 100
 
-[node name="TextureButton" type="TextureButton" parent="HBoxContainer"]
+[node name="Main" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("3_wkiem")
+texture_normal = ExtResource("4_hujm0")
+texture_pressed = ExtResource("5_bfieu")
+texture_hover = ExtResource("6_6e5dx")
 
-[node name="Label" type="Label" parent="HBoxContainer/TextureButton"]
+[node name="Label" type="Label" parent="HBoxContainer/Main"]
 layout_mode = 0
 offset_left = 229.0
 offset_top = 98.0
@@ -54,11 +100,13 @@ text = "MAIN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureButton2" type="TextureButton" parent="HBoxContainer"]
+[node name="Exit" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("3_wkiem")
+texture_normal = ExtResource("4_hujm0")
+texture_pressed = ExtResource("5_bfieu")
+texture_hover = ExtResource("6_6e5dx")
 
-[node name="Label" type="Label" parent="HBoxContainer/TextureButton2"]
+[node name="Label" type="Label" parent="HBoxContainer/Exit"]
 layout_mode = 0
 offset_left = 229.0
 offset_top = 98.0
@@ -69,3 +117,15 @@ theme_override_font_sizes/font_size = 160
 text = "EXIT"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wkiem")
+}
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1926.0
+offset_bottom = 1085.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q2j02")
