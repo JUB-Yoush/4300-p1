@@ -52,6 +52,7 @@ billboard = 2
 shape = SubResource("SphereShape3D_o81g6")
 
 [node name="ItemSmellTrail" type="GPUParticles3D" parent="."]
+sorting_offset = -1.0
 amount = 100
 lifetime = 3.0
 randomness = 0.5
