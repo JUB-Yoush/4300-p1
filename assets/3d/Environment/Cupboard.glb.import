@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bkjha1iyuwq87"
-path="res://.godot/imported/Cabinet.glb-d0ddacf7022c466731e0d9173a4ac515.scn"
+path="res://.godot/imported/Cupboard.glb-7c99325f922640c2c2f5310630c49807.scn"
 
 [deps]
 
-source_file="res://assets/3d/Environment/Cabinet.glb"
-dest_files=["res://.godot/imported/Cabinet.glb-d0ddacf7022c466731e0d9173a4ac515.scn"]
+source_file="res://assets/3d/Environment/Cupboard.glb"
+dest_files=["res://.godot/imported/Cupboard.glb-7c99325f922640c2c2f5310630c49807.scn"]
 
 [params]
 
