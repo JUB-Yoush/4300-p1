@@ -29,32 +29,41 @@ public partial class Player : CharacterBody3D
 
 	//const int GUN_CAPACITY = 3;
 
-	Vector3 cameraTargetRotation = Vector3.Zero;
-	Vector3 WishDir;
-	Camera3D Camera = null!;
-	RayCast3D VisionRay = null!;
-	SmellItem? TargetingItem;
-	//public List<ItemData> GunSlots = [];
-	Ghost ghost = null!;
-	CollisionPolygon3D SmellBox = null!;
-	AnimationPlayer Anims = null!;
-	public bool smelling = false;
-	GunPlaceholder gun;
-	Node GunSlots;
+    Vector3 cameraTargetRotation = Vector3.Zero;
+    Vector3 WishDir;
+    Camera3D Camera = null!;
+    RayCast3D VisionRay = null!;
+    SmellItem? TargetingItem;
+    //public List<ItemData> GunSlots = [];
+    Ghost ghost = null!;
+    CollisionPolygon3D SmellBox = null!;
+    AnimationPlayer Anims = null!;
+    public bool smelling = false;
+    GunPlaceholder gun = null!;
+    Node GunSlots = null!;
+    OmniLight3D Light = null!;
+    WorldEnvironment Environment = null!;
+    CanvasItem GunSprite, Punch1, Punch2, Punch3;
 
-	public override void _Ready()
-	{
-		Camera = GetNode<Camera3D>("Head/Camera3D");
-		VisionRay = GetNode<RayCast3D>("Head/Camera3D/VisionRay");
-		ghost = GetNode<Ghost>("../Ghost");
-		SmellBox = ghost.GetNode<CollisionPolygon3D>("GhostSmellTrail/SmellBox/TrailCollider");
-		gun = GetNode<GunPlaceholder>("Head/Camera3D/GunPlaceholder");
-		VisionRay.TargetPosition = VisionRay.TargetPosition with { Z = -5 };
-		VisionRay.CollideWithAreas = true;
-		VisionRay.CollideWithBodies = false;
-		Anims = GetNode<AnimationPlayer>("PlayerAnimation/AnimationPlayer");
-		GunSlots = GetNode("PlayerAnimation/Gun/Ingredient_panel/Ingredient Slots");
-	}
+    public override void _Ready()
+    {
+        Camera = GetNode<Camera3D>("Head/Camera3D");
+        VisionRay = GetNode<RayCast3D>("Head/Camera3D/VisionRay");
+        ghost = GetNode<Ghost>("../Ghost");
+        SmellBox = ghost.GetNode<CollisionPolygon3D>("GhostSmellTrail/SmellBox/TrailCollider");
+        gun = GetNode<GunPlaceholder>("Head/Camera3D/GunPlaceholder");
+        VisionRay.TargetPosition = VisionRay.TargetPosition with { Z = -5 };
+        VisionRay.CollideWithAreas = true;
+        VisionRay.CollideWithBodies = false;
+        Anims = GetNode<AnimationPlayer>("PlayerAnimation/AnimationPlayer");
+        GunSlots = GetNode("PlayerAnimation/Gun/Ingredient_panel/Ingredient Slots");
+        Light = GetNode<OmniLight3D>("Head/Camera3D/OmniLight3D");
+        Environment = GetNode<WorldEnvironment>("../WorldEnvironment");
+        GunSprite = GetNode<CanvasItem>("PlayerAnimation/Gun");
+        Punch1 = GetNode<CanvasItem>("PlayerAnimation/Punch");
+        Punch2 = GetNode<CanvasItem>("PlayerAnimation/Punch 2");
+        Punch3 = GetNode<CanvasItem>("PlayerAnimation/Punch 3");
+    }
 
 	public void _HeadbobEffect(double delta)
 	{
@@ -155,23 +164,35 @@ public partial class Player : CharacterBody3D
 		var env = GetParent().GetNode<WorldEnvironment>("WorldEnvironment").Environment;
 		var screenDimmer = GetParent().GetNode<CanvasLayer>("CanvasLayer");
 
-		smelling = Input.IsActionPressed("smell");
-		if (smelling)
-		{
-			env.BackgroundEnergyMultiplier = 0.5f;
-			screenDimmer.Visible = true;
-			CurrentWalkSpeed = SMELLING_WALK_SPEED;
-			ghost.Visible = true;
-			SmellBox.Disabled = false;
-		}
-		else
-		{
-			env.BackgroundEnergyMultiplier = 2f;
-			screenDimmer.Visible = false;
-			CurrentWalkSpeed = WALK_SPEED;
-			ghost.Visible = false;
-			SmellBox.Disabled = true;
-		}
+        smelling = Input.IsActionPressed("smell");
+        if (smelling)
+        {
+            env.BackgroundEnergyMultiplier = 0.5f;
+            CurrentWalkSpeed = SMELLING_WALK_SPEED;
+            ghost.Visible = true;
+            SmellBox.Disabled = false;
+            Light.LightColor = Color.Color8(255, 0, 0, 125);
+            Light.LightSpecular = 2f;
+            Environment.Environment.AmbientLightEnergy = 0.075f;
+            GunSprite.Modulate = Color.Color8(255, 175, 175, 255);
+            Punch1.Modulate = Color.Color8(255, 175, 175, 255);
+            Punch2.Modulate = Color.Color8(255, 175, 175, 255);
+            Punch3.Modulate = Color.Color8(255, 175, 175, 255);
+        }
+        else
+        {
+            env.BackgroundEnergyMultiplier = 2f;
+            CurrentWalkSpeed = WALK_SPEED;
+            ghost.Visible = false;
+            SmellBox.Disabled = true;
+            Light.LightColor = Color.Color8(255, 255, 255, 255);
+            Light.LightSpecular = 0.5f;
+            Environment.Environment.AmbientLightEnergy = 1f;
+            GunSprite.Modulate = Color.Color8(255, 255, 255, 255);
+            Punch1.Modulate = Color.Color8(255, 255, 255, 255);
+            Punch2.Modulate = Color.Color8(255, 255, 255, 255);
+            Punch3.Modulate = Color.Color8(255, 255, 255, 255);
+        }
 
 		Vector2 inputDir = Input.GetVector("left", "right", "up", "down");
 		WishDir = GlobalTransform.Basis * new Vector3(inputDir.X, 0, inputDir.Y);
