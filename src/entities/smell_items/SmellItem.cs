@@ -18,11 +18,12 @@ public partial class SmellItem : Node3D
         AddToGroup("items");
         GetNode<Sprite3D>("Sprite3D").Texture = Data!.Sprite;
         emitter = GetNode<GpuParticles3D>("ItemSmellTrail");
-        if (Data.Shape != null)
+        if (Data.Effect == ScentEffect.SHAPE)
             emitter.DrawPass1.SurfaceSetMaterial(0, Data.Shape);
-        else if (Data.Color != Color.Color8(0, 0, 0, 0))
+        else if (Data.Effect == ScentEffect.COLOUR)
             ((ParticleProcessMaterial)emitter.ProcessMaterial).Color = Data.Color;
-        else{
+        else
+        {
             ((ParticleProcessMaterial)emitter.ProcessMaterial).ScaleMax = Data.Size;
             ((ParticleProcessMaterial)emitter.ProcessMaterial).ScaleMin = Data.Size;
         }

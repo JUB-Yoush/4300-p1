@@ -6,7 +6,6 @@ public enum ScentColor
     RED,
     GREEN,
     BLUE,
-    GREY,
 }
 
 public enum ScentSize
@@ -14,7 +13,6 @@ public enum ScentSize
     SMALL,
     MEDIUM,
     LARGE,
-    MIXED,
 }
 
 public enum ScentShape
@@ -22,7 +20,13 @@ public enum ScentShape
     TRIANGLE,
     SQUARE,
     CIRCLE,
-    MIXED,
+}
+
+public enum ScentEffect
+{
+    SIZE,
+    SHAPE,
+    COLOUR,
 }
 
 [GlobalClass]
@@ -32,7 +36,7 @@ public partial class ItemData : Resource
     public string name { get; set; } = "blah";
 
     [Export]
-    public Texture2D Sprite;
+    public Texture2D Sprite, UiSprite;
 
     [Export]
     public Color Color;
@@ -42,6 +46,8 @@ public partial class ItemData : Resource
 
     [Export]
     public Material Shape;
+    [Export]
+    public ScentEffect Effect;
 
     public ItemData() { }
 }

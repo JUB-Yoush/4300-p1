@@ -27,19 +27,23 @@ public partial class Player : CharacterBody3D
     float AirSpeed = 500;
     float CurrentWalkSpeed = WALK_SPEED;
 
-    const int GUN_CAPACITY = 3;
+    //const int GUN_CAPACITY = 3;
 
     Vector3 cameraTargetRotation = Vector3.Zero;
     Vector3 WishDir;
     Camera3D Camera = null!;
     RayCast3D VisionRay = null!;
     SmellItem? TargetingItem;
-    public List<ItemData> GunSlots = [];
+    //public List<ItemData> GunSlots = [];
     Ghost ghost = null!;
     CollisionPolygon3D SmellBox = null!;
     AnimationPlayer Anims = null!;
     public bool smelling = false;
-    GunPlaceholder gun;
+    GunPlaceholder gun = null!;
+    Node GunSlots = null!;
+    OmniLight3D Light = null!;
+    WorldEnvironment Environment = null!;
+    CanvasItem GunSprite, Punch1, Punch2, Punch3;
 
     public override void _Ready()
     {
@@ -52,6 +56,13 @@ public partial class Player : CharacterBody3D
         VisionRay.CollideWithAreas = true;
         VisionRay.CollideWithBodies = false;
         Anims = GetNode<AnimationPlayer>("PlayerAnimation/AnimationPlayer");
+        GunSlots = GetNode("PlayerAnimation/Gun/Ingredient_panel/Ingredient Slots");
+        Light = GetNode<OmniLight3D>("Head/Camera3D/OmniLight3D");
+        Environment = GetNode<WorldEnvironment>("../WorldEnvironment");
+        GunSprite = GetNode<CanvasItem>("PlayerAnimation/Gun");
+        Punch1 = GetNode<CanvasItem>("PlayerAnimation/Punch");
+        Punch2 = GetNode<CanvasItem>("PlayerAnimation/Punch 2");
+        Punch3 = GetNode<CanvasItem>("PlayerAnimation/Punch 3");
     }
 
     public void _HeadbobEffect(double delta)
@@ -109,16 +120,22 @@ public partial class Player : CharacterBody3D
     {
         //GunSlots.Add(item.Data!);
         //TODO add sprite to corresponding ui gun slot
-        if (item.Data.Color != Color.Color8(0, 0, 0, 0))
+        if (item.Data.Effect == ScentEffect.COLOUR)
+        {
             gun.projectileColour = item.Data.Color;
-        else if (item.Data.Shape != null)
+            GunSlots.GetNode<TextureRect>("ColourSlot").Texture = item.Data.UiSprite;
+        }
+        else if (item.Data.Effect == ScentEffect.SHAPE)
+        {
             gun.projectileMaterial = item.Data.Shape;
+            GunSlots.GetNode<TextureRect>("ShapeSlot").Texture = item.Data.UiSprite;
+        }
         else
         {
             gun.projectileMaxSize = item.Data.Size;
             gun.projectileMinSize = item.Data.Size;
+            GunSlots.GetNode<TextureRect>("SizeSlot").Texture = item.Data.UiSprite;
         }
-        item.QueueFree();
     }
 
     public override void _PhysicsProcess(double delta)
@@ -129,7 +146,6 @@ public partial class Player : CharacterBody3D
         if (
             Input.IsActionJustPressed("pickup")
             && TargetingItem != null
-            && GunSlots.Count < GUN_CAPACITY
         )
         {
             _PickupItem(TargetingItem!);
@@ -152,18 +168,30 @@ public partial class Player : CharacterBody3D
         if (smelling)
         {
             env.BackgroundEnergyMultiplier = 0.5f;
-            screenDimmer.Visible = true;
             CurrentWalkSpeed = SMELLING_WALK_SPEED;
             ghost.Visible = true;
             SmellBox.Disabled = false;
+            Light.LightColor = Color.Color8(255, 0, 0, 125);
+            Light.LightSpecular = 2f;
+            Environment.Environment.AmbientLightEnergy = 0.075f;
+            GunSprite.Modulate = Color.Color8(255, 175, 175, 255);
+            Punch1.Modulate = Color.Color8(255, 175, 175, 255);
+            Punch2.Modulate = Color.Color8(255, 175, 175, 255);
+            Punch3.Modulate = Color.Color8(255, 175, 175, 255);
         }
         else
         {
             env.BackgroundEnergyMultiplier = 2f;
-            screenDimmer.Visible = false;
             CurrentWalkSpeed = WALK_SPEED;
             ghost.Visible = false;
             SmellBox.Disabled = true;
+            Light.LightColor = Color.Color8(255, 255, 255, 255);
+            Light.LightSpecular = 0.5f;
+            Environment.Environment.AmbientLightEnergy = 1f;
+            GunSprite.Modulate = Color.Color8(255, 255, 255, 255);
+            Punch1.Modulate = Color.Color8(255, 255, 255, 255);
+            Punch2.Modulate = Color.Color8(255, 255, 255, 255);
+            Punch3.Modulate = Color.Color8(255, 255, 255, 255);
         }
 
         Vector2 inputDir = Input.GetVector("left", "right", "up", "down");

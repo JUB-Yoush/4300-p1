@@ -16,6 +16,7 @@ public partial class Ghost : CharacterBody3D
     {
         PATROL,
         CHASE,
+        SMELLING, //when you throw the correct scent out
     }
 
     State CurrentState;
@@ -38,6 +39,8 @@ public partial class Ghost : CharacterBody3D
     private List<Vector2> TrailBoxPoints = [];
     private List<Vector2> TrailBoxPointsLeft = [];
     private List<Vector2> TrailBoxPointsRight = [];
+
+    bool InHomeRoom = false;
 
     const float POINT_ROUNDING_THRESHOLD = 0.1f;
     const float TELEPORT_DIST_THRESHOLD = 25f;
@@ -65,6 +68,30 @@ public partial class Ghost : CharacterBody3D
         TrailCreationTimer.Start(1);
         CurrentState = State.PATROL;
         CurrentTargetPosition = GetNewPoint();
+        var PunchHitbox = Player.GetNode<Area3D>("Head/PunchBox");
+        var HomeRoom = GetParent().GetNode<Area3D>("Level/HomeRoom");
+        PunchHitbox.AreaEntered += Punched;
+
+        HomeRoom.AreaEntered += (area) => InHomeRoom = true;
+        HomeRoom.AreaExited += (area) => InHomeRoom = false;
+    }
+
+    public bool SmellingCorrectScent()
+    {
+        // TODO implement
+        return false;
+    }
+
+    public void Punched(Area3D area)
+    {
+        if (InHomeRoom && CurrentState == State.SMELLING)
+        {
+            GD.Print("ghost dead as heck");
+        }
+        else
+        {
+            GD.Print("ghost not dead as heck");
+        }
     }
 
     public void SetToPatrol()

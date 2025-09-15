@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://badbx0f6p4gpv"]
+[gd_scene load_steps=15 format=3 uid="uid://badbx0f6p4gpv"]
 
 [ext_resource type="Script" uid="uid://ckh15og5edo8q" path="res://src/entities/particles/GpuParticles3d.cs" id="2_3tpaw"]
 [ext_resource type="Material" uid="uid://c8detkvdf8fht" path="res://assets/Materials/Particles/AllShapesFilled.tres" id="3_4hrha"]
-[ext_resource type="Material" uid="uid://dioiwjqmyaie2" path="res://assets/Materials/Particles/TriangleCircleFilled.tres" id="4_feuc6"]
+[ext_resource type="Texture2D" uid="uid://bnu5bvgv0te7e" path="res://assets/textures/particles/AllShapesFilled.jpeg" id="3_jdd00"]
+[ext_resource type="Texture2D" uid="uid://ulpl564oocjr" path="res://assets/textures/particles/TriangleCircleFilled.jpeg" id="4_samok"]
 [ext_resource type="Material" uid="uid://rnrrlraj356f" path="res://assets/Materials/Particles/TriangleFinal.tres" id="5_l83gr"]
 [ext_resource type="Script" uid="uid://bs7lkd3lcux16" path="res://src/entities/particles/SmellBox.cs" id="6_m7kiv"]
 
@@ -35,6 +36,32 @@ anim_offset_max = 1.0
 material = ExtResource("3_4hrha")
 orientation = 2
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jdd00"]
+resource_local_to_scene = true
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_jdd00")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_samok"]
+resource_local_to_scene = true
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_samok")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
 [node name="GhostSmellTrail" type="GPUParticles3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 amount = 50
@@ -43,7 +70,7 @@ randomness = 0.5
 process_material = SubResource("ParticleProcessMaterial_8y3jm")
 draw_pass_1 = SubResource("PlaneMesh_vxp1e")
 script = ExtResource("2_3tpaw")
-textures = Array[Material]([ExtResource("3_4hrha"), ExtResource("4_feuc6"), ExtResource("5_l83gr")])
+textures = Array[Material]([SubResource("StandardMaterial3D_jdd00"), SubResource("StandardMaterial3D_samok"), ExtResource("5_l83gr")])
 filledTexture = ExtResource("3_4hrha")
 trueColor = Color(0.776471, 0.286275, 0.882353, 1)
 

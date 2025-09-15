@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6pxfsosho5aq"
-path.s3tc="res://.godot/imported/ghost_in_the_smell.png-2a4a5cd4be2814c24c4aa374d9943c44.s3tc.ctex"
+uid="uid://dkgj5vosasm44"
+path.s3tc="res://.godot/imported/door_4_1.jpg-e3f2a5961989a5f7208f971f42ccdd4f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/UI/ghost_in_the_smell.png"
-dest_files=["res://.godot/imported/ghost_in_the_smell.png-2a4a5cd4be2814c24c4aa374d9943c44.s3tc.ctex"]
+source_file="res://assets/3d/Environment/Isolated Textures/door_4_1.jpg"
+dest_files=["res://.godot/imported/door_4_1.jpg-e3f2a5961989a5f7208f971f42ccdd4f.s3tc.ctex"]
 
 [params]
 

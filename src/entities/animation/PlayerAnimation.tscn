@@ -471,6 +471,7 @@ libraries = {
 }
 
 [node name="Punch" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(247, 1059)
 scale = Vector2(0.369767, 0.369767)
 texture = ExtResource("3_mvch5")
@@ -484,7 +485,6 @@ texture = ExtResource("5_k5my5")
 
 [node name="Punch 3" type="Sprite2D" parent="."]
 visible = false
-self_modulate = Color(1, 1, 1, 0)
 position = Vector2(817.859, 688.25)
 scale = Vector2(0.254221, 0.254221)
 texture = ExtResource("5_k5my5")
@@ -516,19 +516,19 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="TextureRect" type="TextureRect" parent="Gun/Ingredient_panel/Ingredient Slots"]
+[node name="ShapeSlot" type="TextureRect" parent="Gun/Ingredient_panel/Ingredient Slots"]
 layout_mode = 2
 texture = ExtResource("7_fqycv")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="TextureRect2" type="TextureRect" parent="Gun/Ingredient_panel/Ingredient Slots"]
+[node name="ColourSlot" type="TextureRect" parent="Gun/Ingredient_panel/Ingredient Slots"]
 layout_mode = 2
 texture = ExtResource("7_fqycv")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="Gun/Ingredient_panel/Ingredient Slots"]
+[node name="SizeSlot" type="TextureRect" parent="Gun/Ingredient_panel/Ingredient Slots"]
 layout_mode = 2
 texture = ExtResource("7_fqycv")
 expand_mode = 2
