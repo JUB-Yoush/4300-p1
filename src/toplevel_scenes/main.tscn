@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://b8e6rv13o8a1g"]
+[gd_scene load_steps=51 format=3 uid="uid://b8e6rv13o8a1g"]
 
 [ext_resource type="Script" uid="uid://cvhb113by0cda" path="res://src/toplevel_scenes/Main.cs" id="1_5dlwx"]
 [ext_resource type="PackedScene" uid="uid://dbuna14812w75" path="res://src/entities/player/player.tscn" id="2_5dlwx"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://ccgkkxpcblmuc" path="res://src/entities/smell_items/smell_item.tscn" id="5_o81g6"]
 [ext_resource type="Texture2D" uid="uid://ulpl564oocjr" path="res://assets/textures/particles/TriangleCircleFilled.jpeg" id="6_5pbbh"]
 [ext_resource type="Texture2D" uid="uid://dkgj5vosasm44" path="res://assets/3d/Environment/Isolated Textures/door_4_1.jpg" id="6_6muo6"]
-[ext_resource type="Resource" uid="uid://b42o1ub7s1m0q" path="res://src/resources/rei.tres" id="6_dbro3"]
 [ext_resource type="Material" uid="uid://d20x1aybb322b" path="res://assets/3d/Environment/Materials/door.tres" id="6_kexia"]
 [ext_resource type="Material" uid="uid://dhvbp3nb31vf6" path="res://assets/3d/Environment/Materials/door_wide.tres" id="7_0iucp"]
 [ext_resource type="Texture2D" uid="uid://b68sf6kgvrpso" path="res://assets/sprites/rei.png" id="7_i3xn1"]
@@ -50,7 +49,7 @@ size = Vector3(24, 4, 11.3839)
 [sub_resource type="BoxShape3D" id="BoxShape3D_oxt34"]
 size = Vector3(18.7405, 4, 11.3839)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v8kvn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3osph"]
 resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
@@ -60,19 +59,6 @@ albedo_texture = ExtResource("5_fleds")
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 3
-particles_anim_v_frames = 1
-particles_anim_loop = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rk8ua"]
-resource_local_to_scene = true
-transparency = 1
-blend_mode = 1
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("6_5pbbh")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 2
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
@@ -89,7 +75,7 @@ particles_anim_h_frames = 3
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="Resource" id="Resource_rk8ua"]
+[sub_resource type="Resource" id="Resource_a4mwm"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -100,7 +86,7 @@ Size = 0.0
 Effect = 2
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
-[sub_resource type="Resource" id="Resource_gxq42"]
+[sub_resource type="Resource" id="Resource_uu0ft"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -111,7 +97,7 @@ Size = 0.0
 Effect = 2
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
-[sub_resource type="Resource" id="Resource_5gb6y"]
+[sub_resource type="Resource" id="Resource_3rvkn"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -169,7 +155,7 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_6b35j")
 orientation = 2
 
-[sub_resource type="Resource" id="Resource_3osph"]
+[sub_resource type="Resource" id="Resource_d8h2t"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -180,7 +166,7 @@ Size = 2.5
 Effect = 0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4mwm"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uruqi"]
 resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
@@ -193,7 +179,7 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="Resource" id="Resource_uu0ft"]
+[sub_resource type="Resource" id="Resource_e07q1"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -201,7 +187,7 @@ Sprite = ExtResource("13_5pbbh")
 UiSprite = ExtResource("13_5pbbh")
 Color = Color(0, 0, 0, 0)
 Size = 0.0
-Shape = SubResource("StandardMaterial3D_a4mwm")
+Shape = SubResource("StandardMaterial3D_uruqi")
 Effect = 1
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
@@ -238,7 +224,7 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_0iucp")
 orientation = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3rvkn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_48oet"]
 resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
@@ -251,7 +237,7 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="Resource" id="Resource_d8h2t"]
+[sub_resource type="Resource" id="Resource_r0g70"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -259,7 +245,7 @@ Sprite = ExtResource("6_5pbbh")
 UiSprite = ExtResource("6_5pbbh")
 Color = Color(0, 0, 0, 0)
 Size = 0.0
-Shape = SubResource("StandardMaterial3D_3rvkn")
+Shape = SubResource("StandardMaterial3D_48oet")
 Effect = 1
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
@@ -2623,20 +2609,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23913, 2.04144, 16.0537)
 visible = false
 
 [node name="GhostSmellTrail" parent="Ghost" instance=ExtResource("5_2lg1k")]
-textures = Array[Material]([SubResource("StandardMaterial3D_kexia"), SubResource("StandardMaterial3D_v8kvn"), ExtResource("7_smgh4")])
+textures = Array[Material]([SubResource("StandardMaterial3D_kexia"), SubResource("StandardMaterial3D_3osph"), ExtResource("7_smgh4")])
 filledTexture = SubResource("StandardMaterial3D_5pbbh")
 
 [node name="SmellItem" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9916, 3, -29.3629)
-Data = SubResource("Resource_rk8ua")
+Data = SubResource("Resource_a4mwm")
 
 [node name="SmellItem4" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9916, 3, -38.2883)
-Data = SubResource("Resource_gxq42")
+Data = SubResource("Resource_uu0ft")
 
 [node name="SmellItem2" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1649, 3, -29.3629)
-Data = SubResource("Resource_5gb6y")
+Data = SubResource("Resource_3rvkn")
 
 [node name="ItemSmellTrail" parent="SmellItem2" index="2"]
 process_material = SubResource("ParticleProcessMaterial_smgh4")
@@ -2644,7 +2630,7 @@ draw_pass_1 = SubResource("PlaneMesh_nos3a")
 
 [node name="SmellItem5" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1649, 3, -38.2922)
-Data = SubResource("Resource_3osph")
+Data = SubResource("Resource_d8h2t")
 
 [node name="ItemSmellTrail" parent="SmellItem5" index="2"]
 process_material = SubResource("ParticleProcessMaterial_smgh4")
@@ -2652,7 +2638,7 @@ draw_pass_1 = SubResource("PlaneMesh_nos3a")
 
 [node name="SmellItem3" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7001, 3, -29.3629)
-Data = SubResource("Resource_uu0ft")
+Data = SubResource("Resource_e07q1")
 
 [node name="ItemSmellTrail" parent="SmellItem3" index="2"]
 process_material = SubResource("ParticleProcessMaterial_6muo6")
@@ -2660,7 +2646,7 @@ draw_pass_1 = SubResource("PlaneMesh_kexia")
 
 [node name="SmellItem6" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7001, 3, -37.8599)
-Data = SubResource("Resource_d8h2t")
+Data = SubResource("Resource_r0g70")
 
 [node name="ItemSmellTrail" parent="SmellItem6" index="2"]
 process_material = SubResource("ParticleProcessMaterial_6muo6")
