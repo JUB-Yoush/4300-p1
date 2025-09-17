@@ -244,7 +244,11 @@ public partial class Ghost : CharacterBody3D
         Move();
         if (GetTree().GetNodesInGroup("bullets").Count > 0 && ScentIsCorrect())
         {
-            CurrentState = State.SMELLING;
+            foreach (Node bullet in GetTree().GetNodesInGroup("bullets"))
+            {
+                if (((ScentProjectile)bullet).luresGhost)
+                    CurrentState = State.SMELLING;
+            }
         }
 
         LookAt(

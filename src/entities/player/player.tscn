@@ -79,7 +79,7 @@ current = true
 fov = 90.0
 
 [node name="GunPlaceholder" type="Node3D" parent="Head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.301946, -0.395807, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.331779, -0.30715, -0.528783)
 script = ExtResource("2_wrxq6")
 projectileMaterial = ExtResource("3_wrxq6")
 projectileColour = Color(0.196078, 0.196078, 0.196078, 1)
