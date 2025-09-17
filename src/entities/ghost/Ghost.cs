@@ -19,6 +19,7 @@ public partial class Ghost : CharacterBody3D
         SMELLING, //when you throw the correct scent out
     }
 
+    PackedScene RigidGhost = null!;
     State CurrentState;
     public required NavigationAgent3D NavAgent;
     float Speed = 5f;
@@ -40,12 +41,18 @@ public partial class Ghost : CharacterBody3D
     private List<Vector2> TrailBoxPointsLeft = [];
     private List<Vector2> TrailBoxPointsRight = [];
 
-    bool InHomeRoom = false;
+    public bool InHomeRoom = false;
+    bool active = true;
 
     const float POINT_ROUNDING_THRESHOLD = 0.1f;
     const float TELEPORT_DIST_THRESHOLD = 25f;
     const float ATTACK_RANGE = 2f;
     const int MAX_TRAIL_POINTS = 10;
+
+    public bool IsCorporial()
+    {
+        return InHomeRoom && CurrentState == State.SMELLING;
+    }
 
     public override void _Ready()
     {
@@ -63,6 +70,7 @@ public partial class Ghost : CharacterBody3D
         AddChild(ContinueLookingTimer);
         TrailCreationTimer.Timeout += UpdateTrailBox;
         ContinueLookingTimer.Timeout += SetToPatrol;
+        RigidGhost = GD.Load<PackedScene>("res://src/entities/ghost/rigid_ghost.tscn");
 
         TrailCreationTimer.OneShot = false;
         TrailCreationTimer.Start(1);
@@ -76,17 +84,22 @@ public partial class Ghost : CharacterBody3D
         HomeRoom.AreaExited += (area) => InHomeRoom = false;
     }
 
-    public bool SmellingCorrectScent()
-    {
-        // TODO implement
-        return false;
-    }
-
     public void Punched(Area3D area)
     {
+        if (!active)
+        {
+            return;
+        }
         if (InHomeRoom && CurrentState == State.SMELLING)
         {
-            GD.Print("ghost dead as heck");
+            var rigidGhost = RigidGhost.Instantiate<RigidBody3D>();
+            GetParent().AddChild(rigidGhost);
+            GetNode<Node3D>("ghost").Visible = false;
+            var camera = Player.GetNode<Camera3D>("Head/Camera3D");
+            var punchVelocity = camera.GlobalTransform.Basis.Z;
+            active = false;
+            rigidGhost.GlobalPosition = GlobalPosition;
+            rigidGhost.LinearVelocity = -punchVelocity * 5;
         }
         else
         {
@@ -122,8 +135,17 @@ public partial class Ghost : CharacterBody3D
         RenderTrail();
     }
 
+    public bool ScentIsCorrect()
+    {
+        return true; // TODO implement
+    }
+
     public void UpdateTrailBox()
     {
+        if (!active)
+        {
+            return;
+        }
         var direction = Velocity.Normalized();
         TrailBoxPointsLeft.Add(
             new Vector2(GlobalTransform.Origin.X, GlobalTransform.Origin.Z)
@@ -160,6 +182,13 @@ public partial class Ghost : CharacterBody3D
 
     public override void _PhysicsProcess(double delta)
     {
+        //GD.Print(CurrentState, GetTree().GetNodesInGroup("bullets").Count);
+        //GD.Print(InHomeRoom);
+        if (!active)
+        {
+            return;
+        }
+
         switch (CurrentState)
         {
             case State.PATROL:
@@ -199,8 +228,43 @@ public partial class Ghost : CharacterBody3D
                     UpdateTargetLocation(Player.GlobalTransform.Origin);
                 }
                 break;
+
+            case State.SMELLING:
+                {
+                    if (GetTree().GetNodesInGroup("bullets").Count == 0)
+                    {
+                        CurrentState = State.PATROL;
+                        break;
+                    }
+
+                    UpdateTargetLocation(GetNearestBulletLocation());
+                }
+                break;
         }
         Move();
+        if (GetTree().GetNodesInGroup("bullets").Count > 0 && ScentIsCorrect())
+        {
+            foreach (Node bullet in GetTree().GetNodesInGroup("bullets"))
+            {
+                if (((ScentProjectile)bullet).luresGhost)
+                    CurrentState = State.SMELLING;
+            }
+        }
+
+        LookAt(
+            GlobalPosition
+                + (GlobalPosition - NavAgent.TargetPosition with { Y = GlobalPosition.Y }),
+            Vector3.Up
+        );
+    }
+
+    public Vector3 GetNearestBulletLocation()
+    {
+        var bullets = GetTree().GetNodesInGroup("bullets").Cast<RigidBody3D>();
+        return bullets
+            .Select(bullet => bullet.GlobalPosition)
+            .OrderBy(position => (GlobalPosition - position).Length())
+            .First();
     }
 
     public void Attack()

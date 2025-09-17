@@ -4,8 +4,10 @@ using Godot;
 
 public partial class ScentProjectile : RigidBody3D
 {
+    public bool luresGhost;
     public override void _Ready()
     {
+        AddToGroup("bullets");
         _Despawn();
     }
 

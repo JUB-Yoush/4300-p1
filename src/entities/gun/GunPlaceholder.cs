@@ -21,7 +21,9 @@ public partial class GunPlaceholder : Node3D
     private float power = 10;
     private BaseMaterial3D? baseMaterial;
     private bool onCooldown;
-    public float projectileMinSize = 0.6f, projectileMaxSize = 2.4f;
+    public float projectileMinSize = 0.6f,
+        projectileMaxSize = 2.4f;
+    private GpuParticles3d? ghostParticles;
 
     public override void _Ready()
     {
@@ -36,6 +38,10 @@ public partial class GunPlaceholder : Node3D
         //cacheMode: ResourceLoader.CacheMode.Ignore
         );
         packedScene = GD.Load<PackedScene>(bulletPath);
+        ghostParticles = GetParent()
+            .GetParent()
+            .GetParent()
+            .GetParent().GetNode<GpuParticles3d>("Ghost/GhostSmellTrail");
     }
 
     public override void _PhysicsProcess(double delta)
@@ -50,7 +56,7 @@ public partial class GunPlaceholder : Node3D
 
     private void _Shoot()
     {
-        var bullet = packedScene.Instantiate<ScentProjectile>();
+        var bullet = packedScene!.Instantiate<ScentProjectile>();
         bullet.TopLevel = true;
         GetParent().GetParent().GetParent().GetParent().AddChild(bullet); //throws node not found error but still works
         bullet.GlobalPosition = GlobalPosition;
@@ -65,6 +71,13 @@ public partial class GunPlaceholder : Node3D
             projectileColour;
         bullet.LinearVelocity = GetParent().GetParent().GetParent<CharacterBody3D>().Velocity / 2; //lmao
         bullet.ApplyCentralImpulse(-GlobalBasis.Z * power);
+        if (projectileColour == ghostParticles.trueColor
+            && projectileMaterial == ghostParticles.textures[2]
+            && projectileMaxSize == 1.5f
+            && projectileMinSize == 1.5f)
+        {
+            bullet.luresGhost = true;
+        }
     }
 
     private async void _Cooldown()

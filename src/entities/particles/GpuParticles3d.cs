@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 public partial class GpuParticles3d : GpuParticles3D
 {
     [Export]
-    private Material[] textures;
+    public Material[] textures;
     [Export]
     private Material filledTexture;
     [Export]
-    private Color trueColor;
+    public Color trueColor;
     public async void _SimplifyColour()
     {
         ParticleProcessMaterial mat = GD.Load<ParticleProcessMaterial>(ProcessMaterial.ResourcePath);
@@ -51,7 +51,7 @@ public partial class GpuParticles3d : GpuParticles3D
     {
         DrawPass1.SurfaceSetMaterial(0, filledTexture);
     }
-    
+
     public async void _SimplifySize()
     {
         ParticleProcessMaterial mat = GD.Load<ParticleProcessMaterial>(ProcessMaterial.ResourcePath);
@@ -61,5 +61,7 @@ public partial class GpuParticles3d : GpuParticles3D
             mat.ScaleMax -= 0.01f;
             mat.ScaleMin += 0.01f;
         }
+        mat.ScaleMax = 1.5f;
+        mat.ScaleMin = 1.5f;
     }
 }
