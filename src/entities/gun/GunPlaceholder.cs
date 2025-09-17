@@ -21,7 +21,8 @@ public partial class GunPlaceholder : Node3D
     private float power = 10;
     private BaseMaterial3D? baseMaterial;
     private bool onCooldown;
-    public float projectileMinSize = 0.6f, projectileMaxSize = 2.4f;
+    public float projectileMinSize = 0.6f,
+        projectileMaxSize = 2.4f;
 
     public override void _Ready()
     {
@@ -50,7 +51,7 @@ public partial class GunPlaceholder : Node3D
 
     private void _Shoot()
     {
-        var bullet = packedScene.Instantiate<ScentProjectile>();
+        var bullet = packedScene!.Instantiate<ScentProjectile>();
         bullet.TopLevel = true;
         GetParent().GetParent().GetParent().GetParent().AddChild(bullet); //throws node not found error but still works
         bullet.GlobalPosition = GlobalPosition;

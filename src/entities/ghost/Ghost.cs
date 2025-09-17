@@ -76,12 +76,6 @@ public partial class Ghost : CharacterBody3D
         HomeRoom.AreaExited += (area) => InHomeRoom = false;
     }
 
-    public bool SmellingCorrectScent()
-    {
-        // TODO implement
-        return false;
-    }
-
     public void Punched(Area3D area)
     {
         if (InHomeRoom && CurrentState == State.SMELLING)
@@ -122,6 +116,11 @@ public partial class Ghost : CharacterBody3D
         RenderTrail();
     }
 
+    public bool ScentIsCorrect()
+    {
+        return true; // TODO implement
+    }
+
     public void UpdateTrailBox()
     {
         var direction = Velocity.Normalized();
@@ -160,6 +159,8 @@ public partial class Ghost : CharacterBody3D
 
     public override void _PhysicsProcess(double delta)
     {
+        //GD.Print(CurrentState, GetTree().GetNodesInGroup("bullets").Count);
+        //GD.Print(InHomeRoom);
         switch (CurrentState)
         {
             case State.PATROL:
@@ -199,8 +200,39 @@ public partial class Ghost : CharacterBody3D
                     UpdateTargetLocation(Player.GlobalTransform.Origin);
                 }
                 break;
+
+            case State.SMELLING:
+                {
+                    if (GetTree().GetNodesInGroup("bullets").Count == 0)
+                    {
+                        CurrentState = State.PATROL;
+                        break;
+                    }
+
+                    UpdateTargetLocation(GetNearestBulletLocation());
+                }
+                break;
         }
         Move();
+        if (GetTree().GetNodesInGroup("bullets").Count > 0 && ScentIsCorrect())
+        {
+            CurrentState = State.SMELLING;
+        }
+
+        LookAt(
+            GlobalPosition
+                + (GlobalPosition - NavAgent.TargetPosition with { Y = GlobalPosition.Y }),
+            Vector3.Up
+        );
+    }
+
+    public Vector3 GetNearestBulletLocation()
+    {
+        var bullets = GetTree().GetNodesInGroup("bullets").Cast<RigidBody3D>();
+        return bullets
+            .Select(bullet => bullet.GlobalPosition)
+            .OrderBy(position => (GlobalPosition - position).Length())
+            .First();
     }
 
     public void Attack()
