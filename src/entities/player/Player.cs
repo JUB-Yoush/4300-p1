@@ -184,7 +184,14 @@ public partial class Player : CharacterBody3D
         {
             env.BackgroundEnergyMultiplier = 2f;
             CurrentWalkSpeed = WALK_SPEED;
-            ghost.Visible = false;
+            if (!ghost.IsCorporial())
+            {
+                ghost.Visible = false;
+            }
+            else
+            {
+                ghost.Visible = true;
+            }
             SmellBox.Disabled = true;
             Light.LightColor = Color.Color8(255, 255, 255, 255);
             Light.LightSpecular = 0.5f;
