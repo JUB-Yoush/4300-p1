@@ -1,9 +1,8 @@
-[gd_scene load_steps=57 format=3 uid="uid://b8e6rv13o8a1g"]
+[gd_scene load_steps=56 format=3 uid="uid://b8e6rv13o8a1g"]
 
 [ext_resource type="Script" uid="uid://cvhb113by0cda" path="res://src/toplevel_scenes/Main.cs" id="1_5dlwx"]
 [ext_resource type="PackedScene" uid="uid://dbuna14812w75" path="res://src/entities/player/player.tscn" id="2_5dlwx"]
 [ext_resource type="Texture2D" uid="uid://oxf4bwprbdhs" path="res://assets/3d/Environment/Isolated Textures/floor_pattern.jpg" id="3_5pbbh"]
-[ext_resource type="PackedScene" uid="uid://dev2l8j0jvn5g" path="res://assets/3d/Environment/Bookshelf.glb" id="3_e07q1"]
 [ext_resource type="Material" uid="uid://b1ut0s2csaf6d" path="res://assets/3d/Environment/Materials/wall_2x3.tres" id="3_smgh4"]
 [ext_resource type="Material" uid="uid://cejq27qrpvltm" path="res://assets/3d/Environment/Materials/window_tile_2_x_3.tres" id="4_6b35j"]
 [ext_resource type="PackedScene" uid="uid://bhot82van31hy" path="res://src/entities/ghost/ghost.tscn" id="4_dbro3"]
@@ -260,11 +259,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.568, 2.45112, -28.8115)
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
 navigation_mesh = SubResource("NavigationMesh_rr2wm")
-
-[node name="Furniture" type="Node3D" parent="Level/NavigationRegion3D"]
-
-[node name="Bookshelf" parent="Level/NavigationRegion3D/Furniture" instance=ExtResource("3_e07q1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.75, 1.75, 0)
 
 [node name="Walls" type="Node3D" parent="Level/NavigationRegion3D"]
 
@@ -3150,6 +3144,37 @@ collision_mask = 3
 size = Vector3(173.893, 0.1, 96)
 material = SubResource("StandardMaterial3D_smgh4")
 
+[node name="Furniture" type="Node3D" parent="Level/NavigationRegion3D"]
+
+[node name="Collection" type="Node3D" parent="Level/NavigationRegion3D/Furniture"]
+
+[node name="SofaCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Collection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.05, 0.725, 25)
+transparency = 1.0
+use_collision = true
+size = Vector3(3.65, 1.45, 1.65)
+
+[node name="Sofa" parent="Level/NavigationRegion3D/Furniture/Collection/SofaCollider" instance=ExtResource("31_48oet")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.1, 0.15)
+
+[node name="BedCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Collection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.05, 0.725, 22.15)
+transparency = 1.0
+use_collision = true
+size = Vector3(3.65, 1.45, 1.65)
+
+[node name="bed" parent="Level/NavigationRegion3D/Furniture/Collection/BedCollider" instance=ExtResource("28_48oet")]
+transform = Transform3D(2.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Cupboard" parent="Level/NavigationRegion3D/Furniture" instance=ExtResource("29_r0g70")]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -6.1, 1.375, -27.55)
+
+[node name="Chair" parent="Level/NavigationRegion3D/Furniture" instance=ExtResource("30_pcyn6")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -11, 0.525, -22.85)
+
+[node name="Sofa1" parent="Level/NavigationRegion3D/Furniture" instance=ExtResource("31_48oet")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.75, 1.225, 25.35)
+
 [node name="Objects" type="Node3D" parent="Level/NavigationRegion3D"]
 
 [node name="Fireplace2" parent="Level/NavigationRegion3D/Objects" instance=ExtResource("24_3osph")]
@@ -3304,18 +3329,6 @@ color = Color(0, 0, 0, 0.501961)
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.682955, 0.73046, 0, -0.73046, 0.682955, 0, 0, 0)
 visible = false
-
-[node name="bed" parent="." instance=ExtResource("28_48oet")]
-transform = Transform3D(2.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -9.3, 0.5, -28.1)
-
-[node name="Cupboard" parent="." instance=ExtResource("29_r0g70")]
-transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -6.1, 1.35, -27.55)
-
-[node name="Chair" parent="." instance=ExtResource("30_pcyn6")]
-transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -11, 0.5, -22.85)
-
-[node name="Sofa1" parent="." instance=ExtResource("31_48oet")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.75, 1.2, 25.35)
 
 [editable path="SmellItem2"]
 [editable path="SmellItem5"]
