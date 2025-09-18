@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://b8e6rv13o8a1g"]
+[gd_scene load_steps=54 format=3 uid="uid://b8e6rv13o8a1g"]
 
 [ext_resource type="Script" uid="uid://cvhb113by0cda" path="res://src/toplevel_scenes/Main.cs" id="1_5dlwx"]
 [ext_resource type="PackedScene" uid="uid://dbuna14812w75" path="res://src/entities/player/player.tscn" id="2_5dlwx"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cix1hcifoowyg" path="res://icon.svg" id="9_nos3a"]
 [ext_resource type="Texture2D" uid="uid://bwonpa2kp1ki4" path="res://assets/sprites/gun2.png" id="11_smgh4"]
 [ext_resource type="Texture2D" uid="uid://cswm5uai2g16o" path="res://assets/3d/ectoplasm_Sphere Base Color.png" id="13_5pbbh"]
+[ext_resource type="Texture2D" uid="uid://cni2mfm6a3ek7" path="res://assets/UI/IngredientIcons/Splat_smell.png" id="13_d8h2t"]
 [ext_resource type="Texture2D" uid="uid://cm84vgk2fvmt" path="res://assets/textures/particles/TextureTest.jpeg" id="13_nos3a"]
 [ext_resource type="Texture2D" uid="uid://boqyih7hja870" path="res://assets/textures/particles/Square.jpeg" id="14_6muo6"]
 [ext_resource type="PackedScene" uid="uid://bebc62l33tw8a" path="res://assets/3d/Environment/Fireplace.glb" id="24_3osph"]
@@ -51,7 +52,7 @@ size = Vector3(18.7405, 4, 11.3839)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kexia"]
 albedo_texture = ExtResource("6_6muo6")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uu0ft"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8h2t"]
 resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
@@ -77,7 +78,7 @@ particles_anim_h_frames = 3
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="Resource" id="Resource_3rvkn"]
+[sub_resource type="Resource" id="Resource_uruqi"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -88,7 +89,7 @@ Size = 0.0
 Effect = 2
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
-[sub_resource type="Resource" id="Resource_d8h2t"]
+[sub_resource type="Resource" id="Resource_e07q1"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -99,7 +100,7 @@ Size = 0.0
 Effect = 2
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
-[sub_resource type="Resource" id="Resource_uruqi"]
+[sub_resource type="Resource" id="Resource_48oet"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -157,7 +158,7 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_6b35j")
 orientation = 2
 
-[sub_resource type="Resource" id="Resource_e07q1"]
+[sub_resource type="Resource" id="Resource_r0g70"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -168,7 +169,7 @@ Size = 1.5
 Effect = 0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_48oet"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pcyn6"]
 resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
@@ -181,7 +182,7 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="Resource" id="Resource_r0g70"]
+[sub_resource type="Resource" id="Resource_yso6w"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -189,7 +190,7 @@ Sprite = ExtResource("13_5pbbh")
 UiSprite = ExtResource("13_5pbbh")
 Color = Color(0, 0, 0, 0)
 Size = 0.0
-Shape = SubResource("StandardMaterial3D_48oet")
+Shape = SubResource("StandardMaterial3D_pcyn6")
 Effect = 1
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
@@ -226,7 +227,7 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_0iucp")
 orientation = 2
 
-[sub_resource type="Resource" id="Resource_pcyn6"]
+[sub_resource type="Resource" id="Resource_3keun"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -1314,7 +1315,7 @@ size = Vector3(1, 2.5, 0.05)
 material = ExtResource("6_kexia")
 
 [node name="DoubleDoor6" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Doors"]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -15, 1.5, 0)
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -16.7, 1.5, 0)
 use_collision = true
 collision_layer = 3
 collision_mask = 3
@@ -3158,6 +3159,11 @@ transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, 50.15, 1, 22.2)
 [node name="pileofdirt2" parent="Level/NavigationRegion3D/Objects" instance=ExtResource("28_uruqi")]
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 12.075, 0, -31.725)
 
+[node name="Sprite3D2" type="Sprite3D" parent="Level/NavigationRegion3D/Objects"]
+transform = Transform3D(-0.195, -1.47221e-08, 1.70474e-08, -1.70474e-08, -1.47221e-08, -0.195, 1.47221e-08, -0.195, 1.47221e-08, -0.599999, 0.01, -25.35)
+modulate = Color(0.347039, 0.254709, 0.133872, 1)
+texture = ExtResource("13_d8h2t")
+
 [node name="Positions" type="Node3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0729589, 0)
 
@@ -3234,30 +3240,25 @@ shape = SubResource("BoxShape3D_i5ocd")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.7367, 1.5, 22.5931)
 shape = SubResource("BoxShape3D_oxt34")
 
-[node name="Level_NavigationRegion3D_Walls_Walls_Door2#DoorCut" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-operation = 2
-size = Vector3(1, 4, 1)
-
 [node name="Ghost" parent="." instance=ExtResource("4_dbro3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23913, 2.04144, 16.0537)
 visible = false
 
 [node name="GhostSmellTrail" parent="Ghost" instance=ExtResource("5_2lg1k")]
-textures = Array[Material]([SubResource("StandardMaterial3D_kexia"), SubResource("StandardMaterial3D_uu0ft"), ExtResource("7_smgh4")])
+textures = Array[Material]([SubResource("StandardMaterial3D_kexia"), SubResource("StandardMaterial3D_d8h2t"), ExtResource("7_smgh4")])
 filledTexture = SubResource("StandardMaterial3D_5pbbh")
 
 [node name="SmellItem" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9916, 3, -29.3629)
-Data = SubResource("Resource_3rvkn")
+Data = SubResource("Resource_uruqi")
 
 [node name="SmellItem4" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9916, 3, -38.2883)
-Data = SubResource("Resource_d8h2t")
+Data = SubResource("Resource_e07q1")
 
 [node name="SmellItem2" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1649, 3, -29.3629)
-Data = SubResource("Resource_uruqi")
+Data = SubResource("Resource_48oet")
 
 [node name="ItemSmellTrail" parent="SmellItem2" index="2"]
 process_material = SubResource("ParticleProcessMaterial_smgh4")
@@ -3265,7 +3266,7 @@ draw_pass_1 = SubResource("PlaneMesh_nos3a")
 
 [node name="SmellItem5" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1649, 3, -38.2922)
-Data = SubResource("Resource_e07q1")
+Data = SubResource("Resource_r0g70")
 
 [node name="ItemSmellTrail" parent="SmellItem5" index="2"]
 process_material = SubResource("ParticleProcessMaterial_smgh4")
@@ -3273,7 +3274,7 @@ draw_pass_1 = SubResource("PlaneMesh_nos3a")
 
 [node name="SmellItem3" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7001, 3, -29.3629)
-Data = SubResource("Resource_r0g70")
+Data = SubResource("Resource_yso6w")
 
 [node name="ItemSmellTrail" parent="SmellItem3" index="2"]
 process_material = SubResource("ParticleProcessMaterial_6muo6")
@@ -3281,7 +3282,7 @@ draw_pass_1 = SubResource("PlaneMesh_kexia")
 
 [node name="SmellItem6" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7001, 3, -37.8599)
-Data = SubResource("Resource_pcyn6")
+Data = SubResource("Resource_3keun")
 
 [node name="ItemSmellTrail" parent="SmellItem6" index="2"]
 process_material = SubResource("ParticleProcessMaterial_6muo6")
