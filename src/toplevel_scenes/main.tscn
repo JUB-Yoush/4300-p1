@@ -3251,11 +3251,6 @@ shape = SubResource("BoxShape3D_i5ocd")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.7367, 1.5, 22.5931)
 shape = SubResource("BoxShape3D_oxt34")
 
-[node name="Level_NavigationRegion3D_Walls_Walls_Door2#DoorCut" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-operation = 2
-size = Vector3(1, 4, 1)
-
 [node name="Ghost" parent="." instance=ExtResource("4_dbro3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23913, 2.04144, 16.0537)
 visible = false
