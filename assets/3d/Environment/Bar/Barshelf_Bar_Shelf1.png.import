@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dlin4dl66os5y"
+path.s3tc="res://.godot/imported/Barshelf_Bar_Shelf1.png-a6daf7ea20a53a767f674ab471b59d9b.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "524b2049537cbd7df786c72af8dacf29"
+}
+
+[deps]
+
+source_file="res://assets/3d/Environment/Bar/Barshelf_Bar_Shelf1.png"
+dest_files=["res://.godot/imported/Barshelf_Bar_Shelf1.png-a6daf7ea20a53a767f674ab471b59d9b.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
