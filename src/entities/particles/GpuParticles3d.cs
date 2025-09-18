@@ -55,13 +55,12 @@ public partial class GpuParticles3d : GpuParticles3D
     public async void _SimplifySize()
     {
         ParticleProcessMaterial mat = GD.Load<ParticleProcessMaterial>(ProcessMaterial.ResourcePath);
-        while (mat.ScaleMax > 1.5f)
+        while (mat.ScaleMin < 2.5f)
         {
             await Task.Delay(20);
-            mat.ScaleMax -= 0.01f;
             mat.ScaleMin += 0.01f;
         }
-        mat.ScaleMax = 1.5f;
-        mat.ScaleMin = 1.5f;
+        mat.ScaleMax = 2.5f;
+        mat.ScaleMin = 2.5f;
     }
 }

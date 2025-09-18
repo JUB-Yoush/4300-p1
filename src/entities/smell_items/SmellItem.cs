@@ -16,7 +16,6 @@ public partial class SmellItem : Node3D
             GD.PrintErr($"Item {this} missing ItemData Resource");
         }
         AddToGroup("items");
-        GetNode<Sprite3D>("Sprite3D").Texture = Data!.Sprite;
         emitter = GetNode<GpuParticles3D>("ItemSmellTrail");
         if (Data.Effect == ScentEffect.SHAPE)
             emitter.DrawPass1.SurfaceSetMaterial(0, Data.Shape);

@@ -73,8 +73,8 @@ public partial class GunPlaceholder : Node3D
         bullet.ApplyCentralImpulse(-GlobalBasis.Z * power);
         if (projectileColour == ghostParticles.trueColor
             && projectileMaterial == ghostParticles.textures[2]
-            && projectileMaxSize == 1.5f
-            && projectileMinSize == 1.5f)
+            && projectileMaxSize == 2.5f
+            && projectileMinSize == 2.5f)
         {
             bullet.luresGhost = true;
         }
