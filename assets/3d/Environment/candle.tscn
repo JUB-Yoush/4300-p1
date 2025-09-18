@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://jly65t1mp8j3"]
+
+[ext_resource type="PackedScene" uid="uid://bp24cd62idfte" path="res://assets/3d/Environment/Candle.glb" id="1_iwct0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57ygn"]
+albedo_color = Color(0.697865, 0.44066, 0.0270943, 1)
+emission_enabled = true
+emission = Color(0.843137, 0.611765, 0.164706, 1)
+emission_energy_multiplier = 5.67
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_t2ftp"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Candle" parent="." instance=ExtResource("1_iwct0")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Candle"]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0.0348134, 0.027134, 0.000326972)
+material_override = SubResource("StandardMaterial3D_57ygn")
+mesh = SubResource("CapsuleMesh_t2ftp")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Candle/MeshInstance3D"]
+light_color = Color(0.536182, 0.325699, 0.214309, 1)
+light_energy = 4.0
+light_size = 0.2
+shadow_bias = 0.6
