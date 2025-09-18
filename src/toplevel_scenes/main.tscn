@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bebc62l33tw8a" path="res://assets/3d/Environment/Fireplace.glb" id="24_3osph"]
 [ext_resource type="PackedScene" uid="uid://bmj18eof1fpus" path="res://assets/3d/Environment/Trashcan_Large.glb" id="26_uu0ft"]
 [ext_resource type="PackedScene" uid="uid://y37yqugd0re5" path="res://assets/3d/Environment/Books.glb" id="27_3rvkn"]
-[ext_resource type="PackedScene" uid="uid://b1erja0fjqq3v" path="res://assets/3d/Environment/bed.glb" id="28_48oet"]
+[ext_resource type="PackedScene" uid="uid://bjsnm50mbnlmh" path="res://src/entities/ui/GamePlay/game_UI.tscn" id="27_d8h2t"]
 [ext_resource type="PackedScene" uid="uid://b5sis2pmkgg2o" path="res://assets/3d/Environment/flowerpot.glb" id="28_d8h2t"]
 [ext_resource type="PackedScene" uid="uid://bao857xs0bbuo" path="res://assets/3d/pileofdirt2.glb" id="28_uruqi"]
 [ext_resource type="PackedScene" uid="uid://bkjha1iyuwq87" path="res://assets/3d/Environment/Cupboard.glb" id="29_r0g70"]
@@ -3313,6 +3313,8 @@ offset_right = 1932.0
 offset_bottom = 1088.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.501961)
+
+[node name="GameUi" parent="CanvasLayer" instance=ExtResource("27_d8h2t")]
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.682955, 0.73046, 0, -0.73046, 0.682955, 0, 0, 0)
