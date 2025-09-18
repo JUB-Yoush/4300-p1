@@ -777,10 +777,10 @@ collision_mask = 3
 size = Vector3(1, 4, 1)
 material = ExtResource("5_nos3a")
 
-[node name="Node3D" type="Node3D" parent="Level/NavigationRegion3D/Walls/Walls/Doors/Door19"]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0.85, -0.25, 0.424999)
+[node name="Node3D2" type="Node3D" parent="Level/NavigationRegion3D/Walls/Walls/Doors/Door19"]
+transform = Transform3D(1, 0, -1.98418e-09, 0, 1, 0, 1.98418e-09, 0, 1, 0, -0.25, -0.0249996)
 
-[node name="Door23" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Doors/Door19/Node3D"]
+[node name="Door23" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Doors/Door19/Node3D2"]
 use_collision = true
 collision_layer = 3
 collision_mask = 3
@@ -912,10 +912,10 @@ collision_mask = 3
 size = Vector3(1, 4, 1)
 material = ExtResource("5_nos3a")
 
-[node name="Node3D" type="Node3D" parent="Level/NavigationRegion3D/Walls/Walls/Doors/Door24"]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0.85, -0.25, 0.424999)
+[node name="Node3D2" type="Node3D" parent="Level/NavigationRegion3D/Walls/Walls/Doors/Door24"]
+transform = Transform3D(1, 0, -1.98418e-09, 0, 1, 0, 1.98418e-09, 0, 1, 0, -0.25, -0.0249996)
 
-[node name="Door23" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Doors/Door24/Node3D"]
+[node name="Door23" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Doors/Door24/Node3D2"]
 use_collision = true
 collision_layer = 3
 collision_mask = 3
@@ -939,10 +939,10 @@ collision_mask = 3
 size = Vector3(1, 4, 1)
 material = ExtResource("5_nos3a")
 
-[node name="Node3D" type="Node3D" parent="Level/NavigationRegion3D/Walls/Walls/Doors/Door25"]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0.85, -0.25, 0.424999)
+[node name="Node3D2" type="Node3D" parent="Level/NavigationRegion3D/Walls/Walls/Doors/Door25"]
+transform = Transform3D(1, 0, -1.98418e-09, 0, 1, 0, 1.98418e-09, 0, 1, 0, -0.25, -0.0249996)
 
-[node name="Door23" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Doors/Door25/Node3D"]
+[node name="Door23" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls/Doors/Door25/Node3D2"]
 use_collision = true
 collision_layer = 3
 collision_mask = 3
@@ -1484,7 +1484,7 @@ size = Vector3(2, 3, 0.1)
 material = ExtResource("3_smgh4")
 
 [node name="Table" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
-transform = Transform3D(-1, 4.37114e-08, 2.18557e-07, -2.18557e-07, -4.37114e-08, -1, -4.37114e-08, -1, 4.37114e-08, 51, 0.5, 24)
+transform = Transform3D(-1, 4.37114e-08, 2.18557e-07, -2.18557e-07, -4.37114e-08, -1, -4.37114e-08, -1, 4.37114e-08, 51, 0.5, 23.4)
 use_collision = true
 collision_layer = 3
 collision_mask = 3
@@ -1699,11 +1699,11 @@ size = Vector3(18, 3, 0.1)
 material = ExtResource("3_smgh4")
 
 [node name="Wall93" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
-transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 65, 1.5, 24)
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 64.9, 1.45, 23.2)
 use_collision = true
 collision_layer = 3
 collision_mask = 3
-size = Vector3(8, 3, 0.1)
+size = Vector3(14.35, 3, 0.1)
 material = ExtResource("3_smgh4")
 
 [node name="Wall48" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
@@ -2619,7 +2619,7 @@ size = Vector3(10, 3, 0.1)
 material = ExtResource("3_smgh4")
 
 [node name="Wall142" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
-transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 76, 1.5, -4)
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 76, 1.5, -7.35)
 use_collision = true
 collision_layer = 3
 collision_mask = 3
@@ -3011,7 +3011,7 @@ size = Vector3(10, 3, 0.1)
 material = ExtResource("3_smgh4")
 
 [node name="Wall190" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 1.5, -17)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12, 1.5, -17)
 use_collision = true
 collision_layer = 3
 collision_mask = 3
@@ -3019,7 +3019,7 @@ size = Vector3(30, 3, 0.1)
 material = ExtResource("3_smgh4")
 
 [node name="Wall191" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 1.5, 17)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.3, 1.5, 17)
 use_collision = true
 collision_layer = 3
 collision_mask = 3
@@ -3035,7 +3035,7 @@ size = Vector3(44, 3, 0.1)
 material = ExtResource("3_smgh4")
 
 [node name="Wall193" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 33, 1.5, 32)
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 33, 1.5, 30.45)
 use_collision = true
 collision_layer = 3
 collision_mask = 3
@@ -3052,14 +3052,6 @@ material = ExtResource("3_smgh4")
 
 [node name="Wall204" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.7, 1.5, -27)
-use_collision = true
-collision_layer = 3
-collision_mask = 3
-size = Vector3(10, 3, 0.1)
-material = ExtResource("3_smgh4")
-
-[node name="Wall205" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.35, 1.5, -27)
 use_collision = true
 collision_layer = 3
 collision_mask = 3
@@ -3123,7 +3115,7 @@ size = Vector3(66, 3, 0.1)
 material = ExtResource("3_smgh4")
 
 [node name="Wall202" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -2, 1.5, -32)
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -2, 1.5, -29.6)
 use_collision = true
 collision_layer = 3
 collision_mask = 3
@@ -3161,7 +3153,7 @@ material = SubResource("StandardMaterial3D_smgh4")
 [node name="Objects" type="Node3D" parent="Level/NavigationRegion3D"]
 
 [node name="Fireplace2" parent="Level/NavigationRegion3D/Objects" instance=ExtResource("24_3osph")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -7.975, 0, 31.525)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -7.975, 0, 29.825)
 
 [node name="Trashcan_Large2" parent="Level/NavigationRegion3D/Objects" instance=ExtResource("26_uu0ft")]
 transform = Transform3D(0.745, 0, 0, 0, 0.745, 0, 0, 0, 0.745, 64.475, 0, -17.05)
@@ -3170,7 +3162,7 @@ transform = Transform3D(0.745, 0, 0, 0, 0.745, 0, 0, 0, 0.745, 64.475, 0, -17.05
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.825, 0.325, -9.075)
 
 [node name="flowerpot" parent="Level/NavigationRegion3D/Objects" instance=ExtResource("28_d8h2t")]
-transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, 50.15, 1, 22.2)
+transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, 50.15, 1, 21.6)
 
 [node name="pileofdirt2" parent="Level/NavigationRegion3D/Objects" instance=ExtResource("28_uruqi")]
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 12.075, 0, -31.725)
@@ -3314,13 +3306,13 @@ transform = Transform3D(1, 0, 0, 0, 0.682955, 0.73046, 0, -0.73046, 0.682955, 0,
 visible = false
 
 [node name="bed" parent="." instance=ExtResource("28_48oet")]
-transform = Transform3D(2.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -9.3, 0.5, -30.65)
+transform = Transform3D(2.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -9.3, 0.5, -28.1)
 
 [node name="Cupboard" parent="." instance=ExtResource("29_r0g70")]
 transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -6.1, 1.35, -27.55)
 
 [node name="Chair" parent="." instance=ExtResource("30_pcyn6")]
-transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -12.6, 0.5, -22.85)
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -11, 0.5, -22.85)
 
 [node name="Sofa1" parent="." instance=ExtResource("31_48oet")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.75, 1.2, 25.35)
