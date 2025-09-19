@@ -26,6 +26,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="sniff_fps"
 
+[global_group]
+
+LightSource=""
+
 [input]
 
 left={

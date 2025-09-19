@@ -21,7 +21,7 @@ public partial class Player : CharacterBody3D
 	const float GROUND_DECEL = 7.0f;
 	const float GROUND_FRICTION = 3.5f;
 
-	const float JUMP_VEL = 6f;
+	//const float JUMP_VEL = 6f;
 	float AirCap = 0.85f;
 	float AirAccel = 800;
 	float AirSpeed = 500;
@@ -157,10 +157,10 @@ public partial class Player : CharacterBody3D
 			Anims.Play("punch");
 		}
 
-		if (Input.IsActionJustPressed("jump") && IsOnFloor())
-		{
-			_targetVelocity.Y = JUMP_VEL;
-		}
+		// if (Input.IsActionJustPressed("jump") && IsOnFloor())
+		// {
+		// 	_targetVelocity.Y = JUMP_VEL;
+		// }
 
 		var env = GetParent().GetNode<WorldEnvironment>("WorldEnvironment").Environment;
 		var screenDimmer = GetParent().GetNode<CanvasLayer>("CanvasLayer");
@@ -179,6 +179,14 @@ public partial class Player : CharacterBody3D
 			Punch1.Modulate = Color.Color8(255, 175, 175, 255);
 			Punch2.Modulate = Color.Color8(255, 175, 175, 255);
 			Punch3.Modulate = Color.Color8(255, 175, 175, 255);
+			foreach (Node obj in GetTree().GetNodesInGroup("items"))
+			{
+				((SmellItem)obj).emitter.Visible = true;
+			}
+			foreach (Node obj in GetTree().GetNodesInGroup("LightSource"))
+			{
+				((Node3D)obj).Visible = false;
+			}
 		}
 		else
 		{
@@ -200,6 +208,14 @@ public partial class Player : CharacterBody3D
 			Punch1.Modulate = Color.Color8(255, 255, 255, 255);
 			Punch2.Modulate = Color.Color8(255, 255, 255, 255);
 			Punch3.Modulate = Color.Color8(255, 255, 255, 255);
+			foreach (Node obj in GetTree().GetNodesInGroup("items"))
+			{
+				((SmellItem)obj).emitter.Visible = false;
+			}
+			foreach (Node obj in GetTree().GetNodesInGroup("LightSource"))
+			{
+				((Node3D)obj).Visible = true;
+			}
 		}
 
 		Vector2 inputDir = Input.GetVector("left", "right", "up", "down");

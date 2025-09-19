@@ -7,7 +7,7 @@ public partial class SmellItem : Node3D
 {
     [Export]
     public ItemData? Data;
-    GpuParticles3D emitter;
+    public GpuParticles3D emitter;
 
     public override void _Ready()
     {
