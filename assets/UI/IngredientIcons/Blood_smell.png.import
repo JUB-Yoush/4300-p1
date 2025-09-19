@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6cjjwfk4iilw"
-path="res://.godot/imported/Pause Panel.svg-4aa9383550a6a497aa95976346332603.ctex"
+uid="uid://cp7e86wdvnwi5"
+path="res://.godot/imported/Blood_smell.png-6b0a971b88bf4303aa9231effac49bb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/Pause Panel.svg"
-dest_files=["res://.godot/imported/Pause Panel.svg-4aa9383550a6a497aa95976346332603.ctex"]
+source_file="res://assets/UI/IngredientIcons/Blood_smell.png"
+dest_files=["res://.godot/imported/Blood_smell.png-6b0a971b88bf4303aa9231effac49bb2.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
