@@ -257,5 +257,8 @@ public partial class Player : CharacterBody3D
     public static Vector3 Scale(Vector3 v, double f) =>
         new((float)(v.X * f), (float)(v.Y * f), (float)(v.Z * f));
 
-    public void UpdateSmellScore(int diff) { }
+    public void UpdateSmellScore(int diff)
+    {
+        SmellScore += diff;
+    }
 }

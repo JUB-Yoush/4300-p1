@@ -7,14 +7,19 @@ public partial class SmellTrailArea : Area3D
 
     Player player = null!;
     Timer DecreaseTimer = null!;
+    const float SCENT_LINGER_TIME = 15f;
 
     public override void _Ready()
     {
         player = GetParent().GetParent().GetParent().GetNode<Player>("Player");
-        AreaEntered += Sniffed;
+        BodyEntered += Sniffed;
+        DecreaseTimer = new Timer();
+        AddChild(DecreaseTimer);
+        DecreaseTimer.Start(SCENT_LINGER_TIME);
+        DecreaseTimer.Timeout += () => QueueFree();
     }
 
-    private void Sniffed(Area3D area)
+    private void Sniffed(Node3D body)
     {
         player.UpdateSmellScore(5);
         QueueFree();

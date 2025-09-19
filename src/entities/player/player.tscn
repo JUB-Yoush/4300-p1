@@ -62,6 +62,7 @@ shader_parameter/flashVal_g = 1.0
 shader_parameter/flashVal_b = 1.0
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 9
 script = ExtResource("1_muk8e")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

@@ -70,7 +70,7 @@ public partial class Ghost : CharacterBody3D
         ContinueLookingTimer = new Timer();
         AddChild(TrailCreationTimer);
         AddChild(ContinueLookingTimer);
-        TrailCreationTimer.Timeout += UpdateTrailCurve;
+        TrailCreationTimer.Timeout += RenderTrail;
         ContinueLookingTimer.Timeout += SetToPatrol;
         RigidGhost = GD.Load<PackedScene>("res://src/entities/ghost/rigid_ghost.tscn");
         SmellTrailAreaScene = GD.Load<PackedScene>("res://src/entities/ghost/smellbox.tscn");
@@ -117,21 +117,10 @@ public partial class Ghost : CharacterBody3D
 
     public void RenderTrail()
     {
-        Area3D trailArea = SmellTrailAreaScene.Instantiate<Area3D>();
+        SmellTrailArea trailArea = SmellTrailAreaScene.Instantiate<SmellTrailArea>();
         trailArea.TopLevel = true;
         TrailPoints.AddChild(trailArea);
-        trailArea.GlobalPosition = TrailCurve.GetPointPosition(TrailCurve.PointCount - 1);
-    }
-
-    public void UpdateTrailCurve()
-    {
-        TrailCurve.AddPoint(GlobalTransform.Origin);
-        if (TrailCurve.PointCount >= MAX_TRAIL_POINTS)
-        {
-            TrailCurve.RemovePoint(0);
-            TrailPoints.GetChild(0).QueueFree();
-        }
-        RenderTrail();
+        trailArea.GlobalPosition = GlobalPosition;
     }
 
     public bool ScentIsCorrect()
