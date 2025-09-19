@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://b8e6rv13o8a1g"]
+[gd_scene load_steps=60 format=3 uid="uid://b8e6rv13o8a1g"]
 
 [ext_resource type="Script" uid="uid://cvhb113by0cda" path="res://src/toplevel_scenes/Main.cs" id="1_5dlwx"]
 [ext_resource type="PackedScene" uid="uid://dbuna14812w75" path="res://src/entities/player/player.tscn" id="2_5dlwx"]
@@ -24,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://cm84vgk2fvmt" path="res://assets/textures/particles/TextureTest.jpeg" id="13_nos3a"]
 [ext_resource type="PackedScene" uid="uid://deldiss2egfn8" path="res://assets/3d/Environment/Vase1.glb" id="13_yso6w"]
 [ext_resource type="PackedScene" uid="uid://jly65t1mp8j3" path="res://assets/3d/Environment/candle.tscn" id="14_48oet"]
+[ext_resource type="PackedScene" uid="uid://qd47inhejuec" path="res://assets/3d/Environment/stove.glb" id="15_yso6w"]
+[ext_resource type="PackedScene" uid="uid://hpluu8fhxju7" path="res://assets/3d/Environment/Bookshelf2.glb" id="16_3keun"]
 [ext_resource type="PackedScene" uid="uid://bebc62l33tw8a" path="res://assets/3d/Environment/Fireplace.glb" id="24_3osph"]
 [ext_resource type="PackedScene" uid="uid://bmj18eof1fpus" path="res://assets/3d/Environment/Trashcan_Large.glb" id="26_uu0ft"]
 [ext_resource type="PackedScene" uid="uid://y37yqugd0re5" path="res://assets/3d/Environment/Books.glb" id="27_3rvkn"]
@@ -3141,7 +3143,7 @@ size = Vector3(3.65, 1.45, 1.65)
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.1, 0.15)
 
 [node name="ChairCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Collection"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.05, 0.825, 21.875)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.05, 0.529203, 21.875)
 transparency = 1.0
 use_collision = true
 size = Vector3(0.65, 1.05, 0.7)
@@ -3193,6 +3195,24 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -2.
 transparency = 1.0
 use_collision = true
 size = Vector3(1.75, 0.9, 0.75)
+
+[node name="Stove" parent="Level/NavigationRegion3D/Furniture/Collection" instance=ExtResource("15_yso6w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.004, 0.63974, 20)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Collection/Stove"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.000976563, -0.20232, -0.300219)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.607422, 0.861963, 0.660156)
+
+[node name="Bookshelf2" parent="Level/NavigationRegion3D/Furniture/Collection" instance=ExtResource("16_3keun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1159, 0.0090753, 20.6554)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Collection/Bookshelf2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
 
 [node name="Objects" type="Node3D" parent="Level/NavigationRegion3D"]
 
