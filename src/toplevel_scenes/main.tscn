@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://b8e6rv13o8a1g"]
+[gd_scene load_steps=70 format=3 uid="uid://b8e6rv13o8a1g"]
 
 [ext_resource type="Script" uid="uid://cvhb113by0cda" path="res://src/toplevel_scenes/Main.cs" id="1_5dlwx"]
 [ext_resource type="PackedScene" uid="uid://dbuna14812w75" path="res://src/entities/player/player.tscn" id="2_5dlwx"]
@@ -17,11 +17,11 @@
 [ext_resource type="Texture2D" uid="uid://brb33aepd2do0" path="res://assets/UI/IngredientIcons/Ash_smell.png" id="10_3rvkn"]
 [ext_resource type="Script" uid="uid://cotnkj7picxem" path="res://src/entities/smell_items/SmellItem.cs" id="11_v8kvn"]
 [ext_resource type="Texture2D" uid="uid://y4oxwj6cli1q" path="res://assets/UI/IngredientIcons/Tome_smell.png" id="12_rk8ua"]
+[ext_resource type="PackedScene" path="res://assets/3d/Environment/candle.tscn" id="14_48oet"]
 [ext_resource type="Texture2D" uid="uid://bbe0ck8h3ve2b" path="res://assets/UI/IngredientIcons/Trash_smell.png" id="14_uruqi"]
 [ext_resource type="Texture2D" uid="uid://dhxe5y36r3gng" path="res://assets/UI/IngredientIcons/Flower_smell.png" id="18_e07q1"]
 [ext_resource type="Material" uid="uid://dglqyxfq1sm5r" path="res://assets/Materials/Particles/CircleFinal.tres" id="20_48oet"]
 [ext_resource type="Texture2D" uid="uid://c171gx211s8jy" path="res://assets/UI/IngredientIcons/Dirt_smell.png" id="21_r0g70"]
-[ext_resource type="PackedScene" path="res://assets/3d/Environment/candle.tscn" id="14_48oet"]
 [ext_resource type="PackedScene" uid="uid://bebc62l33tw8a" path="res://assets/3d/Environment/Fireplace.glb" id="24_3osph"]
 [ext_resource type="PackedScene" uid="uid://bmj18eof1fpus" path="res://assets/3d/Environment/Trashcan_Large.glb" id="26_uu0ft"]
 [ext_resource type="PackedScene" uid="uid://y37yqugd0re5" path="res://assets/3d/Environment/Books.glb" id="27_3rvkn"]
@@ -117,7 +117,7 @@ Effect = 2
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kgdpc"]
-size = Vector3(0.968776, 1.821, 1.61223)
+size = Vector3(1.02167, 1.17515, 1.27659)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3rvkn"]
 resource_local_to_scene = true
@@ -249,7 +249,7 @@ Effect = 1
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gxq42"]
-size = Vector3(2.17247, 2.08634, 2.93939)
+size = Vector3(2.17247, 2.83321, 2.93939)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d8h2t"]
 resource_local_to_scene = true
@@ -303,7 +303,7 @@ size = Vector3(18.7405, 4, 11.3839)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kexia"]
 albedo_texture = ExtResource("6_6muo6")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5gb6y"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0g70"]
 resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
@@ -3274,11 +3274,11 @@ script = ExtResource("11_v8kvn")
 Data = SubResource("Resource_2xtos")
 
 [node name="Area3D" type="Area3D" parent="Level/NavigationRegion3D/Objects/Trashcan_Large2"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0.246722)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0.246722)
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/NavigationRegion3D/Objects/Trashcan_Large2/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0206451, 0.930504, -0.157064)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02425, 0.607579, -0.0763845)
 shape = SubResource("BoxShape3D_kgdpc")
 
 [node name="ItemSmellTrail" type="GPUParticles3D" parent="Level/NavigationRegion3D/Objects/Trashcan_Large2"]
@@ -3324,7 +3324,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0796738, 1.4249, -0.243557)
 shape = SubResource("BoxShape3D_6uukv")
 
 [node name="ItemSmellTrail" type="GPUParticles3D" parent="Level/NavigationRegion3D/Objects/flowerpot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.06567, 0)
+transform = Transform3D(3.44, 0, 0, 0, 3.44, 0, 0, 0, 3.44, 0, 0, 0)
 sorting_offset = -1.0
 amount = 100
 lifetime = 3.0
@@ -3342,7 +3342,7 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0.246722)
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/NavigationRegion3D/Objects/pileofdirt2/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.752762, 0.115322, -0.193391)
+transform = Transform3D(0.998177, 0, 3.55271e-15, 0, 0.998177, 0, -3.55271e-15, 0, 0.998177, 0.752762, 0.488757, -0.193391)
 shape = SubResource("BoxShape3D_gxq42")
 
 [node name="ItemSmellTrail" type="GPUParticles3D" parent="Level/NavigationRegion3D/Objects/pileofdirt2"]
@@ -3353,11 +3353,11 @@ randomness = 0.5
 process_material = SubResource("ParticleProcessMaterial_d8h2t")
 draw_pass_1 = SubResource("PlaneMesh_e07q1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/NavigationRegion3D/Objects"]
-transform = Transform3D(104.496, 0, 0, 0, 5, 0, 0, 0, 73.4861, 34.0792, 5.389, -2.44202)
+[node name="ParticleRoof" type="MeshInstance3D" parent="Level/NavigationRegion3D/Objects"]
+transform = Transform3D(104.496, 0, 0, 0, 5, 0, 0, 0, 94.2152, 34.0792, 5.389, -2.44202)
 mesh = SubResource("BoxMesh_a4mwm")
 
-[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Level/NavigationRegion3D/Objects/MeshInstance3D"]
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Level/NavigationRegion3D/Objects/ParticleRoof"]
 layers = 1023
 cull_mask = 4294966752
 size = Vector3(1, 1, 1)
@@ -3514,7 +3514,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23913, 2.04144, 16.0537)
 visible = false
 
 [node name="GhostSmellTrail" parent="Ghost" instance=ExtResource("5_2lg1k")]
-textures = Array[Material]([SubResource("StandardMaterial3D_kexia"), SubResource("StandardMaterial3D_a4mwm"), ExtResource("7_smgh4")])
+textures = Array[Material]([SubResource("StandardMaterial3D_kexia"), SubResource("StandardMaterial3D_r0g70"), ExtResource("7_smgh4")])
 filledTexture = SubResource("StandardMaterial3D_5pbbh")
 trueColor = Color(0.235294, 0.509804, 0.784314, 1)
 
