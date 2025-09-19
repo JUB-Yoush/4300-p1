@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
@@ -20,6 +21,7 @@ public partial class Ghost : CharacterBody3D
     }
 
     PackedScene RigidGhost = null!;
+    PackedScene SmellTrailAreaScene = null!;
     State CurrentState;
     public required NavigationAgent3D NavAgent;
     float Speed = 5f;
@@ -68,9 +70,10 @@ public partial class Ghost : CharacterBody3D
         ContinueLookingTimer = new Timer();
         AddChild(TrailCreationTimer);
         AddChild(ContinueLookingTimer);
-        TrailCreationTimer.Timeout += UpdateTrailBox;
+        TrailCreationTimer.Timeout += UpdateTrailCurve;
         ContinueLookingTimer.Timeout += SetToPatrol;
         RigidGhost = GD.Load<PackedScene>("res://src/entities/ghost/rigid_ghost.tscn");
+        SmellTrailAreaScene = GD.Load<PackedScene>("res://src/entities/ghost/smellbox.tscn");
 
         TrailCreationTimer.OneShot = false;
         TrailCreationTimer.Start(1);
@@ -114,14 +117,10 @@ public partial class Ghost : CharacterBody3D
 
     public void RenderTrail()
     {
-        var point = new Sprite3D
-        {
-            Texture = GD.Load<Texture2D>("res://assets/sprites/rei.png"),
-            Scale = new Vector3(.5f, .5f, .5f),
-            TopLevel = true,
-        };
-        TrailPoints.AddChild(point);
-        point.GlobalPosition = TrailCurve.GetPointPosition(TrailCurve.PointCount - 1);
+        Area3D trailArea = SmellTrailAreaScene.Instantiate<Area3D>();
+        trailArea.TopLevel = true;
+        TrailPoints.AddChild(trailArea);
+        trailArea.GlobalPosition = TrailCurve.GetPointPosition(TrailCurve.PointCount - 1);
     }
 
     public void UpdateTrailCurve()

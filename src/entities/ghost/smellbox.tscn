@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddkohkxg3b24f"]
+
+[ext_resource type="Script" uid="uid://bsqbqf010tfa3" path="res://src/entities/ghost/SmellTrailArea.cs" id="1_s50ji"]
+[ext_resource type="Texture2D" uid="uid://b68sf6kgvrpso" path="res://assets/sprites/rei.png" id="2_pukqw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wo0yg"]
+size = Vector3(3, 3, 3)
+
+[node name="Area3D" type="Area3D"]
+script = ExtResource("1_s50ji")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49337, 0)
+shape = SubResource("BoxShape3D_wo0yg")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = ExtResource("2_pukqw")
