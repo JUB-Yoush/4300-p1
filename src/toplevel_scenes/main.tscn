@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://b8e6rv13o8a1g"]
+[gd_scene load_steps=71 format=3 uid="uid://b8e6rv13o8a1g"]
 
 [ext_resource type="Script" uid="uid://cvhb113by0cda" path="res://src/toplevel_scenes/Main.cs" id="1_5dlwx"]
 [ext_resource type="PackedScene" uid="uid://dbuna14812w75" path="res://src/entities/player/player.tscn" id="2_5dlwx"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bbe0ck8h3ve2b" path="res://assets/UI/IngredientIcons/Trash_smell.png" id="14_uruqi"]
 [ext_resource type="Texture2D" uid="uid://dhxe5y36r3gng" path="res://assets/UI/IngredientIcons/Flower_smell.png" id="18_e07q1"]
 [ext_resource type="Material" uid="uid://dglqyxfq1sm5r" path="res://assets/Materials/Particles/CircleFinal.tres" id="20_48oet"]
+[ext_resource type="Script" uid="uid://c2ql30k0xqxsg" path="res://src/entities/smell_items/PickupCollider.cs" id="20_r0g70"]
 [ext_resource type="Texture2D" uid="uid://c171gx211s8jy" path="res://assets/UI/IngredientIcons/Dirt_smell.png" id="21_r0g70"]
 [ext_resource type="PackedScene" uid="uid://bebc62l33tw8a" path="res://assets/3d/Environment/Fireplace.glb" id="24_3osph"]
 [ext_resource type="PackedScene" uid="uid://bmj18eof1fpus" path="res://assets/3d/Environment/Trashcan_Large.glb" id="26_uu0ft"]
@@ -55,7 +56,7 @@ Effect = 0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yso6w"]
-size = Vector3(2.17247, 3.90342, 1.13647)
+size = Vector3(3.2626, 3.90342, 1.72369)
 
 [sub_resource type="Curve" id="Curve_3keun"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.40284, 0.0, 0, 0]
@@ -117,7 +118,7 @@ Effect = 2
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kgdpc"]
-size = Vector3(1.02167, 1.17515, 1.27659)
+size = Vector3(1.92664, 1.66167, 1.58257)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3rvkn"]
 resource_local_to_scene = true
@@ -165,7 +166,7 @@ Effect = 0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jpcli"]
-size = Vector3(1.04121, 1.22042, 1.33885)
+size = Vector3(1.66063, 1.53685, 2.08276)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e07q1"]
 resource_local_to_scene = true
@@ -213,7 +214,7 @@ Effect = 2
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6uukv"]
-size = Vector3(2.17247, 3.10856, 2.63158)
+size = Vector3(8.01503, 5.51011, 9.94128)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pcyn6"]
 resource_local_to_scene = true
@@ -249,7 +250,7 @@ Effect = 1
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gxq42"]
-size = Vector3(2.17247, 2.83321, 2.93939)
+size = Vector3(3.90034, 3.77793, 3.73434)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d8h2t"]
 resource_local_to_scene = true
@@ -3254,10 +3255,11 @@ Data = SubResource("Resource_pcyn6")
 
 [node name="Area3D" type="Area3D" parent="Level/NavigationRegion3D/Objects/Fireplace2"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0.246722)
+script = ExtResource("20_r0g70")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/NavigationRegion3D/Objects/Fireplace2/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0641813, 1.80615, 0.104788)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0681353, 1.80615, 0.398399)
 shape = SubResource("BoxShape3D_yso6w")
 
 [node name="ItemSmellTrail" type="GPUParticles3D" parent="Level/NavigationRegion3D/Objects/Fireplace2"]
@@ -3275,10 +3277,11 @@ Data = SubResource("Resource_2xtos")
 
 [node name="Area3D" type="Area3D" parent="Level/NavigationRegion3D/Objects/Trashcan_Large2"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0.246722)
+script = ExtResource("20_r0g70")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/NavigationRegion3D/Objects/Trashcan_Large2/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02425, 0.607579, -0.0763845)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0591393, 0.85084, -0.229379)
 shape = SubResource("BoxShape3D_kgdpc")
 
 [node name="ItemSmellTrail" type="GPUParticles3D" parent="Level/NavigationRegion3D/Objects/Trashcan_Large2"]
@@ -3296,10 +3299,11 @@ Data = SubResource("Resource_rk8ua")
 
 [node name="Area3D" type="Area3D" parent="Level/NavigationRegion3D/Objects/Books"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0.246722)
+script = ExtResource("20_r0g70")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/NavigationRegion3D/Objects/Books/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.105663, 0.365825, -0.109856)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.193913, 0.524038, -0.0414448)
 shape = SubResource("BoxShape3D_jpcli")
 
 [node name="ItemSmellTrail" type="GPUParticles3D" parent="Level/NavigationRegion3D/Objects/Books"]
@@ -3317,10 +3321,11 @@ Data = SubResource("Resource_qb0sy")
 
 [node name="Area3D" type="Area3D" parent="Level/NavigationRegion3D/Objects/flowerpot"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0.246722)
+script = ExtResource("20_r0g70")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/NavigationRegion3D/Objects/flowerpot/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0796738, 1.4249, -0.243557)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.197098, 0.91899, -3.59502)
 shape = SubResource("BoxShape3D_6uukv")
 
 [node name="ItemSmellTrail" type="GPUParticles3D" parent="Level/NavigationRegion3D/Objects/flowerpot"]
@@ -3339,10 +3344,11 @@ Data = SubResource("Resource_o6vwv")
 
 [node name="Area3D" type="Area3D" parent="Level/NavigationRegion3D/Objects/pileofdirt2"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0.246722)
+script = ExtResource("20_r0g70")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/NavigationRegion3D/Objects/pileofdirt2/Area3D"]
-transform = Transform3D(0.998177, 0, 3.55271e-15, 0, 0.998177, 0, -3.55271e-15, 0, 0.998177, 0.752762, 0.488757, -0.193391)
+transform = Transform3D(0.998177, 0, 3.55271e-15, 0, 0.998177, 0, -3.55271e-15, 0, 0.998177, 1.61513, 0.960258, -0.590144)
 shape = SubResource("BoxShape3D_gxq42")
 
 [node name="ItemSmellTrail" type="GPUParticles3D" parent="Level/NavigationRegion3D/Objects/pileofdirt2"]
@@ -3358,9 +3364,10 @@ transform = Transform3D(104.496, 0, 0, 0, 5, 0, 0, 0, 94.2152, 34.0792, 5.389, -
 mesh = SubResource("BoxMesh_a4mwm")
 
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Level/NavigationRegion3D/Objects/ParticleRoof"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999972, 0, -0.117561, 0)
 layers = 1023
 cull_mask = 4294966752
-size = Vector3(1, 1, 1)
+size = Vector3(1, 1.23512, 1)
 
 [node name="Candles" type="Node3D" parent="Level/NavigationRegion3D/Objects"]
 

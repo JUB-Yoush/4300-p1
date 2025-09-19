@@ -86,6 +86,7 @@ projectileMaterial = ExtResource("3_wrxq6")
 projectileColour = Color(0.196078, 0.196078, 0.196078, 1)
 
 [node name="VisionRay" type="RayCast3D" parent="Head/Camera3D"]
+visible = false
 target_position = Vector3(0, 0, -5)
 collide_with_areas = true
 collide_with_bodies = false
