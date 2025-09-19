@@ -123,11 +123,6 @@ public partial class Ghost : CharacterBody3D
         trailArea.GlobalPosition = GlobalPosition;
     }
 
-    public bool ScentIsCorrect()
-    {
-        return true; // TODO implement
-    }
-
     public void UpdateTrailBox()
     {
         if (!active)
@@ -210,6 +205,7 @@ public partial class Ghost : CharacterBody3D
                     }
                     if (Math.Abs((GlobalPosition - Player.GlobalPosition).Length()) <= ATTACK_RANGE)
                     {
+                        GD.Print("ATTACKED!!!");
                         Attack();
                         Teleport();
                     }
@@ -230,7 +226,7 @@ public partial class Ghost : CharacterBody3D
                 break;
         }
         Move();
-        if (GetTree().GetNodesInGroup("bullets").Count > 0 && ScentIsCorrect())
+        if (GetTree().GetNodesInGroup("bullets").Count > 0)
         {
             foreach (Node bullet in GetTree().GetNodesInGroup("bullets"))
             {
@@ -257,7 +253,7 @@ public partial class Ghost : CharacterBody3D
 
     public void Attack()
     {
-        GD.Print("you got slimed");
+        Player.GetNode<GpuParticles3D>("Head/Camera3D/Screen Ectoplasm Particles").Emitting = true;
     }
 
     public void Move()

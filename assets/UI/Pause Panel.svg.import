@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brb33aepd2do0"
-path.s3tc="res://.godot/imported/Ash_smell.png-c111060cd63f80f4f9983ad27d93e0dc.s3tc.ctex"
+uid="uid://b6cjjwfk4iilw"
+path="res://.godot/imported/Pause Panel.svg-4aa9383550a6a497aa95976346332603.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/IngredientIcons/Ash_smell.png"
-dest_files=["res://.godot/imported/Ash_smell.png-c111060cd63f80f4f9983ad27d93e0dc.s3tc.ctex"]
+source_file="res://assets/UI/Pause Panel.svg"
+dest_files=["res://.godot/imported/Pause Panel.svg-4aa9383550a6a497aa95976346332603.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,7 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

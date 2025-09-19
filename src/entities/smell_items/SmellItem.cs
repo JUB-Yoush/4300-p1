@@ -7,7 +7,7 @@ public partial class SmellItem : Node3D
 {
     [Export]
     public ItemData? Data;
-    GpuParticles3D emitter;
+    public GpuParticles3D emitter;
 
     public override void _Ready()
     {
@@ -16,7 +16,6 @@ public partial class SmellItem : Node3D
             GD.PrintErr($"Item {this} missing ItemData Resource");
         }
         AddToGroup("items");
-        GetNode<Sprite3D>("Sprite3D").Texture = Data!.Sprite;
         emitter = GetNode<GpuParticles3D>("ItemSmellTrail");
         if (Data.Effect == ScentEffect.SHAPE)
             emitter.DrawPass1.SurfaceSetMaterial(0, Data.Shape);

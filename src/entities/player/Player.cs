@@ -10,33 +10,25 @@ public partial class Player : CharacterBody3D
     float gravity = -12f;
     float LookSensitivity = 0.006f;
     private Vector3 _targetVelocity = Vector3.Zero;
-
     const float HEADBOB_APMPLITUDE = 0.06f;
     const float HEADBOB_FREQUENCY = 2.4f;
     float HeadbobTime = 0f;
-
     const float WALK_SPEED = 10f;
     const float SMELLING_WALK_SPEED = 5f;
     const float GROUND_ACCEL = 11.0f;
     const float GROUND_DECEL = 7.0f;
     const float GROUND_FRICTION = 3.5f;
 
-    const float JUMP_VEL = 6f;
+    //const float JUMP_VEL = 6f;
     float AirCap = 0.85f;
     float AirAccel = 800;
     float AirSpeed = 500;
     float CurrentWalkSpeed = WALK_SPEED;
-    public float SmellScore = 0f;
-
-    //const int GUN_CAPACITY = 3;
 
     Vector3 cameraTargetRotation = Vector3.Zero;
     Vector3 WishDir;
     Camera3D Camera = null!;
-    RayCast3D VisionRay = null!;
-    SmellItem? TargetingItem;
-
-    //public List<ItemData> GunSlots = [];
+    public SmellItem? TargetingItem;
     Ghost ghost = null!;
     CollisionPolygon3D SmellBox = null!;
     AnimationPlayer Anims = null!;
@@ -53,13 +45,9 @@ public partial class Player : CharacterBody3D
     public override void _Ready()
     {
         Camera = GetNode<Camera3D>("Head/Camera3D");
-        VisionRay = GetNode<RayCast3D>("Head/Camera3D/VisionRay");
         ghost = GetNode<Ghost>("../Ghost");
         SmellBox = ghost.GetNode<CollisionPolygon3D>("GhostSmellTrail/SmellBox/TrailCollider");
         gun = GetNode<GunPlaceholder>("Head/Camera3D/GunPlaceholder");
-        VisionRay.TargetPosition = VisionRay.TargetPosition with { Z = -5 };
-        VisionRay.CollideWithAreas = true;
-        VisionRay.CollideWithBodies = false;
         Anims = GetNode<AnimationPlayer>("PlayerAnimation/AnimationPlayer");
         GunSlots = GetNode("PlayerAnimation/Gun/Ingredient_panel/Ingredient Slots");
         Light = GetNode<OmniLight3D>("Head/Camera3D/OmniLight3D");
@@ -109,18 +97,6 @@ public partial class Player : CharacterBody3D
         }
     }
 
-    private void _UpdateTargetingItem()
-    {
-        if (VisionRay.GetCollider() is Area3D hit && hit.GetParent().IsInGroup("items"))
-        {
-            TargetingItem = hit.GetParent<SmellItem>();
-        }
-        else
-        {
-            TargetingItem = null;
-        }
-    }
-
     private void _PickupItem(SmellItem item)
     {
         //GunSlots.Add(item.Data!);
@@ -146,7 +122,6 @@ public partial class Player : CharacterBody3D
     public override void _PhysicsProcess(double delta)
     {
         _HeadbobEffect(delta);
-        _UpdateTargetingItem();
 
         if (Input.IsActionJustPressed("pickup") && TargetingItem != null)
         {
@@ -158,10 +133,10 @@ public partial class Player : CharacterBody3D
             Anims.Play("punch");
         }
 
-        if (Input.IsActionJustPressed("jump") && IsOnFloor())
-        {
-            _targetVelocity.Y = JUMP_VEL;
-        }
+        // if (Input.IsActionJustPressed("jump") && IsOnFloor())
+        // {
+        // 	_targetVelocity.Y = JUMP_VEL;
+        // }
 
         var env = GetParent().GetNode<WorldEnvironment>("WorldEnvironment").Environment;
         var screenDimmer = GetParent().GetNode<CanvasLayer>("CanvasLayer");
@@ -180,6 +155,14 @@ public partial class Player : CharacterBody3D
             Punch1.Modulate = Color.Color8(255, 175, 175, 255);
             Punch2.Modulate = Color.Color8(255, 175, 175, 255);
             Punch3.Modulate = Color.Color8(255, 175, 175, 255);
+            foreach (Node obj in GetTree().GetNodesInGroup("items"))
+            {
+                ((SmellItem)obj).emitter.Visible = true;
+            }
+            foreach (Node obj in GetTree().GetNodesInGroup("LightSource"))
+            {
+                ((Node3D)obj).Visible = false;
+            }
         }
         else
         {
@@ -201,6 +184,14 @@ public partial class Player : CharacterBody3D
             Punch1.Modulate = Color.Color8(255, 255, 255, 255);
             Punch2.Modulate = Color.Color8(255, 255, 255, 255);
             Punch3.Modulate = Color.Color8(255, 255, 255, 255);
+            foreach (Node obj in GetTree().GetNodesInGroup("items"))
+            {
+                ((SmellItem)obj).emitter.Visible = false;
+            }
+            foreach (Node obj in GetTree().GetNodesInGroup("LightSource"))
+            {
+                ((Node3D)obj).Visible = true;
+            }
         }
 
         Vector2 inputDir = Input.GetVector("left", "right", "up", "down");
