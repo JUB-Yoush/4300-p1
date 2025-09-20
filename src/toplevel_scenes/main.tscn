@@ -359,7 +359,7 @@ visible = false
 environment = SubResource("Environment_5dlwx")
 
 [node name="Player" parent="." instance=ExtResource("2_5dlwx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1285, 2.45112, -19.3027)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9005, 1.9497, -27.9676)
 
 [node name="Level" type="Node3D" parent="."]
 

@@ -100,6 +100,8 @@ light_energy = 2.0
 
 [node name="PunchBox" type="Area3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.803419, 0)
+collision_layer = 16
+collision_mask = 16
 monitoring = false
 monitorable = false
 
@@ -140,8 +142,15 @@ libraries = {
 
 [node name="PlayerAnimation" parent="." instance=ExtResource("5_ketdh")]
 
+[node name="Punch" parent="PlayerAnimation" index="1"]
+position = Vector2(735.6, 761)
+
 [node name="Punch 2" parent="PlayerAnimation" index="2"]
 material = SubResource("ShaderMaterial_0mfjg")
+
+[node name="Punch 3" parent="PlayerAnimation" index="3"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(810.701, 688.25)
 
 [node name="Gun" parent="PlayerAnimation" index="4"]
 visible = true
