@@ -123,36 +123,36 @@ public partial class Ghost : CharacterBody3D
         trailArea.GlobalPosition = GlobalPosition;
     }
 
-    public void UpdateTrailBox()
-    {
-        if (!active)
-        {
-            return;
-        }
-        var direction = Velocity.Normalized();
-        TrailBoxPointsLeft.Add(
-            new Vector2(GlobalTransform.Origin.X, GlobalTransform.Origin.Z)
-                + new Vector2(-direction.Z, direction.X).Normalized()
-        );
-        TrailBoxPointsRight.Add(
-            new Vector2(GlobalTransform.Origin.X, GlobalTransform.Origin.Z)
-                + new Vector2(direction.Z, -direction.X).Normalized()
-        );
+    // public void UpdateTrailBox()
+    // {
+    //     if (!active)
+    //     {
+    //         return;
+    //     }
+    //     var direction = Velocity.Normalized();
+    //     TrailBoxPointsLeft.Add(
+    //         new Vector2(GlobalTransform.Origin.X, GlobalTransform.Origin.Z)
+    //             + new Vector2(-direction.Z, direction.X).Normalized()
+    //     );
+    //     TrailBoxPointsRight.Add(
+    //         new Vector2(GlobalTransform.Origin.X, GlobalTransform.Origin.Z)
+    //             + new Vector2(direction.Z, -direction.X).Normalized()
+    //     );
 
-        if (TrailBoxPointsLeft.Count >= MAX_TRAIL_POINTS)
-        {
-            TrailBoxPointsLeft.RemoveAt(0);
-            TrailBoxPointsRight.RemoveAt(0);
-        }
+    //     if (TrailBoxPointsLeft.Count >= MAX_TRAIL_POINTS)
+    //     {
+    //         TrailBoxPointsLeft.RemoveAt(0);
+    //         TrailBoxPointsRight.RemoveAt(0);
+    //     }
 
-        TrailBoxPoints = new List<Vector2>();
-        for (int i = 0; i < TrailBoxPointsLeft.Count; i++)
-            TrailBoxPoints.Add(TrailBoxPointsLeft[i]);
-        for (int i = TrailBoxPointsRight.Count - 1; i >= 0; i--)
-            TrailBoxPoints.Add(TrailBoxPointsRight[i]);
-        TrailCollider.Polygon = null;
-        TrailCollider.Polygon = [.. TrailBoxPoints];
-    }
+    //     TrailBoxPoints = new List<Vector2>();
+    //     for (int i = 0; i < TrailBoxPointsLeft.Count; i++)
+    //         TrailBoxPoints.Add(TrailBoxPointsLeft[i]);
+    //     for (int i = TrailBoxPointsRight.Count - 1; i >= 0; i--)
+    //         TrailBoxPoints.Add(TrailBoxPointsRight[i]);
+    //     TrailCollider.Polygon = null;
+    //     TrailCollider.Polygon = [.. TrailBoxPoints];
+    // }
 
     public void Teleport()
     {
@@ -165,8 +165,6 @@ public partial class Ghost : CharacterBody3D
 
     public override void _PhysicsProcess(double delta)
     {
-        //GD.Print(CurrentState, GetTree().GetNodesInGroup("bullets").Count);
-        //GD.Print(InHomeRoom);
         if (!active)
         {
             return;
@@ -189,6 +187,13 @@ public partial class Ghost : CharacterBody3D
                     {
                         CurrentTargetPosition = GetNewPoint();
                     }
+
+                    if (Math.Abs((GlobalPosition - Player.GlobalPosition).Length()) <= ATTACK_RANGE)
+                    {
+                        GD.Print("ATTACKED!!!");
+                        Attack();
+                        Teleport();
+                    }
                     UpdateTargetLocation(CurrentTargetPosition);
                 }
                 break;
@@ -201,7 +206,10 @@ public partial class Ghost : CharacterBody3D
                         {
                             ContinueLookingTimer.Start(2);
                         }
-                        break;
+                    }
+                    else
+                    {
+                        UpdateTargetLocation(Player.GlobalTransform.Origin);
                     }
                     if (Math.Abs((GlobalPosition - Player.GlobalPosition).Length()) <= ATTACK_RANGE)
                     {
@@ -209,7 +217,6 @@ public partial class Ghost : CharacterBody3D
                         Attack();
                         Teleport();
                     }
-                    UpdateTargetLocation(Player.GlobalTransform.Origin);
                 }
                 break;
 
@@ -267,11 +274,10 @@ public partial class Ghost : CharacterBody3D
 
     public bool CanSeePlayer()
     {
-        var playerVector = Player.GlobalTransform.Origin - GlobalTransform.Origin;
+        var playerVector = Player.GlobalPosition - GlobalPosition;
         PlayerDetectionRay.TargetPosition = playerVector;
-
         return PlayerDetectionRay.IsColliding()
-            && PlayerDetectionRay.GetCollider().GetClass() == "CharacterBody3D" // TODO this should check for a player specific Class
+            //&& PlayerDetectionRay.GetCollider().GetClass() == "CharacterBody3D" // TODO this should check for a player specific Class
             && playerVector.Length() <= MaxPlayerDetectionRange;
     }
 
