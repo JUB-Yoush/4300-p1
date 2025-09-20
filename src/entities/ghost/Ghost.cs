@@ -43,6 +43,8 @@ public partial class Ghost : CharacterBody3D
     private List<Vector2> TrailBoxPointsLeft = [];
     private List<Vector2> TrailBoxPointsRight = [];
 
+    bool punchAnywhere = false; // for debug testing
+
     public bool InHomeRoom = false;
     bool active = true;
 
@@ -87,14 +89,16 @@ public partial class Ghost : CharacterBody3D
         HomeRoom.AreaExited += (area) => InHomeRoom = false;
     }
 
-    public void Punched(Area3D area)
+    public async void Punched(Area3D area)
     {
         if (!active)
         {
             return;
         }
-        if (InHomeRoom && CurrentState == State.SMELLING)
+        if ((InHomeRoom && CurrentState == State.SMELLING) || punchAnywhere)
         {
+            AudioManager.StopAll();
+            AudioManager.PauseMusic();
             AudioManager.PlaySfx(SFX.MetalPipe);
             var rigidGhost = RigidGhost.Instantiate<RigidBody3D>();
             GetParent().AddChild(rigidGhost);
@@ -104,6 +108,8 @@ public partial class Ghost : CharacterBody3D
             active = false;
             rigidGhost.GlobalPosition = GlobalPosition;
             rigidGhost.LinearVelocity = -punchVelocity * 5;
+            await Task.Delay(3000);
+            GetTree().ChangeSceneToFile("res://src/scenes/end.tscn");
         }
         else
         {
