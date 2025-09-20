@@ -25,7 +25,10 @@ public partial class Player : CharacterBody3D
     float AirSpeed = 500;
     float CurrentWalkSpeed = WALK_SPEED;
 
+    float SmellScore = 0;
+
     Vector3 cameraTargetRotation = Vector3.Zero;
+    TextureProgressBar SmellBar = null!;
     Vector3 WishDir;
     Camera3D Camera = null!;
     public SmellItem? TargetingItem;
@@ -45,6 +48,7 @@ public partial class Player : CharacterBody3D
     public override void _Ready()
     {
         Camera = GetNode<Camera3D>("Head/Camera3D");
+        SmellBar = GetNode<TextureProgressBar>("UI/Control/GameUi/TextureProgressBar");
         ghost = GetNode<Ghost>("../Ghost");
         SmellBox = ghost.GetNode<CollisionPolygon3D>("GhostSmellTrail/SmellBox/TrailCollider");
         gun = GetNode<GunPlaceholder>("Head/Camera3D/GunPlaceholder");
@@ -251,5 +255,7 @@ public partial class Player : CharacterBody3D
     public void UpdateSmellScore(int diff)
     {
         SmellScore += diff;
+        SmellBar.Value = SmellScore;
+        // TODO this is where things based on how much
     }
 }
