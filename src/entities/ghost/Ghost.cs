@@ -95,6 +95,7 @@ public partial class Ghost : CharacterBody3D
         }
         if (InHomeRoom && CurrentState == State.SMELLING)
         {
+            AudioManager.PlaySfx(SFX.MetalPipe);
             var rigidGhost = RigidGhost.Instantiate<RigidBody3D>();
             GetParent().AddChild(rigidGhost);
             GetNode<Node3D>("ghost").Visible = false;
@@ -123,36 +124,36 @@ public partial class Ghost : CharacterBody3D
         trailArea.GlobalPosition = GlobalPosition;
     }
 
-    // public void UpdateTrailBox()
-    // {
-    //     if (!active)
-    //     {
-    //         return;
-    //     }
-    //     var direction = Velocity.Normalized();
-    //     TrailBoxPointsLeft.Add(
-    //         new Vector2(GlobalTransform.Origin.X, GlobalTransform.Origin.Z)
-    //             + new Vector2(-direction.Z, direction.X).Normalized()
-    //     );
-    //     TrailBoxPointsRight.Add(
-    //         new Vector2(GlobalTransform.Origin.X, GlobalTransform.Origin.Z)
-    //             + new Vector2(direction.Z, -direction.X).Normalized()
-    //     );
+    public void UpdateTrailBox()
+    {
+        if (!active)
+        {
+            return;
+        }
+        var direction = Velocity.Normalized();
+        TrailBoxPointsLeft.Add(
+            new Vector2(GlobalTransform.Origin.X, GlobalTransform.Origin.Z)
+                + new Vector2(-direction.Z, direction.X).Normalized()
+        );
+        TrailBoxPointsRight.Add(
+            new Vector2(GlobalTransform.Origin.X, GlobalTransform.Origin.Z)
+                + new Vector2(direction.Z, -direction.X).Normalized()
+        );
 
-    //     if (TrailBoxPointsLeft.Count >= MAX_TRAIL_POINTS)
-    //     {
-    //         TrailBoxPointsLeft.RemoveAt(0);
-    //         TrailBoxPointsRight.RemoveAt(0);
-    //     }
+        if (TrailBoxPointsLeft.Count >= MAX_TRAIL_POINTS)
+        {
+            TrailBoxPointsLeft.RemoveAt(0);
+            TrailBoxPointsRight.RemoveAt(0);
+        }
 
-    //     TrailBoxPoints = new List<Vector2>();
-    //     for (int i = 0; i < TrailBoxPointsLeft.Count; i++)
-    //         TrailBoxPoints.Add(TrailBoxPointsLeft[i]);
-    //     for (int i = TrailBoxPointsRight.Count - 1; i >= 0; i--)
-    //         TrailBoxPoints.Add(TrailBoxPointsRight[i]);
-    //     TrailCollider.Polygon = null;
-    //     TrailCollider.Polygon = [.. TrailBoxPoints];
-    // }
+        TrailBoxPoints = new List<Vector2>();
+        for (int i = 0; i < TrailBoxPointsLeft.Count; i++)
+            TrailBoxPoints.Add(TrailBoxPointsLeft[i]);
+        for (int i = TrailBoxPointsRight.Count - 1; i >= 0; i--)
+            TrailBoxPoints.Add(TrailBoxPointsRight[i]);
+        TrailCollider.Polygon = null;
+        TrailCollider.Polygon = [.. TrailBoxPoints];
+    }
 
     public void Teleport()
     {
@@ -261,6 +262,7 @@ public partial class Ghost : CharacterBody3D
     public void Attack()
     {
         Player.GetNode<GpuParticles3D>("Head/Camera3D/Screen Ectoplasm Particles").Emitting = true;
+        AudioManager.PlaySfx(SFX.GhostAttack);
     }
 
     public void Move()
@@ -276,9 +278,7 @@ public partial class Ghost : CharacterBody3D
     {
         var playerVector = Player.GlobalPosition - GlobalPosition;
         PlayerDetectionRay.TargetPosition = playerVector;
-        return PlayerDetectionRay.IsColliding()
-            //&& PlayerDetectionRay.GetCollider().GetClass() == "CharacterBody3D" // TODO this should check for a player specific Class
-            && playerVector.Length() <= MaxPlayerDetectionRange;
+        return PlayerDetectionRay.IsColliding() && playerVector.Length() <= MaxPlayerDetectionRange;
     }
 
     public void UpdateTargetLocation(Vector3 targetLocation)

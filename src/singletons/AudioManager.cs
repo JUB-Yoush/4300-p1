@@ -1,7 +1,27 @@
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using Godot;
+
+public static class SFX
+{
+    public static AudioStream Footsteps = GD.Load<AudioStream>(
+        "res://assets/audio/sfx/footsteps3.wav"
+    );
+    public static AudioStream GunEat = GD.Load<AudioStream>("res://assets/audio/sfx/eating.wav");
+    public static AudioStream Sniffing = GD.Load<AudioStream>(
+        "res://assets/audio/sfx/sniffing.wav"
+    );
+    public static AudioStream Gun = GD.Load<AudioStream>("res://assets/audio/sfx/gunshot.wav");
+    public static AudioStream GhostAttack = GD.Load<AudioStream>(
+        "res://assets/audio/sfx/ghostattack.wav"
+    );
+    public static AudioStream MetalPipe = GD.Load<AudioStream>(
+        "res://assets/audio/sfx/metalpipe.mp3"
+    );
+    public static AudioStream Punch = GD.Load<AudioStream>("res://assets/audio/sfx/punch.wav");
+}
 
 public partial class AudioManager : Node
 {
@@ -10,8 +30,11 @@ public partial class AudioManager : Node
     AudioStreamPlayer BgmPlayer = new();
     List<AudioStreamPlayer> SfxPlayers = [];
 
+    public static AudioManager Ref = null!; // static singleton instance, global nodes are loaded before the scene tree.
+
     public override void _Ready()
     {
+        Ref = this;
         AddChild(BgmPlayer);
         for (int i = 0; i < SFX_PLAYER_COUNT; i++)
         {
@@ -22,19 +45,31 @@ public partial class AudioManager : Node
         BgmPlayer.ProcessMode = ProcessModeEnum.Always;
     }
 
-    public void PlayMusic(AudioStream music)
+    public static void PlayMusic(AudioStream music)
     {
-        if (BgmPlayer.Stream == music)
+        if (Ref.BgmPlayer.Stream == music)
         {
             return;
         }
-        BgmPlayer.Stream = music;
-        BgmPlayer.Play();
+        Ref.BgmPlayer.Stream = music;
+        Ref.BgmPlayer.Play();
     }
 
-    public void PlaySfx(AudioStream sfx)
+    public static void PlaySfx(AudioStream sfx, bool singleStreamOnly = false)
     {
-        var sfxPlayer = SfxPlayers.FirstOrDefault(sfxPlayer => !sfxPlayer.IsPlaying());
+        // only one stream playing at a time
+        if (singleStreamOnly)
+        {
+            var alreadyPlayingStream = Ref.SfxPlayers.FirstOrDefault(sfxPlayer =>
+                sfxPlayer.Stream == sfx && sfxPlayer.Playing
+            );
+            if (alreadyPlayingStream != null)
+            {
+                return;
+            }
+        }
+
+        var sfxPlayer = Ref.SfxPlayers.FirstOrDefault(sfxPlayer => !sfxPlayer.IsPlaying());
 
         if (sfxPlayer == null)
         {
@@ -45,18 +80,26 @@ public partial class AudioManager : Node
         sfxPlayer.Play();
     }
 
-    public void SetVolume(float value)
+    public static void StopSfx(AudioStream sfx)
     {
-        AudioServer.SetBusVolumeDb(bus, value);
+        var sfxStream = Ref.SfxPlayers.FirstOrDefault(sfxPlayer =>
+            sfxPlayer.Stream == sfx && sfxPlayer.Playing
+        );
+        sfxStream?.Stop();
     }
 
-    public void StopAll()
+    public static void SetVolume(float value)
     {
-        SfxPlayers.ForEach(SfxPlayer => SfxPlayer.Stop());
+        AudioServer.SetBusVolumeDb(Ref.bus, value);
     }
 
-    public void PauseMusic()
+    public static void StopAll()
     {
-        BgmPlayer.Stop();
+        Ref.SfxPlayers.ForEach(SfxPlayer => SfxPlayer.Stop());
+    }
+
+    public static void PauseMusic()
+    {
+        Ref.BgmPlayer.Stop();
     }
 }

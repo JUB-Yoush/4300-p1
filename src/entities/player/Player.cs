@@ -130,10 +130,13 @@ public partial class Player : CharacterBody3D
         if (Input.IsActionJustPressed("pickup") && TargetingItem != null)
         {
             _PickupItem(TargetingItem!);
+            Anims.Play("gun_insert_ingredient");
+            AudioManager.PlaySfx(SFX.GunEat);
         }
 
         if (Input.IsActionJustPressed("punch") && !Anims.IsPlaying())
         {
+            AudioManager.PlaySfx(SFX.Punch);
             Anims.Play("punch");
         }
 
@@ -148,6 +151,7 @@ public partial class Player : CharacterBody3D
         smelling = Input.IsActionPressed("smell");
         if (smelling)
         {
+            AudioManager.PlaySfx(SFX.Sniffing, true);
             env.BackgroundEnergyMultiplier = 0.5f;
             CurrentWalkSpeed = SMELLING_WALK_SPEED;
             ghost.Visible = true;
@@ -170,6 +174,7 @@ public partial class Player : CharacterBody3D
         }
         else
         {
+            AudioManager.StopSfx(SFX.Sniffing);
             env.BackgroundEnergyMultiplier = 2f;
             CurrentWalkSpeed = WALK_SPEED;
             if (!ghost.IsCorporial())
@@ -247,6 +252,10 @@ public partial class Player : CharacterBody3D
             newSpeed /= _targetVelocity.Length();
         }
         _targetVelocity = Scale(_targetVelocity, newSpeed);
+        if (WishDir != Vector3.Zero && _targetVelocity != Vector3.Zero)
+        {
+            AudioManager.PlaySfx(SFX.Footsteps, true);
+        }
     }
 
     public static Vector3 Scale(Vector3 v, double f) =>
