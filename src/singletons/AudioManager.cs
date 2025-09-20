@@ -6,6 +6,7 @@ using Godot;
 
 public static class SFX
 {
+    //should either be a hashmap or lazy-loaded
     public static AudioStream Footsteps = GD.Load<AudioStream>(
         "res://assets/audio/sfx/footsteps3.wav"
     );
