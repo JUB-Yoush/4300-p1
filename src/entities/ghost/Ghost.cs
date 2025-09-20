@@ -76,7 +76,7 @@ public partial class Ghost : CharacterBody3D
         SmellTrailAreaScene = GD.Load<PackedScene>("res://src/entities/ghost/smellbox.tscn");
 
         TrailCreationTimer.OneShot = false;
-        TrailCreationTimer.Start(1);
+        TrailCreationTimer.Start(0.25f);
         CurrentState = State.PATROL;
         CurrentTargetPosition = GetNewPoint();
         var PunchHitbox = Player.GetNode<Area3D>("Head/PunchBox");
@@ -95,19 +95,57 @@ public partial class Ghost : CharacterBody3D
         }
         if (InHomeRoom && CurrentState == State.SMELLING)
         {
-            var rigidGhost = RigidGhost.Instantiate<RigidBody3D>();
-            GetParent().AddChild(rigidGhost);
-            GetNode<Node3D>("ghost").Visible = false;
-            var camera = Player.GetNode<Camera3D>("Head/Camera3D");
-            var punchVelocity = camera.GlobalTransform.Basis.Z;
+            HitPause();
             active = false;
-            rigidGhost.GlobalPosition = GlobalPosition;
-            rigidGhost.LinearVelocity = -punchVelocity * 5;
         }
         else
         {
             GD.Print("ghost not dead as heck");
         }
+    }
+
+    public async void HitPause()
+    {
+        await Task.Delay(200);
+        Engine.TimeScale = 0;
+        await Task.Delay(100);
+        CameraShakeAsync();
+        Engine.TimeScale = 1;
+        var rigidGhost = RigidGhost.Instantiate<RigidBody3D>();
+        GetParent().AddChild(rigidGhost);
+        GetNode<Node3D>("ghost").Visible = false;
+        var camera = Player.GetNode<Camera3D>("Head/Camera3D");
+        var punchVelocity = camera.GlobalTransform.Basis.Z;
+        rigidGhost.GlobalPosition = GlobalPosition;
+        rigidGhost.LinearVelocity = -punchVelocity * 5;
+        GetNode<GpuParticles3D>("GhostSmellTrail").Emitting = false;
+    }
+
+    //Screenshake code modified from https://www.reddit.com/r/godot/comments/174nfgo/i_couldnt_find_a_simple_and_easy_3d_camera_shake/
+    private async void CameraShakeAsync()
+    {
+        GD.Print("Camera is shaking");
+        Transform3D initial_transform = Player.GetNode<Node3D>("Head/Camera3D").Transform;
+        float elapsed_time = 0.0f, period = 0.2f, magnitude = 0.2f;
+
+        while (elapsed_time < period)
+        {
+            var offset = new Vector3(
+                (float)GD.RandRange(-magnitude, magnitude),
+                (float)GD.RandRange(-magnitude, magnitude),
+                0f
+            );
+
+            Transform3D new_transform = initial_transform;
+            new_transform.Origin += offset;
+            Player.GetNode<Node3D>("Head/Camera3D").Transform = new_transform;
+
+            elapsed_time += (float)GetProcessDeltaTime();
+
+            await ToSignal(GetTree(), "process_frame");
+        }
+
+        Player.GetNode<Node3D>("Head/Camera3D").Transform = initial_transform;
     }
 
     public void SetToPatrol()
@@ -117,10 +155,13 @@ public partial class Ghost : CharacterBody3D
 
     public void RenderTrail()
     {
-        SmellTrailArea trailArea = SmellTrailAreaScene.Instantiate<SmellTrailArea>();
-        trailArea.TopLevel = true;
-        TrailPoints.AddChild(trailArea);
-        trailArea.GlobalPosition = GlobalPosition;
+        if (active)
+        {
+            SmellTrailArea trailArea = SmellTrailAreaScene.Instantiate<SmellTrailArea>();
+            trailArea.TopLevel = true;
+            TrailPoints.AddChild(trailArea);
+            trailArea.GlobalPosition = GlobalPosition;   
+        }
     }
 
     // public void UpdateTrailBox()

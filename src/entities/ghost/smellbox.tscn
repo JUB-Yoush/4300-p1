@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bsqbqf010tfa3" path="res://src/entities/ghost/SmellTrailArea.cs" id="1_s50ji"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wo0yg"]
-size = Vector3(2, 2, 2)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_s50ji"]
+radius = 1.0
 
 [node name="Area3D" type="Area3D"]
 collision_mask = 8
@@ -11,4 +11,5 @@ script = ExtResource("1_s50ji")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.985524, 0)
-shape = SubResource("BoxShape3D_wo0yg")
+top_level = true
+shape = SubResource("CylinderShape3D_s50ji")

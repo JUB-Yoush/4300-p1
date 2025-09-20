@@ -80,6 +80,7 @@ trueColor = Color(0.776471, 0.286275, 0.882353, 1)
 
 [node name="SmellBox" type="Area3D" parent="."]
 top_level = true
+visible = false
 script = ExtResource("6_m7kiv")
 
 [node name="TrailCollider" type="CollisionPolygon3D" parent="SmellBox"]

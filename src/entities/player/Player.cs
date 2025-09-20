@@ -151,7 +151,10 @@ public partial class Player : CharacterBody3D
             env.BackgroundEnergyMultiplier = 0.5f;
             CurrentWalkSpeed = SMELLING_WALK_SPEED;
             ghost.Visible = true;
-            SmellBox.Disabled = false;
+            foreach (Node obj in GetTree().GetNodesInGroup("SmellBoxes"))
+            {
+                obj.GetNode<CollisionShape3D>("CollisionShape3D").Disabled = false;
+            }
             Light.LightColor = Color.Color8(255, 0, 0, 125);
             Light.LightSpecular = 2f;
             Environment.Environment.AmbientLightEnergy = 0.075f;
@@ -180,7 +183,10 @@ public partial class Player : CharacterBody3D
             {
                 ghost.Visible = true;
             }
-            SmellBox.Disabled = true;
+            foreach (Node obj in GetTree().GetNodesInGroup("SmellBoxes"))
+            {
+                obj.GetNode<CollisionShape3D>("CollisionShape3D").Disabled = true;
+            }
             Light.LightColor = Color.Color8(255, 255, 255, 255);
             Light.LightSpecular = 0.5f;
             Environment.Environment.AmbientLightEnergy = 1f;
@@ -252,10 +258,10 @@ public partial class Player : CharacterBody3D
     public static Vector3 Scale(Vector3 v, double f) =>
         new((float)(v.X * f), (float)(v.Y * f), (float)(v.Z * f));
 
-    public void UpdateSmellScore(int diff)
+    public void UpdateSmellScore(float val)
     {
-        SmellScore += diff;
-        SmellBar.Value = SmellScore;
+        if (val > 100) val = 100;
+        SmellBar.Value = val;
         // TODO this is where things based on how much
     }
 }
