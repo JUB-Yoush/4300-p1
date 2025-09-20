@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://brb33aepd2do0" path="res://assets/UI/IngredientIcons/Ash_smell.png" id="10_3rvkn"]
 [ext_resource type="Script" uid="uid://cotnkj7picxem" path="res://src/entities/smell_items/SmellItem.cs" id="11_v8kvn"]
 [ext_resource type="Texture2D" uid="uid://y4oxwj6cli1q" path="res://assets/UI/IngredientIcons/Tome_smell.png" id="12_rk8ua"]
-[ext_resource type="PackedScene" path="res://assets/3d/Environment/candle.tscn" id="14_48oet"]
+[ext_resource type="PackedScene" uid="uid://ds657xtitr6tj" path="res://assets/3d/Environment/candle.tscn" id="14_48oet"]
 [ext_resource type="Texture2D" uid="uid://bbe0ck8h3ve2b" path="res://assets/UI/IngredientIcons/Trash_smell.png" id="14_uruqi"]
 [ext_resource type="Texture2D" uid="uid://dhxe5y36r3gng" path="res://assets/UI/IngredientIcons/Flower_smell.png" id="18_e07q1"]
 [ext_resource type="Material" uid="uid://dglqyxfq1sm5r" path="res://assets/Materials/Particles/CircleFinal.tres" id="20_48oet"]
@@ -341,7 +341,7 @@ visible = false
 environment = SubResource("Environment_5dlwx")
 
 [node name="Player" parent="." instance=ExtResource("2_5dlwx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1285, 2.45112, -19.3027)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9005, 1.9497, -27.9676)
 
 [node name="Level" type="Node3D" parent="."]
 
