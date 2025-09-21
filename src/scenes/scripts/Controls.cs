@@ -15,6 +15,9 @@ public partial class Controls : Node
             QueueFree();
         };
         GetNode<TextureButton>("Paused/Panel/Home").Pressed += () =>
+        {
+            GetTree().Paused = false;
             GetTree().ChangeSceneToFile("res://src/scenes/title.tscn");
+        };
     }
 }

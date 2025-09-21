@@ -36,7 +36,7 @@ public partial class ItemData : Resource
     public string name { get; set; } = "blah";
 
     [Export]
-    public Texture2D Sprite, UiSprite;
+    public Texture2D UiSprite;
 
     [Export]
     public Color Color;
@@ -46,7 +46,6 @@ public partial class ItemData : Resource
 
     [Export]
     public Material Shape;
-
     [Export]
     public ScentEffect Effect;
 
