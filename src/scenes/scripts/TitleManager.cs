@@ -8,10 +8,10 @@ public partial class TitleManager : Node
 {
     bool animationDone = false;
     AnimationPlayer animPlayer;
-    List<BaseButton> buttons = new List<BaseButton>();
-    BaseButton playBtn;
-    BaseButton creditsBtn;
-    BaseButton exitBtn;
+    List<BaseButton> buttons = new List<Button>();
+    Button playBtn;
+    Button creditsBtn;
+    Button exitBtn;
 
     List<Panel> panels = new List<Panel>();
 
@@ -20,9 +20,9 @@ public partial class TitleManager : Node
 
     public override void _Ready()
     {
-        playBtn = GetNode<BaseButton>("CanvasLayer/Play/PlayButton");
-        creditsBtn = GetNode<BaseButton>("CanvasLayer/Credits/CreditsButton");
-        exitBtn = GetNode<BaseButton>("CanvasLayer/Exit/ExitButton");
+        playBtn = GetNode<Button>("CanvasLayer/Play/PlayButton");
+        creditsBtn = GetNode<Button>("CanvasLayer/Credits/CreditsButton");
+        exitBtn = GetNode<Button>("CanvasLayer/Exit/ExitButton");
 
         panels.Add(GetNode<Panel>("CanvasLayer/Play/Panel"));
         panels.Add(GetNode<Panel>("CanvasLayer/Credits/Panel"));
@@ -37,7 +37,7 @@ public partial class TitleManager : Node
         buttons.Add(creditsBtn);
         buttons.Add(exitBtn);
 
-        foreach (BaseButton button in buttons)
+        foreach (Button button in buttons)
         {
             button.Disabled = true;
             _ButtonStandby(button);
@@ -72,7 +72,7 @@ public partial class TitleManager : Node
         GD.Print($"Animation '{animName}' finished!");
         if (animName == "TitleAnimation")
         {
-            foreach (BaseButton button in buttons)
+            foreach (Button button in buttons)
             {
                 //animation done, we can have the buttons be clickable
                 button.Disabled = false;
@@ -83,7 +83,7 @@ public partial class TitleManager : Node
 
     public override void _Process(double delta)
     {
-        foreach (BaseButton button in buttons)
+        foreach (Button button in buttons)
         {
             if (button.IsHovered() && animationDone)
             {
@@ -96,14 +96,15 @@ public partial class TitleManager : Node
         }
     }
 
-    public void _ButtonHovered(BaseButton btn)
+    public void _ButtonHovered(Button btn)
     {
-        btn.SelfModulate = hovered;
+ 
+
         int index = buttons.IndexOf(btn);
         panels[index].Visible = true;
     }
 
-    public void _ButtonStandby(BaseButton btn)
+    public void _ButtonStandby(Button btn)
     {
         btn.SelfModulate = standby;
         int index = buttons.IndexOf(btn);
