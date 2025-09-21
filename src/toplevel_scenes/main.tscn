@@ -3629,19 +3629,6 @@ offset_bottom = 1088.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.501961)
 
-[node name="Controls" parent="CanvasLayer"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-visible = false
-script = null
-
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.682955, 0.73046, 0, -0.73046, 0.682955, 0, 0, 0)
 visible = false

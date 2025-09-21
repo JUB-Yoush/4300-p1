@@ -133,7 +133,9 @@ public partial class Ghost : CharacterBody3D
     {
         GD.Print("Camera is shaking");
         Transform3D initial_transform = Player.GetNode<Node3D>("Head/Camera3D").Transform;
-        float elapsed_time = 0.0f, period = 0.2f, magnitude = 0.2f;
+        float elapsed_time = 0.0f,
+            period = 0.2f,
+            magnitude = 0.2f;
 
         while (elapsed_time < period)
         {
@@ -167,7 +169,7 @@ public partial class Ghost : CharacterBody3D
             SmellTrailArea trailArea = SmellTrailAreaScene.Instantiate<SmellTrailArea>();
             trailArea.TopLevel = true;
             TrailPoints.AddChild(trailArea);
-            trailArea.GlobalPosition = GlobalPosition;   
+            trailArea.GlobalPosition = GlobalPosition;
         }
     }
 

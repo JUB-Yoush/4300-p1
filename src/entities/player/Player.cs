@@ -99,6 +99,10 @@ public partial class Player : CharacterBody3D
                 X = Mathf.Clamp(Camera.Rotation.X, Mathf.DegToRad(-90), Mathf.DegToRad(90)),
             };
         }
+        if (@event.IsActionPressed("pause"))
+        {
+            AddChild(Controls.packedScene.Instantiate<Controls>());
+        }
     }
 
     private void _PickupItem(SmellItem item)
