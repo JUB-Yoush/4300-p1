@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://b8e6rv13o8a1g"]
+[gd_scene load_steps=76 format=3 uid="uid://b8e6rv13o8a1g"]
 
 [ext_resource type="Script" uid="uid://cvhb113by0cda" path="res://src/toplevel_scenes/Main.cs" id="1_5dlwx"]
 [ext_resource type="PackedScene" uid="uid://dbuna14812w75" path="res://src/entities/player/player.tscn" id="2_5dlwx"]
@@ -24,6 +24,8 @@
 [ext_resource type="Script" path="res://src/entities/smell_items/PickupCollider.cs" id="20_r0g70"]
 [ext_resource type="Texture2D" uid="uid://c171gx211s8jy" path="res://assets/UI/IngredientIcons/Dirt_smell.png" id="21_r0g70"]
 [ext_resource type="PackedScene" uid="uid://bebc62l33tw8a" path="res://assets/3d/Environment/Fireplace.glb" id="24_3osph"]
+[ext_resource type="Texture2D" uid="uid://cp7e86wdvnwi5" path="res://assets/UI/IngredientIcons/Blood_smell.png" id="25_yso6w"]
+[ext_resource type="Texture2D" uid="uid://cni2mfm6a3ek7" path="res://assets/UI/IngredientIcons/Splat_smell.png" id="26_3keun"]
 [ext_resource type="PackedScene" uid="uid://bmj18eof1fpus" path="res://assets/3d/Environment/Trashcan_Large.glb" id="26_uu0ft"]
 [ext_resource type="PackedScene" uid="uid://y37yqugd0re5" path="res://assets/3d/Environment/Books.glb" id="27_3rvkn"]
 [ext_resource type="PackedScene" uid="uid://b1erja0fjqq3v" path="res://assets/3d/Environment/bed.glb" id="28_48oet"]
@@ -250,7 +252,7 @@ Effect = 1
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gxq42"]
-size = Vector3(3.90034, 3.77793, 3.73434)
+size = Vector3(5.17797, 4.02871, 4.21824)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d8h2t"]
 resource_local_to_scene = true
@@ -287,6 +289,22 @@ particles_anim_loop = true
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_uruqi")
 orientation = 2
+
+[sub_resource type="Resource" id="Resource_y67x0"]
+script = ExtResource("8_odjcq")
+name = "Blood"
+UiSprite = ExtResource("25_yso6w")
+Color = Color(0, 0, 0, 0)
+Size = 0.0
+Shape = ExtResource("7_smgh4")
+Effect = 1
+metadata/_custom_type_script = "uid://sunsuajn1hnd"
+
+[sub_resource type="QuadMesh" id="QuadMesh_8o5aj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07qxy"]
+transparency = 1
+albedo_texture = ExtResource("26_3keun")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3rvkn"]
 transparency = 1
@@ -341,7 +359,7 @@ visible = false
 environment = SubResource("Environment_5dlwx")
 
 [node name="Player" parent="." instance=ExtResource("2_5dlwx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1285, 2.45112, -19.3027)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9005, 1.9497, -27.9676)
 
 [node name="Level" type="Node3D" parent="."]
 
@@ -3358,6 +3376,82 @@ lifetime = 3.0
 randomness = 0.5
 process_material = SubResource("ParticleProcessMaterial_d8h2t")
 draw_pass_1 = SubResource("PlaneMesh_e07q1")
+
+[node name="Blood" type="Node3D" parent="Level/NavigationRegion3D/Objects"]
+script = ExtResource("11_v8kvn")
+Data = SubResource("Resource_y67x0")
+
+[node name="Area3D" type="Area3D" parent="Level/NavigationRegion3D/Objects/Blood"]
+transform = Transform3D(-3.27836e-08, 0, -0.75, 0, 0.75, 0, 0.75, 0, -3.27836e-08, -13.6187, 0, -21.1081)
+script = ExtResource("20_r0g70")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/NavigationRegion3D/Objects/Blood/Area3D"]
+transform = Transform3D(0.998177, 0, 3.55271e-15, 0, 0.998177, 0, -3.55271e-15, 0, 0.998177, 1.47829, 1.97286, -0.348635)
+shape = SubResource("BoxShape3D_gxq42")
+
+[node name="ItemSmellTrail" type="GPUParticles3D" parent="Level/NavigationRegion3D/Objects/Blood"]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -13.9475, 0, -20.0212)
+sorting_offset = -1.0
+amount = 100
+lifetime = 3.0
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_d8h2t")
+draw_pass_1 = SubResource("PlaneMesh_e07q1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/NavigationRegion3D/Objects/Blood"]
+transform = Transform3D(-8.74228e-08, 0, 2, 1.50375, 1.31861, 6.57309e-08, -1.31861, 1.50375, -5.76384e-08, -14.9444, 1.12483, -19.4743)
+mesh = SubResource("QuadMesh_8o5aj")
+skeleton = NodePath("../../../Walls/Walls/Wall190")
+surface_material_override/0 = SubResource("StandardMaterial3D_07qxy")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Level/NavigationRegion3D/Objects/Blood"]
+transform = Transform3D(1.26822, -0.773243, -6.7599e-08, 0, -4.37114e-08, 2, -1.54649, -0.63411, -5.54356e-08, -14.3545, 0.001, -18.7634)
+mesh = SubResource("QuadMesh_8o5aj")
+skeleton = NodePath("../../../Walls/Walls/Wall190")
+surface_material_override/0 = SubResource("StandardMaterial3D_07qxy")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Level/NavigationRegion3D/Objects/Blood"]
+transform = Transform3D(2.16814, 1.38229, 3.0211e-08, 0, -8.74228e-08, 1, 2.07344, -1.44543, -3.15908e-08, -13.8811, 0.001, -20.5383)
+mesh = SubResource("QuadMesh_8o5aj")
+skeleton = NodePath("../../../Walls/Walls/Wall190")
+surface_material_override/0 = SubResource("StandardMaterial3D_07qxy")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Level/NavigationRegion3D/Objects/Blood"]
+transform = Transform3D(-4.98232e-08, 2.20028e-08, 1, 0.490147, 2.77524, 1.38283e-08, -0.984762, 1.38132, -4.37114e-08, -14.9456, 1.52518, -21.6928)
+mesh = SubResource("QuadMesh_8o5aj")
+skeleton = NodePath("../../../Walls/Walls/Wall190")
+surface_material_override/0 = SubResource("StandardMaterial3D_07qxy")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Level/NavigationRegion3D/Objects/Blood"]
+transform = Transform3D(-0.235453, 2.46901, 0, -1.48141, -0.392422, 0, 0, 0, 2, -14.484, 1.33622, -21.9459)
+mesh = SubResource("QuadMesh_8o5aj")
+skeleton = NodePath("../../../Walls/Walls/Wall190")
+surface_material_override/0 = SubResource("StandardMaterial3D_07qxy")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Level/NavigationRegion3D/Objects/Blood"]
+transform = Transform3D(-1.73811e-07, 6.79265e-08, 2, -1.56363, -1.68673, -5.94333e-08, 1.68673, -1.56363, 1.50996e-07, -14.9444, -0.875184, -20.6946)
+mesh = SubResource("QuadMesh_8o5aj")
+skeleton = NodePath("../../../Walls/Walls/Wall190")
+surface_material_override/0 = SubResource("StandardMaterial3D_07qxy")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Level/NavigationRegion3D/Objects/Blood"]
+transform = Transform3D(2.52812, 0.774944, -5.03628e-08, 3.09978, -0.632029, 2.97763e-07, 3.97837e-07, -1.13611e-07, -2, -13.4901, 1.46425, -18.0526)
+mesh = SubResource("QuadMesh_8o5aj")
+skeleton = NodePath("../../../Walls/Walls/Wall190")
+surface_material_override/0 = SubResource("StandardMaterial3D_07qxy")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Level/NavigationRegion3D/Objects/Blood"]
+transform = Transform3D(-2.6765e-08, 1.11971e-08, 2, -0.20285, -0.914006, -2.29658e-08, 0.457003, -0.4057, 1.06939e-07, -14.9444, 1.76035, -20.5741)
+mesh = SubResource("QuadMesh_8o5aj")
+skeleton = NodePath("../../../Walls/Walls/Wall190")
+surface_material_override/0 = SubResource("StandardMaterial3D_07qxy")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Level/NavigationRegion3D/Objects/Blood"]
+transform = Transform3D(4.77671e-15, -8.74228e-08, 2, -2.5, -8.74228e-08, 3.10588e-22, 1.09278e-07, -2, -8.74228e-08, -14.9497, -0.703849, -17.9223)
+mesh = SubResource("QuadMesh_8o5aj")
+skeleton = NodePath("../../../Walls/Walls/Wall190")
+surface_material_override/0 = SubResource("StandardMaterial3D_07qxy")
 
 [node name="ParticleRoof" type="MeshInstance3D" parent="Level/NavigationRegion3D/Objects"]
 transform = Transform3D(104.496, 0, 0, 0, 5, 0, 0, 0, 94.2152, 34.0792, 5.389, -2.44202)
