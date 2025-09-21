@@ -67,7 +67,7 @@ size = Vector3(18.7405, 4, 11.3839)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kexia"]
 albedo_texture = ExtResource("6_6muo6")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3keun"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qb0sy"]
 resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
@@ -93,7 +93,7 @@ particles_anim_h_frames = 3
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="Resource" id="Resource_y67x0"]
+[sub_resource type="Resource" id="Resource_6uukv"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -103,7 +103,7 @@ Size = 0.0
 Effect = 0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
-[sub_resource type="Resource" id="Resource_8o5aj"]
+[sub_resource type="Resource" id="Resource_o6vwv"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -113,7 +113,7 @@ Size = 0.0
 Effect = 0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
-[sub_resource type="Resource" id="Resource_07qxy"]
+[sub_resource type="Resource" id="Resource_c6244"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -170,7 +170,7 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_6b35j")
 orientation = 2
 
-[sub_resource type="Resource" id="Resource_2xtos"]
+[sub_resource type="Resource" id="Resource_utfcj"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -180,7 +180,7 @@ Size = 1.5
 Effect = 0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
-[sub_resource type="Resource" id="Resource_kgdpc"]
+[sub_resource type="Resource" id="Resource_qp2p8"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -223,7 +223,7 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_0iucp")
 orientation = 2
 
-[sub_resource type="Resource" id="Resource_jpcli"]
+[sub_resource type="Resource" id="Resource_2t5ui"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -3622,20 +3622,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23913, 2.04144, 16.0537)
 visible = false
 
 [node name="GhostSmellTrail" parent="Ghost" instance=ExtResource("5_2lg1k")]
-textures = Array[Material]([SubResource("StandardMaterial3D_kexia"), SubResource("StandardMaterial3D_3keun"), ExtResource("7_smgh4")])
+textures = Array[Material]([SubResource("StandardMaterial3D_kexia"), SubResource("StandardMaterial3D_qb0sy"), ExtResource("7_smgh4")])
 filledTexture = SubResource("StandardMaterial3D_5pbbh")
 
 [node name="SmellItem" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9916, 3, -29.3629)
-Data = SubResource("Resource_y67x0")
+Data = SubResource("Resource_6uukv")
 
 [node name="SmellItem4" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9916, 3, -38.2883)
-Data = SubResource("Resource_8o5aj")
+Data = SubResource("Resource_o6vwv")
 
 [node name="SmellItem2" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1649, 3, -29.3629)
-Data = SubResource("Resource_07qxy")
+Data = SubResource("Resource_c6244")
 
 [node name="ItemSmellTrail" parent="SmellItem2" index="2"]
 process_material = SubResource("ParticleProcessMaterial_smgh4")
@@ -3643,7 +3643,7 @@ draw_pass_1 = SubResource("PlaneMesh_nos3a")
 
 [node name="SmellItem5" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1649, 3, -38.2922)
-Data = SubResource("Resource_2xtos")
+Data = SubResource("Resource_utfcj")
 
 [node name="ItemSmellTrail" parent="SmellItem5" index="2"]
 process_material = SubResource("ParticleProcessMaterial_smgh4")
@@ -3651,7 +3651,7 @@ draw_pass_1 = SubResource("PlaneMesh_nos3a")
 
 [node name="SmellItem3" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7001, 3, -29.3629)
-Data = SubResource("Resource_kgdpc")
+Data = SubResource("Resource_qp2p8")
 
 [node name="ItemSmellTrail" parent="SmellItem3" index="2"]
 process_material = SubResource("ParticleProcessMaterial_6muo6")
@@ -3659,7 +3659,7 @@ draw_pass_1 = SubResource("PlaneMesh_kexia")
 
 [node name="SmellItem6" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7001, 3, -37.8599)
-Data = SubResource("Resource_jpcli")
+Data = SubResource("Resource_2t5ui")
 
 [node name="ItemSmellTrail" parent="SmellItem6" index="2"]
 process_material = SubResource("ParticleProcessMaterial_6muo6")
