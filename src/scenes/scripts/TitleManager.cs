@@ -45,7 +45,6 @@ public partial class TitleManager : Node
 
         animPlayer = GetNode<AnimationPlayer>("OpeningAnimation");
         animPlayer.Play("TitleAnimation");
-        GD.Print("opening animation played");
         animPlayer.AnimationFinished += AnimPlayer_AnimationFinished;
 
         playBtn.Pressed += OnPlayPressed;

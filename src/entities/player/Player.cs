@@ -10,32 +10,28 @@ public partial class Player : CharacterBody3D
     float gravity = -12f;
     float LookSensitivity = 0.006f;
     private Vector3 _targetVelocity = Vector3.Zero;
-
     const float HEADBOB_APMPLITUDE = 0.06f;
     const float HEADBOB_FREQUENCY = 2.4f;
     float HeadbobTime = 0f;
-
     const float WALK_SPEED = 10f;
     const float SMELLING_WALK_SPEED = 5f;
     const float GROUND_ACCEL = 11.0f;
     const float GROUND_DECEL = 7.0f;
     const float GROUND_FRICTION = 3.5f;
 
-    const float JUMP_VEL = 6f;
+    //const float JUMP_VEL = 6f;
     float AirCap = 0.85f;
     float AirAccel = 800;
     float AirSpeed = 500;
     float CurrentWalkSpeed = WALK_SPEED;
 
-    //const int GUN_CAPACITY = 3;
+    float SmellScore = 0;
 
     Vector3 cameraTargetRotation = Vector3.Zero;
+    TextureProgressBar SmellBar = null!;
     Vector3 WishDir;
     Camera3D Camera = null!;
-    RayCast3D VisionRay = null!;
-    SmellItem? TargetingItem;
-
-    //public List<ItemData> GunSlots = [];
+    public SmellItem? TargetingItem;
     Ghost ghost = null!;
     CollisionPolygon3D SmellBox = null!;
     AnimationPlayer Anims = null!;
@@ -52,13 +48,10 @@ public partial class Player : CharacterBody3D
     public override void _Ready()
     {
         Camera = GetNode<Camera3D>("Head/Camera3D");
-        VisionRay = GetNode<RayCast3D>("Head/Camera3D/VisionRay");
+        SmellBar = GetNode<TextureProgressBar>("UI/Control/GameUi/TextureProgressBar");
         ghost = GetNode<Ghost>("../Ghost");
         SmellBox = ghost.GetNode<CollisionPolygon3D>("GhostSmellTrail/SmellBox/TrailCollider");
         gun = GetNode<GunPlaceholder>("Head/Camera3D/GunPlaceholder");
-        VisionRay.TargetPosition = VisionRay.TargetPosition with { Z = -5 };
-        VisionRay.CollideWithAreas = true;
-        VisionRay.CollideWithBodies = false;
         Anims = GetNode<AnimationPlayer>("PlayerAnimation/AnimationPlayer");
         GunSlots = GetNode("PlayerAnimation/Gun/Ingredient_panel/Ingredient Slots");
         Light = GetNode<OmniLight3D>("Head/Camera3D/OmniLight3D");
@@ -106,23 +99,6 @@ public partial class Player : CharacterBody3D
                 X = Mathf.Clamp(Camera.Rotation.X, Mathf.DegToRad(-90), Mathf.DegToRad(90)),
             };
         }
-        if (@event.IsActionPressed("pause"))
-        {
-            Controls controls = Controls.packedScene.Instantiate<Controls>();
-            GetParent().AddChild(controls);
-        }
-    }
-
-    private void _UpdateTargetingItem()
-    {
-        if (VisionRay.GetCollider() is Area3D hit && hit.GetParent().IsInGroup("items"))
-        {
-            TargetingItem = hit.GetParent<SmellItem>();
-        }
-        else
-        {
-            TargetingItem = null;
-        }
     }
 
     private void _PickupItem(SmellItem item)
@@ -150,22 +126,24 @@ public partial class Player : CharacterBody3D
     public override void _PhysicsProcess(double delta)
     {
         _HeadbobEffect(delta);
-        _UpdateTargetingItem();
 
         if (Input.IsActionJustPressed("pickup") && TargetingItem != null)
         {
             _PickupItem(TargetingItem!);
+            Anims.Play("gun_insert_ingredient");
+            AudioManager.PlaySfx(SFX.GunEat);
         }
 
         if (Input.IsActionJustPressed("punch") && !Anims.IsPlaying())
         {
+            AudioManager.PlaySfx(SFX.Punch);
             Anims.Play("punch");
         }
 
-        if (Input.IsActionJustPressed("jump") && IsOnFloor())
-        {
-            _targetVelocity.Y = JUMP_VEL;
-        }
+        // if (Input.IsActionJustPressed("jump") && IsOnFloor())
+        // {
+        // 	_targetVelocity.Y = JUMP_VEL;
+        // }
 
         var env = GetParent().GetNode<WorldEnvironment>("WorldEnvironment").Environment;
         var screenDimmer = GetParent().GetNode<CanvasLayer>("CanvasLayer");
@@ -173,10 +151,14 @@ public partial class Player : CharacterBody3D
         smelling = Input.IsActionPressed("smell");
         if (smelling)
         {
+            AudioManager.PlaySfx(SFX.Sniffing, true);
             env.BackgroundEnergyMultiplier = 0.5f;
             CurrentWalkSpeed = SMELLING_WALK_SPEED;
             ghost.Visible = true;
-            SmellBox.Disabled = false;
+            foreach (Node obj in GetTree().GetNodesInGroup("SmellBoxes"))
+            {
+                obj.GetNode<CollisionShape3D>("CollisionShape3D").Disabled = false;
+            }
             Light.LightColor = Color.Color8(255, 0, 0, 125);
             Light.LightSpecular = 2f;
             Environment.Environment.AmbientLightEnergy = 0.075f;
@@ -184,9 +166,18 @@ public partial class Player : CharacterBody3D
             Punch1.Modulate = Color.Color8(255, 175, 175, 255);
             Punch2.Modulate = Color.Color8(255, 175, 175, 255);
             Punch3.Modulate = Color.Color8(255, 175, 175, 255);
+            foreach (Node obj in GetTree().GetNodesInGroup("items"))
+            {
+                ((SmellItem)obj).emitter.Visible = true;
+            }
+            foreach (Node obj in GetTree().GetNodesInGroup("LightSource"))
+            {
+                ((Node3D)obj).Visible = false;
+            }
         }
         else
         {
+            AudioManager.StopSfx(SFX.Sniffing);
             env.BackgroundEnergyMultiplier = 2f;
             CurrentWalkSpeed = WALK_SPEED;
             if (!ghost.IsCorporial())
@@ -197,7 +188,10 @@ public partial class Player : CharacterBody3D
             {
                 ghost.Visible = true;
             }
-            SmellBox.Disabled = true;
+            foreach (Node obj in GetTree().GetNodesInGroup("SmellBoxes"))
+            {
+                obj.GetNode<CollisionShape3D>("CollisionShape3D").Disabled = true;
+            }
             Light.LightColor = Color.Color8(255, 255, 255, 255);
             Light.LightSpecular = 0.5f;
             Environment.Environment.AmbientLightEnergy = 1f;
@@ -205,6 +199,14 @@ public partial class Player : CharacterBody3D
             Punch1.Modulate = Color.Color8(255, 255, 255, 255);
             Punch2.Modulate = Color.Color8(255, 255, 255, 255);
             Punch3.Modulate = Color.Color8(255, 255, 255, 255);
+            foreach (Node obj in GetTree().GetNodesInGroup("items"))
+            {
+                ((SmellItem)obj).emitter.Visible = false;
+            }
+            foreach (Node obj in GetTree().GetNodesInGroup("LightSource"))
+            {
+                ((Node3D)obj).Visible = true;
+            }
         }
 
         Vector2 inputDir = Input.GetVector("left", "right", "up", "down");
@@ -256,8 +258,20 @@ public partial class Player : CharacterBody3D
             newSpeed /= _targetVelocity.Length();
         }
         _targetVelocity = Scale(_targetVelocity, newSpeed);
+        if (WishDir != Vector3.Zero && _targetVelocity != Vector3.Zero)
+        {
+            AudioManager.PlaySfx(SFX.Footsteps, true);
+        }
     }
 
     public static Vector3 Scale(Vector3 v, double f) =>
         new((float)(v.X * f), (float)(v.Y * f), (float)(v.Z * f));
+
+    public void UpdateSmellScore(float val)
+    {
+        if (val > 100)
+            val = 100;
+        SmellBar.Value = val;
+        // TODO this is where things based on how much
+    }
 }
