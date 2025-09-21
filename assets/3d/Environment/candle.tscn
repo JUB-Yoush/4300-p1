@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ds657xtitr6tj"]
+[gd_scene load_steps=4 format=3 uid="uid://jly65t1mp8j3"]
 
 [ext_resource type="PackedScene" uid="uid://bp24cd62idfte" path="res://assets/3d/Environment/Candle.glb" id="1_iwct0"]
 
@@ -19,7 +19,7 @@ transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0.0348134, 0.0271
 material_override = SubResource("StandardMaterial3D_57ygn")
 mesh = SubResource("CapsuleMesh_t2ftp")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Candle/MeshInstance3D" groups=["LightSource"]]
+[node name="OmniLight3D" type="OmniLight3D" parent="Candle/MeshInstance3D"]
 light_color = Color(0.536182, 0.325699, 0.214309, 1)
 light_energy = 4.0
 light_size = 0.2
