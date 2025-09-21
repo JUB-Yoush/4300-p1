@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcghq2ujjfjtw"]
+[gd_scene load_steps=9 format=3 uid="uid://bp3eg5ddrnabo"]
 
 [ext_resource type="Script" uid="uid://uqdft7xlv5d2" path="res://src/scenes/scripts/Controls.cs" id="1_taw73"]
 [ext_resource type="Texture2D" uid="uid://b6cjjwfk4iilw" path="res://assets/UI/Pause Panel.svg" id="1_y7m3q"]
@@ -25,6 +25,7 @@ visible = false
 [node name="Panel" type="Panel" parent="Pre-Game"]
 
 [node name="Bg" type="TextureRect" parent="Pre-Game/Panel"]
+layout_mode = 0
 offset_left = 344.0
 offset_top = 64.0
 offset_right = 4444.0
@@ -34,6 +35,7 @@ size_flags_horizontal = 0
 texture = ExtResource("1_y7m3q")
 
 [node name="Proceed" type="TextureButton" parent="Pre-Game/Panel"]
+layout_mode = 0
 offset_left = 1040.0
 offset_top = 704.0
 offset_right = 3155.0
@@ -44,6 +46,7 @@ texture_pressed = ExtResource("4_taw73")
 texture_hover = ExtResource("5_0ft7u")
 
 [node name="Label" type="Label" parent="Pre-Game/Panel/Proceed"]
+layout_mode = 0
 offset_left = 382.979
 offset_top = 31.9998
 offset_right = 1666.98
@@ -56,6 +59,7 @@ horizontal_alignment = 1
 
 [node name="Move" type="Label" parent="Pre-Game/Panel"]
 modulate = Color(0.49, 0.33173, 0.2107, 1)
+layout_mode = 0
 offset_left = 480.0
 offset_top = 272.0
 offset_right = 904.0
@@ -68,6 +72,7 @@ horizontal_alignment = 1
 
 [node name="Jump" type="Label" parent="Pre-Game/Panel"]
 modulate = Color(0.49, 0.33173, 0.2107, 1)
+layout_mode = 0
 offset_left = 504.0
 offset_top = 400.0
 offset_right = 880.0
@@ -80,6 +85,7 @@ horizontal_alignment = 1
 
 [node name="Shoot" type="Label" parent="Pre-Game/Panel"]
 modulate = Color(0.49, 0.33173, 0.2107, 1)
+layout_mode = 0
 offset_left = 952.0
 offset_top = 272.0
 offset_right = 1418.0
@@ -92,6 +98,7 @@ horizontal_alignment = 1
 
 [node name="Smell" type="Label" parent="Pre-Game/Panel"]
 modulate = Color(0.49, 0.33173, 0.2107, 1)
+layout_mode = 0
 offset_left = 1024.0
 offset_top = 400.0
 offset_right = 1296.0
@@ -104,6 +111,7 @@ horizontal_alignment = 1
 
 [node name="Punch" type="Label" parent="Pre-Game/Panel"]
 modulate = Color(0.49, 0.33173, 0.2107, 1)
+layout_mode = 0
 offset_left = 1024.0
 offset_top = 528.0
 offset_right = 1296.0
@@ -116,6 +124,7 @@ horizontal_alignment = 1
 
 [node name="Pickup" type="Label" parent="Pre-Game/Panel"]
 modulate = Color(0.49, 0.33173, 0.2107, 1)
+layout_mode = 0
 offset_left = 536.0
 offset_top = 528.0
 offset_right = 848.0
@@ -128,6 +137,7 @@ horizontal_alignment = 1
 
 [node name="Navigate" type="Label" parent="Pre-Game/Panel"]
 modulate = Color(0.49, 0.33173, 0.2107, 1)
+layout_mode = 0
 offset_left = 624.0
 offset_top = 648.0
 offset_right = 1068.0
@@ -142,6 +152,7 @@ Pause: Tab"
 
 [node name="TextureRect" type="TextureRect" parent="Pre-Game/Panel"]
 visible = false
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("7_uv6v4")
@@ -151,6 +162,7 @@ texture = ExtResource("7_uv6v4")
 [node name="Panel" type="Panel" parent="Paused"]
 
 [node name="Bg" type="TextureRect" parent="Paused/Panel"]
+layout_mode = 0
 offset_left = 344.0
 offset_top = 64.0
 offset_right = 4444.0
@@ -171,6 +183,7 @@ theme_override_font_sizes/font_size = 80
 text = "PAUSED"
 
 [node name="Resume" type="TextureButton" parent="Paused/Panel"]
+layout_mode = 0
 offset_left = 672.0
 offset_top = 344.0
 offset_right = 2787.0
@@ -182,6 +195,7 @@ texture_hover = ExtResource("5_0ft7u")
 
 [node name="Label" type="Label" parent="Paused/Panel/Resume"]
 process_mode = 2
+layout_mode = 0
 offset_left = 382.979
 offset_top = 31.9998
 offset_right = 1666.98
@@ -193,6 +207,7 @@ text = "Resume"
 horizontal_alignment = 1
 
 [node name="Settings" type="TextureButton" parent="Paused/Panel"]
+layout_mode = 0
 offset_left = 720.0
 offset_top = 552.0
 offset_right = 2835.0
@@ -204,6 +219,7 @@ texture_hover = ExtResource("5_0ft7u")
 
 [node name="Label" type="Label" parent="Paused/Panel/Settings"]
 process_mode = 2
+layout_mode = 0
 offset_left = 382.979
 offset_top = 31.9998
 offset_right = 1666.98
@@ -215,6 +231,7 @@ text = "Settings"
 horizontal_alignment = 1
 
 [node name="Home" type="TextureButton" parent="Paused/Panel"]
+layout_mode = 0
 offset_left = 720.0
 offset_top = 728.0
 offset_right = 2835.0
@@ -226,6 +243,7 @@ texture_hover = ExtResource("5_0ft7u")
 
 [node name="Label" type="Label" parent="Paused/Panel/Home"]
 process_mode = 2
+layout_mode = 0
 offset_left = 320.0
 offset_top = 39.9999
 offset_right = 1782.0
@@ -238,6 +256,7 @@ horizontal_alignment = 1
 
 [node name="Move" type="Label" parent="Paused/Panel"]
 modulate = Color(0.49, 0.33173, 0.2107, 1)
+layout_mode = 0
 offset_left = 376.0
 offset_top = 288.0
 offset_right = 712.0
@@ -250,6 +269,7 @@ horizontal_alignment = 1
 
 [node name="Jump" type="Label" parent="Paused/Panel"]
 modulate = Color(0.49, 0.33173, 0.2107, 1)
+layout_mode = 0
 offset_left = 352.0
 offset_top = 344.0
 offset_right = 728.0
@@ -262,6 +282,7 @@ horizontal_alignment = 1
 
 [node name="Shoot" type="Label" parent="Paused/Panel"]
 modulate = Color(0.49, 0.33173, 0.2107, 1)
+layout_mode = 0
 offset_left = 336.0
 offset_top = 488.0
 offset_right = 802.0
@@ -274,6 +295,7 @@ horizontal_alignment = 1
 
 [node name="Smell" type="Label" parent="Paused/Panel"]
 modulate = Color(0.49, 0.33173, 0.2107, 1)
+layout_mode = 0
 offset_left = 392.0
 offset_top = 544.0
 offset_right = 664.0
@@ -286,6 +308,7 @@ horizontal_alignment = 1
 
 [node name="Punch" type="Label" parent="Paused/Panel"]
 modulate = Color(0.49, 0.33173, 0.2107, 1)
+layout_mode = 0
 offset_left = 392.0
 offset_top = 600.0
 offset_right = 664.0
@@ -298,6 +321,7 @@ horizontal_alignment = 1
 
 [node name="Pickup" type="Label" parent="Paused/Panel"]
 modulate = Color(0.49, 0.33173, 0.2107, 1)
+layout_mode = 0
 offset_left = 384.0
 offset_top = 400.0
 offset_right = 696.0
@@ -310,6 +334,7 @@ horizontal_alignment = 1
 
 [node name="Navigate" type="Label" parent="Paused/Panel"]
 modulate = Color(0.49, 0.33173, 0.2107, 1)
+layout_mode = 0
 offset_left = 1184.0
 offset_top = 280.0
 offset_right = 1472.0
@@ -325,6 +350,7 @@ horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Paused/Panel"]
 visible = false
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("7_uv6v4")
