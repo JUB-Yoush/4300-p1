@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp7e86wdvnwi5"
-path.s3tc="res://.godot/imported/Bookshelf2_Image_7.png-1cab55e6a3f8a658bdaa915d5a450619.s3tc.ctex"
+uid="uid://e63xhjx4bl3f"
+path.s3tc="res://.godot/imported/Blood_smell.png-6b0a971b88bf4303aa9231effac49bb2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/3d/Environment/Bookshelf2_Image_7.png"
-dest_files=["res://.godot/imported/Bookshelf2_Image_7.png-1cab55e6a3f8a658bdaa915d5a450619.s3tc.ctex"]
+source_file="res://assets/UI/IngredientIcons/Blood_smell.png"
+dest_files=["res://.godot/imported/Blood_smell.png-6b0a971b88bf4303aa9231effac49bb2.s3tc.ctex"]
 
 [params]
 
