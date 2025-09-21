@@ -2,13 +2,10 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e2brtdk57u6m"
+uid="uid://bhqrhb20c7clv"
 path="res://.godot/imported/Bookshelf2_Image_7.png-1cab55e6a3f8a658bdaa915d5a450619.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "8e170441e5f6dad722a0e55c1fc5660e"
 }
 
 [deps]
@@ -24,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
