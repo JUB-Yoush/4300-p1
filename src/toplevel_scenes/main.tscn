@@ -75,7 +75,7 @@ size = Vector3(18.7405, 4, 11.3839)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kexia"]
 albedo_texture = ExtResource("6_6muo6")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qb0sy"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y40fc"]
 resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
@@ -101,7 +101,7 @@ particles_anim_h_frames = 3
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="Resource" id="Resource_6uukv"]
+[sub_resource type="Resource" id="Resource_2grou"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -111,7 +111,7 @@ Size = 0.0
 Effect = 0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
-[sub_resource type="Resource" id="Resource_o6vwv"]
+[sub_resource type="Resource" id="Resource_66wcy"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -121,7 +121,7 @@ Size = 0.0
 Effect = 0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
-[sub_resource type="Resource" id="Resource_c6244"]
+[sub_resource type="Resource" id="Resource_55v81"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -178,7 +178,7 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_6b35j")
 orientation = 2
 
-[sub_resource type="Resource" id="Resource_utfcj"]
+[sub_resource type="Resource" id="Resource_s6waq"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -188,7 +188,7 @@ Size = 1.5
 Effect = 0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
-[sub_resource type="Resource" id="Resource_qp2p8"]
+[sub_resource type="Resource" id="Resource_rckq3"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -231,7 +231,7 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_0iucp")
 orientation = 2
 
-[sub_resource type="Resource" id="Resource_2t5ui"]
+[sub_resource type="Resource" id="Resource_i200x"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -3625,6 +3625,521 @@ size = Vector3(0.65, 1.05, 0.7)
 [node name="Kitchen_Knife" parent="Level/NavigationRegion3D/Furniture/Kitchen" instance=ExtResource("31_y40fc")]
 transform = Transform3D(-2.81908, 0, -1.02606, 0, 3, 0, 1.02606, 0, -2.81908, 60.3, 1.325, -28)
 
+[node name="Library" type="Node3D" parent="Level/NavigationRegion3D/Furniture"]
+
+[node name="Bookshelf2" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, 1, 0, 1, 0, -3.355, 0, -4.37114e-08, 36.6841, 0.0090753, -3.6446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf3" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, 1, 0, 1, 0, -3.355, 0, -4.37114e-08, 36.6841, 0.0090753, -6.6446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf4" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, 1, 0, 1, 0, -3.355, 0, -4.37114e-08, 36.6841, 0.0090753, -9.6446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf5" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, 1, 0, 1, 0, -3.355, 0, -4.37114e-08, 36.6841, 0.0090753, -12.6446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf27" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, -1, 0, 1, 0, 3.355, 0, -4.37114e-08, 31.3841, 0.0090753, 4.1554)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf27"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf30" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, -1, 0, 1, 0, 3.355, 0, -4.37114e-08, 31.3841, 0.0090753, 1.1554)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf30"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf31" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, -1, 0, 1, 0, 3.355, 0, -4.37114e-08, 31.3841, 0.0090753, -1.8446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf31"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf32" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, -1, 0, 1, 0, 3.355, 0, -4.37114e-08, 31.3841, 0.0090753, -4.8446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf32"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf35" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, 1, 0, 1, 0, -3.355, 0, -4.37114e-08, 27.9841, 0.0090753, -1.8446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf35"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf36" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, 1, 0, 1, 0, -3.355, 0, -4.37114e-08, 27.9841, 0.0090753, -4.8446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf36"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf37" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, 1, 0, 1, 0, -3.355, 0, -4.37114e-08, 27.9841, 0.0090753, -7.8446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf37"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf38" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, 1, 0, 1, 0, -3.355, 0, -4.37114e-08, 27.9841, 0.0090753, -10.8446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf38"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf48" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, 1, 0, 1, 0, -3.355, 0, -4.37114e-08, 24.3841, 0.0090753, -10.3446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf48"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf49" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, 1, 0, 1, 0, -3.355, 0, -4.37114e-08, 24.3841, 0.0090753, -13.3446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf49"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf50" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, 1, 0, 1, 0, -3.355, 0, -4.37114e-08, 24.3841, 0.0090753, -16.3446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf50"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf53" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, 1, 0, 1, 0, -3.355, 0, -4.37114e-08, 24.3841, 0.0090753, -7.4446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf53"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf33" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, -1, 0, 1, 0, 3.355, 0, -4.37114e-08, 31.3841, 0.0090753, -7.8446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf33"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf34" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(3.355, 0, 0, 0, 1, 0, 0, 0, 1, 29.6841, 0.0090753, -6.3446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf34"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf51" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(3.355, 0, 0, 0, 1, 0, 0, 0, 1, 29.6841, 0.0090753, -12.1446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf51"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf52" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(3.355, 0, 0, 0, 1, 0, 0, 0, 1, 16.9841, 0.0090753, -11.1446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf52"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf54" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(3.355, 0, 0, 0, 1, 0, 0, 0, 1, 19.9841, 0.0090753, -11.1446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf54"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf55" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, 1, 0, 1, 0, -3.355, 0, -4.37114e-08, 21.2841, 0.0090753, -12.8446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf55"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf39" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-3.355, 0, -8.74228e-08, 0, 1, 0, 2.93303e-07, 0, -1, 29.6841, 0.0090753, 5.3554)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf39"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf21" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, -1, 0, 1, 0, 3.355, 0, -4.37114e-08, 15.2841, 0.0090753, -3.6446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf22" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, -1, 0, 1, 0, 3.355, 0, -4.37114e-08, 15.2841, 0.0090753, -6.6446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf24" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, -1, 0, 1, 0, 3.355, 0, -4.37114e-08, 15.2841, 0.0090753, -9.6446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf24"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf28" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, -1, 0, 1, 0, 3.355, 0, -4.37114e-08, 15.2841, 0.0090753, 6.8554)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf28"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf29" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, -1, 0, 1, 0, 3.355, 0, -4.37114e-08, 15.2841, 0.0090753, 3.8554)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf29"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf25" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, -1, 0, 1, 0, 3.355, 0, -4.37114e-08, 15.2841, 0.0090753, -12.6446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf25"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf26" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, -1, 0, 1, 0, 3.355, 0, -4.37114e-08, 15.2841, 0.0090753, -15.6446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf26"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf15" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, 1, 0, 1, 0, -3.355, 0, -4.37114e-08, 36.6841, 0.0090753, 6.8554)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf16" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, 1, 0, 1, 0, -3.355, 0, -4.37114e-08, 36.6841, 0.0090753, 3.8554)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf6" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-1.46652e-07, 0, 1, 0, 1, 0, -3.355, 0, -4.37114e-08, 36.6841, 0.0090753, -15.6446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf7" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-3.355, 0, -8.74228e-08, 0, 1, 0, 2.93303e-07, 0, -1, 35.2841, 0.0090753, -17.6446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf8" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-3.355, 0, -8.74228e-08, 0, 1, 0, 2.93303e-07, 0, -1, 32.2841, 0.0090753, -17.6446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf9" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-3.355, 0, -8.74228e-08, 0, 1, 0, 2.93303e-07, 0, -1, 29.2841, 0.0090753, -17.6446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf10" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-3.355, 0, -8.74228e-08, 0, 1, 0, 2.93303e-07, 0, -1, 22.7841, 0.0090753, -17.6446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf11" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-3.355, 0, -8.74228e-08, 0, 1, 0, 2.93303e-07, 0, -1, 19.7841, 0.0090753, -17.6446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf12" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-3.355, 0, -8.74228e-08, 0, 1, 0, 2.93303e-07, 0, -1, 16.7841, 0.0090753, -17.6446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf13" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(3.355, 0, 0, 0, 1, 0, 0, 0, 1, 22.7841, 0.0090753, 9.6554)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf14" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(3.355, 0, 0, 0, 1, 0, 0, 0, 1, 19.7841, 0.0090753, 9.6554)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf17" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(3.355, 0, 0, 0, 1, 0, 0, 0, 1, 16.7841, 0.0090753, 9.6554)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf40" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(3.355, 0, 0, 0, 1, 0, 0, 0, 1, 22.7841, 0.0090753, 2.6554)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf40"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf41" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(3.355, 0, 0, 0, 1, 0, 0, 0, 1, 19.7841, 0.0090753, 2.6554)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf41"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf42" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(3.355, 0, 0, 0, 1, 0, 0, 0, 1, 16.7841, 0.0090753, 2.6554)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf42"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf45" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-3.355, 0, -8.74228e-08, 0, 1, 0, 2.93303e-07, 0, -1, 22.8841, 0.0090753, -2.4446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf45"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf46" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-3.355, 0, -8.74228e-08, 0, 1, 0, 2.93303e-07, 0, -1, 19.8841, 0.0090753, -2.4446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf46"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf47" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(-3.355, 0, -8.74228e-08, 0, 1, 0, 2.93303e-07, 0, -1, 16.8841, 0.0090753, -2.4446)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf47"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf43" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(3.355, 0, 0, 0, 1, 0, 0, 0, 1, 19.7841, 0.0090753, 5.3554)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf43"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf44" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(3.355, 0, 0, 0, 1, 0, 0, 0, 1, 16.7841, 0.0090753, 5.3554)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf44"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf18" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(3.355, 0, 0, 0, 1, 0, 0, 0, 1, 31.6841, 0.0090753, 9.6554)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf19" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(3.355, 0, 0, 0, 1, 0, 0, 0, 1, 28.6841, 0.0090753, 9.6554)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf20" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(3.355, 0, 0, 0, 1, 0, 0, 0, 1, 25.6841, 0.0090753, 9.6554)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bookshelf23" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("16_3keun")]
+transform = Transform3D(3.355, 0, 0, 0, 1, 0, 0, 0, 1, 34.6841, 0.0090753, 9.6554)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Bookshelf23"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Side_Table" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("12_pcyn6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 18.3, 0.325, -14.5)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Side_Table"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00441074, 0.0249996, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.7, 0.45, 0.75)
+
+[node name="Side_Table2" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("12_pcyn6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 16, 0.325, 8.7)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Side_Table2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00441074, 0.0249996, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.7, 0.45, 0.75)
+
+[node name="Side_Table3" parent="Level/NavigationRegion3D/Furniture/Library" instance=ExtResource("12_pcyn6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 35.9, 0.325, 8.7)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Library/Side_Table3"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00441074, 0.0249996, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.7, 0.45, 0.75)
+
 [node name="Objects" type="Node3D" parent="Level/NavigationRegion3D"]
 
 [node name="Fireplace2" parent="Level/NavigationRegion3D/Objects" instance=ExtResource("24_3osph")]
@@ -3646,7 +4161,7 @@ use_collision = true
 size = Vector3(1.3, 1.95, 1.2)
 
 [node name="Books" parent="Level/NavigationRegion3D/Objects" instance=ExtResource("27_3rvkn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.825, 0.325, -9.075)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.225, 0.925, -14.775)
 
 [node name="flowerpot" parent="Level/NavigationRegion3D/Objects" instance=ExtResource("28_d8h2t")]
 transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, 50.15, 1, 21.6)
@@ -3806,20 +4321,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23913, 2.04144, 16.0537)
 visible = false
 
 [node name="GhostSmellTrail" parent="Ghost" instance=ExtResource("5_2lg1k")]
-textures = Array[Material]([SubResource("StandardMaterial3D_kexia"), SubResource("StandardMaterial3D_qb0sy"), ExtResource("7_smgh4")])
+textures = Array[Material]([SubResource("StandardMaterial3D_kexia"), SubResource("StandardMaterial3D_y40fc"), ExtResource("7_smgh4")])
 filledTexture = SubResource("StandardMaterial3D_5pbbh")
 
 [node name="SmellItem" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9916, 3, -29.3629)
-Data = SubResource("Resource_6uukv")
+Data = SubResource("Resource_2grou")
 
 [node name="SmellItem4" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9916, 3, -38.2883)
-Data = SubResource("Resource_o6vwv")
+Data = SubResource("Resource_66wcy")
 
 [node name="SmellItem2" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1649, 3, -29.3629)
-Data = SubResource("Resource_c6244")
+Data = SubResource("Resource_55v81")
 
 [node name="ItemSmellTrail" parent="SmellItem2" index="2"]
 process_material = SubResource("ParticleProcessMaterial_smgh4")
@@ -3827,7 +4342,7 @@ draw_pass_1 = SubResource("PlaneMesh_nos3a")
 
 [node name="SmellItem5" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1649, 3, -38.2922)
-Data = SubResource("Resource_utfcj")
+Data = SubResource("Resource_s6waq")
 
 [node name="ItemSmellTrail" parent="SmellItem5" index="2"]
 process_material = SubResource("ParticleProcessMaterial_smgh4")
@@ -3835,7 +4350,7 @@ draw_pass_1 = SubResource("PlaneMesh_nos3a")
 
 [node name="SmellItem3" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7001, 3, -29.3629)
-Data = SubResource("Resource_qp2p8")
+Data = SubResource("Resource_rckq3")
 
 [node name="ItemSmellTrail" parent="SmellItem3" index="2"]
 process_material = SubResource("ParticleProcessMaterial_6muo6")
@@ -3843,7 +4358,7 @@ draw_pass_1 = SubResource("PlaneMesh_kexia")
 
 [node name="SmellItem6" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7001, 3, -37.8599)
-Data = SubResource("Resource_2t5ui")
+Data = SubResource("Resource_i200x")
 
 [node name="ItemSmellTrail" parent="SmellItem6" index="2"]
 process_material = SubResource("ParticleProcessMaterial_6muo6")
