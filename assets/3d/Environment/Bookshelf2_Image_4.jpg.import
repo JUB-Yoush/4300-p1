@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brb33aepd2do0"
-path.s3tc="res://.godot/imported/Ash_smell.png-c111060cd63f80f4f9983ad27d93e0dc.s3tc.ctex"
+uid="uid://li0jfolxniv8"
+path.s3tc="res://.godot/imported/Bookshelf2_Image_4.jpg-d3315c0db00dcd894133d75e62a63916.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "8967c8d611ac5d5852575248807d0c52"
+}
 
 [deps]
 
-source_file="res://assets/UI/IngredientIcons/Ash_smell.png"
-dest_files=["res://.godot/imported/Ash_smell.png-c111060cd63f80f4f9983ad27d93e0dc.s3tc.ctex"]
+source_file="res://assets/3d/Environment/Bookshelf2_Image_4.jpg"
+dest_files=["res://.godot/imported/Bookshelf2_Image_4.jpg-d3315c0db00dcd894133d75e62a63916.s3tc.ctex"]
 
 [params]
 

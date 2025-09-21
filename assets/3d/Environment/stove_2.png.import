@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y4oxwj6cli1q"
-path.s3tc="res://.godot/imported/Tome_smell.png-e3e96e2a6f05fd3ebfdb988b25bfb8a0.s3tc.ctex"
+uid="uid://ct3bdn1vb6jut"
+path.s3tc="res://.godot/imported/stove_2.png-ce2bad75e62e610e9eb3d894474dc583.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "2016d06fb8a3aa64cd5eb8216984ed00"
+}
 
 [deps]
 
-source_file="res://assets/UI/IngredientIcons/Tome_smell.png"
-dest_files=["res://.godot/imported/Tome_smell.png-e3e96e2a6f05fd3ebfdb988b25bfb8a0.s3tc.ctex"]
+source_file="res://assets/3d/Environment/stove_2.png"
+dest_files=["res://.godot/imported/stove_2.png-ce2bad75e62e610e9eb3d894474dc583.s3tc.ctex"]
 
 [params]
 
@@ -20,12 +23,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://assets/3d/Environment/stove_2.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

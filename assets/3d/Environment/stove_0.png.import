@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp7e86wdvnwi5"
-path.s3tc="res://.godot/imported/Blood_smell.png-6b0a971b88bf4303aa9231effac49bb2.s3tc.ctex"
+uid="uid://dfu8cg36ktkqh"
+path.s3tc="res://.godot/imported/stove_0.png-ca0952c615ecb52e601e30432cd4a525.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "372ef79a3446c151acb661d59d17d219"
+}
 
 [deps]
 
-source_file="res://assets/UI/IngredientIcons/Blood_smell.png"
-dest_files=["res://.godot/imported/Blood_smell.png-6b0a971b88bf4303aa9231effac49bb2.s3tc.ctex"]
+source_file="res://assets/3d/Environment/stove_0.png"
+dest_files=["res://.godot/imported/stove_0.png-ca0952c615ecb52e601e30432cd4a525.s3tc.ctex"]
 
 [params]
 
