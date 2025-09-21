@@ -1,0 +1,330 @@
+[gd_scene load_steps=9 format=3 uid="uid://bcghq2ujjfjtw"]
+
+[ext_resource type="Script" uid="uid://uqdft7xlv5d2" path="res://src/scenes/scripts/Controls.cs" id="1_taw73"]
+[ext_resource type="Texture2D" uid="uid://b6cjjwfk4iilw" path="res://assets/UI/Pause Panel.svg" id="1_y7m3q"]
+[ext_resource type="Texture2D" uid="uid://vcdbucn6r0ov" path="res://assets/UI/Button Idle.svg" id="2_uoaak"]
+[ext_resource type="Texture2D" uid="uid://dgnwlpn0jjkfy" path="res://assets/UI/Button Click.svg" id="4_taw73"]
+[ext_resource type="Texture2D" uid="uid://ddg5jlylvssek" path="res://assets/UI/Button Hover.svg" id="5_0ft7u"]
+[ext_resource type="FontFile" uid="uid://j4e4srwstdx1" path="res://assets/Fonts/Inknut_Antiqua/InknutAntiqua-Medium.ttf" id="5_ceg2k"]
+[ext_resource type="FontFile" uid="uid://nmgss8qk2dv" path="res://assets/Fonts/Inknut_Antiqua/InknutAntiqua-Bold.ttf" id="6_uv6v4"]
+[ext_resource type="Texture2D" uid="uid://c6pxfsosho5aq" path="res://assets/UI/ghost_in_the_smell.png" id="7_uv6v4"]
+
+[node name="Controls" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_taw73")
+
+[node name="Pre-Game" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="Pre-Game"]
+
+[node name="Bg" type="TextureRect" parent="Pre-Game/Panel"]
+offset_left = 344.0
+offset_top = 64.0
+offset_right = 4444.0
+offset_bottom = 3264.0
+scale = Vector2(0.3, 0.3)
+size_flags_horizontal = 0
+texture = ExtResource("1_y7m3q")
+
+[node name="Proceed" type="TextureButton" parent="Pre-Game/Panel"]
+offset_left = 1040.0
+offset_top = 704.0
+offset_right = 3155.0
+offset_bottom = 1345.0
+scale = Vector2(0.188, 0.25)
+texture_normal = ExtResource("2_uoaak")
+texture_pressed = ExtResource("4_taw73")
+texture_hover = ExtResource("5_0ft7u")
+
+[node name="Label" type="Label" parent="Pre-Game/Panel/Proceed"]
+offset_left = 382.979
+offset_top = 31.9998
+offset_right = 1666.98
+offset_bottom = 549.0
+theme_override_colors/font_color = Color(0.984025, 0.864426, 0.791173, 1)
+theme_override_fonts/font = ExtResource("5_ceg2k")
+theme_override_font_sizes/font_size = 200
+text = "Proceed"
+horizontal_alignment = 1
+
+[node name="Move" type="Label" parent="Pre-Game/Panel"]
+modulate = Color(0.49, 0.33173, 0.2107, 1)
+offset_left = 480.0
+offset_top = 272.0
+offset_right = 904.0
+offset_bottom = 389.0
+theme_override_colors/font_color = Color(0.627853, 0.512302, 0.765592, 1)
+theme_override_fonts/font = ExtResource("6_uv6v4")
+theme_override_font_sizes/font_size = 45
+text = "Move: WASD"
+horizontal_alignment = 1
+
+[node name="Jump" type="Label" parent="Pre-Game/Panel"]
+modulate = Color(0.49, 0.33173, 0.2107, 1)
+offset_left = 504.0
+offset_top = 400.0
+offset_right = 880.0
+offset_bottom = 517.0
+theme_override_colors/font_color = Color(0.627853, 0.512302, 0.765592, 1)
+theme_override_fonts/font = ExtResource("6_uv6v4")
+theme_override_font_sizes/font_size = 45
+text = "Jump: Space"
+horizontal_alignment = 1
+
+[node name="Shoot" type="Label" parent="Pre-Game/Panel"]
+modulate = Color(0.49, 0.33173, 0.2107, 1)
+offset_left = 952.0
+offset_top = 272.0
+offset_right = 1418.0
+offset_bottom = 389.0
+theme_override_colors/font_color = Color(0.627853, 0.512302, 0.765592, 1)
+theme_override_fonts/font = ExtResource("6_uv6v4")
+theme_override_font_sizes/font_size = 45
+text = "Shoot: Left Mouse"
+horizontal_alignment = 1
+
+[node name="Smell" type="Label" parent="Pre-Game/Panel"]
+modulate = Color(0.49, 0.33173, 0.2107, 1)
+offset_left = 1024.0
+offset_top = 400.0
+offset_right = 1296.0
+offset_bottom = 517.0
+theme_override_colors/font_color = Color(0.627853, 0.512302, 0.765592, 1)
+theme_override_fonts/font = ExtResource("6_uv6v4")
+theme_override_font_sizes/font_size = 45
+text = "Smell: Q"
+horizontal_alignment = 1
+
+[node name="Punch" type="Label" parent="Pre-Game/Panel"]
+modulate = Color(0.49, 0.33173, 0.2107, 1)
+offset_left = 1024.0
+offset_top = 528.0
+offset_right = 1296.0
+offset_bottom = 645.0
+theme_override_colors/font_color = Color(0.627853, 0.512302, 0.765592, 1)
+theme_override_fonts/font = ExtResource("6_uv6v4")
+theme_override_font_sizes/font_size = 45
+text = "Punch: F"
+horizontal_alignment = 1
+
+[node name="Pickup" type="Label" parent="Pre-Game/Panel"]
+modulate = Color(0.49, 0.33173, 0.2107, 1)
+offset_left = 536.0
+offset_top = 528.0
+offset_right = 848.0
+offset_bottom = 645.0
+theme_override_colors/font_color = Color(0.627853, 0.512302, 0.765592, 1)
+theme_override_fonts/font = ExtResource("6_uv6v4")
+theme_override_font_sizes/font_size = 45
+text = "Pickup: E"
+horizontal_alignment = 1
+
+[node name="Navigate" type="Label" parent="Pre-Game/Panel"]
+modulate = Color(0.49, 0.33173, 0.2107, 1)
+offset_left = 624.0
+offset_top = 648.0
+offset_right = 1068.0
+offset_bottom = 893.0
+theme_override_colors/font_color = Color(0.627853, 0.512302, 0.765592, 1)
+theme_override_constants/line_spacing = -35
+theme_override_fonts/font = ExtResource("6_uv6v4")
+theme_override_font_sizes/font_size = 40
+text = "Navigate: Arrows
+Select: Enter
+Pause: Tab"
+
+[node name="TextureRect" type="TextureRect" parent="Pre-Game/Panel"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_uv6v4")
+
+[node name="Paused" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="Paused"]
+
+[node name="Bg" type="TextureRect" parent="Paused/Panel"]
+offset_left = 344.0
+offset_top = 64.0
+offset_right = 4444.0
+offset_bottom = 3264.0
+scale = Vector2(0.3, 0.3)
+size_flags_horizontal = 0
+texture = ExtResource("1_y7m3q")
+
+[node name="Text" type="Label" parent="Paused/Panel"]
+layout_mode = 0
+offset_left = 736.0
+offset_top = 160.0
+offset_right = 1131.0
+offset_bottom = 368.0
+theme_override_colors/font_color = Color(0.372549, 0.239216, 0.168627, 1)
+theme_override_fonts/font = ExtResource("6_uv6v4")
+theme_override_font_sizes/font_size = 80
+text = "PAUSED"
+
+[node name="Resume" type="TextureButton" parent="Paused/Panel"]
+offset_left = 672.0
+offset_top = 344.0
+offset_right = 2787.0
+offset_bottom = 985.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("2_uoaak")
+texture_pressed = ExtResource("4_taw73")
+texture_hover = ExtResource("5_0ft7u")
+
+[node name="Label" type="Label" parent="Paused/Panel/Resume"]
+process_mode = 2
+offset_left = 382.979
+offset_top = 31.9998
+offset_right = 1666.98
+offset_bottom = 549.0
+theme_override_colors/font_color = Color(0.984025, 0.864426, 0.791173, 1)
+theme_override_fonts/font = ExtResource("5_ceg2k")
+theme_override_font_sizes/font_size = 200
+text = "Resume"
+horizontal_alignment = 1
+
+[node name="Settings" type="TextureButton" parent="Paused/Panel"]
+offset_left = 720.0
+offset_top = 552.0
+offset_right = 2835.0
+offset_bottom = 1193.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("2_uoaak")
+texture_pressed = ExtResource("4_taw73")
+texture_hover = ExtResource("5_0ft7u")
+
+[node name="Label" type="Label" parent="Paused/Panel/Settings"]
+process_mode = 2
+offset_left = 382.979
+offset_top = 31.9998
+offset_right = 1666.98
+offset_bottom = 549.0
+theme_override_colors/font_color = Color(0.984025, 0.864426, 0.791173, 1)
+theme_override_fonts/font = ExtResource("5_ceg2k")
+theme_override_font_sizes/font_size = 200
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Home" type="TextureButton" parent="Paused/Panel"]
+offset_left = 720.0
+offset_top = 728.0
+offset_right = 2835.0
+offset_bottom = 1369.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("2_uoaak")
+texture_pressed = ExtResource("4_taw73")
+texture_hover = ExtResource("5_0ft7u")
+
+[node name="Label" type="Label" parent="Paused/Panel/Home"]
+process_mode = 2
+offset_left = 320.0
+offset_top = 39.9999
+offset_right = 1782.0
+offset_bottom = 557.0
+theme_override_colors/font_color = Color(0.984025, 0.864426, 0.791173, 1)
+theme_override_fonts/font = ExtResource("5_ceg2k")
+theme_override_font_sizes/font_size = 200
+text = "Exit to Home"
+horizontal_alignment = 1
+
+[node name="Move" type="Label" parent="Paused/Panel"]
+modulate = Color(0.49, 0.33173, 0.2107, 1)
+offset_left = 376.0
+offset_top = 288.0
+offset_right = 712.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0.627853, 0.512302, 0.765592, 1)
+theme_override_fonts/font = ExtResource("6_uv6v4")
+theme_override_font_sizes/font_size = 25
+text = "Move: WASD"
+horizontal_alignment = 1
+
+[node name="Jump" type="Label" parent="Paused/Panel"]
+modulate = Color(0.49, 0.33173, 0.2107, 1)
+offset_left = 352.0
+offset_top = 344.0
+offset_right = 728.0
+offset_bottom = 423.0
+theme_override_colors/font_color = Color(0.627853, 0.512302, 0.765592, 1)
+theme_override_fonts/font = ExtResource("6_uv6v4")
+theme_override_font_sizes/font_size = 25
+text = "Jump: Space"
+horizontal_alignment = 1
+
+[node name="Shoot" type="Label" parent="Paused/Panel"]
+modulate = Color(0.49, 0.33173, 0.2107, 1)
+offset_left = 336.0
+offset_top = 488.0
+offset_right = 802.0
+offset_bottom = 567.0
+theme_override_colors/font_color = Color(0.627853, 0.512302, 0.765592, 1)
+theme_override_fonts/font = ExtResource("6_uv6v4")
+theme_override_font_sizes/font_size = 25
+text = "Shoot: Left Mouse"
+horizontal_alignment = 1
+
+[node name="Smell" type="Label" parent="Paused/Panel"]
+modulate = Color(0.49, 0.33173, 0.2107, 1)
+offset_left = 392.0
+offset_top = 544.0
+offset_right = 664.0
+offset_bottom = 623.0
+theme_override_colors/font_color = Color(0.627853, 0.512302, 0.765592, 1)
+theme_override_fonts/font = ExtResource("6_uv6v4")
+theme_override_font_sizes/font_size = 25
+text = "Smell: Q"
+horizontal_alignment = 1
+
+[node name="Punch" type="Label" parent="Paused/Panel"]
+modulate = Color(0.49, 0.33173, 0.2107, 1)
+offset_left = 392.0
+offset_top = 600.0
+offset_right = 664.0
+offset_bottom = 679.0
+theme_override_colors/font_color = Color(0.627853, 0.512302, 0.765592, 1)
+theme_override_fonts/font = ExtResource("6_uv6v4")
+theme_override_font_sizes/font_size = 25
+text = "Punch: F"
+horizontal_alignment = 1
+
+[node name="Pickup" type="Label" parent="Paused/Panel"]
+modulate = Color(0.49, 0.33173, 0.2107, 1)
+offset_left = 384.0
+offset_top = 400.0
+offset_right = 696.0
+offset_bottom = 479.0
+theme_override_colors/font_color = Color(0.627853, 0.512302, 0.765592, 1)
+theme_override_fonts/font = ExtResource("6_uv6v4")
+theme_override_font_sizes/font_size = 25
+text = "Pickup: E"
+horizontal_alignment = 1
+
+[node name="Navigate" type="Label" parent="Paused/Panel"]
+modulate = Color(0.49, 0.33173, 0.2107, 1)
+offset_left = 1184.0
+offset_top = 280.0
+offset_right = 1472.0
+offset_bottom = 447.0
+theme_override_colors/font_color = Color(0.627853, 0.512302, 0.765592, 1)
+theme_override_constants/line_spacing = -25
+theme_override_fonts/font = ExtResource("6_uv6v4")
+theme_override_font_sizes/font_size = 25
+text = "Navigate: Arrows
+Select: Enter
+Pause: Tab"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Paused/Panel"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_uv6v4")

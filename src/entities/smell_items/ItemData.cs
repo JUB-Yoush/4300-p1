@@ -3,51 +3,51 @@ using Godot;
 
 public enum ScentColor
 {
-    RED,
-    GREEN,
-    BLUE,
+	RED,
+	GREEN,
+	BLUE,
 }
 
 public enum ScentSize
 {
-    SMALL,
-    MEDIUM,
-    LARGE,
+	SMALL,
+	MEDIUM,
+	LARGE,
 }
 
 public enum ScentShape
 {
-    TRIANGLE,
-    SQUARE,
-    CIRCLE,
+	TRIANGLE,
+	SQUARE,
+	CIRCLE,
 }
 
 public enum ScentEffect
 {
-    SIZE,
-    SHAPE,
-    COLOUR,
+	SIZE,
+	SHAPE,
+	COLOUR,
 }
 
 [GlobalClass]
 public partial class ItemData : Resource
 {
-    [Export]
-    public string name { get; set; } = "blah";
+	[Export]
+	public string name { get; set; } = "blah";
 
-    [Export]
-    public Texture2D Sprite, UiSprite;
+	[Export]
+	public Texture2D Sprite, UiSprite;
 
-    [Export]
-    public Color Color;
+	[Export]
+	public Color Color;
 
-    [Export]
-    public float Size;
+	[Export]
+	public float Size;
 
-    [Export]
-    public Material Shape;
-    [Export]
-    public ScentEffect Effect;
+	[Export]
+	public Material Shape;
+	[Export]
+	public ScentEffect Effect;
 
-    public ItemData() { }
+	public ItemData() { }
 }
