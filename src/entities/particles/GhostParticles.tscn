@@ -31,9 +31,6 @@ scale_curve = SubResource("CurveTexture_aittd")
 color = Color(0.1, 0.1, 0.1, 1)
 alpha_curve = SubResource("CurveTexture_qsukt")
 anim_offset_max = 1.0
-collision_mode = 1
-collision_friction = 0.0
-collision_bounce = 0.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vxp1e"]
 material = ExtResource("3_4hrha")
@@ -67,7 +64,6 @@ particles_anim_loop = true
 
 [node name="GhostSmellTrail" type="GPUParticles3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-custom_aabb = AABB(-10000, -10000, -10000, 20000, 20000, 20000)
 amount = 50
 lifetime = 8.0
 randomness = 0.5
@@ -80,7 +76,6 @@ trueColor = Color(0.776471, 0.286275, 0.882353, 1)
 
 [node name="SmellBox" type="Area3D" parent="."]
 top_level = true
-visible = false
 script = ExtResource("6_m7kiv")
 
 [node name="TrailCollider" type="CollisionPolygon3D" parent="SmellBox"]

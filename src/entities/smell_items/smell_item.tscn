@@ -10,14 +10,14 @@ radius = 1.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.40284, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_p6m6r"]
+[sub_resource type="CurveTexture" id="CurveTexture_2lg1k"]
 curve = SubResource("Curve_l1n53")
 
 [sub_resource type="Curve" id="Curve_xucc4"]
 _data = [Vector2(0, 0), 0.0, 4.22472, 0, 0, Vector2(0.830882, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -18.3371, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_l1n53"]
+[sub_resource type="CurveTexture" id="CurveTexture_kokaf"]
 curve = SubResource("Curve_xucc4")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pgmy5"]
@@ -29,9 +29,9 @@ initial_velocity_max = 5.0
 gravity = Vector3(0, 2, 0)
 scale_min = 0.5
 scale_max = 2.5
-scale_curve = SubResource("CurveTexture_l1n53")
+scale_curve = SubResource("CurveTexture_kokaf")
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
-alpha_curve = SubResource("CurveTexture_p6m6r")
+alpha_curve = SubResource("CurveTexture_2lg1k")
 anim_offset_max = 1.0
 turbulence_enabled = true
 

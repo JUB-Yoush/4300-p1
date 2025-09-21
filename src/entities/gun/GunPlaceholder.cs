@@ -24,12 +24,10 @@ public partial class GunPlaceholder : Node3D
     public float projectileMinSize = 0.6f,
         projectileMaxSize = 2.4f;
     private GpuParticles3d? ghostParticles;
-    AudioManager Audio = null!;
 
     public override void _Ready()
     {
         //AnimPlayer = GetNode<AnimationPlayer>("../../AnimationPlayer");
-        Audio = GetNode<AudioManager>("/root/AudioManager");
         AnimPlayer = GetParent()
             .GetParent()
             .GetParent()
@@ -43,8 +41,7 @@ public partial class GunPlaceholder : Node3D
         ghostParticles = GetParent()
             .GetParent()
             .GetParent()
-            .GetParent()
-            .GetNode<GpuParticles3d>("Ghost/GhostSmellTrail");
+            .GetParent().GetNode<GpuParticles3d>("Ghost/GhostSmellTrail");
     }
 
     public override void _PhysicsProcess(double delta)
@@ -52,7 +49,6 @@ public partial class GunPlaceholder : Node3D
         if (Input.IsActionJustPressed("shoot") && !onCooldown)
         {
             AnimPlayer.Play("gun_shoot");
-            AudioManager.PlaySfx(SFX.Gun);
             _Shoot();
             _Cooldown();
         }
@@ -62,8 +58,7 @@ public partial class GunPlaceholder : Node3D
     {
         var bullet = packedScene!.Instantiate<ScentProjectile>();
         bullet.TopLevel = true;
-        Node parent = GetParent().GetParent().GetParent().GetParent();
-        parent.AddChild(bullet); //throws node not found error but still works
+        GetParent().GetParent().GetParent().GetParent().AddChild(bullet); //throws node not found error but still works
         bullet.GlobalPosition = GlobalPosition;
         GpuParticles3D emitter = bullet.GetChild<GpuParticles3D>(0);
         emitter.DrawPass1.SurfaceSetMaterial(0, projectileMaterial);
@@ -76,12 +71,10 @@ public partial class GunPlaceholder : Node3D
             projectileColour;
         bullet.LinearVelocity = GetParent().GetParent().GetParent<CharacterBody3D>().Velocity / 2; //lmao
         bullet.ApplyCentralImpulse(-GlobalBasis.Z * power);
-        if (
-            projectileColour == ghostParticles!.trueColor
+        if (projectileColour == ghostParticles.trueColor
             && projectileMaterial == ghostParticles.textures[2]
-            && projectileMaxSize == 2.5f
-            && projectileMinSize == 2.5f
-        )
+            && projectileMaxSize == 1.5f
+            && projectileMinSize == 1.5f)
         {
             bullet.luresGhost = true;
         }

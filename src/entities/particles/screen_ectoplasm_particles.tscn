@@ -50,11 +50,9 @@ sub_emitter_mode = 1
 sub_emitter_frequency = 4.0
 
 [node name="Screen Ectoplasm Particles" type="GPUParticles3D"]
-emitting = false
 amount = 100
 sub_emitter = NodePath("GPUParticles3D")
 lifetime = 2.0
-one_shot = true
 explosiveness = 0.7
 randomness = 1.0
 interpolate = false

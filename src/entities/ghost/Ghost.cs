@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
@@ -21,7 +20,6 @@ public partial class Ghost : CharacterBody3D
     }
 
     PackedScene RigidGhost = null!;
-    PackedScene SmellTrailAreaScene = null!;
     State CurrentState;
     public required NavigationAgent3D NavAgent;
     float Speed = 5f;
@@ -42,8 +40,6 @@ public partial class Ghost : CharacterBody3D
     private List<Vector2> TrailBoxPoints = [];
     private List<Vector2> TrailBoxPointsLeft = [];
     private List<Vector2> TrailBoxPointsRight = [];
-
-    bool punchAnywhere = false; // for debug testing
 
     public bool InHomeRoom = false;
     bool active = true;
@@ -72,13 +68,12 @@ public partial class Ghost : CharacterBody3D
         ContinueLookingTimer = new Timer();
         AddChild(TrailCreationTimer);
         AddChild(ContinueLookingTimer);
-        TrailCreationTimer.Timeout += RenderTrail;
+        TrailCreationTimer.Timeout += UpdateTrailBox;
         ContinueLookingTimer.Timeout += SetToPatrol;
         RigidGhost = GD.Load<PackedScene>("res://src/entities/ghost/rigid_ghost.tscn");
-        SmellTrailAreaScene = GD.Load<PackedScene>("res://src/entities/ghost/smellbox.tscn");
 
         TrailCreationTimer.OneShot = false;
-        TrailCreationTimer.Start(0.25f);
+        TrailCreationTimer.Start(1);
         CurrentState = State.PATROL;
         CurrentTargetPosition = GetNewPoint();
         var PunchHitbox = Player.GetNode<Area3D>("Head/PunchBox");
@@ -89,70 +84,27 @@ public partial class Ghost : CharacterBody3D
         HomeRoom.AreaExited += (area) => InHomeRoom = false;
     }
 
-    public async void Punched(Area3D area)
+    public void Punched(Area3D area)
     {
         if (!active)
         {
             return;
         }
-        if ((InHomeRoom && CurrentState == State.SMELLING) || punchAnywhere)
+        if (InHomeRoom && CurrentState == State.SMELLING)
         {
-            HitPause();
+            var rigidGhost = RigidGhost.Instantiate<RigidBody3D>();
+            GetParent().AddChild(rigidGhost);
+            GetNode<Node3D>("ghost").Visible = false;
+            var camera = Player.GetNode<Camera3D>("Head/Camera3D");
+            var punchVelocity = camera.GlobalTransform.Basis.Z;
+            active = false;
+            rigidGhost.GlobalPosition = GlobalPosition;
+            rigidGhost.LinearVelocity = -punchVelocity * 5;
         }
         else
         {
             GD.Print("ghost not dead as heck");
         }
-    }
-
-    public async void HitPause()
-    {
-        active = false;
-        AudioManager.StopAll();
-        AudioManager.PauseMusic();
-        await Task.Delay(200);
-        Engine.TimeScale = 0;
-        await Task.Delay(100);
-        CameraShakeAsync();
-        Engine.TimeScale = 1;
-        AudioManager.PlaySfx(SFX.MetalPipe);
-        var rigidGhost = RigidGhost.Instantiate<RigidBody3D>();
-        GetParent().AddChild(rigidGhost);
-        GetNode<Node3D>("ghost").Visible = false;
-        var camera = Player.GetNode<Camera3D>("Head/Camera3D");
-        var punchVelocity = camera.GlobalTransform.Basis.Z;
-        rigidGhost.GlobalPosition = GlobalPosition;
-        rigidGhost.LinearVelocity = -punchVelocity * 5;
-        GetNode<GpuParticles3D>("GhostSmellTrail").Emitting = false;
-        await Task.Delay(3000);
-        GetTree().ChangeSceneToFile("res://src/scenes/end.tscn");
-    }
-
-    //Screenshake code modified from https://www.reddit.com/r/godot/comments/174nfgo/i_couldnt_find_a_simple_and_easy_3d_camera_shake/
-    private async void CameraShakeAsync()
-    {
-        GD.Print("Camera is shaking");
-        Transform3D initial_transform = Player.GetNode<Node3D>("Head/Camera3D").Transform;
-        float elapsed_time = 0.0f, period = 0.2f, magnitude = 0.2f;
-
-        while (elapsed_time < period)
-        {
-            var offset = new Vector3(
-                (float)GD.RandRange(-magnitude, magnitude),
-                (float)GD.RandRange(-magnitude, magnitude),
-                0f
-            );
-
-            Transform3D new_transform = initial_transform;
-            new_transform.Origin += offset;
-            Player.GetNode<Node3D>("Head/Camera3D").Transform = new_transform;
-
-            elapsed_time += (float)GetProcessDeltaTime();
-
-            await ToSignal(GetTree(), "process_frame");
-        }
-
-        Player.GetNode<Node3D>("Head/Camera3D").Transform = initial_transform;
     }
 
     public void SetToPatrol()
@@ -162,13 +114,30 @@ public partial class Ghost : CharacterBody3D
 
     public void RenderTrail()
     {
-        if (active)
+        var point = new Sprite3D
         {
-            SmellTrailArea trailArea = SmellTrailAreaScene.Instantiate<SmellTrailArea>();
-            trailArea.TopLevel = true;
-            TrailPoints.AddChild(trailArea);
-            trailArea.GlobalPosition = GlobalPosition;   
+            Texture = GD.Load<Texture2D>("res://assets/sprites/rei.png"),
+            Scale = new Vector3(.5f, .5f, .5f),
+            TopLevel = true,
+        };
+        TrailPoints.AddChild(point);
+        point.GlobalPosition = TrailCurve.GetPointPosition(TrailCurve.PointCount - 1);
+    }
+
+    public void UpdateTrailCurve()
+    {
+        TrailCurve.AddPoint(GlobalTransform.Origin);
+        if (TrailCurve.PointCount >= MAX_TRAIL_POINTS)
+        {
+            TrailCurve.RemovePoint(0);
+            TrailPoints.GetChild(0).QueueFree();
         }
+        RenderTrail();
+    }
+
+    public bool ScentIsCorrect()
+    {
+        return true; // TODO implement
     }
 
     public void UpdateTrailBox()
@@ -213,6 +182,8 @@ public partial class Ghost : CharacterBody3D
 
     public override void _PhysicsProcess(double delta)
     {
+        //GD.Print(CurrentState, GetTree().GetNodesInGroup("bullets").Count);
+        //GD.Print(InHomeRoom);
         if (!active)
         {
             return;
@@ -235,13 +206,6 @@ public partial class Ghost : CharacterBody3D
                     {
                         CurrentTargetPosition = GetNewPoint();
                     }
-
-                    if (Math.Abs((GlobalPosition - Player.GlobalPosition).Length()) <= ATTACK_RANGE)
-                    {
-                        GD.Print("ATTACKED!!!");
-                        Attack();
-                        Teleport();
-                    }
                     UpdateTargetLocation(CurrentTargetPosition);
                 }
                 break;
@@ -254,17 +218,14 @@ public partial class Ghost : CharacterBody3D
                         {
                             ContinueLookingTimer.Start(2);
                         }
-                    }
-                    else
-                    {
-                        UpdateTargetLocation(Player.GlobalTransform.Origin);
+                        break;
                     }
                     if (Math.Abs((GlobalPosition - Player.GlobalPosition).Length()) <= ATTACK_RANGE)
                     {
-                        GD.Print("ATTACKED!!!");
                         Attack();
                         Teleport();
                     }
+                    UpdateTargetLocation(Player.GlobalTransform.Origin);
                 }
                 break;
 
@@ -281,7 +242,7 @@ public partial class Ghost : CharacterBody3D
                 break;
         }
         Move();
-        if (GetTree().GetNodesInGroup("bullets").Count > 0)
+        if (GetTree().GetNodesInGroup("bullets").Count > 0 && ScentIsCorrect())
         {
             foreach (Node bullet in GetTree().GetNodesInGroup("bullets"))
             {
@@ -308,8 +269,7 @@ public partial class Ghost : CharacterBody3D
 
     public void Attack()
     {
-        Player.GetNode<GpuParticles3D>("Head/Camera3D/Screen Ectoplasm Particles").Emitting = true;
-        AudioManager.PlaySfx(SFX.GhostAttack);
+        GD.Print("you got slimed");
     }
 
     public void Move()
@@ -323,9 +283,12 @@ public partial class Ghost : CharacterBody3D
 
     public bool CanSeePlayer()
     {
-        var playerVector = Player.GlobalPosition - GlobalPosition;
+        var playerVector = Player.GlobalTransform.Origin - GlobalTransform.Origin;
         PlayerDetectionRay.TargetPosition = playerVector;
-        return PlayerDetectionRay.IsColliding() && playerVector.Length() <= MaxPlayerDetectionRange;
+
+        return PlayerDetectionRay.IsColliding()
+            && PlayerDetectionRay.GetCollider().GetClass() == "CharacterBody3D" // TODO this should check for a player specific Class
+            && playerVector.Length() <= MaxPlayerDetectionRange;
     }
 
     public void UpdateTargetLocation(Vector3 targetLocation)
