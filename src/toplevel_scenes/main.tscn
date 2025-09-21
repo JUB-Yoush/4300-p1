@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://b8e6rv13o8a1g"]
+[gd_scene load_steps=75 format=3 uid="uid://b8e6rv13o8a1g"]
 
 [ext_resource type="Script" uid="uid://cvhb113by0cda" path="res://src/toplevel_scenes/Main.cs" id="1_5dlwx"]
 [ext_resource type="PackedScene" uid="uid://dbuna14812w75" path="res://src/entities/player/player.tscn" id="2_5dlwx"]
@@ -49,6 +49,7 @@
 [ext_resource type="PackedScene" uid="uid://c6jmisoaul8wb" path="res://assets/3d/Environment/Chair.glb" id="30_pcyn6"]
 [ext_resource type="PackedScene" uid="uid://b5k4uv3nsmluy" path="res://assets/3d/Environment/Kitchen/Plate.glb" id="30_rckq3"]
 [ext_resource type="PackedScene" uid="uid://ugckk6p87bfk" path="res://assets/3d/Environment/Sofa1.glb" id="31_48oet"]
+[ext_resource type="PackedScene" uid="uid://1boq55ts3082" path="res://assets/3d/Environment/Kitchen/Kitchen_Knife.glb" id="31_y40fc"]
 
 [sub_resource type="Environment" id="Environment_5dlwx"]
 background_mode = 1
@@ -3529,7 +3530,7 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 60.4, 1.425, -26.4)
 transform = Transform3D(1.24408, 0, 2.72988, 0, 3, 0, -2.72988, 0, 1.24408, 60.2, 1.325, -30)
 
 [node name="Plate" parent="Level/NavigationRegion3D/Furniture/Kitchen" instance=ExtResource("30_rckq3")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 60.2, 1.325, -29)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 60.4, 1.325, -29)
 
 [node name="Chair" parent="Level/NavigationRegion3D/Furniture/Kitchen" instance=ExtResource("30_pcyn6")]
 transform = Transform3D(-5.7699e-08, 0, 1.32, 0, 1.32, 0, -1.32, 0, -5.7699e-08, 65.45, 0.63, -22.091)
@@ -3620,6 +3621,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0499992)
 transparency = 1.0
 use_collision = true
 size = Vector3(0.65, 1.05, 0.7)
+
+[node name="Kitchen_Knife" parent="Level/NavigationRegion3D/Furniture/Kitchen" instance=ExtResource("31_y40fc")]
+transform = Transform3D(-2.81908, 0, -1.02606, 0, 3, 0, 1.02606, 0, -2.81908, 60.3, 1.325, -28)
 
 [node name="Objects" type="Node3D" parent="Level/NavigationRegion3D"]
 
