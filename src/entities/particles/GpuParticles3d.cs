@@ -11,6 +11,11 @@ public partial class GpuParticles3d : GpuParticles3D
     private Material filledTexture;
     [Export]
     public Color trueColor;
+    private bool smelling = false;
+    public double smellLevel = 0;
+    public int smellStage = 0;
+    Player player = null!;
+
     public async void _SimplifyColour()
     {
         ParticleProcessMaterial mat = GD.Load<ParticleProcessMaterial>(ProcessMaterial.ResourcePath);
@@ -33,9 +38,50 @@ public partial class GpuParticles3d : GpuParticles3D
     //     }
     // }
 
+    public override void _Ready()
+    {
+        player = GetParent().GetParent().GetNode<Player>("Player");
+    }
+
     public override void _PhysicsProcess(double delta)
     {
-        base._PhysicsProcess(delta);
+        if (smellLevel == 3) return;
+
+        smelling = false;
+
+        foreach (Node obj in GetTree().GetNodesInGroup("SmellBoxes"))
+        {
+            if (((SmellTrailArea)obj).smelling)
+            {
+                smelling = true;
+                break;
+            }
+        }
+
+        if (smelling)
+            smellLevel += delta;
+
+        if (smellLevel > 3.33 && smellStage == 0)
+        {
+            GD.Print("Simplifying Color");
+            _SimplifyColour();
+            smellStage = 1;
+        }
+        else if (smellLevel > 6.66f && smellStage == 1)
+        {
+            GD.Print("Simplifying Fill");
+            //GetParent<GpuParticles3d>()._SimplifyFill();
+            _SimplifySize();
+            smellStage = 2;
+        }
+        else if (smellLevel > 10 && smellStage == 2)
+        {
+            GD.Print("Simplifying Shape");
+            _SimplifyShape();
+            smellStage = 3;
+        }
+        player.UpdateSmellScore((float)smellLevel * 10);
+
     }
 
     public async void _SimplifyShape()
@@ -55,13 +101,12 @@ public partial class GpuParticles3d : GpuParticles3D
     public async void _SimplifySize()
     {
         ParticleProcessMaterial mat = GD.Load<ParticleProcessMaterial>(ProcessMaterial.ResourcePath);
-        while (mat.ScaleMax > 1.5f)
+        while (mat.ScaleMin < 2.5f)
         {
             await Task.Delay(20);
-            mat.ScaleMax -= 0.01f;
             mat.ScaleMin += 0.01f;
         }
-        mat.ScaleMax = 1.5f;
-        mat.ScaleMin = 1.5f;
+        mat.ScaleMax = 2.5f;
+        mat.ScaleMin = 2.5f;
     }
 }
