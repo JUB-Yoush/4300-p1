@@ -7,9 +7,9 @@ using Godot;
 public partial class TitleManager : Node
 {
     bool animationDone = false;
-    AnimationPlayer animPlayer;
-    List<BaseButton> buttons = new List<Button>();
-    Button playBtn;
+    AnimationPlayer animPlayer = null!;
+    List<Button> buttons = [];
+    Button playBtn = null!;
     Button creditsBtn;
     Button exitBtn;
 
@@ -72,7 +72,7 @@ public partial class TitleManager : Node
         GD.Print($"Animation '{animName}' finished!");
         if (animName == "TitleAnimation")
         {
-            foreach (Button button in buttons)
+            foreach (BaseButton button in buttons)
             {
                 //animation done, we can have the buttons be clickable
                 button.Disabled = false;
@@ -98,8 +98,7 @@ public partial class TitleManager : Node
 
     public void _ButtonHovered(Button btn)
     {
- 
-
+        btn.SelfModulate = hovered;
         int index = buttons.IndexOf(btn);
         panels[index].Visible = true;
     }
