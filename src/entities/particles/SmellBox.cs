@@ -36,6 +36,7 @@ public partial class SmellBox : Area3D
             GetParent<GpuParticles3d>()._SimplifyShape();
             smellStage = 3;
         }
+
     }
 
     public void _OnBodyEntered(Node3D body)

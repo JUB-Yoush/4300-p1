@@ -15,10 +15,6 @@ run/main_scene="uid://b8e6rv13o8a1g"
 config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[autoload]
-
-AudioManager="*res://src/singletons/AudioManager.cs"
-
 [display]
 
 window/size/viewport_width=1920
@@ -29,10 +25,6 @@ window/stretch/mode="viewport"
 [dotnet]
 
 project/assembly_name="sniff_fps"
-
-[global_group]
-
-LightSource=""
 
 [input]
 
