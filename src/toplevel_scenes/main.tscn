@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://b8e6rv13o8a1g"]
+[gd_scene load_steps=67 format=3 uid="uid://b8e6rv13o8a1g"]
 
 [ext_resource type="Script" uid="uid://cvhb113by0cda" path="res://src/toplevel_scenes/Main.cs" id="1_5dlwx"]
 [ext_resource type="PackedScene" uid="uid://dbuna14812w75" path="res://src/entities/player/player.tscn" id="2_5dlwx"]
@@ -26,6 +26,13 @@
 [ext_resource type="PackedScene" uid="uid://jly65t1mp8j3" path="res://assets/3d/Environment/candle.tscn" id="14_48oet"]
 [ext_resource type="PackedScene" uid="uid://qd47inhejuec" path="res://assets/3d/Environment/stove.glb" id="15_yso6w"]
 [ext_resource type="PackedScene" uid="uid://hpluu8fhxju7" path="res://assets/3d/Environment/Bookshelf2.glb" id="16_3keun"]
+[ext_resource type="PackedScene" uid="uid://bih3oxgfbmtu4" path="res://assets/3d/Environment/Bar/Barshelf.glb" id="16_07qxy"]
+[ext_resource type="PackedScene" uid="uid://dfq5ouoy1gljy" path="res://assets/3d/Environment/Bar/Bar_Chair.glb" id="17_y67x0"]
+[ext_resource type="PackedScene" uid="uid://bfb3ss547iduh" path="res://assets/3d/Environment/Bar/Bartable.glb" id="18_2xtos"]
+[ext_resource type="PackedScene" uid="uid://dv644ok2a6cwf" path="res://assets/3d/Environment/Bar/Wine_Rack.glb" id="20_jpcli"]
+[ext_resource type="PackedScene" uid="uid://bw5s35gmgnc7y" path="res://assets/3d/Environment/Bar/Wine_Glass.glb" id="21_qb0sy"]
+[ext_resource type="PackedScene" uid="uid://blmxfdsdepk8v" path="res://assets/3d/Environment/Bar/Wine_Bottle.glb" id="22_6uukv"]
+[ext_resource type="PackedScene" uid="uid://ijv7mulxm8jg" path="res://assets/3d/Environment/Carpet_Round.glb" id="22_qb0sy"]
 [ext_resource type="PackedScene" uid="uid://bebc62l33tw8a" path="res://assets/3d/Environment/Fireplace.glb" id="24_3osph"]
 [ext_resource type="PackedScene" uid="uid://bmj18eof1fpus" path="res://assets/3d/Environment/Trashcan_Large.glb" id="26_uu0ft"]
 [ext_resource type="PackedScene" uid="uid://y37yqugd0re5" path="res://assets/3d/Environment/Books.glb" id="27_3rvkn"]
@@ -3133,41 +3140,41 @@ material = SubResource("StandardMaterial3D_smgh4")
 
 [node name="Collection" type="Node3D" parent="Level/NavigationRegion3D/Furniture"]
 
-[node name="SofaCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Collection"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.05, 0.725, 25)
+[node name="Sofa" parent="Level/NavigationRegion3D/Furniture/Collection" instance=ExtResource("31_48oet")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -24.05, 0.825, 25.15)
+
+[node name="SofaCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Collection/Sofa"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.05, -0.0749998)
 transparency = 1.0
 use_collision = true
 size = Vector3(3.65, 1.45, 1.65)
 
-[node name="Sofa" parent="Level/NavigationRegion3D/Furniture/Collection/SofaCollider" instance=ExtResource("31_48oet")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.1, 0.15)
+[node name="Chair" parent="Level/NavigationRegion3D/Furniture/Collection" instance=ExtResource("30_pcyn6")]
+transform = Transform3D(1.32, 0, 0, 0, 1.32, 0, 0, 0, 1.32, -24.05, 0.63, 21.809)
 
-[node name="ChairCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Collection"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.05, 0.529203, 21.875)
+[node name="ChairCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Collection/Chair"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0499992)
 transparency = 1.0
 use_collision = true
 size = Vector3(0.65, 1.05, 0.7)
 
-[node name="Chair" parent="Level/NavigationRegion3D/Furniture/Collection/ChairCollider" instance=ExtResource("30_pcyn6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0499992)
+[node name="bed" parent="Level/NavigationRegion3D/Furniture/Collection" instance=ExtResource("28_48oet")]
+transform = Transform3D(2.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -27.6, 0.525, 21.95)
 
-[node name="BedCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Collection"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6, 0.525, 21.95)
+[node name="BedCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Collection/bed"]
+transform = Transform3D(0.4, 0, 0, 0, 0.666667, 0, 0, 0, 0.666667, 0, 5.96046e-08, 0)
 transparency = 1.0
 use_collision = true
 size = Vector3(1.7, 1.05, 2.45)
 
-[node name="bed" parent="Level/NavigationRegion3D/Furniture/Collection/BedCollider" instance=ExtResource("28_48oet")]
-transform = Transform3D(2.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -8.9407e-08, 0)
+[node name="Cupboard" parent="Level/NavigationRegion3D/Furniture/Collection" instance=ExtResource("29_r0g70")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -29.8, 1.375, 21.95)
 
-[node name="CupboardCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Collection"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.8, 1.35, 21.95)
+[node name="CupboardCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Collection/Cupboard"]
+transform = Transform3D(0.666667, 0, 0, 0, 0.666667, 0, 0, 0, 0.666667, 0, -0.0166667, 0)
 transparency = 1.0
 use_collision = true
 size = Vector3(1.25, 2.7, 0.55)
-
-[node name="Cupboard" parent="Level/NavigationRegion3D/Furniture/Collection/CupboardCollider" instance=ExtResource("29_r0g70")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.0250001, 0)
 
 [node name="Side_Table" parent="Level/NavigationRegion3D/Furniture/Collection" instance=ExtResource("12_pcyn6")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -22, 0.325, 21.2)
@@ -3179,16 +3186,16 @@ use_collision = true
 size = Vector3(0.7, 0.45, 0.75)
 
 [node name="Vase" parent="Level/NavigationRegion3D/Furniture/Collection" instance=ExtResource("13_yso6w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.95, 0.475, 22.5)
+transform = Transform3D(1.28, 0, 0, 0, 1.28, 0, 0, 0, 1.28, -22.95, 0.62634, 22.5)
 
 [node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Collection/Vase"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -2.98023e-07, 0)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, -2.98023e-07, 0)
 transparency = 1.0
 use_collision = true
 size = Vector3(0.75, 0.9, 0.75)
 
 [node name="Dining_Table" parent="Level/NavigationRegion3D/Furniture/Collection" instance=ExtResource("12_48oet")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.85, 0.425, 23.8)
+transform = Transform3D(1.35, 0, 0, 0, 1.35, 0, 0, 0, 1.35, -20.85, 0.598776, 23.8)
 
 [node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Collection/Dining_Table"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -2.98023e-07, 0)
@@ -3197,13 +3204,22 @@ use_collision = true
 size = Vector3(1.75, 0.9, 0.75)
 
 [node name="Stove" parent="Level/NavigationRegion3D/Furniture/Collection" instance=ExtResource("15_yso6w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.004, 0.63974, 20)
+transform = Transform3D(1.33, 0, 0, 0, 1.33, 0, 0, 0, 1.33, -24.004, 0.875103, 20)
 
 [node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Collection/Stove"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.000976563, -0.20232, -0.300219)
 transparency = 1.0
 use_collision = true
 size = Vector3(0.607422, 0.861963, 0.660156)
+
+[node name="Barshelf" parent="Level/NavigationRegion3D/Furniture/Collection" instance=ExtResource("16_07qxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.257, 0.0320109, 15.2423)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Collection/Barshelf"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00439453, 1.75859, -0.263885)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.811523, 3.5697, 3.92572)
 
 [node name="Bookshelf2" parent="Level/NavigationRegion3D/Furniture/Collection" instance=ExtResource("16_3keun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1159, 0.0090753, 20.6554)
@@ -3213,6 +3229,217 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00537109, 1.04161, 0)
 transparency = 1.0
 use_collision = true
 size = Vector3(0.80957, 2.07424, 0.660156)
+
+[node name="Bartable" parent="Level/NavigationRegion3D/Furniture/Collection" instance=ExtResource("18_2xtos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.534, 0.659636, 16.766)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Collection/Bartable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00393295, 0.0135936, -0.715626)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.989136, 1.28418, 6.24274)
+
+[node name="Collider2" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Collection/Bartable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.706844, 0.0135936, 2.10331)
+transparency = 1.0
+use_collision = true
+size = Vector3(2.39496, 1.28418, 0.604874)
+
+[node name="Bar_Chair" parent="Level/NavigationRegion3D/Furniture/Collection" instance=ExtResource("17_y67x0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.445, 0.481027, 21.7392)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Collection/Bar_Chair"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0107422, 0.0136518, 0.00195313)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.359375, 0.936046, 0.486328)
+
+[node name="ghostroom" type="Node3D" parent="Level/NavigationRegion3D/Furniture"]
+
+[node name="ChairCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/ghostroom"]
+transform = Transform3D(-0.890028, 0, 0.974808, 0, 1.32, 0, -0.974808, 0, -0.890028, -10.9254, 0.619652, -23.0676)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.65, 1.05, 0.7)
+
+[node name="Chair" parent="Level/NavigationRegion3D/Furniture/ghostroom/ChairCollider" instance=ExtResource("30_pcyn6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0499992)
+
+[node name="BedCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/ghostroom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.00587, 0.529203, -28.3002)
+transparency = 1.0
+use_collision = true
+size = Vector3(1.7, 1.05, 2.45)
+
+[node name="bed" parent="Level/NavigationRegion3D/Furniture/ghostroom/BedCollider" instance=ExtResource("28_48oet")]
+transform = Transform3D(2.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -8.9407e-08, 0)
+
+[node name="CupboardCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/ghostroom"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.1445, 1.34017, -25.2581)
+transparency = 1.0
+use_collision = true
+size = Vector3(1.25, 2.7, 0.55)
+
+[node name="Cupboard" parent="Level/NavigationRegion3D/Furniture/ghostroom/CupboardCollider" instance=ExtResource("29_r0g70")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.0250001, 0)
+
+[node name="lounge" type="Node3D" parent="Level/NavigationRegion3D/Furniture"]
+
+[node name="Bartable" parent="Level/NavigationRegion3D/Furniture/lounge" instance=ExtResource("18_2xtos")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.78068, 0.659636, 26.503)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/lounge/Bartable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00393295, 0.0135936, -0.715626)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.989136, 1.28418, 6.24274)
+
+[node name="Collider2" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/lounge/Bartable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.706844, 0.0135936, 2.10331)
+transparency = 1.0
+use_collision = true
+size = Vector3(2.39496, 1.28418, 0.604874)
+
+[node name="Barshelf" parent="Level/NavigationRegion3D/Furniture/lounge" instance=ExtResource("16_07qxy")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.09407, 0.0652116, 27.2215)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/lounge/Barshelf"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00439453, 1.75859, -0.263885)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.811523, 3.5697, 3.92572)
+
+[node name="Bar_Chair" parent="Level/NavigationRegion3D/Furniture/lounge" instance=ExtResource("17_y67x0")]
+transform = Transform3D(0.0895028, 0, 0.995987, 0, 1, 0, -0.995987, 0, 0.0895028, 3.9361, 0.469315, 26.503)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/lounge/Bar_Chair"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0107422, 0.0136518, 0.00195313)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.359375, 0.936046, 0.486328)
+
+[node name="Bar_Chair2" parent="Level/NavigationRegion3D/Furniture/lounge" instance=ExtResource("17_y67x0")]
+transform = Transform3D(0.0895028, 0, 0.995987, 0, 1, 0, -0.995987, 0, 0.0895028, 3.9361, 0.469315, 27.7255)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/lounge/Bar_Chair2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0107422, 0.0136518, 0.00195313)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.359375, 0.936046, 0.486328)
+
+[node name="Bar_Chair3" parent="Level/NavigationRegion3D/Furniture/lounge" instance=ExtResource("17_y67x0")]
+transform = Transform3D(0.0895028, 0, 0.995987, 0, 1, 0, -0.995987, 0, 0.0895028, 3.9361, 0.469315, 29.0089)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/lounge/Bar_Chair3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0107422, 0.0136518, 0.00195313)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.359375, 0.936046, 0.486328)
+
+[node name="Bar_Chair4" parent="Level/NavigationRegion3D/Furniture/lounge" instance=ExtResource("17_y67x0")]
+transform = Transform3D(-0.213099, 0, 0.977031, 0, 1, 0, -0.977031, 0, -0.213099, 3.77816, 0.469315, 25.3752)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/lounge/Bar_Chair4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0107422, 0.0136518, 0.00195313)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.359375, 0.936046, 0.486328)
+
+[node name="Wine_Rack" parent="Level/NavigationRegion3D/Furniture/lounge" instance=ExtResource("20_jpcli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.50009, 1.76986, 30.25)
+
+[node name="Wine_Glass" parent="Level/NavigationRegion3D/Furniture/lounge" instance=ExtResource("21_qb0sy")]
+transform = Transform3D(2.49, 0, 0, 0, 2.49, 0, 0, 0, 2.49, 4.48569, 1.50578, 25.3056)
+
+[node name="Wine_Glass2" parent="Level/NavigationRegion3D/Furniture/lounge" instance=ExtResource("21_qb0sy")]
+transform = Transform3D(2.49, 0, 0, 0, 2.49, 0, 0, 0, 2.49, 4.7856, 1.50578, 24.8584)
+
+[node name="SofaCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/lounge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.04119, 0.725, 25)
+transparency = 1.0
+use_collision = true
+size = Vector3(3.65, 1.45, 1.65)
+
+[node name="Sofa" parent="Level/NavigationRegion3D/Furniture/lounge/SofaCollider" instance=ExtResource("31_48oet")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.1, 0.15)
+
+[node name="SofaCollider2" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/lounge"]
+transform = Transform3D(0.067667, 0, -0.997708, 0, 1, 0, 0.997708, 0, 0.067667, -3.08899, 0.725, 28.0756)
+transparency = 1.0
+use_collision = true
+size = Vector3(3.65, 1.45, 1.65)
+
+[node name="Sofa" parent="Level/NavigationRegion3D/Furniture/lounge/SofaCollider2" instance=ExtResource("31_48oet")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.1, 0.15)
+
+[node name="Dining_Table" parent="Level/NavigationRegion3D/Furniture/lounge" instance=ExtResource("12_48oet")]
+transform = Transform3D(1.48, 0, 0, 0, 1.35, 0, 0, 0, 3.05, -7.95026, 0.576495, 15.5668)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/lounge/Dining_Table"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -2.98023e-07, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(1.75, 0.9, 0.75)
+
+[node name="Side_Table" parent="Level/NavigationRegion3D/Furniture/lounge" instance=ExtResource("12_pcyn6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -8.1108, 0.325, 27.379)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/lounge/Side_Table"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00441074, 0.0249996, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.7, 0.45, 0.75)
+
+[node name="Side_Table2" parent="Level/NavigationRegion3D/Furniture/lounge" instance=ExtResource("12_pcyn6")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -3.1761, 0.325, 25.7101)
+
+[node name="Collider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/lounge/Side_Table2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00441074, 0.0249996, 0)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.7, 0.45, 0.75)
+
+[node name="Carpet_Round" parent="Level/NavigationRegion3D/Furniture/lounge" instance=ExtResource("22_qb0sy")]
+transform = Transform3D(1.76222, 0, 0, 0, 1, 0, 0, 0, 1, -8.0367, 0.0127235, 27.6493)
+
+[node name="Chair" parent="Level/NavigationRegion3D/Furniture/lounge" instance=ExtResource("30_pcyn6")]
+transform = Transform3D(1.32, 0, 0, 0, 1.32, 0, 0, 0, 1.32, -7.86231, 0.63, 13.642)
+
+[node name="ChairCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/lounge/Chair"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0499992)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.65, 1.05, 0.7)
+
+[node name="Chair2" parent="Level/NavigationRegion3D/Furniture/lounge" instance=ExtResource("30_pcyn6")]
+transform = Transform3D(-1.31945, 0, -0.0382151, 0, 1.32, 0, 0.0382151, 0, -1.31945, -7.86231, 0.63, 17.8414)
+
+[node name="ChairCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/lounge/Chair2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0499992)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.65, 1.05, 0.7)
+
+[node name="Chair3" parent="Level/NavigationRegion3D/Furniture/lounge" instance=ExtResource("30_pcyn6")]
+transform = Transform3D(-0.0647577, 0, 1.31841, 0, 1.32, 0, -1.31841, 0, -0.0647577, -9.60397, 0.63, 15.721)
+
+[node name="ChairCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/lounge/Chair3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0499992)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.65, 1.05, 0.7)
+
+[node name="Chair4" parent="Level/NavigationRegion3D/Furniture/lounge" instance=ExtResource("30_pcyn6")]
+transform = Transform3D(1.10344, 0, -0.724441, 0, 1.32, 0, 0.724441, 0, 1.10344, -5.94276, 0.63, 15.2232)
+
+[node name="ChairCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/lounge/Chair4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0499992)
+transparency = 1.0
+use_collision = true
+size = Vector3(0.65, 1.05, 0.7)
+
+[node name="Wine_Bottle" parent="Level/NavigationRegion3D/Furniture" instance=ExtResource("22_6uukv")]
+transform = Transform3D(-0.637393, 0.00444013, -2.30343, 0.00168137, 2.39, 0.00414173, 2.30344, -0.000515925, -0.637395, 5.03925, 1.49753, 24.5063)
 
 [node name="Objects" type="Node3D" parent="Level/NavigationRegion3D"]
 
