@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://b8e6rv13o8a1g"]
+[gd_scene load_steps=98 format=3 uid="uid://b8e6rv13o8a1g"]
 
 [ext_resource type="Script" uid="uid://cvhb113by0cda" path="res://src/toplevel_scenes/Main.cs" id="1_5dlwx"]
 [ext_resource type="PackedScene" uid="uid://dbuna14812w75" path="res://src/entities/player/player.tscn" id="2_5dlwx"]
@@ -49,6 +49,12 @@
 [ext_resource type="PackedScene" uid="uid://b5k4uv3nsmluy" path="res://assets/3d/Environment/Kitchen/Plate.glb" id="30_rckq3"]
 [ext_resource type="PackedScene" uid="uid://ugckk6p87bfk" path="res://assets/3d/Environment/Sofa1.glb" id="31_48oet"]
 [ext_resource type="PackedScene" uid="uid://1boq55ts3082" path="res://assets/3d/Environment/Kitchen/Kitchen_Knife.glb" id="31_y40fc"]
+[ext_resource type="Texture2D" uid="uid://cjgbfjx547gnk" path="res://assets/UI/IngredientIcons/Ash_smell.png" id="41_y40fc"]
+[ext_resource type="Texture2D" uid="uid://bbe0ck8h3ve2b" path="res://assets/UI/IngredientIcons/Trash_smell.png" id="43_2grou"]
+[ext_resource type="Texture2D" uid="uid://ci3imbfpj4jd6" path="res://assets/UI/IngredientIcons/Tome_smell.png" id="45_66wcy"]
+[ext_resource type="Texture2D" uid="uid://ud5dp3ru4v78" path="res://assets/UI/IngredientIcons/Flower_smell.png" id="47_55v81"]
+[ext_resource type="Material" uid="uid://dglqyxfq1sm5r" path="res://assets/Materials/Particles/CircleFinal.tres" id="49_rckq3"]
+[ext_resource type="Texture2D" uid="uid://bwkp51li3ekgr" path="res://assets/UI/IngredientIcons/Dirt_smell.png" id="50_i200x"]
 
 [sub_resource type="Environment" id="Environment_5dlwx"]
 background_mode = 1
@@ -71,7 +77,7 @@ transparency = 1
 albedo_color = Color(0, 0, 0, 1)
 albedo_texture = ExtResource("19_r44lr")
 
-[sub_resource type="Resource" id="Resource_2t5ui"]
+[sub_resource type="Resource" id="Resource_y67x0"]
 script = ExtResource("8_odjcq")
 name = "Blood"
 UiSprite = ExtResource("25_yso6w")
@@ -140,6 +146,52 @@ orientation = 2
 transparency = 1
 albedo_texture = ExtResource("26_3keun")
 
+[sub_resource type="Resource" id="Resource_pcyn6"]
+script = ExtResource("8_odjcq")
+name = "Fireplace"
+UiSprite = ExtResource("41_y40fc")
+Color = Color(0, 0, 0, 0)
+Size = 2.5
+Effect = 0
+metadata/_custom_type_script = "uid://sunsuajn1hnd"
+
+[sub_resource type="Resource" id="Resource_2xtos"]
+script = ExtResource("8_odjcq")
+name = "Trash"
+UiSprite = ExtResource("43_2grou")
+Color = Color(0, 0.635294, 0, 1)
+Size = 0.0
+Effect = 2
+metadata/_custom_type_script = "uid://sunsuajn1hnd"
+
+[sub_resource type="Resource" id="Resource_rk8ua"]
+script = ExtResource("8_odjcq")
+name = "Books"
+UiSprite = ExtResource("45_66wcy")
+Color = Color(0, 0, 0, 0)
+Size = 0.5
+Effect = 0
+metadata/_custom_type_script = "uid://sunsuajn1hnd"
+
+[sub_resource type="Resource" id="Resource_qb0sy"]
+script = ExtResource("8_odjcq")
+name = "Flower"
+UiSprite = ExtResource("47_55v81")
+Color = Color(0.235294, 0.509804, 0.784314, 1)
+Size = 0.0
+Effect = 2
+metadata/_custom_type_script = "uid://sunsuajn1hnd"
+
+[sub_resource type="Resource" id="Resource_o6vwv"]
+script = ExtResource("8_odjcq")
+name = "Dirt"
+UiSprite = ExtResource("50_i200x")
+Color = Color(0, 0, 0, 0)
+Size = 0.0
+Shape = ExtResource("49_rckq3")
+Effect = 1
+metadata/_custom_type_script = "uid://sunsuajn1hnd"
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_i5ocd"]
 size = Vector3(24, 4, 11.3839)
 
@@ -149,7 +201,7 @@ size = Vector3(18.7405, 4, 11.3839)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kexia"]
 albedo_texture = ExtResource("6_6muo6")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2t5ui"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_66wcy"]
 resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
@@ -175,7 +227,7 @@ particles_anim_h_frames = 3
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="Resource" id="Resource_r44lr"]
+[sub_resource type="Resource" id="Resource_55v81"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -184,7 +236,7 @@ Size = 0.0
 Effect = 0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
-[sub_resource type="Resource" id="Resource_y40fc"]
+[sub_resource type="Resource" id="Resource_s6waq"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -193,7 +245,7 @@ Size = 0.0
 Effect = 0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
-[sub_resource type="Resource" id="Resource_2grou"]
+[sub_resource type="Resource" id="Resource_rckq3"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -249,7 +301,7 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_6b35j")
 orientation = 2
 
-[sub_resource type="Resource" id="Resource_66wcy"]
+[sub_resource type="Resource" id="Resource_i200x"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -258,7 +310,7 @@ Size = 1.5
 Effect = 0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
-[sub_resource type="Resource" id="Resource_55v81"]
+[sub_resource type="Resource" id="Resource_euvyi"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -300,7 +352,7 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_0iucp")
 orientation = 2
 
-[sub_resource type="Resource" id="Resource_s6waq"]
+[sub_resource type="Resource" id="Resource_kcikp"]
 resource_local_to_scene = true
 script = ExtResource("8_odjcq")
 name = "rei"
@@ -4223,7 +4275,7 @@ size = Vector3(0.7, 0.45, 0.75)
 
 [node name="Blood" type="Node3D" parent="Level/NavigationRegion3D/Objects"]
 script = ExtResource("11_v8kvn")
-Data = SubResource("Resource_2t5ui")
+Data = SubResource("Resource_y67x0")
 
 [node name="Area3D" type="Area3D" parent="Level/NavigationRegion3D/Objects/Blood"]
 transform = Transform3D(-3.27836e-08, 0, -0.75, 0, 0.75, 0, 0.75, 0, -3.27836e-08, -13.6187, 0, -21.1081)
@@ -4299,6 +4351,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_rckq3")
 
 [node name="Fireplace2" parent="Level/NavigationRegion3D/Objects" instance=ExtResource("24_3osph")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -7.975, 0, 29.925)
+script = ExtResource("11_v8kvn")
+Data = SubResource("Resource_pcyn6")
 
 [node name="FireplaceCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Objects/Fireplace2"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.225, 0.1)
@@ -4308,6 +4362,8 @@ size = Vector3(3.75, 2.65, 1.15)
 
 [node name="Trashcan_Large2" parent="Level/NavigationRegion3D/Objects" instance=ExtResource("26_uu0ft")]
 transform = Transform3D(0.745, 0, 0, 0, 0.745, 0, 0, 0, 0.745, 64.475, 0, -17.05)
+script = ExtResource("11_v8kvn")
+Data = SubResource("Resource_2xtos")
 
 [node name="TrashcanCollider" type="CSGBox3D" parent="Level/NavigationRegion3D/Objects/Trashcan_Large2"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0671158, 0.875, 0.00788879)
@@ -4317,12 +4373,18 @@ size = Vector3(1.3, 1.95, 1.2)
 
 [node name="Books" parent="Level/NavigationRegion3D/Objects" instance=ExtResource("27_3rvkn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.225, 0.925, -14.775)
+script = ExtResource("11_v8kvn")
+Data = SubResource("Resource_rk8ua")
 
 [node name="flowerpot" parent="Level/NavigationRegion3D/Objects" instance=ExtResource("28_d8h2t")]
 transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, 50.15, 1, 21.6)
+script = ExtResource("11_v8kvn")
+Data = SubResource("Resource_qb0sy")
 
 [node name="pileofdirt2" parent="Level/NavigationRegion3D/Objects" instance=ExtResource("28_uruqi")]
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 12.075, 0, -31.725)
+script = ExtResource("11_v8kvn")
+Data = SubResource("Resource_o6vwv")
 
 [node name="Candles" type="Node3D" parent="Level/NavigationRegion3D/Objects"]
 
@@ -4476,20 +4538,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23913, 2.04144, 16.0537)
 visible = false
 
 [node name="GhostSmellTrail" parent="Ghost" instance=ExtResource("5_2lg1k")]
-textures = Array[Material]([SubResource("StandardMaterial3D_kexia"), SubResource("StandardMaterial3D_2t5ui"), ExtResource("7_smgh4")])
+textures = Array[Material]([SubResource("StandardMaterial3D_kexia"), SubResource("StandardMaterial3D_66wcy"), ExtResource("7_smgh4")])
 filledTexture = SubResource("StandardMaterial3D_5pbbh")
 
 [node name="SmellItem" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9916, 3, -29.3629)
-Data = SubResource("Resource_r44lr")
+Data = SubResource("Resource_55v81")
 
 [node name="SmellItem4" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9916, 3, -38.2883)
-Data = SubResource("Resource_y40fc")
+Data = SubResource("Resource_s6waq")
 
 [node name="SmellItem2" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1649, 3, -29.3629)
-Data = SubResource("Resource_2grou")
+Data = SubResource("Resource_rckq3")
 
 [node name="ItemSmellTrail" parent="SmellItem2" index="2"]
 process_material = SubResource("ParticleProcessMaterial_smgh4")
@@ -4497,7 +4559,7 @@ draw_pass_1 = SubResource("PlaneMesh_nos3a")
 
 [node name="SmellItem5" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1649, 3, -38.2922)
-Data = SubResource("Resource_66wcy")
+Data = SubResource("Resource_i200x")
 
 [node name="ItemSmellTrail" parent="SmellItem5" index="2"]
 process_material = SubResource("ParticleProcessMaterial_smgh4")
@@ -4505,7 +4567,7 @@ draw_pass_1 = SubResource("PlaneMesh_nos3a")
 
 [node name="SmellItem3" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7001, 3, -29.3629)
-Data = SubResource("Resource_55v81")
+Data = SubResource("Resource_euvyi")
 
 [node name="ItemSmellTrail" parent="SmellItem3" index="2"]
 process_material = SubResource("ParticleProcessMaterial_6muo6")
@@ -4513,7 +4575,7 @@ draw_pass_1 = SubResource("PlaneMesh_kexia")
 
 [node name="SmellItem6" parent="." instance=ExtResource("5_o81g6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7001, 3, -37.8599)
-Data = SubResource("Resource_s6waq")
+Data = SubResource("Resource_kcikp")
 
 [node name="ItemSmellTrail" parent="SmellItem6" index="2"]
 process_material = SubResource("ParticleProcessMaterial_6muo6")
