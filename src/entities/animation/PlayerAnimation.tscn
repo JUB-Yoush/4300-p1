@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bo6fv7ek5guq1"]
+[gd_scene load_steps=14 format=3 uid="uid://bo6fv7ek5guq1"]
 
 [ext_resource type="Texture2D" uid="uid://be2ldakud01rk" path="res://assets/sprites/gun1.png" id="1_74mr8"]
 [ext_resource type="Texture2D" uid="uid://bwonpa2kp1ki4" path="res://assets/sprites/gun2.png" id="2_iikv3"]
@@ -6,7 +6,6 @@
 [ext_resource type="Shader" uid="uid://bnreisy4mhbgl" path="res://assets/Shaders/punch.gdshader" id="4_tuf83"]
 [ext_resource type="Texture2D" uid="uid://djbruugn33vqr" path="res://assets/sprites/pun2.png" id="5_k5my5"]
 [ext_resource type="Texture2D" uid="uid://dmgna6qpkb82m" path="res://assets/sprites/gun_panel.svg" id="6_7qq20"]
-[ext_resource type="Texture2D" uid="uid://b68sf6kgvrpso" path="res://assets/sprites/rei.png" id="7_fqycv"]
 
 [sub_resource type="Animation" id="Animation_i0qyw"]
 length = 0.001
@@ -490,46 +489,23 @@ scale = Vector2(0.254221, 0.254221)
 texture = ExtResource("5_k5my5")
 
 [node name="Gun" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(1451, 830)
 rotation = 0.0874314
 texture = ExtResource("1_74mr8")
 
-[node name="Ingredient_panel" type="Sprite2D" parent="Gun"]
+[node name="Ingredients" type="Sprite2D" parent="Gun"]
 position = Vector2(-308, -7)
 scale = Vector2(1.84836, 1.84836)
 texture = ExtResource("6_7qq20")
 
-[node name="Ingredient Slots" type="HBoxContainer" parent="Gun/Ingredient_panel"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -230.5
-offset_top = -96.7073
-offset_right = -16.5
-offset_bottom = -30.7073
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 8
+[node name="ShapeSlot" type="Sprite2D" parent="Gun/Ingredients"]
+position = Vector2(-74.838, -3.81189)
+scale = Vector2(0.193338, 0.193338)
 
-[node name="ShapeSlot" type="TextureRect" parent="Gun/Ingredient_panel/Ingredient Slots"]
-layout_mode = 2
-texture = ExtResource("7_fqycv")
-expand_mode = 2
-stretch_mode = 5
+[node name="ColourSlot" type="Sprite2D" parent="Gun/Ingredients"]
+position = Vector2(-1.16138, -5.92532)
+scale = Vector2(0.193338, 0.193338)
 
-[node name="ColourSlot" type="TextureRect" parent="Gun/Ingredient_panel/Ingredient Slots"]
-layout_mode = 2
-texture = ExtResource("7_fqycv")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="SizeSlot" type="TextureRect" parent="Gun/Ingredient_panel/Ingredient Slots"]
-layout_mode = 2
-texture = ExtResource("7_fqycv")
-expand_mode = 2
-stretch_mode = 5
+[node name="SizeSlot" type="Sprite2D" parent="Gun/Ingredients"]
+position = Vector2(74.3475, 0.490082)
+scale = Vector2(0.193338, 0.193338)

@@ -153,25 +153,5 @@ material = SubResource("ShaderMaterial_0mfjg")
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(810.701, 688.25)
 
-[node name="Gun" parent="PlayerAnimation" index="4"]
-visible = true
-
-[node name="Ingredients" parent="PlayerAnimation/Gun" index="0"]
-position = Vector2(-308, -7)
-scale = Vector2(1.84836, 1.84836)
-texture = ExtResource("9_4f0qm")
-
-[node name="ShapeSlot" parent="PlayerAnimation/Gun/Ingredients" index="0"]
-position = Vector2(-74.838, -3.81189)
-scale = Vector2(0.193338, 0.193338)
-
-[node name="ColourSlot" parent="PlayerAnimation/Gun/Ingredients" index="1"]
-position = Vector2(-1.16138, -5.92532)
-scale = Vector2(0.193338, 0.193338)
-
-[node name="SizeSlot" parent="PlayerAnimation/Gun/Ingredients" index="2"]
-position = Vector2(74.3475, 0.490082)
-scale = Vector2(0.193338, 0.193338)
-
 [editable path="UI/Control/GameUi"]
 [editable path="PlayerAnimation"]
