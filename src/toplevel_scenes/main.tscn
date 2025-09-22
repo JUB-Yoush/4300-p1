@@ -238,7 +238,7 @@ orientation = 2
 script = ExtResource("8_odjcq")
 name = "Flower"
 UiSprite = ExtResource("47_55v81")
-Color = Color(0.235294, 0.509804, 0.784314, 1)
+Color = Color(0.776471, 0.286275, 0.882353, 1)
 Size = 0.0
 Effect = 2
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
@@ -4603,9 +4603,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.6936, 0, 7.29391)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.6936, 0, 7.29391)
 
 [node name="HomeRoom" type="Area3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4172, 1.59276, -27.332)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/HomeRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4172, 1.59276, -27.332)
 shape = SubResource("BoxShape3D_i5ocd")
 
 [node name="Ghost" parent="." instance=ExtResource("4_dbro3")]

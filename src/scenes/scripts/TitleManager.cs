@@ -60,7 +60,7 @@ public partial class TitleManager : Node
 
     private void OnCreditsPressed()
     {
-        //TODO -- link to documents
+        OS.ShellOpen("https://docs.google.com/document/d/10QSq3TDP5Xe0wud27QWO3r6aTh5ZmGdygJ7T2kQfaxU/edit?tab=t.0");
     }
 
     private void OnExitPressed()
