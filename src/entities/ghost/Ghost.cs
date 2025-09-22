@@ -125,6 +125,7 @@ public partial class Ghost : CharacterBody3D
         rigidGhost.LinearVelocity = -punchVelocity * 5;
         GetNode<GpuParticles3D>("GhostSmellTrail").Emitting = false;
         await Task.Delay(3000);
+        Input.MouseMode = Input.MouseModeEnum.Visible;
         GetTree().ChangeSceneToFile("res://src/scenes/end.tscn");
     }
 

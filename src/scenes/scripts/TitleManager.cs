@@ -55,6 +55,7 @@ public partial class TitleManager : Node
 
     private void OnPlayPressed()
     {
+        Input.MouseMode = Input.MouseModeEnum.Captured;
         GetTree().ChangeSceneToFile("res://src/toplevel_scenes/main.tscn");
     }
 

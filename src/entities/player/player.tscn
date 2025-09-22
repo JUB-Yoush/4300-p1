@@ -118,6 +118,28 @@ mouse_filter = 2
 
 [node name="GameUi" parent="UI/Control" instance=ExtResource("5_eb65w")]
 
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Control/GameUi"]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 585.0
+offset_top = 475.0
+offset_right = 1335.0
+offset_bottom = 550.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "E to Pick Up"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="GunSprite" type="Sprite2D" parent="UI/Control"]
 visible = false
 position = Vector2(1468, 825)
@@ -149,6 +171,86 @@ material = SubResource("ShaderMaterial_0mfjg")
 [node name="Punch 3" parent="PlayerAnimation" index="3"]
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(810.701, 688.25)
+
+[node name="IngredientLabels" type="RichTextLabel" parent="PlayerAnimation/Gun" index="1"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1311.57
+offset_top = -227.607
+offset_right = -886.571
+offset_bottom = -152.607
+grow_horizontal = 0
+grow_vertical = 2
+rotation = -0.00467131
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/normal_font_size = 25
+text = "SHAPE       COLOUR         SIZE"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShapeLabel" type="RichTextLabel" parent="PlayerAnimation/Gun/IngredientLabels"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -204.546
+offset_top = -27.4949
+offset_right = -54.5457
+offset_bottom = 12.5051
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 20
+text = "(NONE)"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="ColourLabel" type="RichTextLabel" parent="PlayerAnimation/Gun/IngredientLabels"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -68.019
+offset_top = -27.0
+offset_right = 81.981
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 20
+text = "(NONE)"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="SizeLabel" type="RichTextLabel" parent="PlayerAnimation/Gun/IngredientLabels"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 96.4941
+offset_top = -27.3802
+offset_right = 196.494
+offset_bottom = 12.6198
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 20
+text = "(NONE)"
+scroll_active = false
+horizontal_alignment = 1
 
 [editable path="UI/Control/GameUi"]
 [editable path="PlayerAnimation"]

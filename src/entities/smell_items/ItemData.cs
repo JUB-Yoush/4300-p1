@@ -1,24 +1,13 @@
 using System;
 using Godot;
 
-public enum ScentColor
+public enum EffectName
 {
-    RED,
+    PURPLE,
     GREEN,
-    BLUE,
-}
-
-public enum ScentSize
-{
     SMALL,
-    MEDIUM,
     LARGE,
-}
-
-public enum ScentShape
-{
     TRIANGLE,
-    SQUARE,
     CIRCLE,
 }
 
@@ -48,6 +37,9 @@ public partial class ItemData : Resource
     public Material Shape;
     [Export]
     public ScentEffect Effect;
+
+    [Export]
+    public EffectName EffectName;
 
     public ItemData() { }
 }

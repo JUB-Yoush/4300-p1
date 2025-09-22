@@ -105,22 +105,27 @@ public partial class Player : CharacterBody3D
     {
         //GunSlots.Add(item.Data!);
         //TODO add sprite to corresponding ui gun slot
+        RichTextLabel chosenLabel;
         if (item.Data.Effect == ScentEffect.COLOUR)
         {
             gun.projectileColour = item.Data.Color;
             GunSlots.GetNode<Sprite2D>("ColourSlot").Texture = item.Data.UiSprite;
+            chosenLabel = GetNode<RichTextLabel>("PlayerAnimation/Gun/IngredientLabels/ColourLabel");
         }
         else if (item.Data.Effect == ScentEffect.SHAPE)
         {
             gun.projectileMaterial = item.Data.Shape;
             GunSlots.GetNode<Sprite2D>("ShapeSlot").Texture = item.Data.UiSprite;
+            chosenLabel = GetNode<RichTextLabel>("PlayerAnimation/Gun/IngredientLabels/ShapeLabel");
         }
         else
         {
             gun.projectileMaxSize = item.Data.Size;
             gun.projectileMinSize = item.Data.Size;
             GunSlots.GetNode<Sprite2D>("SizeSlot").Texture = item.Data.UiSprite;
+            chosenLabel = GetNode<RichTextLabel>("PlayerAnimation/Gun/IngredientLabels/SizeLabel");
         }
+        chosenLabel.Text = "(" + item.Data.EffectName.ToString() + ")";
     }
 
     public override void _PhysicsProcess(double delta)

@@ -19,7 +19,7 @@ transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0.0348134, 0.0271
 material_override = SubResource("StandardMaterial3D_57ygn")
 mesh = SubResource("CapsuleMesh_t2ftp")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Candle/MeshInstance3D"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Candle/MeshInstance3D" groups=["LightSource"]]
 light_color = Color(0.536182, 0.325699, 0.214309, 1)
 light_energy = 4.0
 light_size = 0.2

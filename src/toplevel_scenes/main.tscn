@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://b8e6rv13o8a1g"]
+[gd_scene load_steps=96 format=3 uid="uid://b8e6rv13o8a1g"]
 
 [ext_resource type="Script" uid="uid://cvhb113by0cda" path="res://src/toplevel_scenes/Main.cs" id="1_5dlwx"]
 [ext_resource type="PackedScene" uid="uid://dbuna14812w75" path="res://src/entities/player/player.tscn" id="2_5dlwx"]
@@ -78,11 +78,12 @@ albedo_texture = ExtResource("19_r44lr")
 
 [sub_resource type="Resource" id="Resource_s6waq"]
 script = ExtResource("8_odjcq")
-name = "Fireplace"
+name = "Ash"
 UiSprite = ExtResource("41_y40fc")
 Color = Color(0, 0, 0, 0)
 Size = 2.5
 Effect = 0
+EffectName = 3
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rckq3"]
@@ -112,7 +113,7 @@ gravity = Vector3(0, 2, 0)
 scale_min = 0.5
 scale_max = 2.5
 scale_curve = SubResource("CurveTexture_kokaf")
-color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+color = Color(0.392157, 0.392157, 0.392157, 1)
 alpha_curve = SubResource("CurveTexture_2lg1k")
 anim_offset_max = 1.0
 turbulence_enabled = true
@@ -145,6 +146,7 @@ UiSprite = ExtResource("43_2grou")
 Color = Color(0, 0.635294, 0, 1)
 Size = 0.0
 Effect = 2
+EffectName = 1
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_osfqi"]
@@ -188,11 +190,12 @@ orientation = 2
 
 [sub_resource type="Resource" id="Resource_54wpx"]
 script = ExtResource("8_odjcq")
-name = "Books"
+name = "Tome"
 UiSprite = ExtResource("45_66wcy")
 Color = Color(0, 0, 0, 0)
 Size = 0.5
 Effect = 0
+EffectName = 2
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wurbs"]
@@ -208,7 +211,7 @@ gravity = Vector3(0, 2, 0)
 scale_min = 0.5
 scale_max = 2.5
 scale_curve = SubResource("CurveTexture_kokaf")
-color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+color = Color(0.392157, 0.392157, 0.392157, 1)
 alpha_curve = SubResource("CurveTexture_2lg1k")
 anim_offset_max = 1.0
 turbulence_enabled = true
@@ -241,6 +244,7 @@ UiSprite = ExtResource("47_55v81")
 Color = Color(0.776471, 0.286275, 0.882353, 1)
 Size = 0.0
 Effect = 2
+EffectName = 0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_644r4"]
@@ -277,6 +281,7 @@ Color = Color(0, 0, 0, 0)
 Size = 0.0
 Shape = ExtResource("49_rckq3")
 Effect = 1
+EffectName = 5
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qnr2m"]
@@ -292,7 +297,7 @@ gravity = Vector3(0, -2, 0)
 scale_min = 0.5
 scale_max = 2.5
 scale_curve = SubResource("CurveTexture_kokaf")
-color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+color = Color(0.392157, 0.392157, 0.392157, 1)
 alpha_curve = SubResource("CurveTexture_2lg1k")
 anim_offset_max = 1.0
 turbulence_enabled = true
@@ -326,7 +331,26 @@ Color = Color(0, 0, 0, 0)
 Size = 0.0
 Shape = ExtResource("7_smgh4")
 Effect = 1
+EffectName = 4
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s6waq"]
+resource_local_to_scene = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 180.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, -2, 0)
+scale_min = 0.5
+scale_max = 2.5
+scale_curve = SubResource("CurveTexture_kokaf")
+color = Color(0.392157, 0.392157, 0.392157, 1)
+alpha_curve = SubResource("CurveTexture_2lg1k")
+anim_offset_max = 1.0
+turbulence_enabled = true
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_gyn8r"]
 
@@ -377,7 +401,7 @@ visible = false
 environment = SubResource("Environment_5dlwx")
 
 [node name="Player" parent="." instance=ExtResource("2_5dlwx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.668, 1.45112, -0.0115006)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.668, 1.45112, -0.0115006)
 
 [node name="Level" type="Node3D" parent="."]
 
@@ -4479,7 +4503,7 @@ sorting_offset = -1.0
 amount = 100
 lifetime = 3.0
 randomness = 0.5
-process_material = SubResource("ParticleProcessMaterial_0erlo")
+process_material = SubResource("ParticleProcessMaterial_s6waq")
 draw_pass_1 = SubResource("PlaneMesh_im5ux")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level/NavigationRegion3D/Objects/Blood"]
