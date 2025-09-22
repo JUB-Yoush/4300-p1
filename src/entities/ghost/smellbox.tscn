@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dt67tv21u0kam"]
+[gd_scene load_steps=3 format=3 uid="uid://ddkohkxg3b24f"]
 
 [ext_resource type="Script" uid="uid://bsqbqf010tfa3" path="res://src/entities/ghost/SmellTrailArea.cs" id="1_s50ji"]
 

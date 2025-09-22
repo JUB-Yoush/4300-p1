@@ -199,9 +199,9 @@ public partial class Player : CharacterBody3D
             Punch1.Modulate = Color.Color8(255, 255, 255, 255);
             Punch2.Modulate = Color.Color8(255, 255, 255, 255);
             Punch3.Modulate = Color.Color8(255, 255, 255, 255);
-            foreach (Node obj in GetTree().GetNodesInGroup("items"))
+            foreach (SmellItem obj in GetTree().GetNodesInGroup("items").Cast<SmellItem>())
             {
-                ((SmellItem)obj).emitter.Visible = false;
+                obj.emitter.Visible = false;
             }
             foreach (Node obj in GetTree().GetNodesInGroup("LightSource"))
             {
