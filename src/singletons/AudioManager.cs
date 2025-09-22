@@ -4,6 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using Godot;
 
+public static class BGM
+{
+    public static AudioStream TitleMusic = GD.Load<AudioStream>(
+        "res://assets/audio/music/title.ogg"
+    );
+    public static AudioStream GameMusic = GD.Load<AudioStream>(
+        "res://assets/audio/music/gameplay.ogg"
+    );
+}
+
 public static class SFX
 {
     //should either be a hashmap or lazy-loaded

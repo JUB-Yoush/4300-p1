@@ -322,7 +322,7 @@ size = Vector3(18.7405, 4, 11.3839)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kexia"]
 albedo_texture = ExtResource("6_6muo6")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hll3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8bqro"]
 resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
@@ -3615,7 +3615,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7423, 2.04144, -19.7168)
 visible = false
 
 [node name="GhostSmellTrail" parent="Ghost" instance=ExtResource("5_2lg1k")]
-textures = Array[Material]([SubResource("StandardMaterial3D_kexia"), SubResource("StandardMaterial3D_6hll3"), ExtResource("7_smgh4")])
+textures = Array[Material]([SubResource("StandardMaterial3D_kexia"), SubResource("StandardMaterial3D_8bqro"), ExtResource("7_smgh4")])
 filledTexture = SubResource("StandardMaterial3D_5pbbh")
 trueColor = Color(0.235294, 0.509804, 0.784314, 1)
 

@@ -152,8 +152,5 @@ material = SubResource("ShaderMaterial_0mfjg")
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(810.701, 688.25)
 
-[node name="Gun" parent="PlayerAnimation" index="4"]
-visible = true
-
 [editable path="UI/Control/GameUi"]
 [editable path="PlayerAnimation"]

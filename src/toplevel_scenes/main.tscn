@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://b8e6rv13o8a1g"]
+[gd_scene load_steps=95 format=3 uid="uid://b8e6rv13o8a1g"]
 
 [ext_resource type="Script" uid="uid://cvhb113by0cda" path="res://src/toplevel_scenes/Main.cs" id="1_5dlwx"]
 [ext_resource type="PackedScene" uid="uid://dbuna14812w75" path="res://src/entities/player/player.tscn" id="2_5dlwx"]
@@ -335,15 +335,12 @@ transparency = 1
 albedo_texture = ExtResource("26_3keun")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i5ocd"]
-size = Vector3(24, 4, 11.3839)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_oxt34"]
-size = Vector3(18.7405, 4, 11.3839)
+size = Vector3(8.58936, 6.18347, 9.34332)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kexia"]
 albedo_texture = ExtResource("6_6muo6")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fq6hn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6waq"]
 resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
@@ -4608,19 +4605,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.6936, 0, 7.29391)
 [node name="HomeRoom" type="Area3D" parent="Level"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/HomeRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.5, 27)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4172, 1.59276, -27.332)
 shape = SubResource("BoxShape3D_i5ocd")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Level/HomeRoom"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.7367, 1.5, 22.5931)
-shape = SubResource("BoxShape3D_oxt34")
 
 [node name="Ghost" parent="." instance=ExtResource("4_dbro3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23913, 2.04144, 16.0537)
 visible = false
 
 [node name="GhostSmellTrail" parent="Ghost" instance=ExtResource("5_2lg1k")]
-textures = Array[Material]([SubResource("StandardMaterial3D_kexia"), SubResource("StandardMaterial3D_fq6hn"), ExtResource("7_smgh4")])
+textures = Array[Material]([SubResource("StandardMaterial3D_kexia"), SubResource("StandardMaterial3D_s6waq"), ExtResource("7_smgh4")])
 filledTexture = SubResource("StandardMaterial3D_5pbbh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

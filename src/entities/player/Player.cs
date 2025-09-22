@@ -15,7 +15,7 @@ public partial class Player : CharacterBody3D
     float HeadbobTime = 0f;
     const float WALK_SPEED = 10f;
     const float SMELLING_WALK_SPEED = 5f;
-    const float GROUND_ACCEL = 11.0f;
+    const float GROUND_ACCEL = 7.0f;
     const float GROUND_DECEL = 7.0f;
     const float GROUND_FRICTION = 3.5f;
 
@@ -37,7 +37,7 @@ public partial class Player : CharacterBody3D
     AnimationPlayer Anims = null!;
     public bool smelling = false;
     GunPlaceholder gun = null!;
-    Node GunSlots = null!;
+    Sprite2D GunSlots = null!;
     OmniLight3D Light = null!;
     WorldEnvironment Environment = null!;
     CanvasItem GunSprite,
@@ -53,7 +53,7 @@ public partial class Player : CharacterBody3D
         SmellBox = ghost.GetNode<CollisionPolygon3D>("GhostSmellTrail/SmellBox/TrailCollider");
         gun = GetNode<GunPlaceholder>("Head/Camera3D/GunPlaceholder");
         Anims = GetNode<AnimationPlayer>("PlayerAnimation/AnimationPlayer");
-        GunSlots = GetNode("PlayerAnimation/Gun/Ingredient_panel/Ingredient Slots");
+        GunSlots = GetNode<Sprite2D>("PlayerAnimation/Gun/Ingredients");
         Light = GetNode<OmniLight3D>("Head/Camera3D/OmniLight3D");
         Environment = GetNode<WorldEnvironment>("../WorldEnvironment");
         GunSprite = GetNode<CanvasItem>("PlayerAnimation/Gun");
@@ -108,18 +108,18 @@ public partial class Player : CharacterBody3D
         if (item.Data.Effect == ScentEffect.COLOUR)
         {
             gun.projectileColour = item.Data.Color;
-            GunSlots.GetNode<TextureRect>("ColourSlot").Texture = item.Data.UiSprite;
+            GunSlots.GetNode<Sprite2D>("ColourSlot").Texture = item.Data.UiSprite;
         }
         else if (item.Data.Effect == ScentEffect.SHAPE)
         {
             gun.projectileMaterial = item.Data.Shape;
-            GunSlots.GetNode<TextureRect>("ShapeSlot").Texture = item.Data.UiSprite;
+            GunSlots.GetNode<Sprite2D>("ShapeSlot").Texture = item.Data.UiSprite;
         }
         else
         {
             gun.projectileMaxSize = item.Data.Size;
             gun.projectileMinSize = item.Data.Size;
-            GunSlots.GetNode<TextureRect>("SizeSlot").Texture = item.Data.UiSprite;
+            GunSlots.GetNode<Sprite2D>("SizeSlot").Texture = item.Data.UiSprite;
         }
     }
 
