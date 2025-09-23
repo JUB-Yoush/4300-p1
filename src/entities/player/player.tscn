@@ -95,6 +95,7 @@ collide_with_bodies = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Head/Camera3D"]
 light_energy = 2.0
+omni_range = 8.0
 
 [node name="Screen Ectoplasm Particles" parent="Head/Camera3D" instance=ExtResource("4_oih67")]
 

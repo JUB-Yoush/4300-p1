@@ -20,7 +20,8 @@ material_override = SubResource("StandardMaterial3D_57ygn")
 mesh = SubResource("CapsuleMesh_t2ftp")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Candle/MeshInstance3D" groups=["LightSource"]]
-light_color = Color(0.536182, 0.325699, 0.214309, 1)
-light_energy = 4.0
+light_color = Color(0.820562, 0.385981, 0.255963, 1)
+light_energy = 5.0
 light_size = 0.2
 shadow_bias = 0.6
+omni_range = 6.0
