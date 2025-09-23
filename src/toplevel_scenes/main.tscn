@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://btisakm3ggix" path="res://assets/3d/Environment/Dining_Table.glb" id="12_48oet"]
 [ext_resource type="PackedScene" uid="uid://gljfedglu27g" path="res://assets/3d/Environment/Side_Table.glb" id="12_pcyn6"]
 [ext_resource type="PackedScene" uid="uid://deldiss2egfn8" path="res://assets/3d/Environment/Vase1.glb" id="13_yso6w"]
-[ext_resource type="PackedScene" uid="uid://jly65t1mp8j3" path="res://assets/3d/Environment/candle.tscn" id="14_48oet"]
+[ext_resource type="PackedScene" uid="uid://ds657xtitr6tj" path="res://assets/3d/Environment/candle.tscn" id="14_48oet"]
 [ext_resource type="PackedScene" uid="uid://qd47inhejuec" path="res://assets/3d/Environment/stove.glb" id="15_yso6w"]
 [ext_resource type="PackedScene" uid="uid://hpluu8fhxju7" path="res://assets/3d/Environment/Bookshelf2.glb" id="16_3keun"]
 [ext_resource type="PackedScene" uid="uid://bih3oxgfbmtu4" path="res://assets/3d/Environment/Bar/Barshelf.glb" id="16_07qxy"]
@@ -54,6 +54,7 @@
 [ext_resource type="Texture2D" uid="uid://ud5dp3ru4v78" path="res://assets/UI/IngredientIcons/Flower_smell.png" id="47_55v81"]
 [ext_resource type="Material" uid="uid://dglqyxfq1sm5r" path="res://assets/Materials/Particles/CircleFinal.tres" id="49_rckq3"]
 [ext_resource type="Texture2D" uid="uid://bwkp51li3ekgr" path="res://assets/UI/IngredientIcons/Dirt_smell.png" id="50_i200x"]
+[ext_resource type="PackedScene" uid="uid://bf1gq6yfxmle5" path="res://assets/3d/Environment/NewDiningTable.glb" id="33_y40fc"]
 
 [sub_resource type="Environment" id="Environment_5dlwx"]
 background_mode = 1
@@ -395,7 +396,6 @@ script = ExtResource("1_5dlwx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.971632, -0.236499, 0, -0.118953, 0.488706, 0.864301, -0.204406, 0.839782, -0.502975, 25.0178, 35.7626, 1.19139)
-visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5dlwx")
@@ -1625,14 +1625,6 @@ collision_layer = 3
 collision_mask = 3
 size = Vector3(2, 3, 0.1)
 material = ExtResource("3_smgh4")
-
-[node name="Table" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
-transform = Transform3D(-1, 4.37114e-08, 2.18557e-07, -2.18557e-07, -4.37114e-08, -1, -4.37114e-08, -1, 4.37114e-08, 51, 0.5, 23.4)
-use_collision = true
-collision_layer = 3
-collision_mask = 3
-size = Vector3(20, 7, 1)
-material = ExtResource("4_6b35j")
 
 [node name="Window" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -29.9917, 1.5, -12)
@@ -3163,7 +3155,7 @@ size = Vector3(30, 3, 0.1)
 material = ExtResource("3_smgh4")
 
 [node name="Wall191" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 3.9468, 0, -1, 0, -4.37114e-08, -15, 2.00072, 17)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 3.9468, 0, -1, 0, -4.37114e-08, -11.5074, 2.00072, 17)
 use_collision = true
 collision_layer = 3
 collision_mask = 3
@@ -3179,7 +3171,7 @@ size = Vector3(44, 3, 0.1)
 material = ExtResource("3_smgh4")
 
 [node name="Wall193" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 3.9468, 0, -1.06581e-14, 0, 1, 33, 2.00072, 32.05)
+transform = Transform3D(1, 0, 1.06581e-14, 0, 3.9468, 0, -1.06581e-14, 0, 1, 33, 2.00072, 30.5279)
 use_collision = true
 collision_layer = 3
 collision_mask = 3
@@ -3259,7 +3251,7 @@ size = Vector3(66, 3, 0.1)
 material = ExtResource("3_smgh4")
 
 [node name="Wall202" type="CSGBox3D" parent="Level/NavigationRegion3D/Walls/Walls"]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 3.9468, 0, -1.06581e-14, 0, 1, -2, 2.00072, -32)
+transform = Transform3D(1, 0, 1.06581e-14, 0, 3.9468, 0, -1.06581e-14, 0, 1, -2, 2.00072, -29.6735)
 use_collision = true
 collision_layer = 3
 collision_mask = 3
@@ -4315,6 +4307,20 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0044
 transparency = 1.0
 use_collision = true
 size = Vector3(0.7, 0.45, 0.75)
+
+[node name="Diningroom" type="Node3D" parent="Level/NavigationRegion3D/Furniture"]
+
+[node name="NewDiningTable" parent="Level/NavigationRegion3D/Furniture/Diningroom" instance=ExtResource("33_y40fc")]
+transform = Transform3D(-2.02384e-08, 0, 0.463, 0, 0.463, 0, -0.463, 0, -2.02384e-08, 45.5087, 0.062367, 24.6638)
+
+[node name="Table" type="CSGBox3D" parent="Level/NavigationRegion3D/Furniture/Diningroom/NewDiningTable"]
+transform = Transform3D(2.15983, 0, 0, 0, -9.4409e-08, -2.15983, 0, 2.15983, -9.4409e-08, 2.61295, 0.977164, 10.8721)
+transparency = 1.0
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(4.62695, 17.0107, 1)
+material = ExtResource("4_6b35j")
 
 [node name="Objects" type="Node3D" parent="Level/NavigationRegion3D"]
 
