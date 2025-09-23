@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://b8e6rv13o8a1g"]
+[gd_scene load_steps=97 format=3 uid="uid://b8e6rv13o8a1g"]
 
 [ext_resource type="Script" uid="uid://cvhb113by0cda" path="res://src/toplevel_scenes/Main.cs" id="1_5dlwx"]
 [ext_resource type="PackedScene" uid="uid://dbuna14812w75" path="res://src/entities/player/player.tscn" id="2_5dlwx"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://btisakm3ggix" path="res://assets/3d/Environment/Dining_Table.glb" id="12_48oet"]
 [ext_resource type="PackedScene" uid="uid://gljfedglu27g" path="res://assets/3d/Environment/Side_Table.glb" id="12_pcyn6"]
 [ext_resource type="PackedScene" uid="uid://deldiss2egfn8" path="res://assets/3d/Environment/Vase1.glb" id="13_yso6w"]
-[ext_resource type="PackedScene" uid="uid://ds657xtitr6tj" path="res://assets/3d/Environment/candle.tscn" id="14_48oet"]
+[ext_resource type="PackedScene" uid="uid://jly65t1mp8j3" path="res://assets/3d/Environment/candle.tscn" id="14_48oet"]
 [ext_resource type="PackedScene" uid="uid://qd47inhejuec" path="res://assets/3d/Environment/stove.glb" id="15_yso6w"]
 [ext_resource type="PackedScene" uid="uid://hpluu8fhxju7" path="res://assets/3d/Environment/Bookshelf2.glb" id="16_3keun"]
 [ext_resource type="PackedScene" uid="uid://bih3oxgfbmtu4" path="res://assets/3d/Environment/Bar/Barshelf.glb" id="16_07qxy"]
@@ -48,13 +48,13 @@
 [ext_resource type="PackedScene" uid="uid://b5k4uv3nsmluy" path="res://assets/3d/Environment/Kitchen/Plate.glb" id="30_rckq3"]
 [ext_resource type="PackedScene" uid="uid://ugckk6p87bfk" path="res://assets/3d/Environment/Sofa1.glb" id="31_48oet"]
 [ext_resource type="PackedScene" uid="uid://1boq55ts3082" path="res://assets/3d/Environment/Kitchen/Kitchen_Knife.glb" id="31_y40fc"]
+[ext_resource type="PackedScene" uid="uid://bf1gq6yfxmle5" path="res://assets/3d/Environment/NewDiningTable.glb" id="33_y40fc"]
 [ext_resource type="Texture2D" uid="uid://cjgbfjx547gnk" path="res://assets/UI/IngredientIcons/Ash_smell.png" id="41_y40fc"]
 [ext_resource type="Texture2D" uid="uid://bbe0ck8h3ve2b" path="res://assets/UI/IngredientIcons/Trash_smell.png" id="43_2grou"]
 [ext_resource type="Texture2D" uid="uid://ci3imbfpj4jd6" path="res://assets/UI/IngredientIcons/Tome_smell.png" id="45_66wcy"]
 [ext_resource type="Texture2D" uid="uid://ud5dp3ru4v78" path="res://assets/UI/IngredientIcons/Flower_smell.png" id="47_55v81"]
 [ext_resource type="Material" uid="uid://dglqyxfq1sm5r" path="res://assets/Materials/Particles/CircleFinal.tres" id="49_rckq3"]
 [ext_resource type="Texture2D" uid="uid://bwkp51li3ekgr" path="res://assets/UI/IngredientIcons/Dirt_smell.png" id="50_i200x"]
-[ext_resource type="PackedScene" uid="uid://bf1gq6yfxmle5" path="res://assets/3d/Environment/NewDiningTable.glb" id="33_y40fc"]
 
 [sub_resource type="Environment" id="Environment_5dlwx"]
 background_mode = 1
@@ -365,7 +365,7 @@ size = Vector3(8.58936, 6.18347, 9.34332)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kexia"]
 albedo_texture = ExtResource("6_6muo6")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6waq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rckq3"]
 resource_local_to_scene = true
 transparency = 1
 blend_mode = 1
@@ -396,6 +396,7 @@ script = ExtResource("1_5dlwx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.971632, -0.236499, 0, -0.118953, 0.488706, 0.864301, -0.204406, 0.839782, -0.502975, 25.0178, 35.7626, 1.19139)
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5dlwx")
@@ -4659,7 +4660,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23913, 2.04144, 16.0537)
 visible = false
 
 [node name="GhostSmellTrail" parent="Ghost" instance=ExtResource("5_2lg1k")]
-textures = Array[Material]([SubResource("StandardMaterial3D_kexia"), SubResource("StandardMaterial3D_s6waq"), ExtResource("7_smgh4")])
+textures = Array[Material]([SubResource("StandardMaterial3D_kexia"), SubResource("StandardMaterial3D_rckq3"), ExtResource("7_smgh4")])
 filledTexture = SubResource("StandardMaterial3D_5pbbh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
