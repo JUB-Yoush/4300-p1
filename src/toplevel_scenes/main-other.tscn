@@ -55,6 +55,7 @@ UiSprite = ExtResource("10_3rvkn")
 Color = Color(0, 0, 0, 0)
 Size = 2.5
 Effect = 0
+EffectName = 0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yso6w"]
@@ -117,6 +118,7 @@ UiSprite = ExtResource("14_uruqi")
 Color = Color(0, 0.635294, 0, 1)
 Size = 0.0
 Effect = 2
+EffectName = 0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kgdpc"]
@@ -165,6 +167,7 @@ UiSprite = ExtResource("12_rk8ua")
 Color = Color(0, 0, 0, 0)
 Size = 0.5
 Effect = 0
+EffectName = 0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jpcli"]
@@ -213,6 +216,7 @@ UiSprite = ExtResource("18_e07q1")
 Color = Color(0.235294, 0.509804, 0.784314, 1)
 Size = 0.0
 Effect = 2
+EffectName = 0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6uukv"]
@@ -249,6 +253,7 @@ Color = Color(0, 0, 0, 0)
 Size = 0.0
 Shape = ExtResource("20_48oet")
 Effect = 1
+EffectName = 0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gxq42"]
@@ -298,6 +303,7 @@ Color = Color(0, 0, 0, 0)
 Size = 0.0
 Shape = ExtResource("7_smgh4")
 Effect = 1
+EffectName = 0
 metadata/_custom_type_script = "uid://sunsuajn1hnd"
 
 [sub_resource type="QuadMesh" id="QuadMesh_8o5aj"]
